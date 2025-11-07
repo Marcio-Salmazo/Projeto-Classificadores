@@ -15,6 +15,9 @@ import subprocess
 import webbrowser
 import time
 
+import numpy as np
+from sklearn.metrics import confusion_matrix, classification_report
+
 
 class Interface(QWidget):
     log_signal = pyqtSignal(str)  # sinal para enviar mensagens de log ao PyQt
@@ -78,7 +81,8 @@ class Interface(QWidget):
         (self.common_layout_vit,
          self.btn_select_folder_vit,
          self.btn_train_vit,
-         self.btn_tensorboard_vit) = self.create_common_buttons_layout()
+         self.btn_tensorboard_vit,
+         self.btn_metrics_vit) = self.create_common_buttons_layout()
 
         vit_layout.addLayout(self.common_layout_vit)
         self.vit_group.setLayout(vit_layout)
@@ -86,11 +90,13 @@ class Interface(QWidget):
         self.btn_select_folder_vit.clicked.connect(self.select_data)
         self.btn_train_vit.clicked.connect(self.train_network)
         self.btn_tensorboard_vit.clicked.connect(self.open_logs)
+        self.btn_metrics_vit.clicked.connect(lambda: self.confusion_metrics('vit'))
 
         # Definindo o status inicial dos botões
         self.btn_select_folder_vit.setEnabled(True)
         self.btn_vit_build.setEnabled(False)
         self.btn_train_vit.setEnabled(False)
+        self.btn_metrics_vit.setEnabled(True)
         self.btn_tensorboard_vit.setEnabled(True)
 
         # --------------------------------------------------------------------------------------------------------------
@@ -106,7 +112,8 @@ class Interface(QWidget):
         (self.common_layout_resnet,
          self.btn_select_folder_resnet,
          self.btn_train_resnet,
-         self.btn_tensorboard_resnet) = self.create_common_buttons_layout()
+         self.btn_tensorboard_resnet,
+         self.btn_metrics_resnet) = self.create_common_buttons_layout()
 
         resnet_layout.addLayout(self.common_layout_resnet)
         self.resnet_group.setLayout(resnet_layout)
@@ -114,11 +121,13 @@ class Interface(QWidget):
         self.btn_select_folder_resnet.clicked.connect(self.select_data)
         self.btn_train_resnet.clicked.connect(self.train_network)
         self.btn_tensorboard_resnet.clicked.connect(self.open_logs)
+        self.btn_metrics_resnet.clicked.connect(lambda: self.confusion_metrics('resnet'))
 
         # Definindo o status inicial dos botões
         self.btn_select_folder_resnet.setEnabled(True)
         self.btn_resnet_build.setEnabled(False)
         self.btn_train_resnet.setEnabled(False)
+        self.btn_metrics_resnet.setEnabled(True)
         self.btn_tensorboard_resnet.setEnabled(True)
 
         # --------------------------------------------------------------------------------------------------------------
@@ -173,6 +182,10 @@ class Interface(QWidget):
         # Atributos específicos dos parâmetros da ResNet
         self.resnet = None
 
+        # Atributos específicos para a predição de resultados e obtenção de métricas
+        self.y_pred = None
+        self.y_pred_classes = None
+
     # ------------------------------------------------------------------------------------------------------------------
     # ------------------------------------------------------------------------------------------------------------------
     # ------------------------------------------------------------------------------------------------------------------
@@ -185,14 +198,16 @@ class Interface(QWidget):
         btn_select_folder = QPushButton("Selecionar Dataset")
         btn_train = QPushButton("Iniciar Treinamento")
         btn_tensorboard = QPushButton("Abrir Tensorboard")
+        btn_metrics = QPushButton("Métricas de confusão")
 
         layout.addWidget(btn_select_folder)
         layout.addWidget(btn_train)
         layout.addWidget(btn_tensorboard)
+        layout.addWidget(btn_metrics)
         layout.addStretch()
 
         # retorna também os botões para controlar estado depois
-        return layout, btn_select_folder, btn_train, btn_tensorboard
+        return layout, btn_select_folder, btn_train, btn_tensorboard, btn_metrics
 
     def confirm_model_choice(self):
         if self.radio_vit.isChecked():
@@ -227,6 +242,19 @@ class Interface(QWidget):
         self.radio_vit.setChecked(False)
         self.radio_resnet.setChecked(False)
         self.confirm_btn.setEnabled(True)
+
+        # resetar visibilidade dos botões
+        self.btn_select_folder_vit.setEnabled(True)
+        self.btn_vit_build.setEnabled(False)
+        self.btn_train_vit.setEnabled(False)
+        self.btn_metrics_vit.setEnabled(True)
+        self.btn_tensorboard_vit.setEnabled(True)
+
+        self.btn_select_folder_resnet.setEnabled(True)
+        self.btn_resnet_build.setEnabled(False)
+        self.btn_train_resnet.setEnabled(False)
+        self.btn_metrics_resnet.setEnabled(True)
+        self.btn_tensorboard_resnet.setEnabled(True)
 
         # esconder menus
         self.vit_group.setVisible(False)
@@ -428,6 +456,7 @@ class Interface(QWidget):
 
     def open_logs(self):
 
+        # CONSERTAR A INSTÂNCIA DO TENSORBOARD
         log_path = self.model.open_directory()
         if not log_path:
             QMessageBox.warning(self, "Erro", "Caminho para o diretório não foi definido")
@@ -447,6 +476,86 @@ class Interface(QWidget):
 
         except ValueError:
             QMessageBox.information(self, 'Erro', 'Erro ao inicializar o tensorboard. Tente novamente')
+
+    def confusion_metrics(self, model_name):
+
+        # Desabilitar demais funções, exigindo um Reset após a utilização
+        # Fiz isso para evitar conflitos ao construir modelos e na seleção
+        # do dataset, para obter a validação.
+        self.btn_select_folder_vit.setEnabled(False)
+        self.btn_vit_build.setEnabled(False)
+        self.btn_train_vit.setEnabled(False)
+        self.btn_select_folder_resnet.setEnabled(False)
+        self.btn_resnet_build.setEnabled(False)
+        self.btn_train_resnet.setEnabled(False)
+
+        # Resetando qualquer rede préviamente contruída
+        self.vit_model = None
+        self.resnet = None
+
+        # Resetando qualquer valor prévio de y_pred e y_pred_classes
+        self.y_pred = None
+        self.y_pred_classes = None
+
+        # Recriando val_generator exatamente como no treinamento, é importante ressaltar que o ImageDataGenerator
+        # com validation_split gera automaticamente uma divisão consistente entre treino e validação,
+        # sem precisar salvar nada manualmente.
+        QMessageBox.warning(self, "Atenção", "É necessário selecionar o dataset com os mesmos parâmetros defindos em"
+                                             " seu treinamento (de acordo com os pesos que serão selecionados), "
+                                             "principalmente o split_val!")
+        self.select_data()
+
+        # Obter labels verdadeiros
+        y_true = self.val_data.classes
+        # Nome das classes
+        class_names = list(self.val_data.class_indices.keys())
+
+        # A função select_data() ativa os botões de construção do modelo, portanto precisamos desativa-los novamente
+        self.btn_resnet_build.setEnabled(True)
+        self.btn_vit_build.setEnabled(True)
+
+        # Indicar o caminho dos pesos e do dataset
+        QMessageBox.warning(self, "Atenção", "Selecionar os pesos para carregar no modelo. É importante destacar que "
+                                             "os pesos selecionados devem ser pertencentes à arquitetura escolha pelo "
+                                             "radio button.")
+        weights_path = self.model.open_directory()
+
+        if model_name == 'vit':
+            self.build_vit()
+            if self.vit is not None:
+                self.vit_model.load_weights(weights_path)
+
+                # Obter previsões
+                self.y_pred = self.vit_model.predict(self.val_data)
+                self.y_pred_classes = np.argmax(self.y_pred, axis=1)
+
+            else:
+                QMessageBox.warning(self, "Erro", "Rede não construída (Definida como NONE)")
+                return
+
+        elif model_name == 'resnet':
+            self.build_resnet()
+            if self.resnet is not None:
+                self.resnet.load_weights(weights_path)
+
+                # Obter previsões
+                self.y_pred = self.resnet.predict(self.val_data)
+                self.y_pred_classes = np.argmax(self.y_pred, axis=1)
+
+            else:
+                QMessageBox.warning(self, "Erro", "Rede não construída (Definida como NONE)")
+                return
+
+        # Matriz de confusão
+        cm = confusion_matrix(y_true, self.y_pred_classes)
+        print("\nMatriz de Confusão:")
+        print(cm)
+
+        # Report por classe (TP, FP, TN, FN estão implícitos)
+        print("\nRelatório de Classificação:")
+        print(classification_report(y_true, self.y_pred_classes, target_names=class_names))
+
+        return cm
 
     def exit_program(self):
 

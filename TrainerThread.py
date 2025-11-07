@@ -81,8 +81,9 @@ class ViT_TrainerThread(QThread):
             tf.keras.backend.clear_session()
             gc.collect()
             self.training_finished.emit(True)
-            
+
  '''
+
 
 class ViT_TrainerThread(QThread):
     log_signal = pyqtSignal(str)
