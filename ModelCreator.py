@@ -1,9 +1,13 @@
 from PyQt5.QtCore import pyqtSignal
 from tensorflow.keras import layers, models
 from tensorflow.keras.applications import ResNet50
-import tensorflow as tf
 from tensorflow.keras import layers
 from PatchOperations import PatchEncoder, PatchExtractor
+
+import tensorflow as tf
+gpus = tf.config.experimental.list_physical_devices('GPU')
+for gpu in gpus:
+    tf.config.experimental.set_memory_growth(gpu, True)
 
 
 class Resnet50:

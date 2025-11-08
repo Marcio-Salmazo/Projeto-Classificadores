@@ -1,12 +1,15 @@
-import os
+import tensorflow as tf
+gpus = tf.config.experimental.list_physical_devices('GPU')
+for gpu in gpus:
+    tf.config.experimental.set_memory_growth(gpu, True)
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # Escolhe a GPU (0 = principal)
-os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"  # Evita alocar toda VRAM
+# import os
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # Escolhe a GPU (0 = principal)
+# os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"  # Evita alocar toda VRAM
 
 import sys
 from PyQt5.QtWidgets import QApplication
 from Interface import Interface
-import tensorflow as tf
 from tensorflow.keras import mixed_precision
 
 
@@ -18,6 +21,7 @@ from tensorflow.keras import mixed_precision
 # Protobuf 3.20.2
 # Tensorboard 2.10.1
 # Pillow
+# Scikit-learn
 
 # OBSERVAÇÃO:
 # CUDA 11.2

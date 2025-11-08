@@ -403,10 +403,14 @@ class Interface(QWidget):
         self.btn_train_vit.setEnabled(True)
 
     def train_network(self):
+
+        """
+        # ESSE TRECHO DE CÓDIGO QUEBRA A EXECUÇÃO, PRECISO INVESTIGAR O PORQUÊ
         if hasattr(self, "trainer_thread") and self.trainer_thread.isRunning():
             QMessageBox.warning(self, "Treinamento em andamento",
                                 "Aguarde o treinamento terminar antes de iniciar outro.")
             return
+        """
 
         if self.train_data is None or self.val_data is None:
             QMessageBox.warning(self, "Erro", "Dataset inválido para iniciar treinamento")
