@@ -16,7 +16,7 @@ import webbrowser
 import time
 
 import numpy as np
-from sklearn.metrics import confusion_matrix, classification_report
+import tensorflow as tf
 
 
 class Interface(QWidget):
@@ -378,10 +378,6 @@ class Interface(QWidget):
         vit_input_size = (self.image_generator_input_size, self.image_generator_input_size, 3)
         num_patches = (self.image_generator_input_size // self.patch_size) ** 2
 
-        print("o código chega aqui")
-        print("vit_input_size", vit_input_size)
-        print("num_patches", num_patches)
-
         self.vit = ModelCreator.VisionTransformer(vit_input_size,
                                                   self.patch_size,
                                                   num_patches,
@@ -522,44 +518,60 @@ class Interface(QWidget):
         QMessageBox.warning(self, "Atenção", "Selecionar os pesos para carregar no modelo. É importante destacar que "
                                              "os pesos selecionados devem ser pertencentes à arquitetura escolha pelo "
                                              "radio button.")
-        weights_path = self.model.open_directory()
+
+        self.add_log_message(f'Previsões sendo executadas, aguarde...')
+        self.add_log_message('--------------------------------------------------------')
+        weights_path = self.model.open_file()
+
+        if weights_path is None:
+            QMessageBox.warning(self, "Erro", "Pesos não selecionados")
+            return
 
         if model_name == 'vit':
             self.build_vit()
             if self.vit is not None:
-                self.vit_model.load_weights(weights_path)
-
                 # Obter previsões
+                # Carregar os pesos para a rede e inicializar a previsão
+                self.vit_model.load_weights(weights_path)
                 self.y_pred = self.vit_model.predict(self.val_data)
+
+                # Classes da previsão
                 self.y_pred_classes = np.argmax(self.y_pred, axis=1)
+                print(self.y_pred_classes)
 
             else:
                 QMessageBox.warning(self, "Erro", "Rede não construída (Definida como NONE)")
                 return
 
         elif model_name == 'resnet':
-            self.build_resnet()
-            if self.resnet is not None:
-                self.resnet.load_weights(weights_path)
 
+            self.build_resnet()
+
+            if self.resnet is not None:
                 # Obter previsões
+                # Carregar os pesos para a rede e inicializar a previsão
+                self.resnet.load_weights(weights_path)
                 self.y_pred = self.resnet.predict(self.val_data)
+
+                # Classes da previsão
                 self.y_pred_classes = np.argmax(self.y_pred, axis=1)
 
             else:
                 QMessageBox.warning(self, "Erro", "Rede não construída (Definida como NONE)")
                 return
 
-        # Matriz de confusão
-        cm = confusion_matrix(y_true, self.y_pred_classes)
-        print("\nMatriz de Confusão:")
-        print(cm)
+        if self.y_pred is None or self.y_pred_classes is None:
+            QMessageBox.warning(self, "Erro", "Erro com dados de previsão ou classes'")
 
-        # Report por classe (TP, FP, TN, FN estão implícitos)
-        print("\nRelatório de Classificação:")
-        print(classification_report(y_true, self.y_pred_classes, target_names=class_names))
-
-        return cm
+        else:
+            tf.keras.backend.clear_session()
+            self.model.save_metrics(
+                y_true,
+                self.y_pred_classes,
+                class_names,
+                nome_arquivo="metricas.xlsx"
+            )
+        QMessageBox.warning(self, "Sucesso", "Métricas salvas no arquivo 'metricas.xlsx'")
 
     def exit_program(self):
 

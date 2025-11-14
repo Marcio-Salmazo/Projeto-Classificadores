@@ -1,0 +1,14 @@
+1 - Abrir o terminar na pasta raiz do projeto:
+
+2 - Criar o ambiente virtual: 
+
+	python3.9 -m venv venv
+
+3 - Ativar o ambiente virtual:
+
+	Windows: venv\Scripts\activate
+	Linux/Mac: source venv/bin/activate
+
+4 - Instalar tudo:
+
+	python pip install -r requirements.txt
