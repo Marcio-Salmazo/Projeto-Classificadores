@@ -426,7 +426,6 @@ class Interface(QWidget):
             self.trainer_thread = TrainerThread.ResNet_TrainerThread(self.resnet, self.train_data, self.val_data,
                                                                      epochs, fileName)
             self.trainer_thread.log_signal.connect(self.add_log_message)  # conecta o log ao QTextEdit
-            self.trainer_thread.training_finished.connect(self.save_weights)  # conecta flag
             self.trainer_thread.start()
 
         elif self.vit_model is not None:
@@ -434,25 +433,7 @@ class Interface(QWidget):
             self.trainer_thread = TrainerThread.ViT_TrainerThread(self.vit_model, self.train_data, self.val_data,
                                                                   epochs, fileName)
             self.trainer_thread.log_signal.connect(self.add_log_message)  # conecta o log ao QTextEdit
-            self.trainer_thread.training_finished.connect(self.save_weights)  # conecta flag
             self.trainer_thread.start()
-
-    def save_weights(self, success: bool):
-        if success:
-            self.add_log_message("Treinamento concluído. Salvando pesos:")
-
-            if self.resnet is not None:
-                self.resnet.save(f"{self.fileName_weights}_weights.h5")
-                self.add_log_message(f"Pesos de treinamento salvos como {self.fileName_weights}_weights.h5")
-                self.trainer_thread = None
-
-            elif self.vit_model is not None:
-                self.vit_model.save(f"{self.fileName_weights}_weights.h5")
-                self.add_log_message(f"Pesos de treinamento salvos como {self.fileName_weights}_weights.h5")
-                self.trainer_thread = None
-        else:
-            QMessageBox.warning(self, "Erro de valor", "Treinamento não foi iniciado ou concluído")
-            return  # encerra a função sem travar
 
     def open_logs(self):
 
