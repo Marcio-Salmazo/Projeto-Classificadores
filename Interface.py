@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import pyqtSignal, Qt
 from PyQt5.QtGui import QIcon, QPixmap
 
-import ApplicationModel
+from DataLoader import DataLoader
 import ModelCreator
 import TrainerThread
 from ApplicationModel import Model
@@ -163,6 +163,8 @@ class Interface(QWidget):
         self.image_generator_split = None
         self.train_data = None
         self.val_data = None
+        self.steps_train = None
+        self.steps_val = None
 
         # Atributos compartilhados entre as redes
         self.network_input_size = None
@@ -310,14 +312,13 @@ class Interface(QWidget):
         self.add_log_message(f'Taxa de divisão escolhida: {self.image_generator_split}')
         self.add_log_message('--------------------------------------------------------')
 
-        model = ApplicationModel.Model()
-        image_size = (self.image_generator_input_size, self.image_generator_input_size)
-        print('chegou aqui', image_size)
+        dataloader = DataLoader(path,
+                                self.image_generator_input_size,
+                                self.image_generator_batch_size,
+                                self.image_generator_split)
 
         (self.train_data, self.val_data, log_training_samples, log_validation_samples,
-         log_indexes, self.dataset_classes) = (model.load_data(path, image_size,
-                                                               self.image_generator_batch_size,
-                                                               self.image_generator_split))
+         log_indexes, self.dataset_classes, self.steps_train, self.steps_val) = dataloader.process_data()
 
         self.add_log_message(log_training_samples)
         self.add_log_message(log_validation_samples)
@@ -424,7 +425,7 @@ class Interface(QWidget):
         if self.resnet is not None:
             # cria a thread de treinamento
             self.trainer_thread = TrainerThread.ResNet_TrainerThread(self.resnet, self.train_data, self.val_data,
-                                                                     epochs, fileName)
+                                                                     epochs, fileName, self.steps_train, self.steps_val)
             self.trainer_thread.log_signal.connect(self.add_log_message)  # conecta o log ao QTextEdit
             self.trainer_thread.start()
 
