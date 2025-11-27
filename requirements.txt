@@ -4,6 +4,7 @@ scipy==1.13.1
 protobuf==3.20.2
 tensorboard==2.10.1
 Pillow
-scikit-learn
+scikit-learn~=1.6.1
 openpyxl
-PyQt5
+PyQt5~=5.15.11
+pandas~=2.3.3

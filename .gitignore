@@ -1,0 +1,4 @@
+*.h5
+.venv/
+weights/
+network_validation/cheXpert-small/
