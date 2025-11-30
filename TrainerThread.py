@@ -264,10 +264,7 @@ class ResNet_TrainerThread(QThread):
 
             # recompilar o modelo aqui com hiperparâmetros robustos
             opt = tf.keras.optimizers.Adam(learning_rate=3e-5)
-
-            # ----------------------------------------------------------------------------------------------------------
-            '''
-            # COMENTAR O SGUINTE 'LOSS' E 'COMPILE' AO UTILIZAR O TESTE COM CHEXPERT
+            
             loss = tf.keras.losses.CategoricalCrossentropy(label_smoothing=0.1, from_logits=False)
 
             self.neural_network.compile(
@@ -275,17 +272,6 @@ class ResNet_TrainerThread(QThread):
                 loss=loss,
                 metrics=["accuracy"]
             )
-            '''
-
-            # COMENTAR O SGUINTE 'LOSS' E 'COMPILE' AO UTILIZAR O DATASET DOS RATOS
-            loss = tf.keras.losses.BinaryCrossentropy(from_logits=False)
-
-            self.neural_network.compile(
-                optimizer=opt,
-                loss=loss,
-                metrics=[tf.keras.metrics.AUC(multi_label=True)]
-            )
-            # ----------------------------------------------------------------------------------------------------------
 
             # callbacks
             checkpoint_path = os.path.join(log_path, "best_weights_resnet.h5")
@@ -324,25 +310,14 @@ class ResNet_TrainerThread(QThread):
 
             callbacks = [tensorboard_callback, checkpoint, early_stop, reduce_lr, log_callback]
 
-            '''
-            # COMENTAR O SGUINTE 'FIT' AO UTILIZAR O TESTE COM CHEXPERT
-            # fit
+            # ESSE FIT DEVE SER APLICADO AO DATASET DOS RATOS
+
             self.history = self.neural_network.fit(
                 self.train_data,
                 epochs=self.epochs,
                 validation_data=self.val_data,
                 steps_per_epoch=self.steps_train,
                 validation_steps=self.steps_val,
-                callbacks=callbacks,
-                verbose=1
-            )
-            '''
-
-            # COMENTAR O SGUINTE 'FIT' AO UTILIZAR O DATASET DOS RATOS
-            self.history = self.neural_network.fit(
-                self.train_data,
-                epochs=self.epochs,
-                validation_data=self.val_data,
                 callbacks=callbacks,
                 verbose=1
             )

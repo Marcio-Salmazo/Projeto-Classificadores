@@ -1,0 +1,47 @@
+Inicializando treinamento...
+
+
+[TRAIN] Iniciando treinamento CheXpert-ResNet50...
+
+Epoch 1/3
+2025-11-30 10:46:29.170988: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+2025-11-30 10:46:30.860646: I tensorflow/stream_executor/cuda/cuda_blas.cc:1614] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+6982/6982 [==============================] - ETA: 0s - loss: 0.4217
+Epoch 1: val_loss improved from inf to 0.54708, saving model to logs/fit/chexpert_test_run_1\best_weights_resnet.h5
+
+[EPOCH 1] Mean AUC (5 diseases): 0.7648
+[EPOCH 1] AUCs (14 classes): ['0.8694', '0.5388', '0.7515', '0.8110', '0.0050', '0.7875', '0.7859', '0.7350', '0.6971', '0.7148', '0.8019', '0.7688', 'nan', '0.6879']
+C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.venv\lib\site-packages\sklearn\metrics\_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+6982/6982 [==============================] - 3656s 523ms/step - loss: 0.4217 - val_loss: 0.5471 - lr: 3.0000e-05
+Epoch 2/3
+6982/6982 [==============================] - ETA: 0s - loss: 0.3690
+Epoch 2: val_loss improved from 0.54708 to 0.48396, saving model to logs/fit/chexpert_test_run_1\best_weights_resnet.h5
+C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.venv\lib\site-packages\sklearn\metrics\_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+
+[EPOCH 2] Mean AUC (5 diseases): 0.8100
+[EPOCH 2] AUCs (14 classes): ['0.8453', '0.6527', '0.7952', '0.8541', '0.0302', '0.8329', '0.8800', '0.7936', '0.7193', '0.7268', '0.8227', '0.9598', 'nan', '0.7189']
+6982/6982 [==============================] - 3645s 522ms/step - loss: 0.3690 - val_loss: 0.4840 - lr: 3.0000e-05
+Epoch 3/3
+6982/6982 [==============================] - ETA: 0s - loss: 0.3525
+Epoch 3: val_loss did not improve from 0.48396
+C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.venv\lib\site-packages\sklearn\metrics\_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+
+[EPOCH 3] Mean AUC (5 diseases): 0.7696
+[EPOCH 3] AUCs (14 classes): ['0.8373', '0.5242', '0.7644', '0.6670', '0.0704', '0.8113', '0.8625', '0.7812', '0.6610', '0.6658', '0.7486', '0.9347', 'nan', '0.7040']
+6982/6982 [==============================] - 3733s 535ms/step - loss: 0.3525 - val_loss: 0.5366 - lr: 3.0000e-05
+
+[TRAIN] Pesos finais salvos em: logs/fit/chexpert_test_run_1\final_weights.h5
+
+Treinamento finalizado!
+
+8/8 [==============================] - 1s 79ms/step
+C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.venv\lib\site-packages\sklearn\metrics\_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+
+AUC média das 5 patologias: 0.7695728010245765
+AUC por classe (14): [0.8373121131741822, 0.5242105263157895, 0.7643600180913613, 0.6669745484400655, 0.07035175879396982, 0.8113321277878239, 0.8625372023809523, 0.78125, 0.6610133333333333, 0.665807560137457, 0.7486213235294117, 0.9346733668341709, nan, 0.703970397039704]
+
+Process finished with exit code 0
