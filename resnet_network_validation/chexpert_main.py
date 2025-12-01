@@ -4,9 +4,9 @@ import numpy as np
 
 '''
     A seed busca manter a REPRODUTIBILIDADE, ela precisa ser definida antes de tudo para garantir que:
-    * TF não inicialize com estados internos aleatórios. 
-    * A ordem de carregamento do dataset não seja diferente a cada execução.
-    * os pesos aleatórios iniciais não sejam diferentes a cada run.
+        * TF não inicialize com estados internos aleatórios. 
+        * A ordem de carregamento do dataset não seja diferente a cada execução.
+        * os pesos aleatórios iniciais não sejam diferentes a cada run.
 '''
 SEED = 42
 
@@ -36,8 +36,8 @@ INPUT_SHAPE = (320, 320, 3)
 LOG_NAME = "run_resnet50_chexpert"
 
 # ======================================================================================================================
-
 # Carregamento do dataset pela função definida em chexpert_loader
+
 print("\nCarregando dataset CheXpert-small...\n")
 
 loader = CheXpertDataLoader(
@@ -53,8 +53,8 @@ print(f"Treino: {n_train} imagens")
 print(f"Validação: {n_val} imagens")
 
 # ======================================================================================================================
-
 # Construção da rede pela função definida em chexpert_learning
+
 print("\nConstruindo modelo ResNet50...\n")
 network_builder = Resnet50(
     input_shape=INPUT_SHAPE,
@@ -65,8 +65,8 @@ model = network_builder.resnet_classifier()  # Constrói e retorna um tf.keras.M
 model.summary()  # Mostra arquitetura / parâmetros
 
 # ======================================================================================================================
-
 # Treinamento aplicado pela classe ResNet_Trainer, responsável pela compilação, callbacks e treinamento.
+
 print("\nInicializando treinamento...\n")
 trainer = ResNet_Trainer(
     neural_network=model,

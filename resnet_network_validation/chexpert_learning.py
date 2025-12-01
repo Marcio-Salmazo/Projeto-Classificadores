@@ -181,7 +181,7 @@ class ResNet_Trainer:
         self.neural_network = neural_network
         self.train_data = train_data
         self.val_data = val_data
-        self.val_paths = val_paths # obrigatório para max pooling por estudo
+        self.val_paths = val_paths  # obrigatório para max pooling por estudo
         self.epochs = epochs
         self.logName = logName
         self.history = None

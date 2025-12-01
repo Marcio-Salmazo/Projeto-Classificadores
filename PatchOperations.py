@@ -41,7 +41,7 @@ class PatchEncoder(layers.Layer):
         config = super().get_config()
         config.update({
             "num_patches": self.num_patches,
-            "projection_dim": self.projection_dim,
+            "projection_dim": self.projection,
         })
 
     # O metodo call define o que a camada faz quando ela é chamada durante o modelo
@@ -111,6 +111,13 @@ class PatchExtractor(layers.Layer):
     # obs2: O parâmetro images é o tensor de entrada, ou seja, a representação numérica em forma
     # de tensor de uma imagem  (ou de qualquer outro dado), passada para a rede neural, com
     # shape típico (batch_size, height, width, channels)
+
+    def get_config(self):
+        config = super().get_config()
+        config.update({
+            "patch_size": self.patch_size
+        })
+        return config
 
     def call(self, images):
         # Obtém dinamicamente o batch_size, ou seja, quantas imagens estão no lote atual.
