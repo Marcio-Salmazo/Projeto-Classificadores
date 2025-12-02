@@ -137,7 +137,59 @@ Para que o programa reconheça devidamente a base de dados, é necessário segui
 
 ## Bugs conhecidos
 
-* Ao finalizar o treinamento utilizando a arquitetura, o programa trava e se encerra sozinho, acredito que seja algo relacionado ao *callback*, contudo não consegui corrigir. É importante destacar que mesmo com esse erro, os pesos e logs são registrados normalmente.
+* N/A
+
+---
+
+## Testes de confiabilidade
+
+A fim de garantir que as implementações das arquiteturas ResNet-50 e Vision Transformer (ViT) funcionam corretamente e geram resultados compatíveis com aqueles reportados na literatura científica, foi desenvolvida uma etapa formal de validação externa do código.
+Esses testes avaliam a fidelidade da implementação, e não o desempenho no dataset real de roedores (que possui características bem distintas). Os testes foram conduzidos utilizando datasets públicos e padronizados, seguindo protocolos de artigos de referência, confirmando se os modelos foram corretamente:
+
+* Construídos
+* Compilados
+* Treinados
+* Avaliados
+* Integrados com TensorBoard e callbacks
+* Processados dentro do fluxo do *tf.data.Dataset*
+
+Os arquivos referentes aos testes aplicados para a arquiteura ResNet50 estão alocados em *".\Mestrado\Projeto-Classificadores\resnet_network_validation"*, já os arquivos referentes aos testes aplicados para a arquiteura ViT estão alocados em *".\Mestrado\Projeto-Classificadores\vit_network_validation"*.
+
+1. **Confiabilidade da implementação ViT (Vision Transformer):**
+
+* ***Artigo de referência utilizado:*** Barman et al., 2024 – “Skin Cancer Segmentation and Classification Using Vision Transformer”
+* ***Dataset utilizado:*** HAM10000 — Human Against Machine Skin Lesion Dataset, amplamente utilizado em pesquisas de dermatologia computacional.
+* ***Protocolo seguido:*** Para permitir comparação justa com experimentos da literatura e testar a robustez da implementação ViT, foi conduzido o seguinte procedimento:
+
+        A - Input: 224×224
+        B - Patch size: 16×16
+        C - Projeção: 64
+        D - 8 camadas Transformer
+        E - 4 cabeças de atenção
+        F - MLP interno: 128 unidades
+        G - Treinamento por 50 épocas
+        H - Otimizador: Adam (5e-5)
+        I - Loss: categorical crossentropy com label smoothing (0.1)
+        J - Divisão trein/val/test conforme metadados oficiais
+
+* O objetivo do teste foi Verificar se a implementação da ViT produz curvas de treino estáveis, não explode e/ou não entra em colapso, gera distribuições corretas de predições e se alcança acurácia e F1-macro dentro da faixa esperada para ViT “puro” sem pretraining específico em dermatologia. Os resultados obtidos podem ser conferidos no arquivo localizado em *"\Projeto-Classificadores\vit_network_validation\Readme_ViT_Tests.rtf"*
+
+2. **Confiabilidade da implementação ResNet-50 (CheXpert):**
+
+* ***Artigo de referência utilizado:*** Irvin et al., 2019 – “CheXpert: A Large Chest Radiograph Dataset with Uncertainty Labels and Expert Comparison” (artigo oficial do dataset CheXpert)
+* ***Dataset utilizado:*** CheXpert-small, versão de 200 mil imagens reduzida para testes acadêmicos.
+* ***Protocolo seguido:*** O teste foi conduzido seguindo rigorosamente o pipeline padrão usado na literatura para treinar CNNs em CheXpert:
+
+        A - Input: 320×320
+        B - Loss: Binary Crossentropy
+        C - Otimizador: Adam 3e-5
+        D - Final layer sigmoidal (multi-label)
+        E - AUC calculado por estudo, não por imagem
+        F - Política para incertezas: U-Zeros
+        G - Métrica não incluída no compile() (como no artigo), calculada externamente a cada época
+        H - Treinamento por 3 épocas (curto, mas suficiente para validação de consistência)
+
+Objetivo do teste foi confirmar se sua implementação da ResNet-50 executa o pipeline CheXpert corretamente, calcula AUC por estudo de forma idêntica ao artigo, converge adequadamente já nos primeiros ciclos e produz curvas loss/val_loss coerentes. Os resultados obtidos podem ser conferidos no arquivo localizado em *".\Projeto-Classificadores\resnet_network_validation\Readme_Resnet_Tests.rtf"*
 
 ---
 
@@ -155,11 +207,17 @@ Para que o programa reconheça devidamente a base de dados, é necessário segui
 
 - **v0.5.0**
   - Versão inicial, contemplando a unificação de ambas as arquiteturas em um único programa
-  
+
+- **v0.9.0**
+  - Correção de bugs para o treinamento da ViT (Que fechava sozinho após o treino);
+  - Aumento da robustez dos modelos e otimização do fluxo de treinamento;
+  - Implemetação de algoritmos e protocolos para garantir a confiabilidade das redes (utilizando a literatura científica como base);
+  - Maior grau de documentação do código (via comentários) e documentos separados para explicação de implementações e resultados.
 ---
 
 ## 👨‍💻 Autores / Contribuidores
 
+- Marcio Salmazo Ramos (Desenvolvedor)
 - Maurício Cunha Escarpinati (Orientador - UFU) 
 - Daniel Duarte Abdala (Co-orientador - UFU)  
 

@@ -143,7 +143,7 @@ class Interface(QWidget):
 
         # ---- Inserção de label para definir a versão do software ----
         # Seguindo o padrão de Versionamento Semântico -> MAJOR.MINOR.PATCH-SUFIX
-        self.version_label = QLabel("Ver. 0.5.0", self)
+        self.version_label = QLabel("Ver. 0.9.0", self)
         self.version_label.setAlignment(Qt.AlignCenter)
         functions_layout.addWidget(self.version_label)
 
