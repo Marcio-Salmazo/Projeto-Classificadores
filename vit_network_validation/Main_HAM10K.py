@@ -43,7 +43,7 @@ from Learning_HAM10K import ViTTrainer, ViTBuilder
 # Configurações manuais para o treinamento com o dataset HAM10000 (Nomes auto-explicativos)
 ROOT = r"C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\vit_network_validation\HAM10000"
 BATCH_SIZE = 32
-EPOCHS = 3
+EPOCHS = 50
 INPUT_SHAPE = (224, 224, 3)
 PATCH_SIZE = 16
 LOG_NAME = "vit_ham10000_test"
@@ -113,3 +113,27 @@ print("Test F1 macro:", test_results["f1_macro"])
 print("Matriz de confusão (TEST):\n", test_results["confusion_matrix"])
 
 print("\nDone.\n")
+
+# ======================================================================================================================
+# Avaliação dos resultados no conjunto de validação / teste, salvos em arquivo externo
+
+output_path = f"{LOG_NAME}_evaluation.txt"
+with open(output_path, "w", encoding="utf-8") as f:
+
+    f.write("=== RESULTADOS DA AVALIAÇÃO ===\n\n")
+
+    f.write("VALIDAÇÃO:\n")
+    f.write(f"Accuracy: {val_results['accuracy']:.4f}\n")
+    f.write(f"F1 Macro: {val_results['f1_macro']:.4f}\n")
+    f.write("Matriz de confusão:\n")
+    f.write(str(val_results["confusion_matrix"]))
+    f.write("\n\n")
+
+    f.write("TESTE:\n")
+    f.write(f"Accuracy: {test_results['accuracy']:.4f}\n")
+    f.write(f"F1 Macro: {test_results['f1_macro']:.4f}\n")
+    f.write("Matriz de confusão:\n")
+    f.write(str(test_results["confusion_matrix"]))
+    f.write("\n")
+
+print(f"\nResultados salvos em: {output_path}\n")

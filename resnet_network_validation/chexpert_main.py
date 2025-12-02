@@ -30,7 +30,7 @@ from chexpert_learning import Resnet50, ResNet_Trainer
 
 # Configurações manuais para o treinamento com o dataset Chexpert (Nomes auto-explicativos)
 DATA_DIR = r"C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\network_validation\cheXpert-small"
-BATCH_SIZE = 32
+BATCH_SIZE = 16
 EPOCHS = 3
 INPUT_SHAPE = (320, 320, 3)
 LOG_NAME = "run_resnet50_chexpert"
@@ -44,7 +44,7 @@ loader = CheXpertDataLoader(
     data_dir=DATA_DIR,
     image_size=(320, 320),
     batch_size=BATCH_SIZE,
-    uncertainty_policy="zeros",
+    uncertainty_policy="zeros",  # U-Zeros = igual ao paper
     augment=True
 )
 
@@ -59,7 +59,7 @@ print("\nConstruindo modelo ResNet50...\n")
 network_builder = Resnet50(
     input_shape=INPUT_SHAPE,
     num_classes=14,  # CheXpert tem 14 labels (multi-label)
-    last_layer_activation="sigmoid" # multi-label -> sigmoid
+    last_layer_activation="sigmoid"  # multi-label -> sigmoid
 )
 model = network_builder.resnet_classifier()  # Constrói e retorna um tf.keras.Model pronto
 model.summary()  # Mostra arquitetura / parâmetros
@@ -89,5 +89,3 @@ results = evaluate_chexpert(model, val_ds, val_paths)
 
 print("\nAUC média das 5 patologias:", results["auc_mean_5"])
 print("AUC por classe (14):", results["auc_per_class"])
-
-# ======================================================================================================================
