@@ -175,11 +175,11 @@ class CheXpertDataLoader:
             )  # Decodificação do formato
 
             # Normalização aos moldes da ImageNet
-            img = tf.image.resize(img, self.image_size) # Redimensionamento
+            img = tf.image.resize(img, self.image_size)  # Redimensionamento
             img = tf.cast(img, tf.float32) / 255.0
             img = (img - self.mean) / self.std
 
-            # Augment apenas no treino
+            # Augmentação apenas no treino
             if training and self.use_augmentation:
                 img = self.augmentation_layer(img)
 
