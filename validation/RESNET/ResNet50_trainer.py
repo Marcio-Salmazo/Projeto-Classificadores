@@ -115,7 +115,14 @@ class Trainer:
                 verbose=1
             ),
             # Registra logs para visualização (perda, métricas, histogramas).
-            tf.keras.callbacks.TensorBoard(log_dir=self.log_dir)
+            tf.keras.callbacks.TensorBoard(log_dir=self.log_dir),
+
+            # 🔵 CSV Logger — salva métricas a cada epoch
+            tf.keras.callbacks.CSVLogger(
+                filename="training_metrics.csv",
+                separator=",",
+                append=False
+            )
         ]
 
     def train(self):

@@ -9,3 +9,5 @@ openpyxl
 PyQt5~=5.15.11
 pandas~=2.3.3
 tensorflow-datasets
+tensorflow-datasets==4.7.0
+protobuf==3.20.0
