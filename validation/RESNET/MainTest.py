@@ -1,8 +1,28 @@
 import tensorflow as tf
+import numpy as np
+import random
+import os
 
+from tensorflow.keras import mixed_precision
 from ImageNet_Loader import loader
 from ResNet50_pure import build_resnet50
 from ResNet50_trainer import Trainer
+
+
+# 1. Seeds para reprodutibilidade
+def set_global_seed(seed=42):
+    random.seed(seed)
+    os.environ["PYTHONHASHSEED"] = str(seed)
+    np.random.seed(seed)
+    tf.random.set_seed(seed)
+    os.environ["TF_DETERMINISTIC_OPS"] = "1"
+    print(f"🔒 Seeds fixados (seed={seed}) para reprodutibilidade.")
+
+
+# 2. Mixed Precision (opcional, recomendado em GPUs RTX/Ampere)
+def enable_mixed_precision():
+    mixed_precision.set_global_policy("mixed_float16")
+    print("⚡ Mixed precision ativada (float16) para acelerar o treinamento.")
 
 
 class Main:
@@ -14,7 +34,7 @@ class Main:
     """
 
     def __init__(self, image_size=224, batch_size=256, num_classes=1000, epochs=120, initial_lr=0.1,
-                  momentum=0.9, weight_decay=1e-4):
+                 momentum=0.9, weight_decay=1e-4):
         self.image_size = image_size
         self.batch_size = batch_size
         self.num_classes = num_classes
@@ -25,6 +45,13 @@ class Main:
         self.train_ds = None
         self.val_ds = None
         self.model = None
+
+        # Diagnóstico GPU
+        gpus = tf.config.list_physical_devices("GPU")
+        if gpus:
+            print(f"GPU detectada: {gpus}")
+        else:
+            print("Nenhuma GPU detectada. Treinamento será lento.")
 
     def load_data(self):
         print("Carregando ImageNet-2012 via TFDS...")
@@ -54,7 +81,6 @@ class Main:
         print("\nLOG --- Modelo criado.\n")
 
     def train(self):
-
         trainer = Trainer(
             model=self.model,
             train_ds=self.train_ds,
@@ -73,6 +99,9 @@ class Main:
         print("\nLOG --- Pipeline treinamento finalizado.\n")
 
     def run(self):
+
+        set_global_seed(42)
+        enable_mixed_precision()
         self.load_data()
         self.build_model()
         self.train()
