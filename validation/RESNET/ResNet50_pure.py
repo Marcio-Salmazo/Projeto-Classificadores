@@ -4,6 +4,7 @@ from tensorflow.keras import layers, regularizers, Model
 # Default weight decay: 1e-4
 DEFAULT_WEIGHT_DECAY = 1e-4
 
+
 # ======================================================================================================================
 #                                           CONSTRUÇÃO DA ARQUITETURA DA REDE
 # ======================================================================================================================
@@ -120,7 +121,7 @@ def make_stage(filters, blocks, stride_first=2, weight_decay=DEFAULT_WEIGHT_DECA
     return stage_layers
 
 
-class ResNet50(Model):
+class ResNet50_Builder(Model):
     """
         Implementação efetiva da arquitetura ResNet-50, estando em conformidade
         com o que foi descrito pelo artigo Deep Residual Learning for Image Recognition
@@ -188,16 +189,26 @@ class ResNet50(Model):
 
         return x
 
+
 # ======================================================================================================================
-#                                               COMPILAÇÃO E TREINAMENTO
+#                                           FUNÇÃO DE APOIO PARA A CONSTRUÇÃO
 # ======================================================================================================================
 
 def build_resnet50(input_shape=(224, 224, 3), num_classes=1000, include_top=True, weight_decay=DEFAULT_WEIGHT_DECAY):
     """
-    Helper to instantiate and build a ResNet50 model.
+        Função responsável por gerenciar a construção da rede de modo mais simplificado
+        Ela já é pré-definida para operar com a ImageNet (Valores default de parâmetros)
     """
+    # Cria o tensor de entrada do grafo Keras (um placeholder simbólico com shape fornecida).
     inputs = tf.keras.Input(shape=input_shape)
-    model = ResNet50(num_classes=num_classes, include_top=include_top, weight_decay=weight_decay)
+    # Instância da classe de alto nível ResNet50_Builder
+    model = ResNet50_Builder(num_classes=num_classes, include_top=include_top, weight_decay=weight_decay)
+    # chama o objeto 'model' como uma função no tensor inputs; isso executa o método call() da classe ResNet50
+    # sobre o tensor de entrada simbólico e retorna o tensor de saída simbólico.
+    # A operação "constrói" (instancia os pesos das camadas, encadeia as operações e monta o grafo simbólico)
     outputs = model(inputs, training=False)
+    # cria um objeto tf.keras.Model funcional que liga inputs → outputs.
+    # Esse objeto usa o grafo simbólico montado na linha anterior.
+    # Isso transforma a classe orientada a objetos (ResNet50_Builder) numa instância Keras funcional
     model = tf.keras.Model(inputs=inputs, outputs=outputs, name='ResNet50_paper')
     return model
