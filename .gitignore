@@ -1,6 +1,6 @@
 *.h5
 .venv/
 weights/
-resnet_network_validation/cheXpert-small/
 Dataset 07.11/
-vit_network_validation/HAM10000/
+validation/VISION TRANSFORMER/HAM10000
+
