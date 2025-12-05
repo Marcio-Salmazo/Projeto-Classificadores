@@ -13,22 +13,38 @@ from PyQt5.QtWidgets import QApplication
 from Interface import Interface
 from tensorflow.keras import mixed_precision
 
+"""
+    ==========================
+    VERSÃO DO PYTHON:
+    
+    Python 3.9.13
+    
+    ==========================
+    VERSÕES DAS BIBLIOTECAS:
+    
+    tensorflow==2.10.0
+    numpy==1.23.5
+    scipy==1.13.1
+    protobuf==3.20.2
+    tensorboard==2.10.1
+    Pillow
+    scikit-learn~=1.6.1
+    openpyxl
+    PyQt5~=5.15.11
+    pandas~=2.3.3
+    tensorflow-datasets
+    tensorflow-datasets==4.7.0
+    protobuf==3.20.0
+    
+    ==========================
+    OBSERVAÇÃO:
+    
+        CUDA 11.2
+        CuDNN 8.1
+    ==========================
+"""
 
-# OBSERVAÇÃO:
-# Tensorflow 2.10.0
-# Python 9
-# Numpy 1.23.5
-# Scipy 1.13.1
-# Protobuf 3.20.2
-# Tensorboard 2.10.1
-# Pillow
-# Scikit-learn
-# pip install openpyxl
-# PyQt5
 
-# OBSERVAÇÃO:
-# CUDA 11.2
-# CuDNN 8.1
 
 class Main:
     def __init__(self):

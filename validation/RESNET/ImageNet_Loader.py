@@ -75,7 +75,7 @@ class loader:
     def get_imagenet(self, batch_size=256):
         # instruir TFDS a tentar ler o dataset do bucket público do TFDS / GCS, evitando
         # download local (streaming / leitura remota).
-        read_config = tfds.ReadConfig(try_gcs=True)  # <- usa o bucket público GCS da ImageNet
+        read_config = tfds.ReadConfig()  # <- usa o bucket público GCS da ImageNet
         # retorna o split de treino da ImageNet2012.
         train_ds = tfds.load(
             "imagenet2012",
