@@ -9,6 +9,6 @@
 	Windows: venv\Scripts\activate
 	Linux/Mac: source venv/bin/activate
 
-4 - Instalar tudo:
+4 - Instalar as dependências:
 
 	python pip install -r requirements.txt
