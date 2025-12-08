@@ -16,8 +16,8 @@ import jax.numpy as jnp
 from flax.training import checkpoints
 from functools import partial
 
-from models_vit_pure import VisionTransformer
-from data_loader import load_tfrecords, tf_to_jax
+from VisionTransformer_pure import VisionTransformer
+from VisionTransformer_ImageNet import load_tfrecords, tf_to_jax
 
 
 # ------------------------------------------------------------

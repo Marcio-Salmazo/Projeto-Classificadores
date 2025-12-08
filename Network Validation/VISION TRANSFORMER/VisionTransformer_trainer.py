@@ -21,8 +21,8 @@ import flax
 from flax.training import train_state, checkpoints
 from flax.core import freeze, unfreeze
 
-from models_vit_pure import VisionTransformer
-from data_loader import load_tfrecords, tf_to_jax
+from VisionTransformer_pure import VisionTransformer
+from VisionTransformer_ImageNet import load_tfrecords, tf_to_jax
 
 
 # ------------------------------------------------------------
