@@ -1,6 +1,7 @@
 *.h5
 .venv/
-weights/
-Dataset 07.11/
+.vit_venv/
+Main Project/weights
+DATASET 07.11/
 
 

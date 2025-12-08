@@ -4,7 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eadca59c-44e8-4501-ad65-ff7bc7322b6e" name="Changes" comment="" />
+    <list default="true" id="eadca59c-44e8-4501-ad65-ff7bc7322b6e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApplicationModel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLoader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Interface.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ModelCreator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parameters.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatchOperations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainerThread.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/figNN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/fig_ufu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/icoNN.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste100_200eps_resnet_VIT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste100eps_resnet_run_1/events.out.tfevents.1762550993.ACER5.15816.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste100eps_resnet_run_1/train/events.out.tfevents.1762550993.ACER5.15816.1.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste100eps_resnet_run_1/validation/events.out.tfevents.1762551185.ACER5.15816.2.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste100eps_vit_tiny_run_3/events.out.tfevents.1762896737.ACER5.30488.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste100eps_vit_tiny_run_3/train/events.out.tfevents.1762896737.ACER5.30488.1.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste100eps_vit_tiny_run_3/validation/events.out.tfevents.1762896827.ACER5.30488.2.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste150balancedRN50_run_6/events.out.tfevents.1763396682.DESKTOP-U4G98NN.23612.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste150balancedRN50_run_6/train/events.out.tfevents.1763396682.DESKTOP-U4G98NN.23612.1.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste150balancedRN50_run_6/validation/events.out.tfevents.1763396725.DESKTOP-U4G98NN.23612.2.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste150balancedVIT_run_7/events.out.tfevents.1763405123.DESKTOP-U4G98NN.32968.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste150balancedVIT_run_7/train/events.out.tfevents.1763405123.DESKTOP-U4G98NN.32968.1.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste150balancedVIT_run_7/validation/events.out.tfevents.1763405155.DESKTOP-U4G98NN.32968.2.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste150eps_resnet_VIT_balanced.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste200resnet_run_4/events.out.tfevents.1763297608.DESKTOP-U4G98NN.15916.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste200resnet_run_4/train/events.out.tfevents.1763297608.DESKTOP-U4G98NN.15916.1.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste200resnet_run_4/validation/events.out.tfevents.1763297694.DESKTOP-U4G98NN.15916.2.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste200vit_run_5/events.out.tfevents.1763314218.DESKTOP-U4G98NN.18472.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste200vit_run_5/train/events.out.tfevents.1763314218.DESKTOP-U4G98NN.18472.1.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste200vit_run_5/validation/events.out.tfevents.1763314281.DESKTOP-U4G98NN.18472.2.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste50eps_CNN_new_run_9/best_weights_resnet.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste50eps_CNN_new_run_9/events.out.tfevents.1764171192.DESKTOP-U4G98NN.22792.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste50eps_CNN_new_run_9/train/events.out.tfevents.1764171192.DESKTOP-U4G98NN.22792.1.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/fit/teste50eps_CNN_new_run_9/validation/events.out.tfevents.1764171226.DESKTOP-U4G98NN.22792.2.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metrics/metricas_teste100eps_resnet.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements_tutorial.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation/Notas do GPT.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation/RESNET/Deep Residual Learning for Image Recognition.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation/RESNET/ImageNet_Loader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation/RESNET/MainTest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation/RESNET/ResNet50_pure.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation/RESNET/ResNet50_trainer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation/Roteiro de apresentação.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation/VISION TRANSFORMER/An Image is worth 16x16 words.pdf" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
