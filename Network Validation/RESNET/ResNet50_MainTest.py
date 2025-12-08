@@ -4,7 +4,7 @@ import random
 import os
 
 from tensorflow.keras import mixed_precision
-from ImageNet_Loader import loader
+from ResNet50_ImageNet import loader
 from ResNet50_pure import build_resnet50
 from ResNet50_trainer import Trainer
 
