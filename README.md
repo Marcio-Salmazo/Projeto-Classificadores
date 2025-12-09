@@ -176,10 +176,12 @@ A janela inicial do programa é divida em 2 setores: uma área à esquerda dedic
 -  --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 
 ---
+
 **OBSERVAÇÃO**: Os requisitos específicos podem ser instalados via terminal, porém
 é importante destacar que dois ambientes virtuais distintos sejam criados. Um destinado 
 especificamente para o projeto principal e para a validação da arquitetura ResNet e outro 
 destinado especificamente para os códigos de validação da arquitetura ViT.
+
 ---
 ### Tutorial para criação dos ambientes virtuais e instalação de dependências:
 
