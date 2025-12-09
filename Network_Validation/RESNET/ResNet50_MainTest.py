@@ -7,6 +7,7 @@ from tensorflow.keras import mixed_precision
 from ResNet50_pure import build_resnet50
 from ResNet50_trainer import Trainer
 from Network_Validation.Process_ImageNet import create_imagenet_tfrecords_streaming, load_tfrecords
+from Process_Datase import apply_preprocessing
 
 
 # 1. Seeds para reprodutibilidade
@@ -107,15 +108,15 @@ class Main:
         val_tar = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
                    r"Datasets/DATASET IMAGENET/ILSVRC2012_img_val.tar")
 
-        # Arquivo oficial de anotações do validation
+        # Arquivo oficial de anotações
         val_annotations = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
                            r"Network Validation/VISION TRANSFORMER/Validation_Notes.txt")
 
-        # Diretório onde ficarão os TFRecords
+        # Diretório dos TFRecords
         tfrecord_dir = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/"
                         r"Projeto-Classificadores/Datasets/DATASET IMAGENET")
 
-        # Caso ainda não existam os shards TFRecord, cria agora (apenas 1 vez)
+        # Criação dos TFRecords se necessário
         if not tfrecords_exist_safe(tfrecord_dir):
             print("Nenhum TFRecord detectado...\n")
             create_imagenet_tfrecords_streaming(
@@ -130,27 +131,31 @@ class Main:
         else:
             print("TFRecords detectados - pulando etapa de criação.\n")
 
-        print("Carregando TFRecords em pipeline tf.data...\n")
-        # Carrega datasets já prontos
-        self.train_ds = load_tfrecords(
+        print("Carregando TFRecords brutos...\n")
+
+        # Carrega dados SEM PRE-PROCESSAMENTO
+        train_ds = load_tfrecords(
             tfrecord_dir=tfrecord_dir,
             batch_size=self.batch_size,
             train=True,
             image_size=self.image_size
         )
 
-        self.val_ds = load_tfrecords(
+        val_ds = load_tfrecords(
             tfrecord_dir=tfrecord_dir,
             batch_size=self.batch_size,
             train=False,
             image_size=self.image_size
         )
 
-        # Diagnóstico do batch
-        for imgs, labels in self.train_ds.take(1):
-            print(f"Batch carregado: {imgs.shape}  (esperado: {self.batch_size})")
+        # Aplica o pré-processamento fiel ao paper
+        print("Aplicando pré-processamento (ResNet paper)...\n")
+        train_ds, val_ds = apply_preprocessing(train_ds, val_ds)
 
-        print("\nImageNet carregado com sucesso via TFRecords\n")
+        # Atribuição final
+        self.train_ds = train_ds
+        self.val_ds = val_ds
+        print("\nImageNet carregado e pré-processado com sucesso.\n")
 
     def train(self):
         trainer = Trainer(
