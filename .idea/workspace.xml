@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eadca59c-44e8-4501-ad65-ff7bc7322b6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/Process_and_Load_ImageNet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Network_Validation/Roteiro de Apresentação.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/ViT_MainTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/ViT_MainTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/VisionTransformer_ImageNet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/VisionTransformer_evaluate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/VisionTransformer_pure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/VisionTransformer_pure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/VisionTransformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/VisionTransformer_trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/RESNET/Deep Residual Learning for Image Recognition.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/RESNET/Deep Residual Learning for Image Recognition.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/RESNET/ResNet50_ImageNet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/RESNET/ResNet50_MainTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/RESNET/ResNet50_MainTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/RESNET/ResNet50_pure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/RESNET/ResNet50_pure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/RESNET/ResNet50_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/RESNET/ResNet50_trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/Roteiro de apresentação.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/An Image is worth 16x16 words.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/An Image is worth 16x16 words.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/Process_and_Load_ImageNet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/Validation_Notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/Validation_Notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/ViT_MainTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/ViT_MainTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/VisionTransformer_pure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/VisionTransformer_pure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/VisionTransformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/VisionTransformer_trainer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,17 +50,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MainTest.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.Main.executor": "Run",
+    "Python.MainTest.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/Network_Validation/VISION TRANSFORMER",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\Network_Validation\VISION TRANSFORMER" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

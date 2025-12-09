@@ -8,9 +8,9 @@
      - Opcionalmente avalia após o treino.
 """
 
+
 import os
-import shutil
-from Process_and_Load_ImageNet import create_imagenet_tfrecords_streaming
+from Network_Validation.Process_ImageNet import create_imagenet_tfrecords_streaming
 from VisionTransformer_trainer import train_vit, evaluate_vit
 
 # ======================================================================================================================
@@ -47,16 +47,6 @@ DELETE_TARS_AFTER_TFRECORDS = True
 # ======================================================================================================================
 # FUNÇÕES AUXILIARES
 
-def tfrecords_exist():
-    train_dir = os.path.join(TFRECORD_DIR, "train")
-    val_dir = os.path.join(TFRECORD_DIR, "validation")
-
-    return (
-            os.path.isdir(train_dir) and len(os.listdir(train_dir)) > 0 and
-            os.path.isdir(val_dir) and len(os.listdir(val_dir)) > 0
-    )
-
-
 def delete_tar_files():
     """Remove os arquivos .tar originais para economizar espaço."""
     if os.path.exists(TRAIN_TAR):
@@ -74,6 +64,37 @@ def delete_tar_files():
             print(f"Não foi possível apagar {VAL_TAR}")
 
 
+def tfrecords_exist_safe(tfrecord_dir, num_train_shards=1024, num_val_shards=128):
+
+    train_dir = os.path.join(tfrecord_dir, "train")
+    val_dir = os.path.join(tfrecord_dir, "validation")
+
+    if not os.path.isdir(train_dir) or not os.path.isdir(val_dir):
+        return False
+
+    train_files = os.listdir(train_dir)
+    val_files = os.listdir(val_dir)
+
+    # Verifica contagem exata de shards
+    train_ok = len(train_files) == num_train_shards
+    val_ok = len(val_files) == num_val_shards
+
+    if not (train_ok and val_ok):
+        print("TFRecord directory exists, but shard count is incorrect.")
+        print(f" Train shards: {len(train_files)} (expected: {num_train_shards})")
+        print(f" Val shards:   {len(val_files)} (expected: {num_val_shards})")
+        return False
+
+    # Verifica se os nomes seguem o padrão correto
+    if not all("train-" in f for f in train_files):
+        return False
+
+    if not all("validation-" in f for f in val_files):
+        return False
+
+    return True
+
+
 # ======================================================================================================================
 # EXECUÇÃO PRINCIPAL
 
@@ -83,10 +104,8 @@ def main():
     # ------------------------------------------------------------
     #       1. TFRECORDS (somente se ainda não existirem)
     # ------------------------------------------------------------
-    if not tfrecords_exist():
+    if not tfrecords_exist_safe(TFRECORD_DIR):
         print(">> TFRecords não encontrados. Criando agora (streaming)...\n")
-
-        os.makedirs(TFRECORD_DIR, exist_ok=True)
 
         create_imagenet_tfrecords_streaming(
             train_tar=TRAIN_TAR,
