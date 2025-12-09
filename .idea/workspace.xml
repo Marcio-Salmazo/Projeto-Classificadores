@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eadca59c-44e8-4501-ad65-ff7bc7322b6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Network_Validation/Roteiro de Apresentação.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/RESNET/Deep Residual Learning for Image Recognition.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/RESNET/Deep Residual Learning for Image Recognition.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/RESNET/ResNet50_ImageNet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/RESNET/ResNet50_MainTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/RESNET/ResNet50_MainTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/RESNET/ResNet50_pure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/RESNET/ResNet50_pure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/RESNET/ResNet50_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/RESNET/ResNet50_trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/Roteiro de apresentação.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/An Image is worth 16x16 words.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/An Image is worth 16x16 words.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/Process_and_Load_ImageNet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/Validation_Notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/Validation_Notes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/ViT_MainTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/ViT_MainTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/VisionTransformer_pure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/VisionTransformer_pure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network Validation/VISION TRANSFORMER/VisionTransformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/VisionTransformer_trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
