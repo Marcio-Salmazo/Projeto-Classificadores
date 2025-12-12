@@ -9,18 +9,20 @@
           salvando checkpoints e chamando avaliação periódica;
         * função evaluate_vit(...) que avalia o modelo em batches do conjunto de validação.
 """
-
+import os
+os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
 import jax
 import jax.numpy as jnp
 import optax
 import json
 import csv
-import os
+import numpy as np
 
 from datetime import datetime
 from flax.training import train_state, checkpoints
-from Process_and_Load_ImageNet import load_tfrecords, tf_to_jax
-from VisionTransformer_pure import VisionTransformer
+from Network_Validation.Process_ImageNet import load_tfrecords
+from ViT_ModelCreator import VisionTransformer
+from ViT_CheckpointLoader import load_vit_npz
 
 
 # ======================================================================================================================
@@ -52,6 +54,18 @@ def append_metrics_csv(output_dir, metrics):
             writer.writeheader()
 
         writer.writerow(metrics)
+
+
+# ======================================================================================================================
+# CONVERTE AS IMAGENS E LABELS DO TENSORFLOW PARA JAX ARRAYS
+
+def tf_to_jax(batch_tf):
+    images_tf, labels_tf = batch_tf
+    images_np = np.asarray(images_tf)
+    labels_np = np.asarray(labels_tf)
+
+    # Formato das imagens -> (BATCH,HEIGHT,WIDTH,CHANNELS)
+    return jnp.array(images_np), jnp.array(labels_np)
 
 
 # ======================================================================================================================
@@ -99,9 +113,9 @@ def create_optimizer_finetune(base_lr):
 # DEFINIÇÃO DA FUNÇÃO DE PERDA E DAS MÉTRICAS
 
 def cross_entropy_loss(logits, labels):
-    # Calcula cross-entropy padrão (usando log_softmax numericamente estável). Retorna média sobre batch.
     one_hot = jax.nn.one_hot(labels, logits.shape[-1])
-    return -jnp.mean(jnp.sum(one_hot * optax.log_softmax(logits), axis=-1))
+    log_probs = jax.nn.log_softmax(logits)
+    return -jnp.mean(jnp.sum(one_hot * log_probs, axis=-1))
 
 
 def compute_train_metrics(logits, labels):
@@ -122,7 +136,8 @@ def compute_eval_metrics(logits, labels):
         )
     )
     # cross-entropy
-    loss = -jnp.mean(jax.nn.log_softmax(logits)[jnp.arange(labels.size), labels])
+    log_probs = jax.nn.log_softmax(logits)
+    loss = -jnp.mean(log_probs[jnp.arange(labels.size), labels])
     return {
         "loss": loss,
         "top1": top1,
@@ -248,7 +263,19 @@ def train_vit(
     # Inicialização de parâmetros
     rng = jax.random.PRNGKey(0)
     dummy = jnp.ones([1, 224, 224, 3], dtype=jnp.float32)
+    # Inicializa parâmetros com pesos aleatórios (default do Flax)
     params = model.init({"params": rng, "dropout": rng}, dummy, train=True)["params"]
+
+    if mode == "finetune":
+        # ------------------------------------------------------------------------------------------------------
+        #                       DEFINIR AQUI O CAMINHO PARA OS PESOS PRÉ-TREINADOS
+        # ------------------------------------------------------------------------------------------------------
+        pretrained_path = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/Network_Validation/"
+                           r"VISION TRANSFORMER/Pre-Trained Weights/imagenet21k_ViT-B_16.npz")
+
+        print(f">> Carregando pesos pré-treinados de {pretrained_path}")
+        params = load_vit_npz(params, pretrained_path)
+        print(">> Pesos pré-treinados carregados com sucesso!")
 
     # Escolha do otimizador
     if mode == "pretrain":
@@ -342,7 +369,68 @@ def eval_step_jit(state, batch):
     return metrics
 
 
-def evaluate_vit(state, val_iter, num_batches=50):
+def evaluate_vit(
+        checkpoint_dir: str,
+        tfrecord_val_dir: str,
+        batch_size: int = 256,
+        num_batches: int = 50,
+        patches=(16, 16),
+        hidden_size=768,
+        depth=12,
+        num_heads=12,
+        mlp_dim=3072,
+        num_classes=1000,
+        image_size=224
+):
+    """
+        Avaliação completa: carrega dataset, modelo, checkpoint e roda a avaliação.
+    """
+
+    # ---- carregar dataset ----
+    val_ds = load_tfrecords(
+        tfrecord_val_dir,
+        batch_size=batch_size,
+        train=False,
+        image_size=image_size
+    )
+    val_iter = iter(val_ds)
+
+    # ---- construir modelo ----
+    class PatchCfg:
+        pass
+
+    pc = PatchCfg()
+    pc.size = patches
+
+    transformer_cfg = dict(
+        num_layers=depth,
+        mlp_dim=mlp_dim,
+        num_heads=num_heads,
+        dropout_rate=0.0,
+        attention_dropout_rate=0.0,
+        add_position_embedding=True,
+    )
+
+    model = VisionTransformer(
+        num_classes=num_classes,
+        patches=pc,
+        transformer=transformer_cfg,
+        hidden_size=hidden_size,
+        representation_size=None,
+        classifier="token"
+    )
+
+    # ---- init dummy ----
+    dummy = jnp.zeros([1, image_size, image_size, 3], dtype=jnp.float32)
+    rng = jax.random.PRNGKey(0)
+    _ = model.init({"params": rng}, dummy, train=False)
+
+    # ---- carregar checkpoint ----
+    state = checkpoints.restore_checkpoint(checkpoint_dir, target=None)
+    if state is None:
+        raise ValueError("Nenhum checkpoint encontrado.")
+
+    # ---- avaliação ----
     metrics_list = []
 
     for _ in range(num_batches):

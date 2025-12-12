@@ -13,7 +13,6 @@ import tarfile
 import tensorflow as tf
 
 import numpy as np
-import jax.numpy as jnp
 from typing import Optional, Dict, Tuple  # tipos para documentação de código
 
 AUTOTUNE = tf.data.AUTOTUNE
@@ -338,13 +337,3 @@ def load_tfrecords(tfrecord_dir, batch_size, train=True, image_size=224, shuffle
     return ds
 
 
-# ======================================================================================================================
-# CONVERTE AS IMAGENS E LABELS DO TENSORFLOW PARA JAX ARRAYS
-
-def tf_to_jax(batch_tf):
-    images_tf, labels_tf = batch_tf
-    images_np = np.asarray(images_tf)
-    labels_np = np.asarray(labels_tf)
-
-    # Formato das imagens -> (BATCH,HEIGHT,WIDTH,CHANNELS)
-    return jnp.array(images_np), jnp.array(labels_np)

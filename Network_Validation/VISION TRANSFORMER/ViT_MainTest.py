@@ -8,64 +8,38 @@
      - Opcionalmente avalia após o treino.
 """
 
-
 import os
-from Network_Validation.Process_ImageNet import create_imagenet_tfrecords_streaming
+os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
+
+import subprocess
 from VisionTransformer_trainer import train_vit, evaluate_vit
 
 # ======================================================================================================================
-# CONFIGURAÇÃO DE CAMINHOS
+# CAMINHOS DE AMBIENTES, TFRECORDS E SCRIPTS ASSOCIADOS
 
-TRAIN_TAR = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
-             r"Datasets/DATASET IMAGENET/ILSVRC2012_img_train.tar")
-VAL_TAR = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
-           r"Datasets/DATASET IMAGENET/ILSVRC2012_img_val.tar")
-
+TF_ENV_PYTHON = r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/.tf_venv/Scripts/python.exe"
+TFRECORD_SCRIPT = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
+                   r"Network_Validation/Create_TFRecords.py")
 # Diretório onde serão criados: /train/*.tfrecord e /validation/*.tfrecord
 TFRECORD_DIR = r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/Datasets/DATASET IMAGENET"
-
 # Diretório de checkpoints do ViT
 OUTPUT_DIR = (
     r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
-    r"Network Validation/VISION TRANSFORMER/Models and checkpoints"
-)
-
-VAL_ANNOTATIONS = (
-    r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
-    r"Network Validation/VISION TRANSFORMER/Validation_Notes.txt"
+    r"Network_Validation/VISION TRANSFORMER/Models and checkpoints"
 )
 
 # ======================================================================================================================
 # FLAGS DE EXECUÇÃO
 
-RUN_PRETRAIN = True
-RUN_FINETUNE = False
-RUN_EVALUATE = False
-DELETE_TARS_AFTER_TFRECORDS = True
+RUN_PRETRAIN = False
+RUN_FINETUNE = True
+RUN_EVALUATE = True
 
 
 # ======================================================================================================================
 # FUNÇÕES AUXILIARES
 
-def delete_tar_files():
-    """Remove os arquivos .tar originais para economizar espaço."""
-    if os.path.exists(TRAIN_TAR):
-        try:
-            os.remove(TRAIN_TAR)
-            print(f"Removido: {TRAIN_TAR}")
-        except PermissionError:
-            print(f"Não foi possível apagar {TRAIN_TAR}")
-
-    if os.path.exists(VAL_TAR):
-        try:
-            os.remove(VAL_TAR)
-            print(f"Removido: {VAL_TAR}")
-        except PermissionError:
-            print(f"Não foi possível apagar {VAL_TAR}")
-
-
 def tfrecords_exist_safe(tfrecord_dir, num_train_shards=1024, num_val_shards=128):
-
     train_dir = os.path.join(tfrecord_dir, "train")
     val_dir = os.path.join(tfrecord_dir, "validation")
 
@@ -107,22 +81,16 @@ def main():
     if not tfrecords_exist_safe(TFRECORD_DIR):
         print(">> TFRecords não encontrados. Criando agora (streaming)...\n")
 
-        create_imagenet_tfrecords_streaming(
-            train_tar=TRAIN_TAR,
-            val_tar=VAL_TAR,
-            out_dir=TFRECORD_DIR,
-            num_train_shards=1024,
-            num_val_shards=128,
-            val_annotations_file=VAL_ANNOTATIONS
+        result = subprocess.run(
+            [TF_ENV_PYTHON, TFRECORD_SCRIPT],
+            capture_output=True,
+            text=True
         )
 
+        print(result.stdout)
+        print(result.stderr)
+
         print("\n>> TFRecords criados com sucesso!\n")
-
-        if DELETE_TARS_AFTER_TFRECORDS:
-            print(">> Removendo .tar para economizar espaço...")
-            delete_tar_files()
-            print(">> Remoção concluída.\n")
-
     else:
         print(">> TFRecords já existem. Pulando criação.\n")
 
@@ -133,13 +101,13 @@ def main():
         print("\nINICIANDO PRÉ-TREINO ViT...\n")
 
         train_vit(
-            tfrecord_train_dir=os.path.join(TFRECORD_DIR, "train"),
-            tfrecord_val_dir=os.path.join(TFRECORD_DIR, "validation"),
+            tfrecord_train_dir=TFRECORD_DIR,
+            tfrecord_val_dir=TFRECORD_DIR,
             output_dir=OUTPUT_DIR,
             mode="pretrain",
             total_steps=100000,
             warmup_steps=10000,
-            batch_size=256,
+            batch_size=16,
             base_lr=2e-4,
         )
 
@@ -150,13 +118,13 @@ def main():
         print("\nINICIANDO FINE-TUNING...\n")
 
         train_vit(
-            tfrecord_train_dir=os.path.join(TFRECORD_DIR, "train"),
-            tfrecord_val_dir=os.path.join(TFRECORD_DIR, "validation"),
+            tfrecord_train_dir=TFRECORD_DIR,
+            tfrecord_val_dir=TFRECORD_DIR,
             output_dir=OUTPUT_DIR,
             mode="finetune",
             total_steps=20000,
             warmup_steps=0,
-            batch_size=512,
+            batch_size=16,
             base_lr=0.01,
         )
 
@@ -167,11 +135,11 @@ def main():
         print("\nAVALIANDO O MODELO...\n")
 
         results = evaluate_vit(
-            state=None,  # trainer JIT já lida com carregamento interno
-            val_iter=None,
+            checkpoint_dir=OUTPUT_DIR,
+            tfrecord_val_dir=TFRECORD_DIR,
+            batch_size=16,
             num_batches=200
         )
-
         print("\nRESULTADOS FINAIS:")
         print(results)
 

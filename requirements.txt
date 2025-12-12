@@ -1,5 +1,8 @@
-# Bibliotecas para o programa principal
-# Bibliotecas para a validação da ResNet - 50
+# --------------------------------------------
+# Ambiente exclusivo para execução do 
+# Projeto principal e para a implementação
+# da arquitetura ResNet-50
+# --------------------------------------------
 
 tensorflow==2.10.0
 numpy==1.23.5

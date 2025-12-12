@@ -1,0 +1,17 @@
+# --------------------------------------------
+# Ambiente exclusivo para execução do 
+# do tensorflow, voltado para a criação
+# dos TFRecords
+# --------------------------------------------
+
+# TensorFlow GPU ou CPU (escolha sua variante)
+tensorflow==2.10.0
+
+# Versão correta do NumPy para TF 2.10
+numpy==1.23.5
+
+# Para leitura e manipulação de tar/images
+tensorflow-datasets==4.7.0
+
+# Utilidades opcionais
+absl-py>=0.12.0

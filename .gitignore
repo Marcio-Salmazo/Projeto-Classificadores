@@ -3,5 +3,7 @@
 .vit_venv/
 Main Project/weights
 Datasets/
-Network_Validation/VISION TRANSFORMER/An Image is worth 16x16 words.pdf"
-
+Network_Validation/VISION TRANSFORMER/Pre-Trained Weights
+Network_Validation/VISION TRANSFORMER/An Image is worth 16x16 words.pdf
+Network_Validation/VISION TRANSFORMER/Models and checkpoints/checkpoint_5000
+.tf_venv/
