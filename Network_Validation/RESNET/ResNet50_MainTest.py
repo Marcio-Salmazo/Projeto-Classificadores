@@ -110,7 +110,7 @@ class Main:
 
         # Arquivo oficial de anotações
         val_annotations = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
-                           r"Network Validation/VISION TRANSFORMER/Validation_Notes.txt")
+                           r"Network_Validation/VISION TRANSFORMER/Validation_Notes.txt")
 
         # Diretório dos TFRecords
         tfrecord_dir = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/"

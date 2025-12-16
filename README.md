@@ -87,11 +87,19 @@ reprodutibilidade dos testes.
 * ***Dataset utilizado:*** ImageNet (ILSVRC2012)
 * ***Acesso:*** https://arxiv.org/abs/2010.11929
 
+#### Modificações exigidas em código:
+
+* Modificar:
+
 ### 2. Validação para a ResNet-50:
 
 * ***Artigo de referência utilizado:*** He et al., 2015 – “Deep Residual Learning for Image Recognition” 
 * ***Dataset utilizado:*** ImageNet (ILSVRC2012)
 * ***Acesso:*** https://arxiv.org/abs/1512.03385
+
+#### Modificações exigidas em código:
+
+* Modificar:
 
 ---
 

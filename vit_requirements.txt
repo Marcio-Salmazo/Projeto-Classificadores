@@ -8,6 +8,7 @@ numpy>=1.26
 # JAX + CUDA 11.x
 jax[cuda11_pip]>=0.4.23
 --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+jaxlib>=0.4.20
 
 # Frameworks essenciais
 flax==0.8.3
@@ -24,5 +25,9 @@ clu>=0.0.3
 # Conversão TF → JAX sem TF instalado
 tensorflow-datasets>=4.7.0
 
-# (Opcional) Apenas se realmente for usar arquiteturas de NLP
-# git+https://github.com/google/flaxformer
+# TensorFlow (apenas tf.data / TFRecords)
+tensorflow>=2.13,<2.16
+
+# Utilidades
+tqdm
+scipy

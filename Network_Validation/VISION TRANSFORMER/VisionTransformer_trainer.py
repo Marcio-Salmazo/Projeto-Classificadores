@@ -153,8 +153,7 @@ def train_step_jit(state, batch, rng):
     images, labels = batch
     dropout_rng = rng
     """
-            1- Decorador jax.pmap: compila a função para ser executada rapidamente em um dispositivo (GPU ou CPU). 
-               É o padrão para acelerar treinos em uma GPU.
+            1 - Decorador jax.jit: compila a função para execução eficiente em um único dispositivo (GPU).
 
             2 - images, labels = batch: os dados já chegaram sharded (cada dispositivo recebe seu sub-batch).
 
@@ -213,12 +212,12 @@ def train_vit(
         num_heads=12,
         mlp_dim=3072,
         num_classes=1000,
-        batch_size=256,
+        batch_size=32, # ORIGINAL = 256
         total_steps=100000,
         warmup_steps=10000,
         base_lr=2e-4,
         mode="pretrain"  # ou "finetune"
-):
+    ):
     """
         Carregamento dos datasets:
             * load_tfrecords retorna um tf.data.Dataset com batches;
@@ -270,8 +269,8 @@ def train_vit(
         # ------------------------------------------------------------------------------------------------------
         #                       DEFINIR AQUI O CAMINHO PARA OS PESOS PRÉ-TREINADOS
         # ------------------------------------------------------------------------------------------------------
-        pretrained_path = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/Network_Validation/"
-                           r"VISION TRANSFORMER/Pre-Trained Weights/imagenet21k_ViT-B_16.npz")
+        pretrained_path = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/"
+                           r"Projeto-Classificadores/Datasets/Pre_Trained/imagenet21k_ViT-B_16.npz")
 
         print(f">> Carregando pesos pré-treinados de {pretrained_path}")
         params = load_vit_npz(params, pretrained_path)
@@ -328,7 +327,8 @@ def train_vit(
 
         # Avaliação ocasional
         if step % 5000 == 0 and step > 0:
-            val = evaluate_vit(state, val_iter)
+            val_iter = iter(val_ds)  # reset seguro
+            val = evaluate_vit_from_iterator(state, val_iter, num_batches=25)
 
             val_log = {
                 "step": step,
@@ -454,5 +454,33 @@ def evaluate_vit(
     print(f"Val Loss : {loss:.4f}")
     print(f"Top-1 Acc: {top1 * 100:.2f}%")
     print(f"Top-5 Acc: {top5 * 100:.2f}%")
+
+    return {"loss": loss, "top1": top1, "top5": top5}
+
+def evaluate_vit_from_iterator(state, val_iter, num_batches=50):
+    """
+         Essa função usa o dataset já carregado
+         Não toca em load_tfrecords
+         Nunca mais gera o erro do step 5000
+    """
+
+    metrics_list = []
+
+    for _ in range(num_batches):
+        try:
+            batch_tf = next(val_iter)
+        except StopIteration:
+            break
+
+        batch = tf_to_jax(batch_tf)
+        metrics = eval_step_jit(state, batch)
+        metrics_list.append(metrics)
+
+    if not metrics_list:
+        return {"loss": float("nan"), "top1": float("nan"), "top5": float("nan")}
+
+    loss = float(jnp.mean(jnp.array([m["loss"] for m in metrics_list])))
+    top1 = float(jnp.mean(jnp.array([m["top1"] for m in metrics_list])))
+    top5 = float(jnp.mean(jnp.array([m["top5"] for m in metrics_list])))
 
     return {"loss": loss, "top1": top1, "top5": top5}

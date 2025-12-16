@@ -17,15 +17,19 @@ from VisionTransformer_trainer import train_vit, evaluate_vit
 # ======================================================================================================================
 # CAMINHOS DE AMBIENTES, TFRECORDS E SCRIPTS ASSOCIADOS
 
-TF_ENV_PYTHON = r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/.tf_venv/Scripts/python.exe"
-TFRECORD_SCRIPT = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
-                   r"Network_Validation/Create_TFRecords.py")
+TF_ENV_PYTHON = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores"
+                 r"/.tf_venv/Scripts/python.exe")
+
+TFRECORD_SCRIPT = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores"
+                   r"/Network_Validation/Create_TFRecords.py")
+
 # Diretório onde serão criados: /train/*.tfrecord e /validation/*.tfrecord
-TFRECORD_DIR = r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/Datasets/DATASET IMAGENET"
+TFRECORD_DIR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores"
+                r"/Datasets/ImageNet_1K")
+
 # Diretório de checkpoints do ViT
-OUTPUT_DIR = (
-    r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
-    r"Network_Validation/VISION TRANSFORMER/Models and checkpoints"
+OUTPUT_DIR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)"
+              r"/Projeto-Classificadores/Network_Validation/CHECKPOINTS"
 )
 
 # ======================================================================================================================
@@ -122,10 +126,10 @@ def main():
             tfrecord_val_dir=TFRECORD_DIR,
             output_dir=OUTPUT_DIR,
             mode="finetune",
-            total_steps=20000,
+            total_steps=10000,
             warmup_steps=0,
-            batch_size=16,
-            base_lr=0.01,
+            batch_size=32,
+            base_lr=3e-4 * (32 / 4096),
         )
 
     # ------------------------------------------------------------
@@ -137,7 +141,7 @@ def main():
         results = evaluate_vit(
             checkpoint_dir=OUTPUT_DIR,
             tfrecord_val_dir=TFRECORD_DIR,
-            batch_size=16,
+            batch_size=64,
             num_batches=200
         )
         print("\nRESULTADOS FINAIS:")

@@ -8,24 +8,23 @@
 import os
 from Process_ImageNet import create_imagenet_tfrecords_streaming
 
-TRAIN_TAR = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
-             r"Datasets/DATASET IMAGENET/ILSVRC2012_img_train.tar")
-VAL_TAR = (r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
-           r"Datasets/DATASET IMAGENET/ILSVRC2012_img_val.tar")
+TRAIN_TAR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)"
+             r"/Projeto-Classificadores/Datasets/ImageNet_1K/ILSVRC2012_img_train.tar")
+
+VAL_TAR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)"
+             r"/Projeto-Classificadores/Datasets/ImageNet_1K/ILSVRC2012_img_val.tar")
 
 # Diretório onde serão criados: /train/*.tfrecord e /validation/*.tfrecord
-TFRECORD_DIR = r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/Datasets/DATASET IMAGENET"
+TFRECORD_DIR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores"
+                r"/Datasets/ImageNet_1K")
 
 # Diretório de checkpoints do ViT
-OUTPUT_DIR = (
-    r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
-    r"Network Validation/VISION TRANSFORMER/Models and checkpoints"
-)
+OUTPUT_DIR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)"
+              r"/Projeto-Classificadores/Network_Validation/CHECKPOINTS")
 
-VAL_ANNOTATIONS = (
-    r"C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/"
-    r"Network Validation/VISION TRANSFORMER/Validation_Notes.txt"
-)
+# Diretório de checkpoints do ViT
+VAL_ANNOTATIONS = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)"
+              r"/Projeto-Classificadores/Network_Validation/CHECKPOINTS/Validation_Notes.txt")
 
 DELETE_TARS_AFTER_TFRECORDS = True
 

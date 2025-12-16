@@ -33,6 +33,7 @@ class AddPositionEmbs(nn.Module):
     - nota: vem do repositório oficial (positional embeddings aprendíveis).
     """
     posemb_init: Callable[[PRNGKey, Shape, Dtype], Array]
+    dtype: Dtype = jnp.bfloat16
     param_dtype: Dtype = jnp.float32
 
     @nn.compact
@@ -40,8 +41,9 @@ class AddPositionEmbs(nn.Module):
         # inputs: (batch, seq_len, emb_dim)
         assert inputs.ndim == 3, f"inputs.ndim must be 3, got {inputs.ndim}"
         pos_emb_shape = (1, inputs.shape[1], inputs.shape[2])
+
         pe = self.param("pos_embedding", self.posemb_init, pos_emb_shape, self.param_dtype)
-        pe = pe.astype(inputs.dtype)
+        pe = pe.astype(self.dtype)
         return inputs + pe
 
 
@@ -176,6 +178,7 @@ class Encoder(nn.Module):
         if self.add_position_embedding:
             x = AddPositionEmbs(
                 posemb_init=nn.initializers.normal(stddev=0.02),
+                dtype=self.dtype,
                 name="posembed_input")(x)
             x = nn.Dropout(rate=self.dropout_rate)(x, deterministic=not train)
 
@@ -189,7 +192,7 @@ class Encoder(nn.Module):
                 name=f"encoderblock_{lyr}")(x, deterministic=not train)
 
         # final layer norm (nome 'encoder_norm' para facilitar checkpoints)
-        encoded = nn.LayerNorm(name="encoder_norm")(x)
+        encoded = nn.LayerNorm(dtype=self.dtype, name="encoder_norm")(x)
         return encoded
 
 
@@ -225,6 +228,10 @@ class VisionTransformer(nn.Module):
     encoder: Type[nn.Module] = Encoder
     model_name: Optional[str] = None
 
+    # Define o mixed precision
+    dtype: Any = jnp.bfloat16
+    param_dtype: Any = jnp.float32
+
     @nn.compact
     def __call__(self, inputs, *, train: bool):
         # inputs: (batch, H, W, C)
@@ -237,8 +244,11 @@ class VisionTransformer(nn.Module):
             features=self.hidden_size,
             kernel_size=self.patches.size,
             strides=self.patches.size,
-            padding="VALID",
-            name="embedding")(x)
+            padding='VALID',
+            name='embedding',
+            dtype=self.dtype,
+            param_dtype=self.param_dtype,
+        )(x)
 
         # x now (batch, h, w, c)
         n, h, w, c = x.shape
@@ -283,9 +293,12 @@ class VisionTransformer(nn.Module):
         # - Initialize kernel and bias to zero per the paper (helps fine-tuning).
         # -------------------------
         if self.num_classes:
+
             x = nn.Dense(
                 features=self.num_classes,
-                name="head",
+                name='head',
+                dtype=self.dtype,
+                param_dtype=self.param_dtype,
                 kernel_init=nn.initializers.zeros,
                 bias_init=nn.initializers.constant(self.head_bias_init)
             )(x)
