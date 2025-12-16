@@ -31,7 +31,7 @@ O repositório está organizado de acordo com a seguinte estrutura:
 
     ├── .idea/
     ├     └── (...) 
-    ├── Main Project/
+    ├── Main_Project/
     ├     └── (...)
     ├── Network_Validation/
     ├     └── (...) 
@@ -40,6 +40,7 @@ O repositório está organizado de acordo com a seguinte estrutura:
     ├── .gitignore
     ├── README.md
     ├── requirements.txt
+    ├── tf_requirements.txt
     └── vit_requirements.txt
 
 ### Diretórios mais relevantes:
@@ -54,16 +55,17 @@ O repositório está organizado de acordo com a seguinte estrutura:
 
 ## 📂 Estrutura da base de dados para utilização do projeto principal
 
-Para que o programa reconheça devidamente a base de dados, é necessário seguir a seguinte estrutura:
+Para que o código referente ao projeto principal reconheça devidamente a base de dados, é necessário seguir a seguinte estrutura:
 
     ├── Diretório contendo a base de dados (Arquivos .png)/\
-    ├── Classe 1 (Diretótio)/\
-    │   └── Conjunto de imagens (Arquivos .png)/\
-    ├── Classe 2 (Diretótio)/\
-    │   └── Conjunto de imagens (Arquivos .png)/\
-    │   ...\
-    ├── Classe N (Diretótio)/\
-    │   └── Conjunto de imagens (Arquivos .png)/\
+    │    │
+    │    ├── Classe 1 (Diretótio)/
+    │    │   └── Conjunto de imagens (Arquivos .png)/
+    │    ├── Classe 2 (Diretótio)/
+    │    │   └── Conjunto de imagens (Arquivos .png)/
+    │    │   ...
+    │    ├── Classe N (Diretótio)/
+    │    │   └── Conjunto de imagens (Arquivos .png)/
 
 ## ✔️ Testes de confiabilidade
 
@@ -75,11 +77,38 @@ das redes, garantindo que suas funcionalidades estejam corretamente implementada
 A partir dessa base confiável, torna-se possível introduzir modificações pontuais nas arquiteturas, 
 para adaptá-las aos objetivos específicos deste projeto.
 
-Os arquivos referentes aos experimentos de validação conduzidos para a arquitetura ResNet-50 
+Os arquivos referentes aos experimentos de validação conduzidos para ambas as arquiteturas 
 encontram-se organizados no diretório ***Network_Validation***. Esse diretório contém tanto as 
 implementações dos algoritmos descritos nos estudos analisados, quanto os artigos científicos 
 utilizados como referência, reunindo em um único local todo o material necessário para consulta e 
 reprodutibilidade dos testes.
+
+**Estrutura atual do diretório:**
+
+    ├── CHECKPOINTS/
+    │    ├── Treino 1 - TESTE/
+    │           └── (Logs referente ao treinamento)
+    │    └── (Demais diretórios seguindo o mesmo padrão)
+    ├── RESNET/
+    │    ├── Deep Residual Learning for Image Recognition.pdf
+    │    └── (Arquivos.py referentes à construção e treinamento da rede ResNet50)
+    ├── VISION TRANSFORMER/
+    │    ├── An Image is worth 16x16 words.pdf
+    │    ├── Attention is all you Need
+    │    └── (Arquivos.py referentes à construção e treinamento da rede ViT)
+    ├── Create_TFRecords.py
+    ├── Documentação de testes.docx
+    ├── Process_ImageNet.py
+    └── Roteiro de apresentação
+
+**OBSERVAÇÃO:** Os arquivos *Create_TFRecords.py* e *Process_ImageNet.py* não são exclusivos para o processo de 
+validação das arquiteturas, são scripts auxiliares para tratar a base de dados da ImageNet no formato de TFRecords 
+
+O TFRecords é um formato de arquivo binário simples e eficiente, projetado especificamente pela Google para armazenar 
+sequências de dados no TensorFlow Permite o pré-carregamento e o streaming eficiente de grandes volumes de dados, 
+o que acelera o treinamento de modelos de aprendizado de máquina, especialmente em pipelines de dados complexos ou 
+distribuídos. Adicionalmente, pode armazenar uma variedade de tipos de dados (inteiros, floats, strings, imagens) 
+e estruturas de dados complexas, serializando-os em um formato de buffer de protocolo 
 
 ### 1. Validação para a ViT (Vision Transformer):
 
@@ -87,9 +116,52 @@ reprodutibilidade dos testes.
 * ***Dataset utilizado:*** ImageNet (ILSVRC2012)
 * ***Acesso:*** https://arxiv.org/abs/2010.11929
 
-#### Modificações exigidas em código:
+#### Definições exigidas em código:
+Uma vez que a validação não faz parte do escopo do projeto (servindo apenas como um teste preliminar para grantir a 
+confiabilidade das implementações), não foi feita uma interface para definir caminhos e flags. Elas 
+devem sere especificadas diretamente no código.
 
-* Modificar:
+* **Flags de execução** - Definem o comportamento da execução e estão localizadas no arquivo ***ViT_MainTeste.py:***
+
+        RUN_PRETRAIN - Executa (ou não) um pre-treino da rede com a base de 
+                       dados selecionada (normalmente definda como FALSE caso 
+                       sejam carregados pesos externos)
+        RUN_FINETUNE - Executa (ou não) o treino de refinamento, com a 
+                       rede pré-treinada
+        RUN_EVALUATE - Aplica o script de validação da rede, retornando 
+                       as métricas de treinamento.
+
+* **Caminhos (paths) exigidos**:
+
+  * **Script Vit_MainTest.py:**
+            
+        TF_ENV_PYTHON = Caminho do executável python.exe
+                        referente ao ambiente virtual .tf_venv;
+        TFRECORD_SCRIPT = Caminho do script responsável por criar os
+                          TFRecords;
+        TFRECORD_DIR = Diretório onde serão criados: /train/*.tfrecord 
+                       e /validation/*.tfrecord
+        OUTPUT_DIR = Diretório de checkpoints do ViT
+  
+  * **Script VisionTransformer_trainer.py:**
+
+        pretrained_path = Define o arquivo de pesos pré-treinados que 
+                          devem ser carregados ao modelo criado
+
+  * **Script Create_TFRecords.py:**
+
+        TRAIN_TAR = Caminho do arquivo .tar para treino proveniente 
+                    da ImageNet
+        VAL_TAR = Caminho do arquivo .tar para validação proveniente 
+                  da ImageNet
+        TFRECORD_DIR = Diretório onde serão criados: /train/*.tfrecord 
+                       e /validation/*.tfrecord
+        OUTPUT_DIR = Diretório de checkpoints do ViT
+        VAL_ANNOTATIONS = Caminho do arquivo onde serão armazenados as notas 
+                          de validação
+        DELETE_TARS_AFTER_TFRECORDS = Define se os arquivos .tar originais 
+                                      da Imagenet devem ser excluídos após 
+                                      a criação dos TFRecords (Booleano)
 
 ### 2. Validação para a ResNet-50:
 
@@ -97,9 +169,9 @@ reprodutibilidade dos testes.
 * ***Dataset utilizado:*** ImageNet (ILSVRC2012)
 * ***Acesso:*** https://arxiv.org/abs/1512.03385
 
-#### Modificações exigidas em código:
+#### Definições exigidas em código:
 
-* Modificar:
+* AINDA NÃO DEFINIDO
 
 ---
 
@@ -143,69 +215,87 @@ A janela inicial do programa é divida em 2 setores: uma área à esquerda dedic
 > - Seguir as versões dos pré-requisitos à risca, uma vez que versões mais novas podem gerar conflitos na IDE.
 
 ## 🔧 Pré-requisitos e Instalação
+Os requisitos específicos de cada projeto devem ser instalados em ambientes virtuais separdos, de acordo 
+com o que foi definido no tópico abaixo 'Tutorial para criação dos ambientes virtuais e instalação de dependências'
 
 ### Requisitos gerais:
 
 - Sistema Operacional: **Windows**;  
 - Python **3.9.13** (específico);  
 
-### Requisitos para o projeto principal:
+### Requisitos para o ambiente .venv:
 
-- Tensorflow **2.10.0**;
-- Numpy **1.23.5**;
-- Scipy **1.13.1**;
-- Protobuf **3.20.2**;
-- Tensorboard **2.10.1**;
-- Pillow (Sem versão específica, pode ser a mais atual);
-- CUDA 11.2 (Para uso da GPU);
-- CuDNN 8.1 (Para uso da GPU).
+- tensorflow **2.10.0**
+- numpy **1.23.5**
+- scipy **1.13.1**
+- tensorboard **2.10.1**
+- Pillow
 - scikit-learn **1.6.1**
 - openpyxl
 - PyQt5 **5.15.11**
 - pandas **2.3.3**
 - tensorflow-datasets **4.7.0**
+- protobuf **3.19.0**
+- matplotlib
+- seaborn
+- tqdm
+- ipykernel
 
-### Requisitos para as validações da arquitetura:
+### Requisitos para o ambiente .tf_venv:
 
 - tensorflow **2.10.0**
 - numpy **1.23.5**
 - tensorflow-datasets **4.7.0**
-- ml-collections **0.1.0** (ou maior)
-- tensorflow-probability  **0.11.1** (ou maior)
+- absl-py **0.12.0 (Ou superior)**
+- tqdm
+- pillow
+- scipy
 
-- absl-py **0.12.0** (ou maior)
-- aqtp diferente da versão **0.1.1** 
-- chex **0.0.7** (ou maior)
-- clu **0.0.3** (ou maior)
-- einops **0.3.0** (ou maior)
-- flax **0.6.4** (ou maior)
+### Requisitos para o ambiente .vit_venv:
 
-- jax[cuda11_pip]>=0.4.2
--  --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+- numpy **1.26 (Ou superior)**
 
----
+- jax[cuda11_pip] **0.4.23**
+--find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 
-**OBSERVAÇÃO**: Os requisitos específicos podem ser instalados via terminal, porém
-é importante destacar que dois ambientes virtuais distintos sejam criados. Um destinado 
-especificamente para o projeto principal e para a validação da arquitetura ResNet e outro 
-destinado especificamente para os códigos de validação da arquitetura ViT.
+- jaxlib **0.4.20 (Ou superior)**
+- flax **0.8.3**
+- optax **0.2.4**
+- chex **0.1.87 (Ou superior)**
+- orbax-checkpoint **0.3.5**
+- einops **0.3.0 (Ou superior)**
+- absl-py **0.12.0 (Ou superior)**
+- ml-collections **0.1.0 (Ou superior)**
+- clu **0.0.3 (Ou superior)**
+- tensorflow-datasets **4.7.0 (Ou superior)**
+- tensorflow entre **2.13 e 2.16**
+- tqdm
+- scipy
 
 ---
 ### Tutorial para criação dos ambientes virtuais e instalação de dependências:
 
-- Para o projeto principal e a validação da arquitetura ResNet-50:
+- Ambiente virtual .venv:
 
       > cd Projeto-Classificadores
       > python -m venv .venv
       > .\.venv\Scripts\activate
       > pip install -r requirements.txt
 
-- Para a validação da arquitetura ViT:
+- Ambiente virtual .vit_venv:
 
       > cd Projeto-Classificadores
       > python -m venv .vit_venv
       > .\.vit_venv\Scripts\activate
       > pip install -r vit_requirements.txt
+
+- Ambiente virtual .tf_venv:
+
+      > cd Projeto-Classificadores
+      > python -m venv .tf_venv
+      > .\.tf_venv\Scripts\activate
+      > pip install -r tf_requirements.txt
+
 - **OBSERVAÇÃO 1:** Sempre lembrar de fechar o ambiente virtual, caso precise utilizar o outro.
 
 - **OBSERVAÇÃO 2:** Seguir o tutorial sobre a instalação da GPU para o Tensorflow ANTES de 
@@ -289,6 +379,12 @@ Se o resultado for algo como [gpu(id=0)], indica que o processo foi realizado co
 
 ---
 
+## ⚖️ Downlaod dos pesos pré-treinados
+
+Os pesos utilizados para inicializar a arquitetura ViT foram obtidos por meio do repositório
+oficial de implementação desta arquitura citado no artigo 
+“An Image is Worth 16x16 words: Transformers for Image Recognition at Scale”.
+Podendo ser diretamente acessado pelo link: https://console.cloud.google.com/storage/browser/vit_models/imagenet21k 
 
 ## ▶️ Modo de uso para o projeto principal
 
