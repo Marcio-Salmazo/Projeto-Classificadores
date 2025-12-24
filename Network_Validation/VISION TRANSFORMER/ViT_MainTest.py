@@ -12,7 +12,7 @@ import os
 os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
 
 import subprocess
-from VisionTransformer_trainer import train_vit, evaluate_vit
+from VisionTransformer_trainer import train_vit, evaluate_vit, evaluate_vit_from_iterator
 
 # ======================================================================================================================
 # CAMINHOS DE AMBIENTES, TFRECORDS E SCRIPTS ASSOCIADOS
@@ -144,6 +144,7 @@ def main():
             batch_size=64,
             num_batches=200
         )
+
         print("\nRESULTADOS FINAIS:")
         print(results)
 

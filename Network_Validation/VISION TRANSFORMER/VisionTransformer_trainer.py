@@ -216,7 +216,7 @@ def train_vit(
         total_steps=100000,
         warmup_steps=10000,
         base_lr=2e-4,
-        mode="pretrain"  # ou "finetune"
+        mode="finetune"
     ):
     """
         Carregamento dos datasets:

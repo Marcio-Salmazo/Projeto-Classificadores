@@ -169,7 +169,6 @@ class Encoder(nn.Module):
     dropout_rate: float = 0.1
     attention_dropout_rate: float = 0.1
     add_position_embedding: bool = True
-
     dtype: Any = jnp.float32
 
     @nn.compact

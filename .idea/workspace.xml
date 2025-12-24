@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d7d82c-0f0e-405f-bf8d-df928d40b6a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network_Validation/Documentação de testes.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/Documentação de testes.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/ViT_MainTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/ViT_MainTest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/ViT_ModelCreator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/ViT_ModelCreator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/VisionTransformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/VisionTransformer_trainer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
