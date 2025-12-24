@@ -126,10 +126,10 @@ def main():
             tfrecord_val_dir=TFRECORD_DIR,
             output_dir=OUTPUT_DIR,
             mode="finetune",
-            total_steps=10000,
+            total_steps=20000,
             warmup_steps=0,
             batch_size=32,
-            base_lr=3e-4 * (32 / 4096),
+            base_lr=2e-4
         )
 
     # ------------------------------------------------------------

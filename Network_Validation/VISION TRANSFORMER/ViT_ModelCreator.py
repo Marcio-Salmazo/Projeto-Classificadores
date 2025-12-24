@@ -170,6 +170,8 @@ class Encoder(nn.Module):
     attention_dropout_rate: float = 0.1
     add_position_embedding: bool = True
 
+    dtype: Any = jnp.float32
+
     @nn.compact
     def __call__(self, x, *, train: bool):
         # x : (batch, seq_len, emb)
@@ -187,6 +189,7 @@ class Encoder(nn.Module):
             x = Encoder1DBlock(
                 mlp_dim=self.mlp_dim,
                 num_heads=self.num_heads,
+                dtype=self.dtype,
                 dropout_rate=self.dropout_rate,
                 attention_dropout_rate=self.attention_dropout_rate,
                 name=f"encoderblock_{lyr}")(x, deterministic=not train)
