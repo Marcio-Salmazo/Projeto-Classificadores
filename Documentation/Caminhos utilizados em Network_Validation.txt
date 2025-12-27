@@ -1,0 +1,57 @@
+			CAMINHOS UTILIZADOS NOS ALGORITMOS DE VALIDAÇÃO
+
+# ------------------------------------------------------------------------------------------------
+#					    NOTEBOOK:
+# ------------------------------------------------------------------------------------------------
+
+VIT MAIN TEST:
+
+TF_ENV_PYTHON = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores"
+                 r"/.tf_venv/Scripts/python.exe")
+
+TFRECORD_SCRIPT = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores"
+                   r"/Network_Validation/Create_TFRecords.py")
+
+# Diretório onde serão criados: /train/*.tfrecord e /validation/*.tfrecord
+TFRECORD_DIR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores"
+                r"/Datasets/ImageNet_1K")
+
+# Diretório de checkpoints do ViT
+OUTPUT_DIR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)"
+              r"/Projeto-Classificadores/Network_Validation/CHECKPOINTS"
+
+# ------------------------------------------------------------------------------------------------
+
+VISION TRANFORMER TRAINER
+
+pretrained_path = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/"
+                           r"Projeto-Classificadores/Datasets/Pre_Trained/imagenet21k_ViT-B_16.npz")
+
+# ------------------------------------------------------------------------------------------------
+
+CREATE TFRECORDS
+
+TRAIN_TAR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)"
+             r"/Projeto-Classificadores/Datasets/ImageNet_1K/ILSVRC2012_img_train.tar")
+
+VAL_TAR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)"
+             r"/Projeto-Classificadores/Datasets/ImageNet_1K/ILSVRC2012_img_val.tar")
+
+# Diretório onde serão criados: /train/*.tfrecord e /validation/*.tfrecord
+TFRECORD_DIR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores"
+                r"/Datasets/ImageNet_1K")
+
+# Diretório de checkpoints do ViT
+OUTPUT_DIR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)"
+              r"/Projeto-Classificadores/Network_Validation/CHECKPOINTS")
+
+# Diretório de checkpoints do ViT
+VAL_ANNOTATIONS = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)"
+              r"/Projeto-Classificadores/Network_Validation/CHECKPOINTS/Validation_Notes.txt")
+
+DELETE_TARS_AFTER_TFRECORDS = True
+
+# ------------------------------------------------------------------------------------------------
+#					       DESKTOP:
+# ------------------------------------------------------------------------------------------------
+

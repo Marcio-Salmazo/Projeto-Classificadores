@@ -1,0 +1,37 @@
+# ======================================================================================================================
+# Os pacotes devem ser inseridos no ambiente virtual destinado à condução de treinamentos
+# que utilizam especificamente a arquitetura VISION TRANSFORMERS
+# ----------------------------------------------------------------------------------------------------------------------
+# The packages must be inserted into the virtual environment intended for conducting training
+# that specifically uses the VISION TRANSFORMERS architecture
+# ======================================================================================================================
+
+# NumPy moderno — necessário para JAX atual
+numpy>=1.26
+
+# JAX + CUDA 11.x
+jax[cuda11_pip]>=0.4.23
+--find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+jaxlib>=0.4.20
+
+# Frameworks essenciais
+flax==0.8.3
+optax==0.2.4
+chex>=0.1.87
+orbax-checkpoint==0.3.5
+
+# Utilidades
+einops>=0.3.0
+absl-py>=0.12.0
+ml-collections>=0.1.0
+clu>=0.0.3
+
+# Conversão TF → JAX sem TF instalado
+tensorflow-datasets>=4.7.0
+
+# TensorFlow (apenas tf.data / TFRecords)
+tensorflow>=2.13,<2.16
+
+# Utilidades
+tqdm
+scipy

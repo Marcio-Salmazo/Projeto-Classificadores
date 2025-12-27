@@ -6,7 +6,7 @@ A ResNet50 (Residual Network com 50 camadas) é uma das arquiteturas mais popula
 
 O Vision Transformer representa uma mudança de paradigma em visão computacional, pois adapta os mecanismos de atenção originalmente desenvolvidos para processamento de linguagem natural (os Transformers) ao domínio de imagens. Em vez de processar uma imagem por meio de convoluções, o ViT a divide em pequenos blocos (patches), que são tratados como "palavras visuais". Esses blocos são então passados por camadas de autoatenção, que permitem ao modelo aprender relações globais entre diferentes regiões da imagem desde as primeiras etapas do processamento.
 
-
+## (README DESATUALIZADO, NOVAS ATUALIZAÇÕES EM BREVE)
 ## Dados pessoais
 **Nome:** Marcio Salmazo Ramos \
 **Redes sociais e contato:**

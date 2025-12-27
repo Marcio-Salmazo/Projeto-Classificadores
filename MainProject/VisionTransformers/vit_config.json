@@ -1,0 +1,16 @@
+{
+    "dataset_path": "C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores/Datasets/Camundongos/Dados completos para treino",
+    "input_size": 224,
+    "split": 0.2,
+    "patch_size": 16,
+    "hidden_size": 768,
+    "transformer_layers": 12,
+    "num_heads": 12,
+    "mlp_units": 3072,
+    "batch_size": 32,
+    "total_steps": 20000,
+    "warmup_steps": 10000,
+    "base_lr": 0.0002,
+    "mode": "finetune",
+    "weights": "C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores/Datasets/Pre_Trained/imagenet21k_ViT-B_16.npz"
+}

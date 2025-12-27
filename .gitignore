@@ -1,24 +1,7 @@
-# FILES TO IGNORE ON DESKTOP COMPUTER:
-
-#*.h5
-#.venv/
-#.vit_venv/
-#Main_Project/weights
-#Datasets/
-#Network_Validation/VISION TRANSFORMER/Pre-Trained Weights
-#Network_Validation/VISION TRANSFORMER/An Image is worth 16x16 words.pdf
-#Network_Validation/VISION TRANSFORMER/Models and checkpoints/checkpoint_5000
-#.tf_venv/
-
-# FILES TO IGNORE ON LAPTOP COMPUTER:
-
 *.h5
 .venv/
 .vit_venv/
 .tf_venv/
-Main_Project/weights
 Datasets/
-Network_Validation/VISION TRANSFORMER/An Image is worth 16x16 words.pdf
-Network_Validation/CHECKPOINTS/Treino 1 - TESTE/checkpoint_5000
-Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/checkpoint_20000
-Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/checkpoint_5000
+Validation/Checkpoints/Treino 2 - 20K - FineTunning/checkpoint_20000
+Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/checkpoint_5000
