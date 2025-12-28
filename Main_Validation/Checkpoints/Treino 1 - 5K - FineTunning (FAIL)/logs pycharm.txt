@@ -1,0 +1,25 @@
+[004000/10000] loss=2.1354, acc=0.5625
+[004100/10000] loss=1.7008, acc=0.6250
+[004200/10000] loss=1.7804, acc=0.6250
+[004300/10000] loss=2.0371, acc=0.5000
+[004400/10000] loss=1.8406, acc=0.5625
+[004500/10000] loss=2.4649, acc=0.4375
+[004600/10000] loss=1.9976, acc=0.5625
+[004700/10000] loss=1.6713, acc=0.5625
+[004800/10000] loss=1.9858, acc=0.5625
+[004900/10000] loss=0.6557, acc=0.8750
+[005000/10000] loss=1.9197, acc=0.4375
+Traceback (most recent call last):
+  File "C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\Network_Validation\VISION TRANSFORMER\ViT_MainTest.py", line 152, in <module>
+    main()
+  File "C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\Network_Validation\VISION TRANSFORMER\ViT_MainTest.py", line 124, in main
+    train_vit(
+  File "C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\Network_Validation\VISION TRANSFORMER\VisionTransformer_trainer.py", line 331, in train_vit
+    val = evaluate_vit(state, val_iter)
+  File "C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\Network_Validation\VISION TRANSFORMER\VisionTransformer_trainer.py", line 390, in evaluate_vit
+    val_ds = load_tfrecords(
+  File "C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\Network_Validation\Process_ImageNet.py", line 324, in load_tfrecords
+    raise ValueError(f"Nenhum TFRecord encontrado em: {tfrecord_dir}/{split}")
+ValueError: Nenhum TFRecord encontrado em: <tensorflow.python.data.ops.iterator_ops.OwnedIterator object at 0x000001BDCDA64430>/validation
+
+Process finished with exit code 1

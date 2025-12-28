@@ -1,0 +1,7 @@
+# ======================================================================================================================
+# Os pacotes devem ser inseridos no ambiente virtual destinado à condução de treinamentos
+# que utilizam especificamente a arquitetura RESNET-50
+# ----------------------------------------------------------------------------------------------------------------------
+# The packages must be inserted into the virtual environment intended for conducting training
+# that specifically uses the RESNET-50 architecture
+# ======================================================================================================================

@@ -9,318 +9,289 @@
       <change beforePath="$PROJECT_DIR$/.idea/Projeto-Classificadores.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projeto-Classificadores.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/ApplicationModel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/DataLoader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/Interface.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/Main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/ModelCreator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/Parameters.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/PatchOperations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/TrainerThread.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/figures/figNN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/figures/fig_ufu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/figures/icoNN.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste100_200eps_resnet_VIT.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste100eps_resnet_run_1/events.out.tfevents.1762550993.ACER5.15816.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste100eps_resnet_run_1/train/events.out.tfevents.1762550993.ACER5.15816.1.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste100eps_resnet_run_1/validation/events.out.tfevents.1762551185.ACER5.15816.2.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste100eps_vit_tiny_run_3/events.out.tfevents.1762896737.ACER5.30488.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste100eps_vit_tiny_run_3/train/events.out.tfevents.1762896737.ACER5.30488.1.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste100eps_vit_tiny_run_3/validation/events.out.tfevents.1762896827.ACER5.30488.2.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste150balancedRN50_run_6/events.out.tfevents.1763396682.DESKTOP-U4G98NN.23612.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste150balancedRN50_run_6/train/events.out.tfevents.1763396682.DESKTOP-U4G98NN.23612.1.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste150balancedRN50_run_6/validation/events.out.tfevents.1763396725.DESKTOP-U4G98NN.23612.2.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste150balancedVIT_run_7/events.out.tfevents.1763405123.DESKTOP-U4G98NN.32968.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste150balancedVIT_run_7/train/events.out.tfevents.1763405123.DESKTOP-U4G98NN.32968.1.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste150balancedVIT_run_7/validation/events.out.tfevents.1763405155.DESKTOP-U4G98NN.32968.2.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste150eps_resnet_VIT_balanced.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste200resnet_run_4/events.out.tfevents.1763297608.DESKTOP-U4G98NN.15916.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste200resnet_run_4/train/events.out.tfevents.1763297608.DESKTOP-U4G98NN.15916.1.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste200resnet_run_4/validation/events.out.tfevents.1763297694.DESKTOP-U4G98NN.15916.2.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste200vit_run_5/events.out.tfevents.1763314218.DESKTOP-U4G98NN.18472.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste200vit_run_5/train/events.out.tfevents.1763314218.DESKTOP-U4G98NN.18472.1.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste200vit_run_5/validation/events.out.tfevents.1763314281.DESKTOP-U4G98NN.18472.2.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste50eps_CNN_new_run_9/events.out.tfevents.1764171192.DESKTOP-U4G98NN.22792.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste50eps_CNN_new_run_9/train/events.out.tfevents.1764171192.DESKTOP-U4G98NN.22792.1.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/logs/fit/teste50eps_CNN_new_run_9/validation/events.out.tfevents.1764171226.DESKTOP-U4G98NN.22792.2.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/metrics/metricas_teste100eps_resnet.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs pycharm.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/step_005000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 1 - 5K - FineTunning (FAIL)/logs/train_log.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs pycharm.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_000000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_000100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_000200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_000300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_000400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_000500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_000600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_000700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_000800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_000900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_001000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_001100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_001200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_001300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_001400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_001500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_001600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_001700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_001800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_001900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_002000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_002100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_002200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_002300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_002400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_002500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_002600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_002700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_002800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_002900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_003000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_003100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_003200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_003300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_003400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_003500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_003600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_003700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_003800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_003900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_004000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_004100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_004200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_004300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_004400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_004500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_004600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_004700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_004800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_004900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_005000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_005100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_005200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_005300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_005400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_005500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_005600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_005700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_005800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_005900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_006000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_006100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_006200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_006300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_006400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_006500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_006600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_006700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_006800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_006900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_007000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_007100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_007200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_007300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_007400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_007500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_007600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_007700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_007800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_007900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_008000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_008100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_008200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_008300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_008400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_008500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_008600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_008700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_008800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_008900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_009000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_009100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_009200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_009300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_009400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_009500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_009600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_009700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_009800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_009900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_010000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_010100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_010200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_010300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_010400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_010500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_010600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_010700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_010800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_010900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_011000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_011100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_011200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_011300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_011400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_011500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_011600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_011700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_011800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_011900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_012000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_012100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_012200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_012300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_012400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_012500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_012600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_012700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_012800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_012900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_013000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_013100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_013200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_013300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_013400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_013500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_013600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_013700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_013800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_013900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_014000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_014100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_014200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_014300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_014400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_014500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_014600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_014700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_014800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_014900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_015000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_015100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_015200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_015300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_015400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_015500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_015600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_015700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_015800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_015900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_016000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_016100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_016200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_016300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_016400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_016500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_016600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_016700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_016800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_016900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_017000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_017100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_017200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_017300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_017400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_017500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_017600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_017700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_017800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_017900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_018000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_018100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_018200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_018300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_018400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_018500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_018600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_018700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_018800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_018900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_019000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_019100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_019200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_019300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_019400.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_019500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_019600.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_019700.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_019800.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/step_019900.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/logs/train_log.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/CHECKPOINTS/Treino 2 - 20K - FineTunning/train_log.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/Create_TFRecords.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/Documentação de testes.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/Process_ImageNet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/RESNET/Deep Residual Learning for Image Recognition.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/RESNET/Process_Datase.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/RESNET/ResNet50_MainTest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/RESNET/ResNet50_pure.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/RESNET/ResNet50_trainer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/Roteiro de Apresentação.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/An Image is worth 16x16 words.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/Attention is all you Need.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/Validation_Notes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/ViT_CheckpointLoader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/ViT_MainTest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/ViT_ModelCreator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Network_Validation/VISION TRANSFORMER/VisionTransformer_trainer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paths.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vit_requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/DataLoader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/Interface.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/Main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/Parameters.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/ResNet50/ResNet50_Model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/ResNet50/ResNet50_Trainer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/Utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/VisionTransformers/ViT_EntryPoint.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/VisionTransformers/ViT_Model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/VisionTransformers/ViT_Trainer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/VisionTransformers/ViT_Utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/VisionTransformers/vit_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/figures/figNN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/figures/fig_ufu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainProject/figures/icoNN.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/Main_Requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/Validation_TFRecords_Requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs pycharm.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_000900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_001900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_002900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_003900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_004900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/step_005000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/logs/train_log.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs pycharm.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_000000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_000100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_000200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_000300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_000400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_000500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_000600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_000700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_000800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_000900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_001000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_001100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_001200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_001300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_001400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_001500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_001600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_001700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_001800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_001900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_002000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_002100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_002200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_002300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_002400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_002500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_002600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_002700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_002800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_002900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_003000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_003100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_003200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_003300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_003400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_003500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_003600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_003700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_003800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_003900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_004000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_004100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_004200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_004300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_004400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_004500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_004600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_004700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_004800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_004900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_005000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_005100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_005200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_005300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_005400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_005500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_005600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_005700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_005800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_005900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_006000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_006100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_006200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_006300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_006400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_006500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_006600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_006700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_006800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_006900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_007000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_007100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_007200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_007300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_007400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_007500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_007600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_007700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_007800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_007900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_008000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_008100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_008200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_008300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_008400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_008500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_008600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_008700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_008800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_008900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_009000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_009100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_009200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_009300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_009400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_009500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_009600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_009700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_009800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_009900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_010000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_010100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_010200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_010300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_010400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_010500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_010600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_010700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_010800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_010900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_011000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_011100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_011200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_011300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_011400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_011500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_011600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_011700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_011800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_011900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_012000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_012100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_012200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_012300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_012400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_012500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_012600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_012700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_012800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_012900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_013000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_013100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_013200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_013300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_013400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_013500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_013600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_013700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_013800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_013900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_014000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_014100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_014200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_014300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_014400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_014500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_014600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_014700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_014800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_014900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_015000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_015100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_015200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_015300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_015400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_015500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_015600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_015700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_015800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_015900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_016000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_016100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_016200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_016300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_016400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_016500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_016600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_016700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_016800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_016900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_017000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_017100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_017200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_017300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_017400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_017500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_017600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_017700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_017800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_017900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_018000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_018100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_018200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_018300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_018400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_018500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_018600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_018700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_018800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_018900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_019000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_019100.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_019200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_019300.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_019400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_019500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_019600.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_019700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_019800.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/step_019900.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/logs/train_log.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Checkpoints/Treino 2 - 20K - FineTunning/train_log.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Create_TFRecords.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Process_ImageNet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/ResNet-50/Process_Datase.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/ResNet-50/ResNet50_MainTest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/ResNet-50/ResNet50_pure.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/ResNet-50/ResNet50_trainer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Vision Transformers/ViT_CheckpointLoader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Vision Transformers/ViT_MainTest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Vision Transformers/ViT_ModelCreator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/Vision Transformers/VisionTransformer_trainer.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,17 +322,21 @@
     "Python.Interface.executor": "Run",
     "Python.Main.executor": "Run",
     "Python.Parameters.executor": "Run",
+    "Python.ViT_Main.executor": "Run",
     "Python.ViT_MainTest.executor": "Run",
+    "Python.ViT_Trainer.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores/MainProject/Main.py",
+    "last_opened_file_path": "C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores/MainProject/VisionTransformers",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\MainProject\VisionTransformers" />
+      <recent name="C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\MainProject" />
       <recent name="C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\Main\VisionTransformers" />
     </key>
   </component>
@@ -380,7 +355,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MainProject/Main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\MainProject\ViT_Main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />

@@ -3,5 +3,5 @@
 .vit_venv/
 .tf_venv/
 Datasets/
-Validation/Checkpoints/Treino 2 - 20K - FineTunning/checkpoint_20000
-Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/checkpoint_5000
+Main_Validation/Checkpoints/Treino 2 - 20K - FineTunning/checkpoint_20000
+Main_Validation/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/checkpoint_5000

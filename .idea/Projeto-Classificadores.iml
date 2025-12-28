@@ -6,7 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/.vit_venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9 virtualenv at C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\.venv" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.9 virtualenv at C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\.vit_venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">

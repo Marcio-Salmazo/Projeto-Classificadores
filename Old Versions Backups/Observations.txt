@@ -1,0 +1,11 @@
+Em caso de utilizar os scripts do projeto antigo
+é necessário atualizar os caminhos fixos definidos.
+
+Como por exemplo: O caminho do ambiente virtual .vit_venv
+no arquivo Interface.py do diretório
+"Old Main Project Scripts (ViT+Interface)"
+
+Como esses scripts não serão mais utilizados, não 
+fiz toda uma documentação detalhada, contudo, eles
+seguem no repositório como um backup caso sejam 
+necessários futuramente.
