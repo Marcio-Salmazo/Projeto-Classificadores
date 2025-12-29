@@ -29,7 +29,7 @@ class Interface(QWidget):
         self.model = Model()
         self.setWindowTitle("Interface de treinamento unificado")
         self.selected_model = None
-        self.setWindowIcon(QIcon(self.model.resource_path("../Figures/figNN")))
+        self.setWindowIcon(QIcon(self.model.resource_path("Figures/figNN")))
 
         # Layout principal (horizontal), responsável por separar a área que vai mostrar o log de treinamento
         # da seção responsável por conter as funções do programa e configurações da rede
@@ -134,7 +134,7 @@ class Interface(QWidget):
 
         # ---- Inserção de label para inserir a logo da UFU ----
         self.logo_label = QLabel()
-        pixmap = QPixmap(self.model.resource_path("../Figures/fig_ufu.png"))
+        pixmap = QPixmap(self.model.resource_path("Figures/fig_ufu.png"))
         pixmap = pixmap.scaled(150, 150, Qt.KeepAspectRatio, Qt.SmoothTransformation)
         self.logo_label.setPixmap(pixmap)
         self.logo_label.setAlignment(Qt.AlignCenter)  # Centraliza a imagem
