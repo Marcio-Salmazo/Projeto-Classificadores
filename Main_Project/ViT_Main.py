@@ -32,7 +32,7 @@ TRANSFORMER_LAYERS = 12
 NUM_HEADS = 12
 MLP_UNITS = 3072
 BATCH_SIZE_VIT = IMAGE_BATCH_SIZE
-TOTAL_STEPS = 20000
+EPOCHS = 20
 WARMUP_STEPS = 10000
 BASE_LR = 2e-4
 MODE = "finetune"
@@ -154,6 +154,9 @@ def main():
     # ==================================================================================================================
     # CHAMADA DO PRÉ-TREINO
 
+    # OBSERVAÇÃO: TOTAL_STEPS = steps_per_epoch * epochs
+    TOTAL_STEPS = steps_train * EPOCHS
+
     train_vit(
         train_ds=train_ds,
         val_ds=val_ds,
@@ -168,8 +171,11 @@ def main():
         warmup_steps=WARMUP_STEPS,
         base_lr=BASE_LR,
         mode=MODE,
-        weights_path=WEIGHTS_PATH
+        weights_path=WEIGHTS_PATH,
+        steps_per_epoch=steps_train,
     )
+
+    # OBSERVAÇÃO: steps_per_epoch = steps_train * batch_size // batch_size (VER DATALOADER)
 
     # ==================================================================================================================
     # VALIDAÇÃO DO TREINO

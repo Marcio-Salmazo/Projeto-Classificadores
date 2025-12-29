@@ -211,12 +211,13 @@ def train_vit(
         depth=12,
         num_heads=12,
         mlp_dim=3072,
-        num_classes=1000,
-        total_steps=100000,
-        warmup_steps=10000,
+        num_classes=1000, # (VALOR ALEATÓRIO)
+        total_steps=100000, # (VALOR ALEATÓRIO)
+        warmup_steps=10000, # (VALOR ALEATÓRIO)
         base_lr=2e-4,
         mode="finetune",
-        weights_path=None
+        weights_path=None,
+        steps_per_epoch=100, # (VALOR ALEATÓRIO)
     ):
 
     train_iter = iter(train_ds)
@@ -275,6 +276,20 @@ def train_vit(
         tx=optimizer
     )
 
+    # Buffers para métricas de treino (nível epoch)
+    epoch_train_losses = []
+    epoch_train_accs = []
+
+    steps_per_epoch = steps_per_epoch
+    epoch = 0
+
+    # Inicialização do melhor valor de perda
+    best_val_loss = float("inf")
+
+    print("=====================================================")
+    print("           INICIANDO LOOP DE TREINAMENTO             ")
+    print("=====================================================")
+
     # Loop de treinamento
     for step in range(total_steps):
 
@@ -283,34 +298,59 @@ def train_vit(
 
         # gerar RNG novo para dropout
         rng, dropout_rng = jax.random.split(rng)
-        # JIT treino
+        # Apresenta apenas o batch atual e as métricas locais daquele batch
         state, metrics = train_step_jit(state, batch, dropout_rng)
 
-        # Logging ocasional
+        # Acumula métricas do treino
+        epoch_train_losses.append(float(metrics["loss"]))
+        epoch_train_accs.append(float(metrics["accuracy"]))
+
+        # ==============================================================================
+        # Logging ocasional por steps (apenas console)
         if step % 1 == 0:
-            train_log = {
+            print(
+                f"-----------------------------------------------------"
+                f"[{step:06d}/{total_steps}] "
+                f"loss={float(metrics['loss']):.4f}, "
+                f"acc={float(metrics['accuracy']):.4f}"
+            )
+
+        # ==============================================================================
+        # Logging ocasional por épocas
+        # Aqui são feitos a média dos últimos steps_per_epoch batches
+        # As métricas agregadas de treino são armazenadas em JSON e no CSV
+        # Isso representa como o modelo se comportou durante essa época de treino
+        # Essa NÃO é uma etapa de validação
+        if (step + 1) % steps_per_epoch == 0:
+            epoch += 1
+
+            epoch_log = {
+                "epoch": epoch,
                 "step": step,
                 "timestamp": datetime.now().isoformat(),
-                "train_loss": float(metrics["loss"]),
-                "train_accuracy": float(metrics["accuracy"]),
+                "train_loss_epoch": float(np.mean(epoch_train_losses)),
+                "train_accuracy_epoch": float(np.mean(epoch_train_accs)),
             }
 
-            # Salvar JSON do step
-            save_metrics_json(output_dir, step, train_log)
+            # Log estruturado por epoch
+            save_metrics_json(output_dir, step, epoch_log)
+            append_metrics_csv(output_dir, epoch_log)
 
-            # Adicionar ao CSV
-            append_metrics_csv(output_dir, train_log)
+            print(
+                f"-----------------------------------------------------"
+                f"[EPOCH {epoch}] "
+                f"train_loss={epoch_log['train_loss_epoch']:.4f}, "
+                f"train_acc={epoch_log['train_accuracy_epoch']:.4f}"
+            )
 
-            print(f"[{step:06d}/{total_steps}] "
-                  f"loss={train_log['train_loss']:.4f}, "
-                  f"acc={train_log['train_accuracy']:.4f}")
+            # MUITO IMPORTANTE: resetar buffers
+            epoch_train_losses.clear()
+            epoch_train_accs.clear()
 
-
-        # Checkpoint
-        if step % 1000 == 0 and step > 0:
-            checkpoints.save_checkpoint(output_dir, state, step, overwrite=True)
-
-        # Avaliação ocasional
+        # ==============================================================================
+        # Avaliação ocasional global aproximada, não pontual
+        # la avalia varios batches do conjunto de validação (definido por num_batches)
+        # É uma validação em uma amostra consistente para acompanhar o comportamento
         if step % 5000 == 0 and step > 0:
             eval_results = evaluate_epoch(
                 state,
@@ -319,31 +359,146 @@ def train_vit(
                 num_classes=num_classes,
             )
 
-            val_log = {
-                "step": step,
-                "timestamp": datetime.now().isoformat(),
-                "val_loss": float(eval_results["loss"]),
-                "val_top1": float(eval_results["top1"]),
-                "val_top5": float(eval_results["top5"]),
-            }
+            if eval_results is None:
+                print("Avaliação ignorada: dataset de validação esgotado.")
+            else:
+                val_log = {
+                    "step": step,
+                    "timestamp": datetime.now().isoformat(),
+                    "val_loss": eval_results["loss"],
+                    "val_top1": eval_results["top1"],
+                    "val_top5": eval_results["top5"],
+                    "val_balanced_acc": eval_results["balanced_accuracy"],
+                    "val_precision_macro": eval_results["precision_macro"],
+                    "val_recall_macro": eval_results["recall_macro"],
+                    "val_f1_macro": eval_results["f1_macro"],
+                }
+                # Salvar JSON para este step
+                save_metrics_json(output_dir, step, val_log)
+                # Escrever linha no CSV
+                append_metrics_csv(output_dir, val_log)
 
-            # Salvar JSON para este step
-            save_metrics_json(output_dir, step, val_log)
+                if eval_results["loss"] < best_val_loss:
+                    best_val_loss = eval_results["loss"]
 
-            # Escrever linha no CSV
-            append_metrics_csv(output_dir, val_log)
+                    # Armazenamento dos Checkpoints
+                    # São responsáveis por armazenar pesos do modelo, estado do otimizador e step
+                    # Importantes para recuperação em caso de falha e seleção do melhor modelo
+                    # OBS: O melhor modelo quase nunca é o último step.
+                    # Permitem a continuidade do treino
+                    checkpoints.save_checkpoint(
+                        output_dir,
+                        state,
+                        step,
+                        prefix="best_",
+                        overwrite=True
+                    )
+                    print("Novo melhor modelo salvo!")
 
-            print(f"val_loss={val_log['val_loss']:.4f}, "
-                  f"top1={val_log['val_top1']:.4f}, "
-                  f"top5={val_log['val_top5']:.4f}\n")
+                if "confusion_matrix" in eval_results:
+                    save_confusion_matrix(
+                        output_dir,
+                        step,
+                        eval_results["confusion_matrix"]
+                    )
+
+                print(f"val_loss={val_log['val_loss']:.4f}, "
+                      f"top1={val_log['val_top1']:.4f}, "
+                      f"top5={val_log['val_top5']:.4f}\n")
+
+    print("=====================================================")
+    print("             AVALIAÇÃO FINAL DO MODELO               ")
+    print("=====================================================")
+
+    final_results = evaluate_epoch(
+        state,
+        val_iter,
+        num_batches=200,  # ou None se quiser tudo
+        num_classes=num_classes,
+    )
+
+    if final_results is None:
+        print("Avaliação final ignorada: dataset de validação esgotado.")
+    else:
+        final_log = {
+            "step": total_steps,
+            "timestamp": datetime.now().isoformat(),
+            "val_loss_final": final_results["loss"],
+            "val_top1_final": final_results["top1"],
+            "val_top5_final": final_results["top5"],
+            "val_balanced_acc_final": final_results["balanced_accuracy"],
+            "val_precision_macro_final": final_results["precision_macro"],
+            "val_recall_macro_final": final_results["recall_macro"],
+            "val_f1_macro_final": final_results["f1_macro"],
+        }
+
+        save_metrics_json(output_dir, total_steps, final_log)
+        append_metrics_csv(output_dir, final_log)
+
+        if "confusion_matrix" in final_results:
+            save_confusion_matrix(
+                output_dir,
+                total_steps,
+                final_results["confusion_matrix"]
+            )
+
+        print(
+            f">> AVALIÇÃO FINAL: "
+            f"loss={final_log['val_loss_final']:.4f}, "
+            f"top1={final_log['val_top1_final']:.4f}, "
+            f"top5={final_log['val_top5_final']:.4f}"
+        )
 
     # salvar final
-    checkpoints.save_checkpoint(output_dir, state, total_steps, overwrite=True)
-    print("Treino concluído.")
-
+    checkpoints.save_checkpoint(output_dir, state, total_steps, prefix="final_", overwrite=True)
+    print(">> TREINO CONCLUÍDO")
 
 # ======================================================================================================================
-# AVALIAÇÃO DO TREINAMENTO
+#                           FUNÇÕES VOLTADAS PARA A AVALIAÇÃO DO TREINAMENTO
+# ======================================================================================================================
+
+# ======================================================================================================================
+# Accuracy balanceada (importante se dataset não for equilibrado)
+def balanced_accuracy(cm):
+    recalls = np.diag(cm) / (cm.sum(axis=1) + 1e-8)
+    return np.mean(recalls)
+
+# Precision, Recall e F1-score (macro), Sem usar sklearn (boa prática no JAX):
+def precision_recall_f1(cm):
+    tp = np.diag(cm)
+    fp = cm.sum(axis=0) - tp
+    fn = cm.sum(axis=1) - tp
+
+    precision = tp / (tp + fp + 1e-8)
+    recall = tp / (tp + fn + 1e-8)
+    f1 = 2 * precision * recall / (precision + recall + 1e-8)
+
+    return {
+        "precision_macro": np.mean(precision),
+        "recall_macro": np.mean(recall),
+        "f1_macro": np.mean(f1),
+    }
+
+# Cálculo da matriz de confusão
+def compute_confusion_matrix(labels, preds, num_classes):
+    labels = np.asarray(labels)
+    preds = np.asarray(preds)
+    cm = np.zeros((num_classes, num_classes), dtype=np.int64)
+
+    for l, p in zip(labels, preds):
+        cm[l, p] += 1
+
+    return cm
+
+def save_confusion_matrix(output_dir, step, cm):
+    """
+    Salva a matriz de confusão como arquivo .npy
+    """
+    cm_dir = os.path.join(output_dir, "logs", "confusion_matrices")
+    os.makedirs(cm_dir, exist_ok=True)
+
+    path = os.path.join(cm_dir, f"cm_step_{step:06d}.npy")
+    np.save(path, cm)
 
 @jax.jit
 def eval_step_jit(state, batch):
@@ -357,16 +512,6 @@ def eval_step_jit(state, batch):
     metrics = compute_eval_metrics(logits, labels)
     return metrics, logits, labels
 
-def compute_confusion_matrix(labels, preds, num_classes):
-    labels = np.asarray(labels)
-    preds = np.asarray(preds)
-    cm = np.zeros((num_classes, num_classes), dtype=np.int64)
-
-    for l, p in zip(labels, preds):
-        cm[l, p] += 1
-
-    return cm
-
 def evaluate_epoch(
     state,
     val_iter,
@@ -377,7 +522,6 @@ def evaluate_epoch(
         Avalia o modelo em vários batches de validação.
         Retorna métricas agregadas + matriz de confusão.
     """
-
     losses = []
     top1s = []
 
@@ -397,27 +541,24 @@ def evaluate_epoch(
         top1s.append(metrics["top1"])
 
         preds = jnp.argmax(logits, axis=-1)
-
         all_preds.append(preds)
         all_labels.append(labels)
 
     if not losses:
         return None
 
-    # Concatena tudo
-    all_preds = jnp.concatenate(all_preds)
-    all_labels = jnp.concatenate(all_labels)
+    all_preds = np.asarray(jnp.concatenate(all_preds))
+    all_labels = np.asarray(jnp.concatenate(all_labels))
 
     results = {
-        "loss": float(jnp.mean(jnp.array(losses))),
-        "top1": float(jnp.mean(jnp.array(top1s))),
+        "loss": float(np.mean(losses)),
+        "top1": float(np.mean(top1s)),
     }
 
-    # Matriz de confusão (opcional)
     if num_classes is not None:
-        conf_matrix = compute_confusion_matrix(
-            all_labels, all_preds, num_classes
-        )
-        results["confusion_matrix"] = conf_matrix
+        cm = compute_confusion_matrix(all_labels, all_preds, num_classes)
+        results["confusion_matrix"] = cm
+        results["balanced_accuracy"] = balanced_accuracy(cm)
+        results.update(precision_recall_f1(cm))
 
     return results
