@@ -25,6 +25,7 @@ DATASET_SPLIT = 0.2
 
 # ======================================================================================================================
 # PARÂMETROS EXIGIDOS PELA VIT
+# OBSERVAÇÃO: CONFIGURAR O STEPS_PER_EPOCH MAIS A BAIXO NO CÓDIGO (CONFORME NECESSÁRIO)
 
 PATCH_SIZE = 16                 # OBRIGATÓRIO para seguir fielmente a ViT-B/16
 HIDDEN_SIZE = 768               # ⚠️ crítico para a utilização dos pesos pré-treinados
@@ -32,7 +33,7 @@ TRANSFORMER_LAYERS = 12         # ⚠️ crítico para a utilização dos pesos 
 NUM_HEADS = 12                  # ⚠️ crítico para a utilização dos pesos pré-treinados
 MLP_UNITS = 3072                # ⚠️ crítico para a utilização dos pesos pré-treinados
 BATCH_SIZE_VIT = IMAGE_BATCH_SIZE
-EPOCHS = 3
+EPOCHS = 5
 WARMUP_STEPS = 0
 BASE_LR = 1e-4
 MODE = "finetune"
@@ -156,15 +157,14 @@ def main():
     # ==================================================================================================================
     # CHAMADA DO PRÉ-TREINO
 
-    # OBS: STEPS_PER_EPOCH indica a quantidade de steps para percorrer toda a base de dados
-    STEPS_PER_EPOCH = steps_train
+    # Configuração automática de steps por época, com base nos valores obtidos pelo DataLoader
+    # STEPS_PER_EPOCH = steps_train
+
+    # Configuração manual  de steps por época para a condução de testes com uma parcela da base (Sanity-Check)
+    STEPS_PER_EPOCH = 100
+
     TOTAL_STEPS = steps_train * EPOCHS
 
-    '''
-    # Configuração manual para a condução de testes com uma parcela da base (Sanity-Check)
-    STEPS_PER_EPOCH = 100
-    TOTAL_STEPS = 500
-    '''
 
     train_vit(
         train_ds=train_ds,
