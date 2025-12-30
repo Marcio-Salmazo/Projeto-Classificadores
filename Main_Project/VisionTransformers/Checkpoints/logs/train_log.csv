@@ -1,0 +1,2 @@
+epoch,step,timestamp,train_loss_epoch,train_accuracy_epoch
+1,346,2025-12-30T12:10:43.451796,1.0390693285966812,0.4823487031700288

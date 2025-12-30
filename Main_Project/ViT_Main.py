@@ -26,15 +26,15 @@ DATASET_SPLIT = 0.2
 # ======================================================================================================================
 # PARÂMETROS EXIGIDOS PELA VIT
 
-PATCH_SIZE = 16
-HIDDEN_SIZE = 768
-TRANSFORMER_LAYERS = 12
-NUM_HEADS = 12
-MLP_UNITS = 3072
+PATCH_SIZE = 16                 # OBRIGATÓRIO para seguir fielmente a ViT-B/16
+HIDDEN_SIZE = 768               # ⚠️ crítico para a utilização dos pesos pré-treinados
+TRANSFORMER_LAYERS = 12         # ⚠️ crítico para a utilização dos pesos pré-treinados
+NUM_HEADS = 12                  # ⚠️ crítico para a utilização dos pesos pré-treinados
+MLP_UNITS = 3072                # ⚠️ crítico para a utilização dos pesos pré-treinados
 BATCH_SIZE_VIT = IMAGE_BATCH_SIZE
-EPOCHS = 20
-WARMUP_STEPS = 10000
-BASE_LR = 2e-4
+EPOCHS = 3
+WARMUP_STEPS = 0
+BASE_LR = 1e-4
 MODE = "finetune"
 
 # ======================================================================================================================
@@ -92,7 +92,8 @@ def main():
 
     root = tk.Tk()
     root.withdraw()
-    messagebox.showinfo("Info", "Escolha o diretório contendo todo o Dataset para treino")
+    root.attributes("-topmost", True)
+    messagebox.showinfo("Info", "Escolha o diretório contendo todo o Dataset para treino", parent=root)
 
     # VALIDAÇÃO DO CAMINHO DO DATASET
     while True:
@@ -106,7 +107,7 @@ def main():
             continue
         break
 
-    messagebox.showinfo("Info", "Escolha o arquivo de pesos pré-treinados para o Fine-Tuning")
+    messagebox.showinfo("Info", "Escolha o arquivo de pesos pré-treinados para o Fine-Tuning", parent=root)
     # VALIDAÇÃO DO CAMINHO DOS PESOS
     while True:
         WEIGHTS_PATH = open_file()
@@ -115,9 +116,10 @@ def main():
            continue
         break
 
-    print("-----------------------------------------------------------------------------------------------------------")
-    print("INICIANDO PIPELINE DE EXECUÇÃO")
-    print("-----------------------------------------------------------------------------------------------------------")
+    root.destroy()
+    print("-----------------------------------------------------------------------------------------------------------\n")
+    print("INICIANDO PIPELINE DE EXECUÇÃO\n")
+    print("-----------------------------------------------------------------------------------------------------------\n")
 
     # ==================================================================================================================
     # CARREGAMENTO DOS DADOS
@@ -140,22 +142,29 @@ def main():
         steps_val
     ) = dataloader.process_data()
 
-    print("-----------------------------------------------------------------------------------------------------------")
-    print(" ")
+    print("-----------------------------------------------------------------------------------------------------------\n")
+    print("\n")
     print("LOGS PROVENIENTES DO CARREGAMENTO DO DATASET")
-    print(" ")
+    print("\n")
     print("Treinamento: ", log_train)
     print("Validação: ", log_val)
     print("Índices: ", log_indexes)
     print(f"Classes detectadas: {num_classes}\n")
 
-    print("-----------------------------------------------------------------------------------------------------------")
+    print("-----------------------------------------------------------------------------------------------------------\n")
 
     # ==================================================================================================================
     # CHAMADA DO PRÉ-TREINO
 
-    # OBSERVAÇÃO: TOTAL_STEPS = steps_per_epoch * epochs
+    # OBS: STEPS_PER_EPOCH indica a quantidade de steps para percorrer toda a base de dados
+    STEPS_PER_EPOCH = steps_train
     TOTAL_STEPS = steps_train * EPOCHS
+
+    '''
+    # Configuração manual para a condução de testes com uma parcela da base (Sanity-Check)
+    STEPS_PER_EPOCH = 100
+    TOTAL_STEPS = 500
+    '''
 
     train_vit(
         train_ds=train_ds,
@@ -172,10 +181,9 @@ def main():
         base_lr=BASE_LR,
         mode=MODE,
         weights_path=WEIGHTS_PATH,
-        steps_per_epoch=steps_train,
+        steps_per_epoch=STEPS_PER_EPOCH,
+        epochs=EPOCHS
     )
-
-    # OBSERVAÇÃO: steps_per_epoch = steps_train * batch_size // batch_size (VER DATALOADER)
 
     # ==================================================================================================================
     # VALIDAÇÃO DO TREINO

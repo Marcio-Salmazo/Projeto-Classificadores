@@ -218,6 +218,7 @@ def train_vit(
         mode="finetune",
         weights_path=None,
         steps_per_epoch=100, # (VALOR ALEATÓRIO)
+        epochs=5 # (VALOR ALEATÓRIO)
     ):
 
     train_iter = iter(train_ds)
@@ -276,82 +277,85 @@ def train_vit(
         tx=optimizer
     )
 
-    # Buffers para métricas de treino (nível epoch)
-    epoch_train_losses = []
-    epoch_train_accs = []
-
-    steps_per_epoch = steps_per_epoch
-    epoch = 0
-
     # Inicialização do melhor valor de perda
     best_val_loss = float("inf")
 
-    print("=====================================================")
+    print("\n=====================================================\n")
     print("           INICIANDO LOOP DE TREINAMENTO             ")
-    print("=====================================================")
+    print("\n=====================================================\n")
 
-    # Loop de treinamento
-    for step in range(total_steps):
+    for epoch in range(epochs):
 
-        batch_tf = next(train_iter)
-        batch = tf_to_jax(batch_tf)
+        # Buffers para métricas de treino (nível epoch)
+        epoch_train_losses = []
+        epoch_train_accs = []
 
-        # gerar RNG novo para dropout
-        rng, dropout_rng = jax.random.split(rng)
-        # Apresenta apenas o batch atual e as métricas locais daquele batch
-        state, metrics = train_step_jit(state, batch, dropout_rng)
+        # Reinicia o dataset a cada época
+        train_iter = iter(train_ds)
 
-        # Acumula métricas do treino
-        epoch_train_losses.append(float(metrics["loss"]))
-        epoch_train_accs.append(float(metrics["accuracy"]))
+        for step in range(steps_per_epoch):
+            try:
+                batch_tf = next(train_iter)
+            except StopIteration:
+                # segurança extra
+                break
 
-        # ==============================================================================
-        # Logging ocasional por steps (apenas console)
-        if step % 1 == 0:
-            print(
-                f"-----------------------------------------------------"
-                f"[{step:06d}/{total_steps}] "
-                f"loss={float(metrics['loss']):.4f}, "
-                f"acc={float(metrics['accuracy']):.4f}"
-            )
+            batch = tf_to_jax(batch_tf)
 
-        # ==============================================================================
+            # gerar RNG novo para dropout
+            rng, dropout_rng = jax.random.split(rng)
+            # Apresenta apenas o batch atual e as métricas locais daquele batch
+            state, metrics = train_step_jit(state, batch, dropout_rng)
+
+            # Acumula métricas do treino
+            epoch_train_losses.append(float(metrics["loss"]))
+            epoch_train_accs.append(float(metrics["accuracy"]))
+
+            global_step = epoch * steps_per_epoch + step
+
+            if global_step % 5 == 0:
+                print(
+                    f"\n-----------------------------------------------------\n"
+                    f"[{global_step:06d}]"
+                    f"loss={float(metrics['loss']):.4f}, "
+                    f"acc={float(metrics['accuracy']):.4f}"
+                )
+
         # Logging ocasional por épocas
         # Aqui são feitos a média dos últimos steps_per_epoch batches
         # As métricas agregadas de treino são armazenadas em JSON e no CSV
         # Isso representa como o modelo se comportou durante essa época de treino
         # Essa NÃO é uma etapa de validação
-        if (step + 1) % steps_per_epoch == 0:
-            epoch += 1
+        epoch_log = {
+            "epoch": epoch,
+            "timestamp": datetime.now().isoformat(),
+            "train_loss_epoch": float(np.mean(epoch_train_losses)),
+            "train_accuracy_epoch": float(np.mean(epoch_train_accs)),
+        }
 
-            epoch_log = {
-                "epoch": epoch,
-                "step": step,
-                "timestamp": datetime.now().isoformat(),
-                "train_loss_epoch": float(np.mean(epoch_train_losses)),
-                "train_accuracy_epoch": float(np.mean(epoch_train_accs)),
-            }
+        # Log estruturado por epoch
+        save_metrics_json(output_dir, epoch, epoch_log)
+        append_metrics_csv(output_dir, epoch_log)
 
-            # Log estruturado por epoch
-            save_metrics_json(output_dir, step, epoch_log)
-            append_metrics_csv(output_dir, epoch_log)
+        print(
+            f"-----------------------------------------------------"
+            f"[EPOCH {epoch}] "
+            f"train_loss={epoch_log['train_loss_epoch']:.4f}, "
+            f"train_acc={epoch_log['train_accuracy_epoch']:.4f}"
+        )
 
-            print(
-                f"-----------------------------------------------------"
-                f"[EPOCH {epoch}] "
-                f"train_loss={epoch_log['train_loss_epoch']:.4f}, "
-                f"train_acc={epoch_log['train_accuracy_epoch']:.4f}"
-            )
-
-            # MUITO IMPORTANTE: resetar buffers
-            epoch_train_losses.clear()
-            epoch_train_accs.clear()
+        # Resetar buffers
+        epoch_train_losses.clear()
+        epoch_train_accs.clear()
 
         # ==============================================================================
-        # Avaliação ocasional global aproximada, não pontual
+        # Avaliação global aproximada, não pontual a cada 20 épocas
         # la avalia varios batches do conjunto de validação (definido por num_batches)
         # É uma validação em uma amostra consistente para acompanhar o comportamento
-        if step % 5000 == 0 and step > 0:
+
+        if epoch % 20 == 0:
+
+            val_iter = iter(val_ds)
             eval_results = evaluate_epoch(
                 state,
                 val_iter,
@@ -363,7 +367,7 @@ def train_vit(
                 print("Avaliação ignorada: dataset de validação esgotado.")
             else:
                 val_log = {
-                    "step": step,
+                    "epoch": epoch,
                     "timestamp": datetime.now().isoformat(),
                     "val_loss": eval_results["loss"],
                     "val_top1": eval_results["top1"],
@@ -374,9 +378,15 @@ def train_vit(
                     "val_f1_macro": eval_results["f1_macro"],
                 }
                 # Salvar JSON para este step
-                save_metrics_json(output_dir, step, val_log)
+                save_metrics_json(output_dir, epoch, val_log)
                 # Escrever linha no CSV
                 append_metrics_csv(output_dir, val_log)
+
+                print(
+                    f"val_loss={val_log['val_loss']:.4f}, "
+                    f"top1={val_log['val_top1']:.4f}, "
+                    f"top5={val_log['val_top5']:.4f}"
+                )
 
                 if eval_results["loss"] < best_val_loss:
                     best_val_loss = eval_results["loss"]
@@ -389,7 +399,7 @@ def train_vit(
                     checkpoints.save_checkpoint(
                         output_dir,
                         state,
-                        step,
+                        epoch,
                         prefix="best_",
                         overwrite=True
                     )
@@ -398,17 +408,16 @@ def train_vit(
                 if "confusion_matrix" in eval_results:
                     save_confusion_matrix(
                         output_dir,
-                        step,
+                        epoch,
                         eval_results["confusion_matrix"]
                     )
-
-                print(f"val_loss={val_log['val_loss']:.4f}, "
-                      f"top1={val_log['val_top1']:.4f}, "
-                      f"top5={val_log['val_top5']:.4f}\n")
 
     print("=====================================================")
     print("             AVALIAÇÃO FINAL DO MODELO               ")
     print("=====================================================")
+
+    # Reinicializar o val_iter
+    val_iter = iter(val_ds)
 
     final_results = evaluate_epoch(
         state,

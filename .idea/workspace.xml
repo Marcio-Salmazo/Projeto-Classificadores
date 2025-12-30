@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="21d7d82c-0f0e-405f-bf8d-df928d40b6a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Old Versions Backups/Observations.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Old Versions Backups/Old Project Scripts (OG Networks)/Interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/Old Versions Backups/Old Project Scripts (OG Networks)/Interface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Old Versions Backups/Old Project Scripts (ViT+Interface)/Interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/Old Versions Backups/Old Project Scripts (ViT+Interface)/Interface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Old Versions Backups/Old_Requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ViT_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ViT_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/ViT_Trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/ViT_Trainer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
