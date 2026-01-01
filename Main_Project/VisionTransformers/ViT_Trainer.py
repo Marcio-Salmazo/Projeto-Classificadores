@@ -27,7 +27,7 @@ from Main_Project.VisionTransformers.ViT_Utils import load_vit_npz
 
 # ======================================================================================================================
 # AUXILIAR DE LOGS (PARA TREINO E VALIDAÇÃO)
-
+'''
 def save_metrics_json(output_dir, step, metrics):
     """Salva métricas em JSON."""
     logs_dir = os.path.join(output_dir, "logs")
@@ -36,7 +36,31 @@ def save_metrics_json(output_dir, step, metrics):
     filepath = os.path.join(logs_dir, f"step_{step:06d}.json")
     with open(filepath, "w") as f:
         json.dump(metrics, f, indent=4)
+'''
 
+def to_python_type(x):
+    if hasattr(x, "item"):
+        return x.item()
+    return x
+
+def save_metrics_json(output_dir, step_epoch, metrics, mode):
+
+    """Salva métricas em JSON."""
+    logs_dir = os.path.join(output_dir, "logs")
+    os.makedirs(logs_dir, exist_ok=True)
+
+    if mode == 'steps':
+        filepath = os.path.join(logs_dir, f"step_{step_epoch:06d}.json")
+    if mode == 'epochs':
+        filepath = os.path.join(logs_dir, f"epoch_{step_epoch:06d}.json")
+
+    # Converte tudo para tipos nativos
+    safe_metrics = {
+        k: to_python_type(v) for k, v in metrics.items()
+    }
+
+    with open(filepath, "w") as f:
+        json.dump(safe_metrics, f, indent=4)
 
 def append_metrics_csv(output_dir, metrics):
     """Acrescenta linha ao CSV principal de logs."""
@@ -280,9 +304,9 @@ def train_vit(
     # Inicialização do melhor valor de perda
     best_val_loss = float("inf")
 
-    print("\n=====================================================\n")
+    print("=====================================================")
     print("           INICIANDO LOOP DE TREINAMENTO             ")
-    print("\n=====================================================\n")
+    print("=====================================================")
 
     for epoch in range(epochs):
 
@@ -315,7 +339,7 @@ def train_vit(
 
             if global_step % 5 == 0:
                 print(
-                    f"\n-----------------------------------------------------\n"
+                    f"-----------------------------------------------------\n"
                     f"[{global_step:06d}]"
                     f"loss={float(metrics['loss']):.4f}, "
                     f"acc={float(metrics['accuracy']):.4f}"
@@ -334,19 +358,15 @@ def train_vit(
         }
 
         # Log estruturado por epoch
-        save_metrics_json(output_dir, epoch, epoch_log)
+        save_metrics_json(output_dir, epoch, epoch_log, mode='epochs')
         append_metrics_csv(output_dir, epoch_log)
 
         print(
             f"-----------------------------------------------------"
-            f"[EPOCH {epoch}] "
+            f"\n[EPOCH {epoch}]\n"
             f"train_loss={epoch_log['train_loss_epoch']:.4f}, "
             f"train_acc={epoch_log['train_accuracy_epoch']:.4f}"
         )
-
-        # Resetar buffers
-        epoch_train_losses.clear()
-        epoch_train_accs.clear()
 
         # ==============================================================================
         # Avaliação global aproximada, não pontual a cada 20 épocas
@@ -359,26 +379,27 @@ def train_vit(
             eval_results = evaluate_epoch(
                 state,
                 val_iter,
-                num_batches=50,
+                num_batches=None,
                 num_classes=num_classes,
             )
 
             if eval_results is None:
                 print("Avaliação ignorada: dataset de validação esgotado.")
             else:
+
                 val_log = {
-                    "epoch": epoch,
+                    "epoch": int(epoch),
                     "timestamp": datetime.now().isoformat(),
-                    "val_loss": eval_results["loss"],
-                    "val_top1": eval_results["top1"],
-                    "val_top5": eval_results["top5"],
-                    "val_balanced_acc": eval_results["balanced_accuracy"],
-                    "val_precision_macro": eval_results["precision_macro"],
-                    "val_recall_macro": eval_results["recall_macro"],
-                    "val_f1_macro": eval_results["f1_macro"],
+                    "val_loss": float(eval_results["loss"]),
+                    "val_top1": float(eval_results["top1"]),
+                    "val_top5": float(eval_results["top5"]),
+                    "val_balanced_acc": float(eval_results["balanced_accuracy"]),
+                    "val_precision_macro": float(eval_results["precision_macro"]),
+                    "val_recall_macro": float(eval_results["recall_macro"]),
+                    "val_f1_macro": float(eval_results["f1_macro"]),
                 }
                 # Salvar JSON para este step
-                save_metrics_json(output_dir, epoch, val_log)
+                save_metrics_json(output_dir, epoch, val_log,  mode='epochs')
                 # Escrever linha no CSV
                 append_metrics_csv(output_dir, val_log)
 
@@ -412,6 +433,10 @@ def train_vit(
                         eval_results["confusion_matrix"]
                     )
 
+        # Resetar buffers
+        epoch_train_losses.clear()
+        epoch_train_accs.clear()
+
     print("=====================================================")
     print("             AVALIAÇÃO FINAL DO MODELO               ")
     print("=====================================================")
@@ -422,26 +447,29 @@ def train_vit(
     final_results = evaluate_epoch(
         state,
         val_iter,
-        num_batches=200,  # ou None se quiser tudo
+        num_batches=None,  # ou None se quiser tudo
         num_classes=num_classes,
     )
 
     if final_results is None:
         print("Avaliação final ignorada: dataset de validação esgotado.")
     else:
+
         final_log = {
-            "step": total_steps,
+            "step": int(total_steps),
             "timestamp": datetime.now().isoformat(),
-            "val_loss_final": final_results["loss"],
-            "val_top1_final": final_results["top1"],
-            "val_top5_final": final_results["top5"],
-            "val_balanced_acc_final": final_results["balanced_accuracy"],
-            "val_precision_macro_final": final_results["precision_macro"],
-            "val_recall_macro_final": final_results["recall_macro"],
-            "val_f1_macro_final": final_results["f1_macro"],
+
+            "val_loss_final": float(final_results["loss"]),
+            "val_top1_final": float(final_results["top1"]),
+            "val_top5_final": float(final_results["top5"]),
+
+            "val_balanced_acc_final": float(final_results["balanced_accuracy"]),
+            "val_precision_macro_final": float(final_results["precision_macro"]),
+            "val_recall_macro_final": float(final_results["recall_macro"]),
+            "val_f1_macro_final": float(final_results["f1_macro"]),
         }
 
-        save_metrics_json(output_dir, total_steps, final_log)
+        save_metrics_json(output_dir, total_steps, final_log,  mode='steps')
         append_metrics_csv(output_dir, final_log)
 
         if "confusion_matrix" in final_results:
@@ -452,7 +480,7 @@ def train_vit(
             )
 
         print(
-            f">> AVALIÇÃO FINAL: "
+            f">> AVALIÇÃO FINAL: \n"
             f"loss={final_log['val_loss_final']:.4f}, "
             f"top1={final_log['val_top1_final']:.4f}, "
             f"top5={final_log['val_top5_final']:.4f}"
@@ -524,34 +552,49 @@ def eval_step_jit(state, batch):
 def evaluate_epoch(
     state,
     val_iter,
-    num_batches=50,
-    num_classes=None,
+    num_batches=None,
+    num_classes=3,
 ):
     """
-        Avalia o modelo em vários batches de validação.
-        Retorna métricas agregadas + matriz de confusão.
+    Avalia o modelo no conjunto de validação.
+
+    - num_batches = None  → usa o dataset de validação
+    - num_batches = N     → usa apenas N batches
     """
+
     losses = []
     top1s = []
+    top5s = []
 
     all_preds = []
     all_labels = []
 
-    for _ in range(num_batches):
+    batch_count = 0
+
+    while True:
+
+        # Caso num_batches seja definido, ao alcançar o total de iterações, o loop se encerra
+        if num_batches is not None and batch_count >= num_batches:
+            break
+        # Caso contrário, tenta-se obter o próximo batch do dataset.
         try:
             batch_tf = next(val_iter)
+        # Quando o dataset acaba? O iterador lança automaticamente StopIteration
         except StopIteration:
             break
 
         batch = tf_to_jax(batch_tf)
         metrics, logits, labels = eval_step_jit(state, batch)
 
-        losses.append(metrics["loss"])
-        top1s.append(metrics["top1"])
+        losses.append(float(metrics["loss"]))
+        top1s.append(float(metrics["top1"]))
+        top5s.append(float(metrics["top5"]))
 
         preds = jnp.argmax(logits, axis=-1)
         all_preds.append(preds)
         all_labels.append(labels)
+
+        batch_count += 1
 
     if not losses:
         return None
@@ -562,6 +605,7 @@ def evaluate_epoch(
     results = {
         "loss": float(np.mean(losses)),
         "top1": float(np.mean(top1s)),
+        "top5": float(np.mean(top5s)),
     }
 
     if num_classes is not None:
