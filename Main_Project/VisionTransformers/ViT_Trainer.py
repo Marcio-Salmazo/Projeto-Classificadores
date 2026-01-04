@@ -373,7 +373,7 @@ def train_vit(
         # la avalia varios batches do conjunto de validação (definido por num_batches)
         # É uma validação em uma amostra consistente para acompanhar o comportamento
 
-        if epoch % 20 == 0:
+        if epoch % 20 == 0 and epoch != 0:
 
             val_iter = iter(val_ds)
             eval_results = evaluate_epoch(
