@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d7d82c-0f0e-405f-bf8d-df928d40b6a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/confusion_matrices/cm_step_000000.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/confusion_matrices/cm_step_001735.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/epoch_000000.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/epoch_000001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/epoch_000002.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/epoch_000003.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/epoch_000004.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/step_001735.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/train_log.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
