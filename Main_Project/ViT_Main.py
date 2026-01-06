@@ -12,7 +12,12 @@ from tkinter import filedialog, messagebox
 import os
 import sys
 
+
+# Definição da variável de ambiente XLA_PYTHON_CLIENT_ALLOCATOR com o valor "platform" durante a execução do programa.
+# Essa variável é usada por bibliotecas que usam XLA para controlar como a memória é alocada, especialmente em GPU.
+# Evita erros de OOM. A memória tende a ser alocada sob demanda.
 os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
+
 from Main_Project.DataLoader import DataLoader
 from Main_Project.VisionTransformers.ViT_Trainer import train_vit
 

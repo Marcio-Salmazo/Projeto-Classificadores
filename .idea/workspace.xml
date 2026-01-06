@@ -5,17 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d7d82c-0f0e-405f-bf8d-df928d40b6a5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/confusion_matrices/cm_step_000000.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/confusion_matrices/cm_step_001735.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/epoch_000000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/epoch_000001.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/epoch_000002.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/epoch_000003.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/epoch_000004.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/step_001735.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/logs/train_log.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Experimentos conduzidos.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ViT_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ViT_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/Process_Datase.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Validation/ResNet-50/Process_Datase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_MainTest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_pure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_pure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_trainer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/Vision Transformers/ViT_MainTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Validation/Vision Transformers/ViT_MainTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/ResNet_Requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Requirements/ResNet_Requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +63,10 @@
       <recent name="C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\MainProject\VisionTransformers" />
       <recent name="C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\MainProject" />
       <recent name="C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\Main\VisionTransformers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\Main_Validation\ResNet-50" />
+      <recent name="C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\Main_Project\ResNet50" />
     </key>
   </component>
   <component name="RunManager">

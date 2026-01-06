@@ -5,3 +5,13 @@
 # The packages must be inserted into the virtual environment intended for conducting training
 # that specifically uses the RESNET-50 architecture
 # ======================================================================================================================
+
+tensorflow==2.10.1
+tensorflow-datasets==4.7.0
+numpy==1.23.5
+protobuf==3.19.0
+tensorboard==2.10.1
+matplotlib==3.7.3
+tqdm==4.66.1
+Pillow==9.5.0
+

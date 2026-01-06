@@ -43,15 +43,15 @@ class Bottleneck(layers.Layer):
         '''
         self.conv1 = layers.Conv2D(filters1, kernel_size=1, strides=1, padding='valid', use_bias=False,
                                    kernel_regularizer=regularizers.l2(weight_decay))
-        self.bn1 = layers.BatchNormalization()
+        self.bn1 = layers.BatchNormalization(momentum=0.9, epsilon=1e-5)
 
         self.conv2 = layers.Conv2D(filters2, kernel_size=3, strides=stride, padding='same', use_bias=False,
                                    kernel_regularizer=regularizers.l2(weight_decay))
-        self.bn2 = layers.BatchNormalization()
+        self.bn2 = layers.BatchNormalization(momentum=0.9, epsilon=1e-5)
 
         self.conv3 = layers.Conv2D(filters3, kernel_size=1, strides=1, padding='valid', use_bias=False,
                                    kernel_regularizer=regularizers.l2(weight_decay))
-        self.bn3 = layers.BatchNormalization()
+        self.bn3 = layers.BatchNormalization(momentum=0.9, epsilon=1e-5)
 
         self.relu = layers.Activation('relu')
 
@@ -63,7 +63,7 @@ class Bottleneck(layers.Layer):
         if use_shortcut_conv:
             self.shortcut_conv = layers.Conv2D(filters3, kernel_size=1, strides=stride, padding='valid', use_bias=False,
                                                kernel_regularizer=regularizers.l2(weight_decay))
-            self.shortcut_bn = layers.BatchNormalization()
+            self.shortcut_bn = layers.BatchNormalization(momentum=0.9, epsilon=1e-5)
 
     # Construção efetiva das camadas de bottleneck
     def call(self, inputs, training=False):
@@ -141,7 +141,7 @@ class ResNet50_Builder(Model):
         # seguida por 3×3 max pooling (redução espacial inicial).
         self.conv1 = layers.Conv2D(64, kernel_size=7, strides=2, padding='same', use_bias=False,
                                    kernel_regularizer=regularizers.l2(self.weight_decay))
-        self.bn1 = layers.BatchNormalization()
+        self.bn1 = layers.BatchNormalization(momentum=0.9, epsilon=1e-5)
         self.relu = layers.Activation('relu')
         self.maxpool = layers.MaxPool2D(pool_size=3, strides=2, padding='same')
 

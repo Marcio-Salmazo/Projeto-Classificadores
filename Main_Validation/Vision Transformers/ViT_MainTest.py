@@ -9,6 +9,9 @@
 """
 
 import os
+# Definição da variável de ambiente XLA_PYTHON_CLIENT_ALLOCATOR com o valor "platform" durante a execução do programa.
+# Essa variável é usada por bibliotecas que usam XLA para controlar como a memória é alocada, especialmente em GPU.
+# Evita erros de OOM. A memória tende a ser alocada sob demanda.
 os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
 
 import subprocess
@@ -25,11 +28,11 @@ TFRECORD_SCRIPT = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrad
 
 # Diretório onde serão criados: /train/*.tfrecord e /validation/*.tfrecord
 TFRECORD_DIR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores"
-                r"/Datasets/ImageNet_1K")
+                r"/Datasets/ImageNet_\TFRecords")
 
 # Diretório de checkpoints do ViT
 OUTPUT_DIR = (r"C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)"
-              r"/Projeto-Classificadores/Validation/Checkpoints"
+              r"/Projeto-Classificadores/Main_Validation/ResNet-50/Checkpoints"
 )
 
 # ======================================================================================================================

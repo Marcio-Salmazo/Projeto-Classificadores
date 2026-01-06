@@ -394,7 +394,7 @@ que utilizam especificamente a arquitetura VISION TRANSFORMERS, uma vez que, no 
 - tqdm
 - scipy
 
-### Requisitos para o ambiente .cnn_venv (Destinado exclusivamente ao projeto de Validação da ViT):
+### Requisitos para o ambiente .cnn_venv (Destinado exclusivamente ao projeto de Validação da ResNet):
 
 * Os pacotes devem ser inseridos no ambiente virtual destinado à condução de treinamentos
 que utilizam especificamente a arquitetura RESNET-50.
@@ -403,7 +403,14 @@ que utilizam especificamente a arquitetura RESNET-50.
 * Os requisitos a seguir estão alocados em ResNet_Requirements.txt, no diretório 
 './Requirements/' e podem ser instalados via pip.
 
-AINDA NÃO DEFINIDOS
+- tensorflow **2.10.1**
+- tensorflow-datasets **4.9.2**
+- numpy **1.23.5**
+- protobuf **3.20.3**
+- tensorboard **2.10.1**
+- matplotlib **3.7.3**
+- tqdm **4.66.1**
+- Pillow **9.5.0**
 
 ---
 
