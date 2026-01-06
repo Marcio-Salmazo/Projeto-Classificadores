@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d7d82c-0f0e-405f-bf8d-df928d40b6a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Projeto-Classificadores.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projeto-Classificadores.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/Experimentos conduzidos.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/ViT_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ViT_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/Process_Datase.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Validation/ResNet-50/Process_Datase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_MainTest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_pure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_pure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_trainer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/Process_ImageNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Validation/Process_ImageNet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/Process_Datase.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main_Validation/Vision Transformers/ViT_MainTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Validation/Vision Transformers/ViT_MainTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Requirements/ResNet_Requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Requirements/ResNet_Requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,22 +37,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.Interface.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Parameters.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ViT_Main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ViT_MainTest.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ViT_Trainer.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores/MainProject/VisionTransformers&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.Interface.executor": "Run",
+    "Python.Main.executor": "Run",
+    "Python.Parameters.executor": "Run",
+    "Python.ResNet50_Main.executor": "Run",
+    "Python.ViT_Main.executor": "Run",
+    "Python.ViT_MainTest.executor": "Run",
+    "Python.ViT_Trainer.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores/MainProject/VisionTransformers",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\MainProject\VisionTransformers" />

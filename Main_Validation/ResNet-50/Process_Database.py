@@ -104,16 +104,18 @@ def preprocess_val(image, label):
 # ======================================================================================================================
 # FUNÇÃO PLUG-AND-PLAY QUE AGREGA AS DEMAIS
 
-def apply_preprocessing(train_ds, val_ds):
+def apply_preprocessing(train_ds, val_ds, batch_size=256):
     train_ds = (
         train_ds
         .map(preprocess_train, num_parallel_calls=AUTOTUNE)
+        .batch(batch_size, drop_remainder=True)
         .prefetch(AUTOTUNE)
     )
 
     val_ds = (
         val_ds
         .map(preprocess_val, num_parallel_calls=AUTOTUNE)
+        .batch(batch_size, drop_remainder=True)
         .prefetch(AUTOTUNE)
     )
 

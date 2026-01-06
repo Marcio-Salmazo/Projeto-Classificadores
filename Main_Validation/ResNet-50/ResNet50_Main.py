@@ -5,7 +5,7 @@ import os
 from tensorflow.keras import mixed_precision
 from ResNet50_pure import build_resnet50
 from ResNet50_Trainer import ResNet50Trainer
-from Process_Datase import apply_preprocessing
+from Process_Database import apply_preprocessing
 from Main_Validation.Process_ImageNet import load_tfrecords
 import subprocess
 
@@ -25,7 +25,7 @@ def set_global_seed(seed=42):
     np.random.seed(seed)
     tf.random.set_seed(seed)
     os.environ["TF_DETERMINISTIC_OPS"] = "1"
-    print(f"🔒 Seeds fixados (seed={seed}) para reprodutibilidade.")
+    print(f"Seeds fixados (seed={seed}) para reprodutibilidade.")
 
 # ======================================================================================================================
 # Ativação de mixed Precision (opcional, recomendado em GPUs RTX/Ampere)
@@ -64,12 +64,10 @@ TRAIN_SIZE = 1281167    # Valor oficial da ImageNet (Modificar no futuro)
 VAL_SIZE = 50000        # Valor oficial da ImageNet (Modificar no futuro)
 BATCH_SIZE = 256
 
-EPOCHS = 120
+EPOCHS = 2
 INITIAL_LR = 0.1
 MOMENTUM = 0.9
 WEIGHT_DECAY = 1e-4
-TRAIN_SIZE = None
-VAL_SIZE = None
 LOG_DIR = "logs"
 CHECKPOINT = CHECKPOINT_PATH
 
@@ -111,7 +109,7 @@ def tfrecords_exist_safe(tfrecord_dir, num_train_shards=1024, num_val_shards=128
 def build_model():
 
     print("==================================================================")
-    print(">> CONSTRUINDO MODELO RESNET-50\n")
+    print(">> CONSTRUINDO MODELO RESNET-50")
 
     model = build_resnet50(
         input_shape=(IMAGE_SIZE, IMAGE_SIZE, 3),
@@ -129,14 +127,14 @@ def build_model():
 def load_data():
 
     print("==================================================================")
-    print(">> CARREGAMENTO E PREPARAÇÃO DOS TFRECORDS DA IMAGENET\n")
+    print(">> CARREGAMENTO E PREPARAÇÃO DOS TFRECORDS DA IMAGENET (...)")
 
     # ----------------------------------------------------------------
     #       1. CRIAÇÃO DOS TFRECORDS (somente se ainda não existirem)
     # ----------------------------------------------------------------
     if not tfrecords_exist_safe(TFRECORD_DIR):
         print("==================================================================")
-        print(">> TFRECORDS NÃO ENCONTRADOS, INICIANDO A GERAÇÃO DOS ARQUIVOS\n")
+        print(">> TFRECORDS NÃO ENCONTRADOS, INICIANDO A GERAÇÃO DOS ARQUIVOS")
 
         result = subprocess.run(
             [TF_ENV_PYTHON, TFRECORD_SCRIPT],
@@ -148,10 +146,10 @@ def load_data():
         print(result.stderr)
 
         print("==================================================================")
-        print("\n>> TFRECORDS CRIADOS COM SUCESSO!\n")
+        print(">> TFRECORDS CRIADOS COM SUCESSO!")
     else:
         print("==================================================================")
-        print(">> TFRECORDS JÁ EXISTEM, PULANDO A ETAPA DE CRIAÇÃO\n")
+        print(">> TFRECORDS JÁ EXISTEM, PULANDO A ETAPA DE CRIAÇÃO")
 
     # Carrega dados SEM PRE-PROCESSAMENTO
     train_ds = load_tfrecords(
@@ -170,8 +168,8 @@ def load_data():
 
     # Aplica o pré-processamento fiel ao paper
     print("==================================================================")
-    print("APLICANDO O PRÉ-PROCESSAMENTO DA BASE, DESCRITO PELO ARTIGO (...)\n")
-    train_ds_processed, val_ds_processed = apply_preprocessing(train_ds, val_ds)
+    print("APLICANDO O PRÉ-PROCESSAMENTO DA BASE, DESCRITO PELO ARTIGO (...)")
+    train_ds_processed, val_ds_processed = apply_preprocessing(train_ds, val_ds, batch_size=BATCH_SIZE)
 
     print("==================================================================")
     print("BASE DEVIDAMENTE CARREGADA E PRÉ-PROCESSADA")
@@ -209,7 +207,8 @@ def main():
     print("==================================================================")
     print("PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO")
 
-
+if __name__ == "__main__":
+    main()
 
 
 

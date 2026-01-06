@@ -331,8 +331,9 @@ def load_tfrecords(tfrecord_dir, batch_size, train=True, image_size=224, shuffle
         ds = ds.map(lambda im, lab: (tf.image.random_flip_left_right(im), lab), num_parallel_calls=AUTOTUNE)
         ds = ds.repeat()  # treinamento precisa de dataset infinito
 
-    ds = ds.batch(batch_size, drop_remainder=True)
-    ds = ds.prefetch(AUTOTUNE)
+    # DESCOMENTAR AO USAR A VIT
+    # ds = ds.batch(batch_size, drop_remainder=True)
+    # ds = ds.prefetch(AUTOTUNE)
 
     return ds
 

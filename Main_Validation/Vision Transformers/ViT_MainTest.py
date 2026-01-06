@@ -8,6 +8,9 @@
      - Opcionalmente avalia após o treino.
 """
 
+# OBSERVAÇÃO: AO CONDUZIR UM EXPERIMENTO COM A VIT, É NECESSÁRIO DESCOMENTAR O TRECHO INDICADO NA LINHA
+# 334 DO ARQUIVO PROCESS_IMAGENET.py
+
 import os
 # Definição da variável de ambiente XLA_PYTHON_CLIENT_ALLOCATOR com o valor "platform" durante a execução do programa.
 # Essa variável é usada por bibliotecas que usam XLA para controlar como a memória é alocada, especialmente em GPU.
