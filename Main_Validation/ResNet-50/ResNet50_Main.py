@@ -3,6 +3,7 @@ import numpy as np
 import random
 import os
 from tensorflow.keras import mixed_precision
+
 from ResNet50_pure import build_resnet50
 from ResNet50_Trainer import ResNet50Trainer
 from Process_Database import apply_preprocessing
@@ -24,7 +25,6 @@ def set_global_seed(seed=42):
     os.environ["PYTHONHASHSEED"] = str(seed)
     np.random.seed(seed)
     tf.random.set_seed(seed)
-    os.environ["TF_DETERMINISTIC_OPS"] = "1"
     print(f"Seeds fixados (seed={seed}) para reprodutibilidade.")
 
 # ======================================================================================================================
@@ -62,7 +62,7 @@ IMAGE_SIZE = 224
 NUM_CLASSES = 1000
 TRAIN_SIZE = 1281167    # Valor oficial da ImageNet (Modificar no futuro)
 VAL_SIZE = 50000        # Valor oficial da ImageNet (Modificar no futuro)
-BATCH_SIZE = 256
+BATCH_SIZE = 32
 
 EPOCHS = 2
 INITIAL_LR = 0.1
@@ -180,6 +180,8 @@ def load_data():
 
 def main():
 
+    set_global_seed(42)
+    enable_mixed_precision()
     train_dataset, val_dataset = load_data()
     model = build_model()
 
@@ -191,7 +193,7 @@ def main():
 
         num_classes=NUM_CLASSES,
         batch_size=BATCH_SIZE,
-        epochs=120,
+        epochs=EPOCHS,
         initial_lr=0.1,
         momentum=0.9,
         weight_decay=1e-4,
@@ -201,8 +203,6 @@ def main():
         checkpoint_path="checkpoints/resnet50_best.h5"
     )
 
-    print("==================================================================")
-    print("INICIANDO TREINAMENTO (...)")
     trainer.train()
     print("==================================================================")
     print("PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO")

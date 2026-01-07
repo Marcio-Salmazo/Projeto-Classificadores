@@ -45,10 +45,10 @@ class ResNet50Trainer:
         # --------------------------------------------------------------------------------------------------------------
         # Otimizador definido igual ao artigo: SGD + momentum + weight decay (CANÔNICO)
         # --------------------------------------------------------------------------------------------------------------
-        self.optimizer = tf.keras.optimizers.experimental.SGD(
+
+        self.optimizer = tf.keras.optimizers.SGD(
             learning_rate=initial_lr,
-            momentum=momentum,
-            weight_decay=weight_decay
+            momentum=momentum
         )
 
         # --------------------------------------------------------------------------------------------------------------
@@ -65,13 +65,15 @@ class ResNet50Trainer:
                        one-hot, os rótulos são fornecidos como inteiros únicos (ImageNet usa labels inteiros).
                 - Métricas: top-1 accuracy e top-5 accuracy
         """
+
         self.model.compile(
             optimizer=self.optimizer,
             loss=tf.keras.losses.SparseCategoricalCrossentropy(),
             metrics=[
+                "accuracy",
                 tf.keras.metrics.SparseCategoricalAccuracy(name="top1"),
-                tf.keras.metrics.SparseTopKCategoricalAccuracy(k=5, name="top5"),
-            ],
+                tf.keras.metrics.SparseTopKCategoricalAccuracy(k=5, name="top5")
+            ]
         )
 
         # --------------------------------------------------------------------------------------------------------------

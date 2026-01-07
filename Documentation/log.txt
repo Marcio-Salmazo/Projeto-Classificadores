@@ -1,0 +1,56 @@
+==================================================================
+>> CARREGAMENTO E PREPARAÇÃO DOS TFRECORDS DA IMAGENET (...)
+==================================================================
+>> TFRECORDS JÁ EXISTEM, PULANDO A ETAPA DE CRIAÇÃO
+==================================================================
+APLICANDO O PRÉ-PROCESSAMENTO DA BASE, DESCRITO PELO ARTIGO (...)
+==================================================================
+BASE DEVIDAMENTE CARREGADA E PRÉ-PROCESSADA
+==================================================================
+>> CONSTRUINDO MODELO RESNET-50
+Model: "ResNet50_paper"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 224, 224, 3)]     0         
+                                                                 
+ res_net50__builder (ResNet5  (None, 1000)             25610152  
+ 0_Builder)                                                      
+                                                                 
+=================================================================
+Total params: 25,610,152
+Trainable params: 25,557,032
+Non-trainable params: 53,120
+_________________________________________________________________
+==================================================================
+        TREINAMENTO INICIADO COM A ARQUITETURA RESNET-50          
+==================================================================
+>> ÉPOCAS DE TREINAMENTO: 2
+>> STEPS POR ÉPOCA: 40036
+>> QUANTIDADE TOTAL DE STEPS: 80072
+
+==================================================================
+
+Epoch 1: LearningRateScheduler setting learning rate to 0.1.
+Epoch 1/2
+2026-01-06 16:31:33.806747: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+40036/40036 [==============================] - ETA: 0s - loss: 6.9955 - accuracy: 0.0010 - top1: 0.0010 - top5: 0.00552026-01-06 17:56:34.128682: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:390] Filling up shuffle buffer (this may take a while): 8593 of 10000
+2026-01-06 17:56:36.664700: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:415] Shuffle buffer filled.
+
+Epoch 1: val_top5 improved from -inf to 0.00000, saving model to checkpoints\resnet50_best.h5
+40036/40036 [==============================] - 5207s 130ms/step - loss: 6.9955 - accuracy: 0.0010 - top1: 0.0010 - top5: 0.0055 - val_loss: 7.2617 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 0.0000e+00 - lr: 0.1000
+
+Epoch 2: LearningRateScheduler setting learning rate to 0.1.
+Epoch 2/2
+40036/40036 [==============================] - ETA: 0s - loss: 6.8721 - accuracy: 0.0010 - top1: 0.0010 - top5: 0.00552026-01-06 19:22:29.294136: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:390] Filling up shuffle buffer (this may take a while): 7108 of 10000
+2026-01-06 19:22:35.456349: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:415] Shuffle buffer filled.
+
+Epoch 2: val_top5 did not improve from 0.00000
+40036/40036 [==============================] - 5167s 129ms/step - loss: 6.8721 - accuracy: 0.0010 - top1: 0.0010 - top5: 0.0055 - val_loss: 7.1523 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 0.0000e+00 - lr: 0.1000
+>> TREINAMENTO FINALIZADO COM SUCESSO
+>> MELHOR MODELO FOI SALVO EM:  checkpoints/resnet50_best.h5
+==================================================================
+==================================================================
+PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO
+
+Process finished with exit code 0
