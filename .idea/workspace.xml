@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d7d82c-0f0e-405f-bf8d-df928d40b6a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Experimentos com ResNet-50.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Experimentos com ResNet-50.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Experimentos com Vision Transformer.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Experimentos com Vision Transformer.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Notas do GPT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Protocolo para garantia de confiabilidade.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Protocolo para garantia de confiabilidade.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/log.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_Trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Validation/ResNet-50/ResNet50_Trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/logs/train/events.out.tfevents.1767727023.ACER5.7476.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/logs/train/events.out.tfevents.1767727116.ACER5.52240.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/logs/train/events.out.tfevents.1767727747.ACER5.34436.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/logs/train/events.out.tfevents.1767727883.ACER5.53988.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/logs/training_metrics.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/logs/validation/events.out.tfevents.1767732984.ACER5.53988.1.v2" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

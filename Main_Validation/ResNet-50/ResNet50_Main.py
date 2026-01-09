@@ -64,7 +64,7 @@ TRAIN_SIZE = 1281167    # Valor oficial da ImageNet (Modificar no futuro)
 VAL_SIZE = 50000        # Valor oficial da ImageNet (Modificar no futuro)
 BATCH_SIZE = 32
 
-EPOCHS = 2
+EPOCHS = 5
 INITIAL_LR = 0.1
 MOMENTUM = 0.9
 WEIGHT_DECAY = 1e-4

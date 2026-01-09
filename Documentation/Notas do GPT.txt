@@ -1,5 +1,0 @@
-A implementação da arquitetura ResNet-50 apresentada está estruturalmente idêntica à descrita em Deep Residual Learning for Image Recognition.
-
-Os blocos bottleneck, as conexões residuais, a estratégia de downsampling, o número de camadas por estágio e a cabeça de classificação seguem fielmente a Tabela 1 e a Figura 5 do artigo.
-
-Pequenas diferenças paramétricas (como hiperparâmetros do BatchNorm) não descaracterizam a arquitetura e não comprometem a validade científica da reprodução.
