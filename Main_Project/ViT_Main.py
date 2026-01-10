@@ -1,12 +1,4 @@
-"""
-    Execução AUTOMÁTICA do pipeline Vision Transformer (ViT) segundo o artigo:
-
-     - Verifica se ImageNet está extraído. Se não estiver → extrai.
-     - Verifica se TFRecords existem. Se não existirem → cria.
-     - Remove os arquivos .tar e a pasta extraída após gerar os TFRecords (para economizar espaço).
-     - Inicia o treinamento (pré-treino).
-     - Opcionalmente avalia após o treino.
-"""
+""" Execução AUTOMÁTICA do pipeline Vision Transformer (ViT) segundo o artigo: """
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import os
@@ -88,7 +80,7 @@ def open_directory():
 # ======================================================================================================================
 # CAMINHOS DOS CHECKPOINTS
 
-OUTPUT_DIR = resource_path("VisionTransformers\\Checkpoints")
+OUTPUT_DIR = resource_path("VisionTransformers\\Results")
 print(str(OUTPUT_DIR))
 
 # ======================================================================================================================
@@ -124,7 +116,7 @@ def main():
 
     root.destroy()
     print("-----------------------------------------------------------------------------------------------------------")
-    print("INICIANDO PIPELINE DE EXECUÇÃO\n")
+    print("                                  INICIANDO PIPELINE DE EXECUÇÃO                                           ")
     print("-----------------------------------------------------------------------------------------------------------")
 
     # ==================================================================================================================
@@ -157,7 +149,7 @@ def main():
     print("Índices: ", log_indexes)
     print(f"Classes detectadas: {num_classes}\n")
 
-    print("-----------------------------------------------------------------------------------------------------------\n")
+    print("-----------------------------------------------------------------------------------------------------------")
 
     # ==================================================================================================================
     # CHAMADA DO PRÉ-TREINO

@@ -1,0 +1,141 @@
+-----------------------------------------------------------------------------------------------------------
+                                  INICIANDO PIPELINE DE EXECUÇÃO                                           
+-----------------------------------------------------------------------------------------------------------
+Found 13841 files belonging to 3 classes.
+Using 11073 files for training.
+Found 13841 files belonging to 3 classes.
+Using 2768 files for validation.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting ImageProjectiveTransformV3 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting ImageProjectiveTransformV3 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformFullIntV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomGetKeyCounter cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting AdjustContrastv2 cause Input "contrast_factor" of op 'AdjustContrastv2' expected to be loop invariant.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformIntV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting ImageProjectiveTransformV3 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting ImageProjectiveTransformV3 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformFullIntV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomGetKeyCounter cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformV2 cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting AdjustContrastv2 cause Input "contrast_factor" of op 'AdjustContrastv2' expected to be loop invariant.
+WARNING:tensorflow:Using a while_loop for converting RngReadAndSkip cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting Bitcast cause there is no registered converter for this op.
+WARNING:tensorflow:Using a while_loop for converting StatelessRandomUniformIntV2 cause there is no registered converter for this op.
+==================================================================
+>> LOGS PROVENIENTES DO CARREGAMENTO DO DATASET
+
+Treinamento:  Dataset de treino com 11104 imagens em 3 classes.
+Validação:  Dataset de validação com 2784 imagens.
+Índices:  Classes: ['Indolor', 'Muita dor', 'Pouca dor']
+Classes detectadas: 3
+==================================================================
+>> CONSTRUINDO MODELO RESNET-50
+Model: "ResNet50_paper"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 224, 224, 3)]     0         
+                                                                 
+ res_net50__builder (ResNet5  (None, 3)                23567299  
+ 0_Builder)                                                      
+                                                                 
+=================================================================
+Total params: 23,567,299
+Trainable params: 23,514,179
+Non-trainable params: 53,120
+_________________________________________________________________
+==================================================================
+        TREINAMENTO INICIADO COM A ARQUITETURA RESNET-50          
+==================================================================
+>> ÉPOCAS DE TREINAMENTO: 5
+>> STEPS POR ÉPOCA: 347
+>> QUANTIDADE TOTAL DE STEPS: 1735
+
+==================================================================
+
+Epoch 1: LearningRateScheduler setting learning rate to 0.1.
+Epoch 1/5
+347/347 [==============================] - ETA: 0s - loss: 2.7221 - accuracy: 0.4351 - top1: 0.4351 - top5: 1.0000
+Epoch 1: val_top5 improved from -inf to 1.00000, saving model to ResNet50/Results/Checkpoints_Sanity_Check_5eps\best_weights.h5
+347/347 [==============================] - 68s 166ms/step - loss: 2.7221 - accuracy: 0.4351 - top1: 0.4351 - top5: 1.0000 - val_loss: 2.6493 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 1.0000 - lr: 0.1000
+
+Epoch 2: LearningRateScheduler setting learning rate to 0.1.
+Epoch 2/5
+346/347 [============================>.] - ETA: 0s - loss: 2.4979 - accuracy: 0.4411 - top1: 0.4411 - top5: 1.0000
+Epoch 2: val_top5 did not improve from 1.00000
+347/347 [==============================] - 72s 200ms/step - loss: 2.4978 - accuracy: 0.4412 - top1: 0.4412 - top5: 1.0000 - val_loss: 2.5244 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 1.0000 - lr: 0.1000
+
+Epoch 3: LearningRateScheduler setting learning rate to 0.1.
+Epoch 3/5
+346/347 [============================>.] - ETA: 0s - loss: 2.3049 - accuracy: 0.4439 - top1: 0.4439 - top5: 1.0000
+Epoch 3: val_top5 did not improve from 1.00000
+347/347 [==============================] - 105s 294ms/step - loss: 2.3049 - accuracy: 0.4439 - top1: 0.4439 - top5: 1.0000 - val_loss: 2.1614 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 1.0000 - lr: 0.1000
+
+Epoch 4: LearningRateScheduler setting learning rate to 0.1.
+Epoch 4/5
+346/347 [============================>.] - ETA: 0s - loss: 2.1394 - accuracy: 0.4365 - top1: 0.4365 - top5: 1.0000
+Epoch 4: val_top5 did not improve from 1.00000
+347/347 [==============================] - 105s 291ms/step - loss: 2.1393 - accuracy: 0.4366 - top1: 0.4366 - top5: 1.0000 - val_loss: 2.0550 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 1.0000 - lr: 0.1000
+
+Epoch 5: LearningRateScheduler setting learning rate to 0.1.
+Epoch 5/5
+346/347 [============================>.] - ETA: 0s - loss: 1.9934 - accuracy: 0.4404 - top1: 0.4404 - top5: 1.0000
+Epoch 5: val_top5 did not improve from 1.00000
+347/347 [==============================] - 105s 291ms/step - loss: 1.9934 - accuracy: 0.4404 - top1: 0.4404 - top5: 1.0000 - val_loss: 2.0596 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 1.0000 - lr: 0.1000
+>> TREINAMENTO FINALIZADO COM SUCESSO
+>> MELHOR MODELO FOI SALVO EM:  ResNet50/Results/Checkpoints_Sanity_Check_5eps/best_weights.h5
+==================================================================
+==================================================================
+PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO
+
+Process finished with exit code 0

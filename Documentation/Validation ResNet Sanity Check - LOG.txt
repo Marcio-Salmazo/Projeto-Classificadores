@@ -1,0 +1,56 @@
+==================================================================
+        TREINAMENTO INICIADO COM A ARQUITETURA RESNET-50          
+==================================================================
+>> ÉPOCAS DE TREINAMENTO: 5
+>> STEPS POR ÉPOCA: 40036
+>> QUANTIDADE TOTAL DE STEPS: 200180
+
+==================================================================
+
+Epoch 1: LearningRateScheduler setting learning rate to 0.1.
+Epoch 1/5
+2026-01-09 12:03:15.754309: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+40036/40036 [==============================] - ETA: 0s - loss: 6.9955 - accuracy: 0.0010 - top1: 0.0010 - top5: 0.00552026-01-09 13:25:54.097488: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:390] Filling up shuffle buffer (this may take a while): 9017 of 10000
+2026-01-09 13:25:56.188463: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:415] Shuffle buffer filled.
+
+Epoch 1: val_top5 improved from -inf to 0.00000, saving model to checkpoints\resnet50_best.h5
+40036/40036 [==============================] - 5063s 126ms/step - loss: 6.9955 - accuracy: 0.0010 - top1: 0.0010 - top5: 0.0055 - val_loss: 7.2617 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 0.0000e+00 - lr: 0.1000
+
+Epoch 2: LearningRateScheduler setting learning rate to 0.1.
+Epoch 2/5
+40036/40036 [==============================] - ETA: 0s - loss: 6.8720 - accuracy: 9.9910e-04 - top1: 9.9910e-04 - top5: 0.00552026-01-09 14:50:02.890969: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:390] Filling up shuffle buffer (this may take a while): 7214 of 10000
+2026-01-09 14:50:08.649435: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:415] Shuffle buffer filled.
+
+Epoch 2: val_top5 did not improve from 0.00000
+40036/40036 [==============================] - 5060s 126ms/step - loss: 6.8720 - accuracy: 9.9910e-04 - top1: 9.9910e-04 - top5: 0.0055 - val_loss: 7.1523 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 0.0000e+00 - lr: 0.1000
+
+Epoch 3: LearningRateScheduler setting learning rate to 0.1.
+Epoch 3/5
+40036/40036 [==============================] - ETA: 0s - loss: 6.8720 - accuracy: 9.8271e-04 - top1: 9.8271e-04 - top5: 0.00552026-01-09 16:13:43.279634: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:390] Filling up shuffle buffer (this may take a while): 7069 of 10000
+2026-01-09 16:13:49.733875: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:415] Shuffle buffer filled.
+
+Epoch 3: val_top5 did not improve from 0.00000
+40036/40036 [==============================] - 5024s 125ms/step - loss: 6.8720 - accuracy: 9.8271e-04 - top1: 9.8271e-04 - top5: 0.0055 - val_loss: 7.2227 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 0.0000e+00 - lr: 0.1000
+
+Epoch 4: LearningRateScheduler setting learning rate to 0.1.
+Epoch 4/5
+40036/40036 [==============================] - ETA: 0s - loss: 6.8720 - accuracy: 0.0010 - top1: 0.0010 - top5: 0.00552026-01-09 17:37:29.365057: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:390] Filling up shuffle buffer (this may take a while): 6908 of 10000
+2026-01-09 17:37:36.471009: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:415] Shuffle buffer filled.
+
+Epoch 4: val_top5 did not improve from 0.00000
+40036/40036 [==============================] - 5030s 126ms/step - loss: 6.8720 - accuracy: 0.0010 - top1: 0.0010 - top5: 0.0055 - val_loss: 7.2031 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 0.0000e+00 - lr: 0.1000
+
+Epoch 5: LearningRateScheduler setting learning rate to 0.1.
+Epoch 5/5
+40036/40036 [==============================] - ETA: 0s - loss: 6.8720 - accuracy: 0.0010 - top1: 0.0010 - top5: 0.00562026-01-09 19:01:20.259761: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:390] Filling up shuffle buffer (this may take a while): 6652 of 10000
+2026-01-09 19:01:28.275781: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:415] Shuffle buffer filled.
+
+Epoch 5: val_top5 did not improve from 0.00000
+40036/40036 [==============================] - 5037s 126ms/step - loss: 6.8720 - accuracy: 0.0010 - top1: 0.0010 - top5: 0.0056 - val_loss: 7.2227 - val_accuracy: 0.0000e+00 - val_top1: 0.0000e+00 - val_top5: 0.0000e+00 - lr: 0.1000
+>> TREINAMENTO FINALIZADO COM SUCESSO
+>> MELHOR MODELO FOI SALVO EM:  checkpoints/resnet50_best.h5
+==================================================================
+==================================================================
+PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO
+
+Process finished with exit code 0
