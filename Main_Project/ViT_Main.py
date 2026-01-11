@@ -1,17 +1,18 @@
 """ Execução AUTOMÁTICA do pipeline Vision Transformer (ViT) segundo o artigo: """
+import shutil
 import tkinter as tk
-from tkinter import filedialog, messagebox
 import os
-import sys
+from pathlib import Path
 
+import Utils
+from ResNet50.ResNet50_DataLoader import load_data
+from Main_Project.VisionTransformers.ViT_Trainer import train_vit
+from tkinter import messagebox
 
 # Definição da variável de ambiente XLA_PYTHON_CLIENT_ALLOCATOR com o valor "platform" durante a execução do programa.
 # Essa variável é usada por bibliotecas que usam XLA para controlar como a memória é alocada, especialmente em GPU.
 # Evita erros de OOM. A memória tende a ser alocada sob demanda.
 os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
-
-from Main_Project.DataLoader import DataLoader
-from Main_Project.VisionTransformers.ViT_Trainer import train_vit
 
 # ======================================================================================================================
 # PARÂMETROS PARA O CARREGAMENTO DE DADOS
@@ -35,52 +36,13 @@ WARMUP_STEPS = 0
 BASE_LR = 1e-4
 MODE = "finetune"
 
-# ======================================================================================================================
-# FUNÇÃO PARA EXTRAIR O CAMINHO ABSOLUTO
-
-def resource_path(relative_path):
-    """ Retorna o caminho absoluto para o arquivo, compatível com PyInstaller """
-    base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
-    return os.path.join(base_path, relative_path)
-
-# ======================================================================================================================
-# FUNÇÃO PARA EXTRAIR O CAMINHO DO ARQUIVO DE PESOS
-
-def open_file():
-
-    root = tk.Tk()
-    root.withdraw()
-
-    # Open the file explorer and get the full file path
-    file_path = filedialog.askopenfilename(title="Selecione o arquivo de pesos")
-    if not file_path:
-        return None
-    return file_path
-
-# ======================================================================================================================
-# FUNÇÃO PARA OBTER O CAMINHO DE UM DIRETÓRIO VIA EXPLORER
-
-def open_directory():
-    """
-        O tkinter é utilizado para exibir janela do explorer a fim de selecionar a pasta contendo o Dataset.
-            * root = tk.Tk() - instância do tkinter
-            * root.withdraw() -  Oculta a janela principal (para exibir apenas o pop-up)
-            * filedialog.askdirectory(title="") - Abre a janela de seleção de pastas e retorna o caminho escolhido
-    """
-    root = tk.Tk()
-    root.withdraw()
-
-    path = filedialog.askdirectory(title="Selecione a pasta desejada")
-    # Se o usuário cancelar ou fechar a janela, path será ""
-    if not path:
-        return None
-
-    return path
+# Nome do diretório para armazenar o dataset organizado
+DATA_DIR_NAME = f"Dataset_VAL{int(DATASET_SPLIT*100)}%"
 
 # ======================================================================================================================
 # CAMINHOS DOS CHECKPOINTS
 
-OUTPUT_DIR = resource_path("VisionTransformers\\Results")
+OUTPUT_DIR = Utils.resource_path("VisionTransformers\\Results")
 print(str(OUTPUT_DIR))
 
 # ======================================================================================================================
@@ -88,80 +50,81 @@ print(str(OUTPUT_DIR))
 
 def main():
 
-    root = tk.Tk()
-    root.withdraw()
-    root.attributes("-topmost", True)
-    messagebox.showinfo("Info", "Escolha o diretório contendo todo o Dataset para treino", parent=root)
+    # ----------------------------------------------------------------
+    # SELEÇÃO DO DIRETÓRIO CONTENDO O DATASET E VALIDAÇÃO DA ESTRUTURA
+    # ----------------------------------------------------------------
 
-    # VALIDAÇÃO DO CAMINHO DO DATASET
     while True:
-        DATASET_PATH = open_directory()
-        if not DATASET_PATH:
-           print("Seleção de diretório cancelada pelo usuário")
-           continue
-
-        if not os.path.isdir(DATASET_PATH):
-            print("Seleção de diretório inválido")
+        base_datapath = Utils.open_directory('Selecione o diretório contendo a base de dados. Opte por escolher o'
+                                             ' diretório já organizado com as divisões para treino e validação,'
+                                             ' (se houver)')
+        if not base_datapath:
+            messagebox.showinfo("Info", "Seleção de diretório cancelada pelo usuário")
             continue
         break
 
-    messagebox.showinfo("Info", "Escolha o arquivo de pesos pré-treinados para o Fine-Tuning", parent=root)
-    # VALIDAÇÃO DO CAMINHO DOS PESOS
+    # AVALIA SE O CAMINHO SELECIONADO CONTÉM A DIVISÃO DE TRAIN E VAL
+    if not os.path.isdir(f"{base_datapath}/train") or not os.path.isdir(f"{base_datapath}/val"):
+
+        messagebox.showinfo("Info", "A base não contém originalmente a divisão entre treino e validação, "
+                                    "essa estrutura será criada a seguir.")
+        org_data = os.path.join(base_datapath, DATA_DIR_NAME)
+
+        # Exclui o diretório caso ele já existe e recria-o
+        if Path(org_data).exists():
+            shutil.rmtree(Path(org_data))
+        Path(org_data).mkdir(parents=True, exist_ok=True)
+
+        TRAIN_PATH, VAL_PATH = Utils.split_dataset(base_datapath, org_data, val_split=DATASET_SPLIT,
+                      seed=42, extensions=(".jpg", ".jpeg", ".png"))
+
+    else:
+        TRAIN_PATH = f"{base_datapath}/train"
+        VAL_PATH = f"{base_datapath}/val"
+
+    # ----------------------------------------------------------------
+    # SELEÇÃO DO ARQUIVO CONTENDO OS PESOS PRÉ-TREINADOS
+    # ----------------------------------------------------------------
+
+    messagebox.showinfo("Info", "Escolha o arquivo de pesos pré-treinados para o Fine-Tuning")
+
     while True:
-        WEIGHTS_PATH = open_file()
+        WEIGHTS_PATH = Utils.open_file()
         if not WEIGHTS_PATH:
-           print("Seleção do arquivo cancelado pelo usuário")
-           continue
+            print("Seleção do arquivo cancelado pelo usuário")
+            continue
         break
 
-    root.destroy()
-    print("-----------------------------------------------------------------------------------------------------------")
+
+    print("\n-----------------------------------------------------------------------------------------------------------")
     print("                                  INICIANDO PIPELINE DE EXECUÇÃO                                           ")
     print("-----------------------------------------------------------------------------------------------------------")
 
-    # ==================================================================================================================
-    # CARREGAMENTO DOS DADOS
+    # ----------------------------------------------------------------
+    #                   CARREGAMENTO DOS DADOS E LOG
+    # ----------------------------------------------------------------
 
-    dataloader = DataLoader(
-        path=DATASET_PATH,
-        img_size=IMAGE_INPUT_SIZE,
-        batch_size=IMAGE_BATCH_SIZE,
-        val_split=DATASET_SPLIT,
-    )
+    train_ds, val_ds, class_names, num_classes = load_data(TRAIN_PATH, VAL_PATH, IMAGE_BATCH_SIZE)
+    num_train_samples = Utils.count_images(TRAIN_PATH)
+    num_val_samples = Utils.count_images(VAL_PATH)
 
-    (
-        train_ds,
-        val_ds,
-        log_train,
-        log_val,
-        log_indexes,
-        num_classes,
-        steps_train,
-        steps_val
-    ) = dataloader.process_data()
+    print(">> LOGS PROVENIENTES DO CARREGAMENTO DO DATASET\n")
 
-    print("-----------------------------------------------------------------------------------------------------------")
-    print(" ")
-    print("LOGS PROVENIENTES DO CARREGAMENTO DO DATASET")
-    print("")
-    print("Treinamento: ", log_train)
-    print("Validação: ", log_val)
-    print("Índices: ", log_indexes)
+    print("Treinamento: ", num_train_samples)
+    print("Validação: ", num_val_samples)
+    print("Índices: ", class_names)
     print(f"Classes detectadas: {num_classes}\n")
-
-    print("-----------------------------------------------------------------------------------------------------------")
 
     # ==================================================================================================================
     # CHAMADA DO PRÉ-TREINO
 
     # Configuração automática de steps por época, com base nos valores obtidos pelo DataLoader
-    # STEPS_PER_EPOCH = steps_train
+    STEPS_PER_EPOCH = num_train_samples
 
     # Configuração manual  de steps por época para a condução de testes com uma parcela da base (Sanity-Check)
-    STEPS_PER_EPOCH = 100
+    # STEPS_PER_EPOCH = 100
 
-    TOTAL_STEPS = steps_train * EPOCHS
-
+    TOTAL_STEPS = num_train_samples * EPOCHS
 
     train_vit(
         train_ds=train_ds,
@@ -181,9 +144,6 @@ def main():
         steps_per_epoch=STEPS_PER_EPOCH,
         epochs=EPOCHS
     )
-
-    # ==================================================================================================================
-    # VALIDAÇÃO DO TREINO
 
 if __name__ == "__main__":
     main()

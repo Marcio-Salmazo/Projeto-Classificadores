@@ -5,29 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d7d82c-0f0e-405f-bf8d-df928d40b6a5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Projeto-Classificadores.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projeto-Classificadores.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Documentation/Experimentos com ResNet-50.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Experimentos com ResNet-50.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/Experimentos com Vision Transformer.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Experimentos com Vision Transformer.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/ViT Sanity Check - LOG.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Main ResNet Sanity Check - LOG.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Main ViT Sanity Check - LOG.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Validation ResNet Sanity Check - LOG.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/DataLoader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/ResNet50_Trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet50/ResNet50_Trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/ResNet50_pure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet50/ResNet50_Pure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/logs/Sanity_Check_5eps/train/events.out.tfevents.1768060643.ACER5.63340.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/logs/Sanity_Check_5eps/training_metrics.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/logs/Sanity_Check_5eps/training_metrics.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/logs/Sanity_Check_5eps/validation/events.out.tfevents.1768060709.ACER5.63340.1.v2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Main_Project/ResNet_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet_Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main_Project/ViT_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ViT_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/Sanity Check/logs/confusion_matrices/cm_step_000000.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/Sanity Check/logs/confusion_matrices/cm_step_001735.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/Sanity Check/logs/epoch_000000.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/Sanity Check/logs/epoch_000001.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/Sanity Check/logs/epoch_000002.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/Sanity Check/logs/epoch_000003.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/Sanity Check/logs/epoch_000004.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/Sanity Check/logs/step_001735.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Checkpoints/Sanity Check/logs/train_log.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/Test 001 - Sanity Check/log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/Test 001 - Sanity Check/logs/train/events.out.tfevents.1767727023.ACER5.7476.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/Test 001 - Sanity Check/logs/train/events.out.tfevents.1767727116.ACER5.52240.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/Test 001 - Sanity Check/logs/train/events.out.tfevents.1767727747.ACER5.34436.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/Test 001 - Sanity Check/logs/train/events.out.tfevents.1767727883.ACER5.53988.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/Test 001 - Sanity Check/logs/training_metrics.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Validation/ResNet-50/Test 001 - Sanity Check/logs/validation/events.out.tfevents.1767732984.ACER5.53988.1.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/ViT_Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/ViT_Utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,24 +47,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Interface.executor": "Run",
-    "Python.Main.executor": "Run",
-    "Python.Parameters.executor": "Run",
-    "Python.ResNet50_Main.executor": "Run",
-    "Python.ResNet_Main.executor": "Run",
-    "Python.ViT_Main.executor": "Run",
-    "Python.ViT_MainTest.executor": "Run",
-    "Python.ViT_Trainer.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores/Main_Project/ResNet50",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Interface.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Parameters.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ResNet50_Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ResNet_Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ViT_Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ViT_MainTest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ViT_Trainer.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marci_plgx30x/Desktop/Arquivos/Projetos do Mestrado (Git)/Projeto-Classificadores/Main_Project/ResNet50&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\marci_plgx30x\Desktop\Arquivos\Projetos do Mestrado (Git)\Projeto-Classificadores\Main_Project\ResNet50" />

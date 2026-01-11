@@ -2,22 +2,12 @@
 #                      Agregado de utilitários destinados ao carregamento de pesos pré-treinados                       #
 #                      Os pesos estão disponibilizados no repositório oficial do Google Research                       #
 # -------------------------------------------------------------------------------------------------------------------- #
-import os
-import sys
-
 import numpy as np
 import jax.numpy as jnp
 
-# ======================================================================================================================
-#  FUNÇÕES DE RETORNO DO CAMINHO ABSOLUTO
-
-def resource_path(relative_path):
-    """ Retorna o caminho absoluto para o arquivo, compatível com PyInstaller """
-    base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
-    return os.path.join(base_path, relative_path)
-
-# ======================================================================================================================
-#  FUNÇÕES UTILITÁRIAS DE FLATTEN E UNFLATTEN
+# ******************************************************************************************************************** #
+#                                    FUNÇÕES UTILITÁRIAS DE FLATTEN E UNFLATTEN                                        #
+# ******************************************************************************************************************** #
 
 def flatten_dict(d, prefix=""):
     """Transforma dict hierárquico em dict de chaves 'a/b/c'."""
@@ -42,9 +32,9 @@ def unflatten_dict(flat):
         d[parts[-1]] = v
     return root
 
-
-# ======================================================================================================================
-#  REGRAS DE REMAPEAMENTO ESPECÍFICAS (Google → Flax)
+# ******************************************************************************************************************** #
+#                              REGRAS DE REMAPEAMENTO ESPECÍFICAS (Google → Flax)                                      #
+# ******************************************************************************************************************** #
 
 def map_checkpoint_key(key):
     """
@@ -67,8 +57,9 @@ def map_checkpoint_key(key):
     return key
 
 
-# ======================================================================================================================
-#  LOADER PRINCIPAL DE PESOS PRE-TREINADOS
+# ******************************************************************************************************************** #
+#                                              CARREGAMENTO DE PESOS                                                   #
+# ******************************************************************************************************************** #
 
 def load_vit_npz(params, npz_path):
     """

@@ -72,7 +72,6 @@ class ResNet50Trainer:
             metrics=[
                 "accuracy",
                 tf.keras.metrics.SparseCategoricalAccuracy(name="top1"),
-                tf.keras.metrics.SparseTopKCategoricalAccuracy(k=5, name="top5")
             ]
         )
 
@@ -97,10 +96,10 @@ class ResNet50Trainer:
             """
                 Learning rate decay por plateau — fiel ao artigo:
                 - Começa em 0.1
-                - Divide por 10 quando a métrica de avaliação (val_top5) estaciona
+                - Divide por 10 quando a métrica de avaliação (acc) estaciona
             """
         return tf.keras.callbacks.ReduceLROnPlateau(
-            monitor="val_top5",  # métrica usada no paper (erro/top-5)
+            monitor="acc",  # métrica usada no paper (erro/top-5)
             factor=0.1,  # divide LR por 10
             patience=self.patience,  # aguarda 3 épocas sem melhora
             mode="max",
@@ -132,7 +131,7 @@ class ResNet50Trainer:
 
             tf.keras.callbacks.ModelCheckpoint(
                 filepath=checkpoint_path,
-                monitor="val_top5",
+                monitor="accuracy",
                 mode="max",
                 save_best_only=True,
                 save_weights_only=False,

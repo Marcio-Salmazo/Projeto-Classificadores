@@ -1,0 +1,74 @@
+-----------------------------------------------------------------------------------------------------------
+                                  INICIANDO PIPELINE DE EXECUÇÃO                                           
+-----------------------------------------------------------------------------------------------------------
+Found 11074 files belonging to 3 classes.
+Found 2767 files belonging to 3 classes.
+>> LOGS PROVENIENTES DO CARREGAMENTO DO DATASET
+
+Treinamento:  11074
+Validação:  2767
+Índices:  ['Indolor', 'Muita dor', 'Pouca dor']
+Classes detectadas: 3
+
+==================================================================
+>> CONSTRUINDO MODELO RESNET-50
+Model: "ResNet50_paper"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 224, 224, 3)]     0         
+                                                                 
+ res_net50__builder (ResNet5  (None, 3)                23567299  
+ 0_Builder)                                                      
+                                                                 
+=================================================================
+Total params: 23,567,299
+Trainable params: 23,514,179
+Non-trainable params: 53,120
+_________________________________________________________________
+==================================================================
+        TREINAMENTO INICIADO COM A ARQUITETURA RESNET-50          
+==================================================================
+>> ÉPOCAS DE TREINAMENTO: 5
+>> STEPS POR ÉPOCA: 346
+>> QUANTIDADE TOTAL DE STEPS: 1730
+
+==================================================================
+
+Epoch 1: LearningRateScheduler setting learning rate to 0.1.
+Epoch 1/5
+2026-01-11 13:50:54.559439: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+346/346 [==============================] - ETA: 0s - loss: 2.7225 - accuracy: 0.4388 - top1: 0.4388
+Epoch 1: accuracy improved from -inf to 0.43876, saving model to ResNet50/Results/Checkpoints_Sanity_Check_newLoader\best_weights.h5
+346/346 [==============================] - 67s 167ms/step - loss: 2.7225 - accuracy: 0.4388 - top1: 0.4388 - val_loss: 2.6165 - val_accuracy: 0.3848 - val_top1: 0.3848 - lr: 0.1000
+
+Epoch 2: LearningRateScheduler setting learning rate to 0.1.
+Epoch 2/5
+346/346 [==============================] - ETA: 0s - loss: 2.5019 - accuracy: 0.4392 - top1: 0.4392
+Epoch 2: accuracy improved from 0.43876 to 0.43923, saving model to ResNet50/Results/Checkpoints_Sanity_Check_newLoader\best_weights.h5
+346/346 [==============================] - 46s 132ms/step - loss: 2.5019 - accuracy: 0.4392 - top1: 0.4392 - val_loss: 2.3969 - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 3: LearningRateScheduler setting learning rate to 0.1.
+Epoch 3/5
+346/346 [==============================] - ETA: 0s - loss: 2.3084 - accuracy: 0.4454 - top1: 0.4454
+Epoch 3: accuracy improved from 0.43923 to 0.44539, saving model to ResNet50/Results/Checkpoints_Sanity_Check_newLoader\best_weights.h5
+346/346 [==============================] - 46s 132ms/step - loss: 2.3084 - accuracy: 0.4454 - top1: 0.4454 - val_loss: 2.2163 - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 4: LearningRateScheduler setting learning rate to 0.1.
+Epoch 4/5
+346/346 [==============================] - ETA: 0s - loss: 2.1409 - accuracy: 0.4355 - top1: 0.4355
+Epoch 4: accuracy did not improve from 0.44539
+346/346 [==============================] - 46s 132ms/step - loss: 2.1409 - accuracy: 0.4355 - top1: 0.4355 - val_loss: 2.0675 - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 5: LearningRateScheduler setting learning rate to 0.1.
+Epoch 5/5
+346/346 [==============================] - ETA: 0s - loss: 1.9971 - accuracy: 0.4426 - top1: 0.4426
+Epoch 5: accuracy did not improve from 0.44539
+346/346 [==============================] - 46s 133ms/step - loss: 1.9971 - accuracy: 0.4426 - top1: 0.4426 - val_loss: 1.9286 - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+>> TREINAMENTO FINALIZADO COM SUCESSO
+>> MELHOR MODELO FOI SALVO EM:  ResNet50/Results/Checkpoints_Sanity_Check_newLoader/best_weights.h5
+==================================================================
+==================================================================
+PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO
+
+Process finished with exit code 0
