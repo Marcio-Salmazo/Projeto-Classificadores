@@ -371,7 +371,7 @@ def train_vit(
             eval_results = evaluate_epoch(
                 state,
                 val_iter,
-                num_batches=None,
+                num_batches=steps_val,
                 num_classes=num_classes,
             )
 
@@ -540,7 +540,7 @@ def eval_step_jit(state, batch):
 def evaluate_epoch(
     state,
     val_iter,
-    num_batches=None,
+    num_batches=50,
     num_classes=3,
 ):
     """
