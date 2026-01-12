@@ -150,22 +150,13 @@ def compute_train_metrics(logits, labels):
 
 
 def compute_eval_metrics(logits, labels):
-    # Métricas completas usadas na validação (top-1 e top-5)
 
-    top1 = jnp.mean(jnp.argmax(logits, axis=-1) == labels)
-    top5 = jnp.mean(
-        jnp.any(
-            jnp.argsort(logits, axis=-1)[:, -5:] == labels[:, None],
-            axis=-1
-        )
-    )
-    # cross-entropy
-    log_probs = jax.nn.log_softmax(logits)
+    accuracy = jnp.mean(jnp.argmax(logits, axis=-1) == labels)
+    log_probs = jax.nn.log_softmax(logits)     # cross-entropy
     loss = -jnp.mean(log_probs[jnp.arange(labels.size), labels])
     return {
         "loss": loss,
-        "top1": top1,
-        "top5": top5,
+        "accuracy": accuracy
     }
 
 
@@ -235,13 +226,14 @@ def train_vit(
         depth=12,
         num_heads=12,
         mlp_dim=3072,
-        num_classes=1000, # (VALOR ALEATÓRIO)
+        num_classes=1000,   # (VALOR ALEATÓRIO)
         total_steps=100000, # (VALOR ALEATÓRIO)
         warmup_steps=10000, # (VALOR ALEATÓRIO)
         base_lr=2e-4,
         mode="finetune",
         weights_path=None,
         steps_per_epoch=100, # (VALOR ALEATÓRIO)
+        steps_val = 100,     # (VALOR ALEATÓRIO)
         epochs=5 # (VALOR ALEATÓRIO)
     ):
 
@@ -391,8 +383,7 @@ def train_vit(
                     "epoch": int(epoch),
                     "timestamp": datetime.now().isoformat(),
                     "val_loss": float(eval_results["loss"]),
-                    "val_top1": float(eval_results["top1"]),
-                    "val_top5": float(eval_results["top5"]),
+                    "accuracy": float(eval_results["accuracy"]),
                     "val_balanced_acc": float(eval_results["balanced_accuracy"]),
                     "val_precision_macro": float(eval_results["precision_macro"]),
                     "val_recall_macro": float(eval_results["recall_macro"]),
@@ -405,8 +396,7 @@ def train_vit(
 
                 print(
                     f"val_loss={val_log['val_loss']:.4f}, "
-                    f"top1={val_log['val_top1']:.4f}, "
-                    f"top5={val_log['val_top5']:.4f}"
+                    f"accuracy={val_log['val_accuracy']:.4f}, "
                 )
 
                 if eval_results["loss"] < best_val_loss:
@@ -447,7 +437,7 @@ def train_vit(
     final_results = evaluate_epoch(
         state,
         val_iter,
-        num_batches=None,  # ou None se quiser tudo
+        num_batches=steps_val,  # ou None se quiser tudo
         num_classes=num_classes,
     )
 
@@ -460,8 +450,7 @@ def train_vit(
             "timestamp": datetime.now().isoformat(),
 
             "val_loss_final": float(final_results["loss"]),
-            "val_top1_final": float(final_results["top1"]),
-            "val_top5_final": float(final_results["top5"]),
+            "val_accuracy_final": float(final_results["accuracy"]),
 
             "val_balanced_acc_final": float(final_results["balanced_accuracy"]),
             "val_precision_macro_final": float(final_results["precision_macro"]),
@@ -482,8 +471,7 @@ def train_vit(
         print(
             f">> AVALIÇÃO FINAL: \n"
             f"loss={final_log['val_loss_final']:.4f}, "
-            f"top1={final_log['val_top1_final']:.4f}, "
-            f"top5={final_log['val_top5_final']:.4f}"
+            f"accuracy={final_log['val_accuracy_final']:.4f}"
         )
 
     # salvar final
@@ -563,9 +551,7 @@ def evaluate_epoch(
     """
 
     losses = []
-    top1s = []
-    top5s = []
-
+    accs = []
     all_preds = []
     all_labels = []
 
@@ -587,8 +573,7 @@ def evaluate_epoch(
         metrics, logits, labels = eval_step_jit(state, batch)
 
         losses.append(float(metrics["loss"]))
-        top1s.append(float(metrics["top1"]))
-        top5s.append(float(metrics["top5"]))
+        accs.append(float(metrics["accuracy"]))
 
         preds = jnp.argmax(logits, axis=-1)
         all_preds.append(preds)
@@ -604,8 +589,7 @@ def evaluate_epoch(
 
     results = {
         "loss": float(np.mean(losses)),
-        "top1": float(np.mean(top1s)),
-        "top5": float(np.mean(top5s)),
+        "accuracy": float(np.mean(accs))
     }
 
     if num_classes is not None:

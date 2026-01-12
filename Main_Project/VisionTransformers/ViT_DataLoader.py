@@ -28,6 +28,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 # ******************************************************************************************************************** #
 
 AUTOTUNE = tf.data.AUTOTUNE
+VAL_AUTOTUNE = 1
 # ImageNet normalization (canonical)
 IMAGENET_MEAN = tf.constant([0.485, 0.456, 0.406], dtype=tf.float32)
 IMAGENET_STD  = tf.constant([0.229, 0.224, 0.225], dtype=tf.float32)
@@ -93,6 +94,14 @@ def preprocess_val(image, label):
 
 def load_data(train_dir, val_dir, batch_size):
 
+    """
+        Observação: batch_size=None inicialmente garante que o TensorFlow NÃO crie batches automaticamente.
+        Dessa forma, o dataset fica element-wise, não batch-wise. O fluxo de atividades fica:
+
+            * Primeiro: carrega imagem por imagem
+            * Depois: aplica augmentação por imagem
+            * Só então: cria o batch final
+    """
     train_ds_raw = tf.keras.utils.image_dataset_from_directory(
         train_dir,
         labels="inferred",
@@ -126,7 +135,7 @@ def load_data(train_dir, val_dir, batch_size):
         val_ds_raw
         .map(preprocess_val, num_parallel_calls=AUTOTUNE)
         .batch(batch_size)
-        .prefetch(AUTOTUNE)
+        .prefetch(1)
     )
 
     steps_train = tf.data.experimental.cardinality(train_ds_raw).numpy() // batch_size

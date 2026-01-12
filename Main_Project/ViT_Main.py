@@ -119,12 +119,19 @@ def main():
     # CHAMADA DO PRÉ-TREINO
 
     # Configuração automática de steps por época, com base nos valores obtidos pelo DataLoader
-    STEPS_PER_EPOCH = num_train_samples
+    #STEPS_PER_EPOCH = num_train_samples // BATCH_SIZE_VIT
+    #STEPS_VAL = num_val_samples // BATCH_SIZE_VIT
 
     # Configuração manual  de steps por época para a condução de testes com uma parcela da base (Sanity-Check)
-    # STEPS_PER_EPOCH = 100
+    STEPS_PER_EPOCH = 100
+    STEPS_VAL = 50
 
-    TOTAL_STEPS = num_train_samples * EPOCHS
+    TOTAL_STEPS = STEPS_PER_EPOCH * EPOCHS
+
+    print("Total Samples:", num_train_samples)
+    print("Batch size :", BATCH_SIZE_VIT)
+    print("Steps per epoch:", STEPS_PER_EPOCH)
+    print("Total Steps:", TOTAL_STEPS)
 
     train_vit(
         train_ds=train_ds,
@@ -142,6 +149,7 @@ def main():
         mode=MODE,
         weights_path=WEIGHTS_PATH,
         steps_per_epoch=STEPS_PER_EPOCH,
+        steps_val=STEPS_VAL,
         epochs=EPOCHS
     )
 
