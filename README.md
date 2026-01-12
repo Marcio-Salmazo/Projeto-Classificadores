@@ -89,7 +89,7 @@ reprodutibilidade dos testes.
 Para que o código referente ao projeto principal reconheça devidamente a base de dados, é necessário seguir a 
 seguinte estrutura:
 
-    ├── Diretório contendo a base de dados (Arquivos .png)/\
+    ├── Diretório contendo a base de dados (Arquivos .png)/
     │    │
     │    ├── Classe 1 (Diretótio)/
     │    │   └── Conjunto de imagens (Arquivos .png)/
@@ -98,6 +98,33 @@ seguinte estrutura:
     │    │   ...
     │    ├── Classe N (Diretótio)/
     │    │   └── Conjunto de imagens (Arquivos .png)/
+
+Importante destacar que uma das etapas dos scripts principais é a re-organização desta estrutura, de modo que seja
+definida uma divisão da base em conjunto de treino e validaçã, de acordo com a porcentagem definida em 
+código pelo usuário. Após a execução do Script, o diretório utilizado para o treinamento terá a seguinte estrutura:
+
+    └──Diretório reorganizado (Arquivos .png)/
+        │
+        ├── train (Diretótio)/
+        │    ├── Classe 1 (Diretótio)/
+        │    │   └── Conjunto de imagens (Arquivos .png)/
+        │    ├── Classe 2 (Diretótio)/
+        │    │   └── Conjunto de imagens (Arquivos .png)/
+        │    │   ...
+        │    └── Classe N (Diretótio)/
+        │        └── Conjunto de imagens (Arquivos .png)/
+        │   
+        └── val (Diretótio)/
+             ├── Classe 1 (Diretótio)/
+             │   └── Conjunto de imagens (Arquivos .png)/
+             ├── Classe 2 (Diretótio)/
+             │   └── Conjunto de imagens (Arquivos .png)/
+             │   ...
+             └── Classe N (Diretótio)/
+                 └── Conjunto de imagens (Arquivos .png)/
+
+* Observação: Caso a estrutura já esteja organizada com os devidos diretórios de treino
+e validação, o script de organização não é executado e o treino prossegue normalmente.
 
 ## ✔️ Testes de confiabilidade
 
@@ -111,8 +138,11 @@ para adaptá-las aos objetivos específicos deste projeto.
 
 **Estrutura atual do diretório Main_Validadtion:**
 
-
     ├── RESNET/
+    │    ├── Checkpoints/
+    │    │      └── (Diretório contendo os melhores pesos de treinamento)
+    │    ├── logs/
+    │    │      └── (Diretório de logs e relatórios referente ao treinamento)
     │    └── (Arquivos.py referentes à construção e treinamento da rede ResNet50)
     │
     ├── VISION TRANSFORMER/
@@ -141,9 +171,6 @@ e estruturas de dados complexas, serializando-os em um formato de buffer de prot
 * ***Acesso:*** https://arxiv.org/abs/2010.11929
 
 #### Definições exigidas em código:
-Uma vez que a validação não faz parte do escopo do projeto (servindo apenas como um teste preliminar para grantir a 
-confiabilidade das implementações), não foi feita uma interface para definir caminhos e flags. Elas 
-devem sere especificadas diretamente no código.
 
 * **Flags de execução** - Definem o comportamento da execução e estão localizadas no arquivo ***ViT_MainTeste.py:***
 
@@ -195,7 +222,30 @@ devem sere especificadas diretamente no código.
 
 #### Definições exigidas em código:
 
-* AINDA NÃO DEFINIDO
+* **Parâmetros gerais** - Definem os parâmetros de carregamento de dados e de treinamento. 
+Estão localizadas no arquivo ***ResNet_Main.py:***
+
+        - IMAGE_SIZE = Define a dimensão da imagem.
+        - NUM_CLASSES = Definição da quantidade de classes para classificação.
+        - TRAIN_SIZE = Amostras para treinamento (O valor presente no código é padrão da Imagenet).
+        - VAL_SIZE = Amostras para treinamento (O valor presente no código é padrão da Imagenet).
+        - BATCH_SIZE = Tamanho dos batches de treinamento.
+        - EPOCHS = Quantidade de épocas de treinamento.
+        - INITIAL_LR = Learning rate inicial (Ajustado conforme as métricas retornadas).
+        - MOMENTUM = Momentum de treinamento.
+        - WEIGHT_DECAY = Decaimento dos pesos.
+        - LOG_DIR = Nome do diretório onde serão armazenados os arquivos de log.
+        - CHECKPOINT = Caminho do diretório onde serão armazenados os checkpoints.
+
+* **Caminhos (paths) exigidos**:
+
+
+    - TF_ENV_PYTHON = Caminho do ambiente virtual contendo o tensorflow para criação dos TFRecords 
+      (Sem entrar em conflitos com o Jax)
+    - TFRECORD_SCRIPT = Caminho do script responsável por gerenciar os TFRecords
+    - TFRECORD_DIR = Diretório onde serão criados: /train/*.tfrecord e /validation/*.tfrecord
+    - OUTPUT_DIR = Diretório de checkpoints do ViT
+    - CHECKPOINT_PATH = Caminhos para o checkpoint
 
 ---
 
@@ -658,13 +708,20 @@ diretório '.\Main_Project');
   - Exclusão da interface gráfica em razão de incompatibilidade de pacotes;
   - Foco na implementação, validação e experimentação utilizando a arquitetura ViT;
   - Nova re-estruturação da organização dos diretórios;
-  - Organização das implementações anteriores em diretórios de Backup;
+  - Organização das implementações anteriores em diretórios de Backup.
 
+- **v0.5.0**
+  - Correção do carregamento do dataset específico para este projeto;
+  - Foco na implementação, validação e experimentação utilizando a arquitetura ResNet-50;
+  - Adequação da arquitetura ResNet-50 ao projeto principal;
+  - Re-organização do diretório de documentação;
+  - Inclusão do dataset utilizado no mestrado ao repositório.
+  
 ---
 
 ## 👨‍💻 Autores / Contribuidores
 
-- Marcio Salmazo Ramos (Desenvolvedor)
+- Marcio Salmazo Ramos (Desenvolvedor - Aluno de mestrado)
 - Maurício Cunha Escarpinati (Orientador - UFU) 
 - Daniel Duarte Abdala (Co-orientador - UFU)  
 

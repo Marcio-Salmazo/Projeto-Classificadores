@@ -5,23 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d7d82c-0f0e-405f-bf8d-df928d40b6a5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Projeto-Classificadores.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projeto-Classificadores.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Documentation/Experimentos com ResNet-50.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Experimentos com ResNet-50.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/Main ResNet Sanity Check - LOG.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/Main ViT Sanity Check - LOG.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/Validation ResNet Sanity Check - LOG.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/DataLoader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/ResNet50_Trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet50/ResNet50_Trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/ResNet50_pure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet50/ResNet50_Pure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/logs/Sanity_Check_5eps/train/events.out.tfevents.1768060643.ACER5.63340.0.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/logs/Sanity_Check_5eps/training_metrics.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/logs/Sanity_Check_5eps/training_metrics.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/logs/Sanity_Check_5eps/validation/events.out.tfevents.1768060709.ACER5.63340.1.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/ViT_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ViT_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/ViT_Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/ViT_Utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Experimentos com Vision Transformer.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Experimentos com Vision Transformer.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
