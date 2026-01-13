@@ -1,0 +1,10 @@
+{
+    "step": 500,
+    "timestamp": "2026-01-12T21:52:19.461945",
+    "val_loss_final": 0.983125,
+    "val_accuracy_final": 0.783125,
+    "val_balanced_acc_final": 0.3333333333306731,
+    "val_precision_macro_final": 0.2612049197398716,
+    "val_recall_macro_final": 0.3333333333306731,
+    "val_f1_macro_final": 0.2928938739986335
+}
