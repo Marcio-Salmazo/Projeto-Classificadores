@@ -6,7 +6,8 @@
 Datasets/Dataset_Ratos
 Datasets/ImageNet_TFRecords
 Datasets/Pre_Trained_Weights
-Main_Validation/Vision Transformers/Checkpoints/Treino 2 - 20K - FineTunning/checkpoint_20000
-Main_Validation/Vision Transformers/Checkpoints/Treino 1 - 5K - FineTunning (FAIL)/checkpoint_5000
-Main_Project/VisionTransformers/Results/Sanity Check/best_0
-Main_Project/VisionTransformers/Results/Sanity Check/final_1735
+Main_Validation/Vision Transformers/Results/Experimento 1 - ViT/checkpoint_5000
+Main_Validation/Vision Transformers/Results/Experimento 2 - ViT/checkpoint_20000
+Main_Project/VisionTransformers/Results/Experimento 3 - ViT/best_0
+Main_Project/VisionTransformers/Results/Experimento 3 - ViT/final_1735
+Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/final_500

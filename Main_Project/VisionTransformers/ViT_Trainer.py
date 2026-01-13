@@ -396,7 +396,7 @@ def train_vit(
 
                 print(
                     f"val_loss={val_log['val_loss']:.4f}, "
-                    f"accuracy={val_log['val_accuracy']:.4f}, "
+                    f"accuracy={val_log['accuracy']:.4f}, "
                 )
 
                 if eval_results["loss"] < best_val_loss:
@@ -587,9 +587,12 @@ def evaluate_epoch(
     all_preds = np.asarray(jnp.concatenate(all_preds))
     all_labels = np.asarray(jnp.concatenate(all_labels))
 
+    correct = (all_preds == all_labels).sum()
+    total = all_labels.shape[0]
+
     results = {
         "loss": float(np.mean(losses)),
-        "accuracy": float(np.mean(accs))
+        "accuracy": float(correct / total)
     }
 
     if num_classes is not None:
