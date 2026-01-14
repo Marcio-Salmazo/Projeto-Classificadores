@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d7d82c-0f0e-405f-bf8d-df928d40b6a5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/Experimento 4 -ViT- Sanity Check - LOG.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/Experimento 4 -ViT- Sanity Check - LOG.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/Readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/final_500/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/final_500/checkpoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/logs/confusion_matrices/cm_step_000500.npy" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/logs/confusion_matrices/cm_step_000500.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/logs/epoch_000000.json" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/logs/epoch_000000.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/logs/epoch_000001.json" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/logs/epoch_000001.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/logs/epoch_000002.json" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/logs/epoch_000002.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/logs/epoch_000003.json" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/logs/epoch_000003.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/logs/epoch_000004.json" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/logs/epoch_000004.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/logs/step_000500.json" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/logs/step_000500.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/logs/train_log.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/logs/train_log.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Correção 1)/logs/train_log.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/logs/train_log.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
