@@ -81,9 +81,6 @@ utilizados como referência para a validação das arquiteturas de rede, bem com
 à documentação dos experimentos conduzidos, reunindo em um único local todo o material necessário para consulta e 
 reprodutibilidade dos testes. 
 
-   * **Experimentos conduzidos.docx:** Documentação dos exeprimentos conduzidos, por ordem de realização
-   * **Protocolo para garantia de confiabilidade.docx:** Definição do protocolo de validação, em conformidade com os artigo
-
 ## 📂 Estrutura da base de dados para utilização do projeto principal
 
 Para que o código referente ao projeto principal reconheça devidamente a base de dados, é necessário seguir a 
