@@ -1,8 +1,19 @@
+# COMUNS À AMBOS
+
 *.h5
 .venv/
 .vit_venv/
 .tf_venv/
 .cnn_venv/
+
+# ESPECÍFICOS DO DESKTOP
+
+Datasets/DATASET EQUINOS
+Datasets/DATASET IMAGENET
+Datasets/DATASET RATOS
+
+# ESPECÍFICOS DO NOTEBOOK
+
 Datasets/Dataset_Ratos
 Datasets/ImageNet_TFRecords
 Datasets/Pre_Trained_Weights

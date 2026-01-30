@@ -25,11 +25,11 @@ DATASET_SPLIT = 0.2
 # PARÂMETROS EXIGIDOS PELA VIT
 # OBSERVAÇÃO: CONFIGURAR O STEPS_PER_EPOCH MAIS A BAIXO NO CÓDIGO (CONFORME NECESSÁRIO)
 
-PATCH_SIZE = 16                 # OBRIGATÓRIO para seguir fielmente a ViT-B/16
-HIDDEN_SIZE = 768               # ⚠️ crítico para a utilização dos pesos pré-treinados
-TRANSFORMER_LAYERS = 12         # ⚠️ crítico para a utilização dos pesos pré-treinados
-NUM_HEADS = 12                  # ⚠️ crítico para a utilização dos pesos pré-treinados
-MLP_UNITS = 3072                # ⚠️ crítico para a utilização dos pesos pré-treinados
+PATCH_SIZE = 16  # OBRIGATÓRIO para seguir fielmente a ViT-B/16
+HIDDEN_SIZE = 768  # ⚠️ crítico para a utilização dos pesos pré-treinados
+TRANSFORMER_LAYERS = 12  # ⚠️ crítico para a utilização dos pesos pré-treinados
+NUM_HEADS = 12  # ⚠️ crítico para a utilização dos pesos pré-treinados
+MLP_UNITS = 3072  # ⚠️ crítico para a utilização dos pesos pré-treinados
 BATCH_SIZE_VIT = IMAGE_BATCH_SIZE
 EPOCHS = 5
 WARMUP_STEPS = 0
@@ -37,7 +37,7 @@ BASE_LR = 1e-4
 MODE = "finetune"
 
 # Nome do diretório para armazenar o dataset organizado
-DATA_DIR_NAME = f"Dataset_VAL{int(DATASET_SPLIT*100)}%"
+DATA_DIR_NAME = f"Dataset_VAL{int(DATASET_SPLIT * 100)}%"
 
 # ======================================================================================================================
 # CAMINHOS DOS CHECKPOINTS
@@ -45,11 +45,11 @@ DATA_DIR_NAME = f"Dataset_VAL{int(DATASET_SPLIT*100)}%"
 OUTPUT_DIR = Utils.resource_path("VisionTransformers\\Results")
 print(str(OUTPUT_DIR))
 
+
 # ======================================================================================================================
 # EXECUÇÃO PRINCIPAL
 
 def main():
-
     # ----------------------------------------------------------------
     # SELEÇÃO DO DIRETÓRIO CONTENDO O DATASET E VALIDAÇÃO DA ESTRUTURA
     # ----------------------------------------------------------------
@@ -76,7 +76,7 @@ def main():
         Path(org_data).mkdir(parents=True, exist_ok=True)
 
         TRAIN_PATH, VAL_PATH = Utils.split_dataset(base_datapath, org_data, val_split=DATASET_SPLIT,
-                      seed=42, extensions=(".jpg", ".jpeg", ".png"))
+                                                   seed=42, extensions=(".jpg", ".jpeg", ".png"))
 
     else:
         TRAIN_PATH = f"{base_datapath}/train"
@@ -95,8 +95,8 @@ def main():
             continue
         break
 
-
-    print("\n-----------------------------------------------------------------------------------------------------------")
+    print(
+        "\n-----------------------------------------------------------------------------------------------------------")
     print("                                  INICIANDO PIPELINE DE EXECUÇÃO                                           ")
     print("-----------------------------------------------------------------------------------------------------------")
 
@@ -119,8 +119,8 @@ def main():
     # CHAMADA DO PRÉ-TREINO
 
     # Configuração automática de steps por época, com base nos valores obtidos pelo DataLoader
-    #STEPS_PER_EPOCH = num_train_samples // BATCH_SIZE_VIT
-    #STEPS_VAL = num_val_samples // BATCH_SIZE_VIT
+    # STEPS_PER_EPOCH = num_train_samples // BATCH_SIZE_VIT
+    # STEPS_VAL = num_val_samples // BATCH_SIZE_VIT
 
     # Configuração manual  de steps por época para a condução de testes com uma parcela da base (Sanity-Check)
     STEPS_PER_EPOCH = 100
@@ -152,6 +152,7 @@ def main():
         steps_val=STEPS_VAL,
         epochs=EPOCHS
     )
+
 
 if __name__ == "__main__":
     main()

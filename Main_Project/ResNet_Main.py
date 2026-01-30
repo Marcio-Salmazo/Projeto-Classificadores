@@ -36,7 +36,7 @@ WEIGHT_DECAY = 1e-4
 # CAMINHOS DE AMBIENTES, TFRECORDS E SCRIPTS ASSOCIADOS
 
 # Nome do diretório para armazenar o dataset organizado
-DATA_DIR_NAME = f"Dataset_VAL{int(VAL_SPLIT*100)}%"
+DATA_DIR_NAME = f"Dataset_VAL{int(VAL_SPLIT * 100)}%"
 # Diretório de logs de treinamento
 LOG_DIR = f"ResNet50/Results/logs/{RUN_NAME}"
 # Caminho e nome para o checkpoint do treinamento
@@ -54,12 +54,12 @@ else:
 Utils.set_global_seed(42)
 Utils.enable_mixed_precision()
 
+
 # ******************************************************************************************************************** #
 #                                                 EXECUÇÃO PRINCIPAL                                                   #
 # ******************************************************************************************************************** #
 
 def main():
-
     # ----------------------------------------------------------------
     # SELEÇÃO DO DIRETÓRIO CONTENDO O DATASET E VALIDAÇÃO DA ESTRUTURA
     # ----------------------------------------------------------------
@@ -86,13 +86,13 @@ def main():
         Path(org_data).mkdir(parents=True, exist_ok=True)
 
         TRAIN_PATH, VAL_PATH = Utils.split_dataset(base_datapath, org_data, val_split=VAL_SPLIT,
-                      seed=42, extensions=(".jpg", ".jpeg", ".png"))
+                                                   seed=42, extensions=(".jpg", ".jpeg", ".png"))
 
     else:
         TRAIN_PATH = f"{base_datapath}/train"
         VAL_PATH = f"{base_datapath}/val"
 
-    print("\n-----------------------------------------------------------------------------------------------------------")
+    print("-----------------------------------------------------------------------------------------------------------")
     print("                                  INICIANDO PIPELINE DE EXECUÇÃO                                           ")
     print("-----------------------------------------------------------------------------------------------------------")
 
@@ -152,18 +152,6 @@ def main():
     print("==================================================================")
     print("PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO")
 
+
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
