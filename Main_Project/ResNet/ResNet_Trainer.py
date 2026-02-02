@@ -3,7 +3,7 @@ import os
 import math
 
 
-class ResNet50Trainer:
+class ResNet_Trainer:
     """
     Trainer fiel ao paper:
     'Deep Residual Learning for Image Recognition' (He et al.)

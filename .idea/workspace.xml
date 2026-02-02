@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="544fb9f4-5b69-4c91-b4ee-0c035b6679a2" name="Changes" comment="" />
+    <list default="true" id="544fb9f4-5b69-4c91-b4ee-0c035b6679a2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/ResNet50_DataLoader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/ResNet50_Pure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/ResNet50_Pure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/ResNet50_Trainer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 2 - ResNet/Experimento 2 - RN- Sanity Check - LOG.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 2 - ResNet/Experimento 2 - RN- Sanity Check - LOG.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 3 - ResNet/Experimento 3 Sanity Check - LOG.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 3 - ResNet/Experimento 3 Sanity Check - LOG.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 3 - ResNet/train/events.out.tfevents.1768150249.ACER5.58840.0.v2" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 3 - ResNet/train/events.out.tfevents.1768150249.ACER5.58840.0.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 3 - ResNet/training_metrics.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 3 - ResNet/training_metrics.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 3 - ResNet/training_metrics.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 3 - ResNet/training_metrics.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 3 - ResNet/validation/events.out.tfevents.1768150310.ACER5.58840.1.v2" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 3 - ResNet/validation/events.out.tfevents.1768150310.ACER5.58840.1.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 4 - ResNet/Experimento 4  - Pycharm LOG.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 4 - ResNet/Experimento 4  - Pycharm LOG.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 4 - ResNet/train/events.out.tfevents.1769597548.ACER5.11396.0.v2" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 4 - ResNet/train/events.out.tfevents.1769597548.ACER5.11396.0.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 4 - ResNet/train/events.out.tfevents.1769597603.ACER5.6388.0.v2" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 4 - ResNet/train/events.out.tfevents.1769597603.ACER5.6388.0.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 4 - ResNet/training_metrics.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 4 - ResNet/training_metrics.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 4 - ResNet/validation/events.out.tfevents.1769597653.ACER5.6388.1.v2" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 4 - ResNet/validation/events.out.tfevents.1769597653.ACER5.6388.1.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 5 - ResNet/Experimento 5 - Pycharm LOG.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 5 - ResNet/Experimento 5 - Pycharm LOG.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 5 - ResNet/train/events.out.tfevents.1769770760.ACER5.2840.0.v2" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 5 - ResNet/train/events.out.tfevents.1769770760.ACER5.2840.0.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 5 - ResNet/training_metrics.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 5 - ResNet/training_metrics.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 5 - ResNet/training_metrics.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 5 - ResNet/training_metrics.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet50/Results/Experimento 5 - ResNet/validation/events.out.tfevents.1769770839.ACER5.2840.1.v2" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 5 - ResNet/validation/events.out.tfevents.1769770839.ACER5.2840.1.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ViT_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ViT_Main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,16 +48,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
