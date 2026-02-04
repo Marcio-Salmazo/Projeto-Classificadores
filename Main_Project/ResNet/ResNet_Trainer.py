@@ -87,30 +87,31 @@ class ResNet_Trainer:
         O paper não define exatamente quando considerar que ocorreu plateau,
         O repositório oficial em Caffe mostra que plateaus ocorrem APROXIMADAMENTE 
         em pontos que correspondem às epochs 30 e 60, Frameworks modernos adotaram isso como “regra”.
-        
-        ----------------------------------------------------------------------------------------------------------------
-        
         Para uma implementação mais moderna é possível substituir pela função:
-        
-        def lr_scheduler(self):
-            """
-                Learning rate decay por plateau — fiel ao artigo:
-                - Começa em 0.1
-                - Divide por 10 quando a métrica de avaliação (acc) estaciona
-            """
+    '''
+
+    '''
+    def lr_scheduler(self):
+        """
+            Learning rate decay por plateau — fiel ao artigo:
+            - Começa em 0.1
+            - Divide por 10 quando a métrica de avaliação (acc) estaciona
+        """
         return tf.keras.callbacks.ReduceLROnPlateau(
-            monitor="acc",  # métrica usada no paper (erro/top-5)
+            monitor="acc",  # métrica usada no artigo
             factor=0.1,  # divide LR por 10
-            patience=self.patience,  # aguarda 3 épocas sem melhora
+            patience=3,  # aguarda 3 épocas sem melhora
             mode="max",
             verbose=1,
             min_lr=1e-5  # LR mínimo (opcional)
         )
-        
-        ----------------------------------------------------------------------------------------------------------------
-        
     '''
 
+    '''
+        O repositório oficial em Caffe mostra que plateaus ocorrem APROXIMADAMENTE 
+        em pontos que correspondem às epochs 30 e 60, Frameworks modernos adotaram isso como “regra”.
+        A implementação abaixo busca replicar algo semelhante à lógica tradicional do Caffe
+    '''
     def _lr_schedule(self, epoch, lr):
         if epoch < 30:
             return self.initial_lr

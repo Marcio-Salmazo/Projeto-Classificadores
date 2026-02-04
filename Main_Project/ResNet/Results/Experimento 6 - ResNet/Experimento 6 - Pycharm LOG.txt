@@ -1,0 +1,1245 @@
+
+-----------------------------------------------------------------------------------------------------------
+                                  INICIANDO PIPELINE DE EXECUÇÃO                                           
+-----------------------------------------------------------------------------------------------------------
+Found 11074 files belonging to 3 classes.
+Found 2767 files belonging to 3 classes.
+>> LOGS PROVENIENTES DO CARREGAMENTO DO DATASET
+
+Treinamento:  11074
+Validação:  2767
+Índices:  ['Indolor', 'Muita dor', 'Pouca dor']
+Classes detectadas: 3
+
+==================================================================
+>> CONSTRUINDO MODELO RESNET-50
+Model: "ResNet18_paper"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 224, 224, 3)]     0         
+                                                                 
+ res_net18__builder (ResNet1  (None, 3)                11192003  
+ 8_Builder)                                                      
+                                                                 
+=================================================================
+Total params: 11,192,003
+Trainable params: 11,182,275
+Non-trainable params: 9,728
+_________________________________________________________________
+==================================================================
+        TREINAMENTO INICIADO COM A ARQUITETURA RESNET-50          
+==================================================================
+>> ÉPOCAS DE TREINAMENTO: 200
+>> STEPS POR ÉPOCA: 346
+>> QUANTIDADE TOTAL DE STEPS: 69200
+
+==================================================================
+
+Epoch 1: LearningRateScheduler setting learning rate to 0.1.
+Epoch 1/200
+2026-02-02 10:20:47.331780: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4476 - top1: 0.4476
+Epoch 1: accuracy improved from -inf to 0.44762, saving model to ResNet50/Results/Checkpoints_experimento 6\best_weights.h5
+346/346 [==============================] - 46s 111ms/step - loss: nan - accuracy: 0.4476 - top1: 0.4476 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 2: LearningRateScheduler setting learning rate to 0.1.
+Epoch 2/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 2: accuracy improved from 0.44762 to 0.45273, saving model to ResNet50/Results/Checkpoints_experimento 6\best_weights.h5
+346/346 [==============================] - 19s 54ms/step - loss: nan - accuracy: 0.4527 - top1: 0.4527 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 3: LearningRateScheduler setting learning rate to 0.1.
+Epoch 3/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4532 - top1: 0.4532
+Epoch 3: accuracy improved from 0.45273 to 0.45318, saving model to ResNet50/Results/Checkpoints_experimento 6\best_weights.h5
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4532 - top1: 0.4532 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 4: LearningRateScheduler setting learning rate to 0.1.
+Epoch 4/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4520 - top1: 0.4520
+Epoch 4: accuracy did not improve from 0.45318
+346/346 [==============================] - 19s 54ms/step - loss: nan - accuracy: 0.4526 - top1: 0.4526 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 5: LearningRateScheduler setting learning rate to 0.1.
+Epoch 5/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4530 - top1: 0.4530
+Epoch 5: accuracy did not improve from 0.45318
+346/346 [==============================] - 19s 54ms/step - loss: nan - accuracy: 0.4530 - top1: 0.4530 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 6: LearningRateScheduler setting learning rate to 0.1.
+Epoch 6/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4525 - top1: 0.4525
+Epoch 6: accuracy did not improve from 0.45318
+346/346 [==============================] - 19s 54ms/step - loss: nan - accuracy: 0.4525 - top1: 0.4525 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 7: LearningRateScheduler setting learning rate to 0.1.
+Epoch 7/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4526 - top1: 0.4526
+Epoch 7: accuracy did not improve from 0.45318
+346/346 [==============================] - 19s 54ms/step - loss: nan - accuracy: 0.4525 - top1: 0.4525 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 8: LearningRateScheduler setting learning rate to 0.1.
+Epoch 8/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4549 - top1: 0.4549
+Epoch 8: accuracy improved from 0.45318 to 0.45472, saving model to ResNet50/Results/Checkpoints_experimento 6\best_weights.h5
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4547 - top1: 0.4547 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 9: LearningRateScheduler setting learning rate to 0.1.
+Epoch 9/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4504 - top1: 0.4504
+Epoch 9: accuracy did not improve from 0.45472
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4504 - top1: 0.4504 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 10: LearningRateScheduler setting learning rate to 0.1.
+Epoch 10/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4558 - top1: 0.4558
+Epoch 10: accuracy improved from 0.45472 to 0.45517, saving model to ResNet50/Results/Checkpoints_experimento 6\best_weights.h5
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4552 - top1: 0.4552 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 11: LearningRateScheduler setting learning rate to 0.1.
+Epoch 11/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4525 - top1: 0.4525
+Epoch 11: accuracy did not improve from 0.45517
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4525 - top1: 0.4525 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 12: LearningRateScheduler setting learning rate to 0.1.
+Epoch 12/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4524 - top1: 0.4524
+Epoch 12: accuracy did not improve from 0.45517
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4521 - top1: 0.4521 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 13: LearningRateScheduler setting learning rate to 0.1.
+Epoch 13/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4523 - top1: 0.4523
+Epoch 13: accuracy did not improve from 0.45517
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4524 - top1: 0.4524 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 14: LearningRateScheduler setting learning rate to 0.1.
+Epoch 14/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 14: accuracy did not improve from 0.45517
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4527 - top1: 0.4527 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 15: LearningRateScheduler setting learning rate to 0.1.
+Epoch 15/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 15: accuracy did not improve from 0.45517
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4532 - top1: 0.4532 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 16: LearningRateScheduler setting learning rate to 0.1.
+Epoch 16/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4524 - top1: 0.4524
+Epoch 16: accuracy did not improve from 0.45517
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4524 - top1: 0.4524 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 17: LearningRateScheduler setting learning rate to 0.1.
+Epoch 17/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4548 - top1: 0.4548
+Epoch 17: accuracy did not improve from 0.45517
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4548 - top1: 0.4548 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 18: LearningRateScheduler setting learning rate to 0.1.
+Epoch 18/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4533 - top1: 0.4533
+Epoch 18: accuracy did not improve from 0.45517
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4533 - top1: 0.4533 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 19: LearningRateScheduler setting learning rate to 0.1.
+Epoch 19/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4529 - top1: 0.4529
+Epoch 19: accuracy did not improve from 0.45517
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4529 - top1: 0.4529 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 20: LearningRateScheduler setting learning rate to 0.1.
+Epoch 20/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4512 - top1: 0.4512
+Epoch 20: accuracy did not improve from 0.45517
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4512 - top1: 0.4512 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 21: LearningRateScheduler setting learning rate to 0.1.
+Epoch 21/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4517 - top1: 0.4517
+Epoch 21: accuracy did not improve from 0.45517
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4517 - top1: 0.4517 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 22: LearningRateScheduler setting learning rate to 0.1.
+Epoch 22/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4553 - top1: 0.4553
+Epoch 22: accuracy improved from 0.45517 to 0.45590, saving model to ResNet50/Results/Checkpoints_experimento 6\best_weights.h5
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4559 - top1: 0.4559 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 23: LearningRateScheduler setting learning rate to 0.1.
+Epoch 23/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4528 - top1: 0.4528
+Epoch 23: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4528 - top1: 0.4528 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 24: LearningRateScheduler setting learning rate to 0.1.
+Epoch 24/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4509 - top1: 0.4509
+Epoch 24: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4509 - top1: 0.4509 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 25: LearningRateScheduler setting learning rate to 0.1.
+Epoch 25/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4509 - top1: 0.4509
+Epoch 25: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4509 - top1: 0.4509 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 26: LearningRateScheduler setting learning rate to 0.1.
+Epoch 26/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4557 - top1: 0.4557
+Epoch 26: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4557 - top1: 0.4557 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 27: LearningRateScheduler setting learning rate to 0.1.
+Epoch 27/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4547 - top1: 0.4547
+Epoch 27: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4547 - top1: 0.4547 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 28: LearningRateScheduler setting learning rate to 0.1.
+Epoch 28/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4514 - top1: 0.4514
+Epoch 28: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4514 - top1: 0.4514 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 29: LearningRateScheduler setting learning rate to 0.1.
+Epoch 29/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4497 - top1: 0.4497
+Epoch 29: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4497 - top1: 0.4497 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 30: LearningRateScheduler setting learning rate to 0.1.
+Epoch 30/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4546 - top1: 0.4546
+Epoch 30: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4546 - top1: 0.4546 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.1000
+
+Epoch 31: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 31/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4551 - top1: 0.4551
+Epoch 31: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4552 - top1: 0.4552 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 32: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 32/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4522 - top1: 0.4522
+Epoch 32: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4522 - top1: 0.4522 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 33: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 33/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4536 - top1: 0.4536
+Epoch 33: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4535 - top1: 0.4535 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 34: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 34/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4522 - top1: 0.4522
+Epoch 34: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4521 - top1: 0.4521 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 35: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 35/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4537 - top1: 0.4537
+Epoch 35: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4539 - top1: 0.4539 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 36: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 36/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4523 - top1: 0.4523
+Epoch 36: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4525 - top1: 0.4525 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 37: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 37/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4521 - top1: 0.4521
+Epoch 37: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4521 - top1: 0.4521 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 38: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 38/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4545 - top1: 0.4545
+Epoch 38: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4545 - top1: 0.4545 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 39: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 39/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4491 - top1: 0.4491
+Epoch 39: accuracy did not improve from 0.45590
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4492 - top1: 0.4492 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 40: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 40/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4565 - top1: 0.4565
+Epoch 40: accuracy improved from 0.45590 to 0.45653, saving model to ResNet50/Results/Checkpoints_experimento 6\best_weights.h5
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4565 - top1: 0.4565 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 41: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 41/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4536 - top1: 0.4536
+Epoch 41: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4536 - top1: 0.4536 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 42: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 42/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4517 - top1: 0.4517
+Epoch 42: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4517 - top1: 0.4517 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 43: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 43/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4513 - top1: 0.4513
+Epoch 43: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4509 - top1: 0.4509 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 44: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 44/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4550 - top1: 0.4550
+Epoch 44: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4550 - top1: 0.4550 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 45: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 45/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4523 - top1: 0.4523
+Epoch 45: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4523 - top1: 0.4523 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 46: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 46/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4525 - top1: 0.4525
+Epoch 46: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4525 - top1: 0.4525 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 47: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 47/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4534 - top1: 0.4534
+Epoch 47: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4534 - top1: 0.4534 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 48: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 48/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 48: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4527 - top1: 0.4527 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 49: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 49/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4529 - top1: 0.4529
+Epoch 49: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4529 - top1: 0.4529 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 50: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 50/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4520 - top1: 0.4520
+Epoch 50: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4520 - top1: 0.4520 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 51: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 51/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4544 - top1: 0.4544
+Epoch 51: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4544 - top1: 0.4544 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 52: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 52/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 52: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4526 - top1: 0.4526 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 53: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 53/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4522 - top1: 0.4522
+Epoch 53: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4524 - top1: 0.4524 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 54: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 54/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4526 - top1: 0.4526
+Epoch 54: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4526 - top1: 0.4526 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 55: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 55/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4546 - top1: 0.4546
+Epoch 55: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4544 - top1: 0.4544 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 56: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 56/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4521 - top1: 0.4521
+Epoch 56: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4521 - top1: 0.4521 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 57: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 57/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4542 - top1: 0.4542
+Epoch 57: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4542 - top1: 0.4542 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 58: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 58/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4515 - top1: 0.4515
+Epoch 58: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4515 - top1: 0.4515 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 59: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 59/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4547 - top1: 0.4547
+Epoch 59: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4547 - top1: 0.4547 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 60: LearningRateScheduler setting learning rate to 0.010000000000000002.
+Epoch 60/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4515 - top1: 0.4515
+Epoch 60: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4515 - top1: 0.4515 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 61: LearningRateScheduler setting learning rate to 0.001.
+Epoch 61/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4561 - top1: 0.4561
+Epoch 61: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4561 - top1: 0.4561 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 62: LearningRateScheduler setting learning rate to 0.001.
+Epoch 62/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4497 - top1: 0.4497
+Epoch 62: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4497 - top1: 0.4497 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 63: LearningRateScheduler setting learning rate to 0.001.
+Epoch 63/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4535 - top1: 0.4535
+Epoch 63: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4535 - top1: 0.4535 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 64: LearningRateScheduler setting learning rate to 0.001.
+Epoch 64/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4542 - top1: 0.4542
+Epoch 64: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4542 - top1: 0.4542 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 65: LearningRateScheduler setting learning rate to 0.001.
+Epoch 65/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4523 - top1: 0.4523
+Epoch 65: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4525 - top1: 0.4525 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 66: LearningRateScheduler setting learning rate to 0.001.
+Epoch 66/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4535 - top1: 0.4535
+Epoch 66: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4535 - top1: 0.4535 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 67: LearningRateScheduler setting learning rate to 0.001.
+Epoch 67/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4506 - top1: 0.4506
+Epoch 67: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4506 - top1: 0.4506 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 68: LearningRateScheduler setting learning rate to 0.001.
+Epoch 68/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4544 - top1: 0.4544
+Epoch 68: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4544 - top1: 0.4544 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 69: LearningRateScheduler setting learning rate to 0.001.
+Epoch 69/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4520 - top1: 0.4520
+Epoch 69: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4520 - top1: 0.4520 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 70: LearningRateScheduler setting learning rate to 0.001.
+Epoch 70/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4539 - top1: 0.4539
+Epoch 70: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4539 - top1: 0.4539 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 71: LearningRateScheduler setting learning rate to 0.001.
+Epoch 71/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 71: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4528 - top1: 0.4528 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 72: LearningRateScheduler setting learning rate to 0.001.
+Epoch 72/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4528 - top1: 0.4528
+Epoch 72: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4528 - top1: 0.4528 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 73: LearningRateScheduler setting learning rate to 0.001.
+Epoch 73/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4532 - top1: 0.4532
+Epoch 73: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4532 - top1: 0.4532 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 74: LearningRateScheduler setting learning rate to 0.001.
+Epoch 74/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4520 - top1: 0.4520
+Epoch 74: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4520 - top1: 0.4520 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 75: LearningRateScheduler setting learning rate to 0.001.
+Epoch 75/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4516 - top1: 0.4516
+Epoch 75: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4518 - top1: 0.4518 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 76: LearningRateScheduler setting learning rate to 0.001.
+Epoch 76/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4552 - top1: 0.4552
+Epoch 76: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4552 - top1: 0.4552 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 77: LearningRateScheduler setting learning rate to 0.001.
+Epoch 77/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4547 - top1: 0.4547
+Epoch 77: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4547 - top1: 0.4547 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 78: LearningRateScheduler setting learning rate to 0.001.
+Epoch 78/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4496 - top1: 0.4496
+Epoch 78: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4496 - top1: 0.4496 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 79: LearningRateScheduler setting learning rate to 0.001.
+Epoch 79/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4541 - top1: 0.4541
+Epoch 79: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4541 - top1: 0.4541 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 80: LearningRateScheduler setting learning rate to 0.001.
+Epoch 80/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4528 - top1: 0.4528
+Epoch 80: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4528 - top1: 0.4528 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 81: LearningRateScheduler setting learning rate to 0.001.
+Epoch 81/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 81: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4527 - top1: 0.4527 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 82: LearningRateScheduler setting learning rate to 0.001.
+Epoch 82/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4535 - top1: 0.4535
+Epoch 82: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4535 - top1: 0.4535 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 83: LearningRateScheduler setting learning rate to 0.001.
+Epoch 83/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4522 - top1: 0.4522
+Epoch 83: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4522 - top1: 0.4522 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 84: LearningRateScheduler setting learning rate to 0.001.
+Epoch 84/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4526 - top1: 0.4526
+Epoch 84: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4529 - top1: 0.4529 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 85: LearningRateScheduler setting learning rate to 0.001.
+Epoch 85/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4542 - top1: 0.4542
+Epoch 85: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4548 - top1: 0.4548 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 86: LearningRateScheduler setting learning rate to 0.001.
+Epoch 86/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4510 - top1: 0.4510
+Epoch 86: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4510 - top1: 0.4510 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 87: LearningRateScheduler setting learning rate to 0.001.
+Epoch 87/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4533 - top1: 0.4533
+Epoch 87: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4533 - top1: 0.4533 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 88: LearningRateScheduler setting learning rate to 0.001.
+Epoch 88/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4512 - top1: 0.4512
+Epoch 88: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4512 - top1: 0.4512 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 89: LearningRateScheduler setting learning rate to 0.001.
+Epoch 89/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4554 - top1: 0.4554
+Epoch 89: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4554 - top1: 0.4554 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 90: LearningRateScheduler setting learning rate to 0.001.
+Epoch 90/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4532 - top1: 0.4532
+Epoch 90: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4532 - top1: 0.4532 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 91: LearningRateScheduler setting learning rate to 0.001.
+Epoch 91/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4522 - top1: 0.4522
+Epoch 91: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4522 - top1: 0.4522 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 92: LearningRateScheduler setting learning rate to 0.001.
+Epoch 92/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4532 - top1: 0.4532
+Epoch 92: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4532 - top1: 0.4532 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 93: LearningRateScheduler setting learning rate to 0.001.
+Epoch 93/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4545 - top1: 0.4545
+Epoch 93: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4545 - top1: 0.4545 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 94: LearningRateScheduler setting learning rate to 0.001.
+Epoch 94/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4514 - top1: 0.4514
+Epoch 94: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4514 - top1: 0.4514 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 95: LearningRateScheduler setting learning rate to 0.001.
+Epoch 95/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4528 - top1: 0.4528
+Epoch 95: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4528 - top1: 0.4528 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 96: LearningRateScheduler setting learning rate to 0.001.
+Epoch 96/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4518 - top1: 0.4518
+Epoch 96: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4518 - top1: 0.4518 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 97: LearningRateScheduler setting learning rate to 0.001.
+Epoch 97/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4554 - top1: 0.4554
+Epoch 97: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4554 - top1: 0.4554 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 98: LearningRateScheduler setting learning rate to 0.001.
+Epoch 98/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4512 - top1: 0.4512
+Epoch 98: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4512 - top1: 0.4512 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 99: LearningRateScheduler setting learning rate to 0.001.
+Epoch 99/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4533 - top1: 0.4533
+Epoch 99: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4533 - top1: 0.4533 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 100: LearningRateScheduler setting learning rate to 0.001.
+Epoch 100/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4533 - top1: 0.4533
+Epoch 100: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4533 - top1: 0.4533 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 101: LearningRateScheduler setting learning rate to 0.001.
+Epoch 101/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4538 - top1: 0.4538
+Epoch 101: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4538 - top1: 0.4538 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 102: LearningRateScheduler setting learning rate to 0.001.
+Epoch 102/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 102: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4527 - top1: 0.4527 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 103: LearningRateScheduler setting learning rate to 0.001.
+Epoch 103/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4533 - top1: 0.4533
+Epoch 103: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4533 - top1: 0.4533 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 104: LearningRateScheduler setting learning rate to 0.001.
+Epoch 104/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4531 - top1: 0.4531
+Epoch 104: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4531 - top1: 0.4531 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 105: LearningRateScheduler setting learning rate to 0.001.
+Epoch 105/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4512 - top1: 0.4512
+Epoch 105: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4512 - top1: 0.4512 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 106: LearningRateScheduler setting learning rate to 0.001.
+Epoch 106/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4531 - top1: 0.4531
+Epoch 106: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4531 - top1: 0.4531 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 107: LearningRateScheduler setting learning rate to 0.001.
+Epoch 107/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 107: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4527 - top1: 0.4527 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 108: LearningRateScheduler setting learning rate to 0.001.
+Epoch 108/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4528 - top1: 0.4528
+Epoch 108: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4526 - top1: 0.4526 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 109: LearningRateScheduler setting learning rate to 0.001.
+Epoch 109/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4547 - top1: 0.4547
+Epoch 109: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4547 - top1: 0.4547 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 110: LearningRateScheduler setting learning rate to 0.001.
+Epoch 110/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4524 - top1: 0.4524
+Epoch 110: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4524 - top1: 0.4524 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 111: LearningRateScheduler setting learning rate to 0.001.
+Epoch 111/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4531 - top1: 0.4531
+Epoch 111: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4533 - top1: 0.4533 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 112: LearningRateScheduler setting learning rate to 0.001.
+Epoch 112/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 112: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4527 - top1: 0.4527 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 113: LearningRateScheduler setting learning rate to 0.001.
+Epoch 113/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 113: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4526 - top1: 0.4526 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 114: LearningRateScheduler setting learning rate to 0.001.
+Epoch 114/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4518 - top1: 0.4518
+Epoch 114: accuracy did not improve from 0.45653
+346/346 [==============================] - 20s 57ms/step - loss: nan - accuracy: 0.4518 - top1: 0.4518 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 115: LearningRateScheduler setting learning rate to 0.001.
+Epoch 115/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4557 - top1: 0.4557
+Epoch 115: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4557 - top1: 0.4557 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 116: LearningRateScheduler setting learning rate to 0.001.
+Epoch 116/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4523 - top1: 0.4523
+Epoch 116: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4523 - top1: 0.4523 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 117: LearningRateScheduler setting learning rate to 0.001.
+Epoch 117/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4518 - top1: 0.4518
+Epoch 117: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4518 - top1: 0.4518 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 118: LearningRateScheduler setting learning rate to 0.001.
+Epoch 118/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4538 - top1: 0.4538
+Epoch 118: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4538 - top1: 0.4538 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 119: LearningRateScheduler setting learning rate to 0.001.
+Epoch 119/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4534 - top1: 0.4534
+Epoch 119: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4534 - top1: 0.4534 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 120: LearningRateScheduler setting learning rate to 0.001.
+Epoch 120/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4534 - top1: 0.4534
+Epoch 120: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4534 - top1: 0.4534 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 121: LearningRateScheduler setting learning rate to 0.001.
+Epoch 121/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4517 - top1: 0.4517
+Epoch 121: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4517 - top1: 0.4517 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 122: LearningRateScheduler setting learning rate to 0.001.
+Epoch 122/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4515 - top1: 0.4515
+Epoch 122: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4513 - top1: 0.4513 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 123: LearningRateScheduler setting learning rate to 0.001.
+Epoch 123/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4552 - top1: 0.4552
+Epoch 123: accuracy did not improve from 0.45653
+346/346 [==============================] - 20s 57ms/step - loss: nan - accuracy: 0.4552 - top1: 0.4552 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 124: LearningRateScheduler setting learning rate to 0.001.
+Epoch 124/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4527 - top1: 0.4527
+Epoch 124: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4527 - top1: 0.4527 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 125: LearningRateScheduler setting learning rate to 0.001.
+Epoch 125/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4533 - top1: 0.4533
+Epoch 125: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4533 - top1: 0.4533 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 126: LearningRateScheduler setting learning rate to 0.001.
+Epoch 126/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4529 - top1: 0.4529
+Epoch 126: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4529 - top1: 0.4529 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 127: LearningRateScheduler setting learning rate to 0.001.
+Epoch 127/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4544 - top1: 0.4544
+Epoch 127: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4538 - top1: 0.4538 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 128: LearningRateScheduler setting learning rate to 0.001.
+Epoch 128/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4506 - top1: 0.4506
+Epoch 128: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4506 - top1: 0.4506 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 129: LearningRateScheduler setting learning rate to 0.001.
+Epoch 129/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4544 - top1: 0.4544
+Epoch 129: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4544 - top1: 0.4544 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 130: LearningRateScheduler setting learning rate to 0.001.
+Epoch 130/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4550 - top1: 0.4550
+Epoch 130: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4550 - top1: 0.4550 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 131: LearningRateScheduler setting learning rate to 0.001.
+Epoch 131/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4503 - top1: 0.4503
+Epoch 131: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4503 - top1: 0.4503 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 132: LearningRateScheduler setting learning rate to 0.001.
+Epoch 132/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4525 - top1: 0.4525
+Epoch 132: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4525 - top1: 0.4525 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 133: LearningRateScheduler setting learning rate to 0.001.
+Epoch 133/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4551 - top1: 0.4551
+Epoch 133: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4551 - top1: 0.4551 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 134: LearningRateScheduler setting learning rate to 0.001.
+Epoch 134/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4522 - top1: 0.4522
+Epoch 134: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4522 - top1: 0.4522 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 135: LearningRateScheduler setting learning rate to 0.001.
+Epoch 135/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4544 - top1: 0.4544
+Epoch 135: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4544 - top1: 0.4544 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 136: LearningRateScheduler setting learning rate to 0.001.
+Epoch 136/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4519 - top1: 0.4519
+Epoch 136: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4519 - top1: 0.4519 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 137: LearningRateScheduler setting learning rate to 0.001.
+Epoch 137/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4520 - top1: 0.4520
+Epoch 137: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4518 - top1: 0.4518 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 138: LearningRateScheduler setting learning rate to 0.001.
+Epoch 138/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4524 - top1: 0.4524
+Epoch 138: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4522 - top1: 0.4522 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 139: LearningRateScheduler setting learning rate to 0.001.
+Epoch 139/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4553 - top1: 0.4553
+Epoch 139: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4553 - top1: 0.4553 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 140: LearningRateScheduler setting learning rate to 0.001.
+Epoch 140/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4512 - top1: 0.4512
+Epoch 140: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4514 - top1: 0.4514 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 141: LearningRateScheduler setting learning rate to 0.001.
+Epoch 141/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4530 - top1: 0.4530
+Epoch 141: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4533 - top1: 0.4533 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 142: LearningRateScheduler setting learning rate to 0.001.
+Epoch 142/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4528 - top1: 0.4528
+Epoch 142: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4528 - top1: 0.4528 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 143: LearningRateScheduler setting learning rate to 0.001.
+Epoch 143/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4551 - top1: 0.4551
+Epoch 143: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4551 - top1: 0.4551 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 144: LearningRateScheduler setting learning rate to 0.001.
+Epoch 144/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4502 - top1: 0.4502
+Epoch 144: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4501 - top1: 0.4501 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 145: LearningRateScheduler setting learning rate to 0.001.
+Epoch 145/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4548 - top1: 0.4548
+Epoch 145: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4548 - top1: 0.4548 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 146: LearningRateScheduler setting learning rate to 0.001.
+Epoch 146/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4521 - top1: 0.4521
+Epoch 146: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4521 - top1: 0.4521 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 147: LearningRateScheduler setting learning rate to 0.001.
+Epoch 147/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4525 - top1: 0.4525
+Epoch 147: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4525 - top1: 0.4525 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 148: LearningRateScheduler setting learning rate to 0.001.
+Epoch 148/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4560 - top1: 0.4560
+Epoch 148: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4560 - top1: 0.4560 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 149: LearningRateScheduler setting learning rate to 0.001.
+Epoch 149/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4493 - top1: 0.4493
+Epoch 149: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4493 - top1: 0.4493 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 150: LearningRateScheduler setting learning rate to 0.001.
+Epoch 150/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4558 - top1: 0.4558
+Epoch 150: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4561 - top1: 0.4561 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 151: LearningRateScheduler setting learning rate to 0.001.
+Epoch 151/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4510 - top1: 0.4510
+Epoch 151: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4510 - top1: 0.4510 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 152: LearningRateScheduler setting learning rate to 0.001.
+Epoch 152/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4530 - top1: 0.4530
+Epoch 152: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4532 - top1: 0.4532 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 153: LearningRateScheduler setting learning rate to 0.001.
+Epoch 153/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4550 - top1: 0.4550
+Epoch 153: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4550 - top1: 0.4550 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 154: LearningRateScheduler setting learning rate to 0.001.
+Epoch 154/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4505 - top1: 0.4505
+Epoch 154: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4505 - top1: 0.4505 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 155: LearningRateScheduler setting learning rate to 0.001.
+Epoch 155/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4532 - top1: 0.4532
+Epoch 155: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4532 - top1: 0.4532 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 156: LearningRateScheduler setting learning rate to 0.001.
+Epoch 156/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4553 - top1: 0.4553
+Epoch 156: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4554 - top1: 0.4554 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 157: LearningRateScheduler setting learning rate to 0.001.
+Epoch 157/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4502 - top1: 0.4502
+Epoch 157: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4502 - top1: 0.4502 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 158: LearningRateScheduler setting learning rate to 0.001.
+Epoch 158/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4539 - top1: 0.4539
+Epoch 158: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4539 - top1: 0.4539 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 159: LearningRateScheduler setting learning rate to 0.001.
+Epoch 159/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4521 - top1: 0.4521
+Epoch 159: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4521 - top1: 0.4521 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 160: LearningRateScheduler setting learning rate to 0.001.
+Epoch 160/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4553 - top1: 0.4553
+Epoch 160: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4553 - top1: 0.4553 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 161: LearningRateScheduler setting learning rate to 0.001.
+Epoch 161/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4511 - top1: 0.4511
+Epoch 161: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4511 - top1: 0.4511 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 162: LearningRateScheduler setting learning rate to 0.001.
+Epoch 162/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4534 - top1: 0.4534
+Epoch 162: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4534 - top1: 0.4534 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 163: LearningRateScheduler setting learning rate to 0.001.
+Epoch 163/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4525 - top1: 0.4525
+Epoch 163: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4522 - top1: 0.4522 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 164: LearningRateScheduler setting learning rate to 0.001.
+Epoch 164/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4531 - top1: 0.4531
+Epoch 164: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4535 - top1: 0.4535 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 165: LearningRateScheduler setting learning rate to 0.001.
+Epoch 165/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4524 - top1: 0.4524
+Epoch 165: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4528 - top1: 0.4528 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 166: LearningRateScheduler setting learning rate to 0.001.
+Epoch 166/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4542 - top1: 0.4542
+Epoch 166: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4540 - top1: 0.4540 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 167: LearningRateScheduler setting learning rate to 0.001.
+Epoch 167/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4525 - top1: 0.4525
+Epoch 167: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4525 - top1: 0.4525 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 168: LearningRateScheduler setting learning rate to 0.001.
+Epoch 168/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4525 - top1: 0.4525
+Epoch 168: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4525 - top1: 0.4525 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 169: LearningRateScheduler setting learning rate to 0.001.
+Epoch 169/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4551 - top1: 0.4551
+Epoch 169: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4554 - top1: 0.4554 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 170: LearningRateScheduler setting learning rate to 0.001.
+Epoch 170/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4514 - top1: 0.4514
+Epoch 170: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4514 - top1: 0.4514 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 171: LearningRateScheduler setting learning rate to 0.001.
+Epoch 171/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4525 - top1: 0.4525
+Epoch 171: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4524 - top1: 0.4524 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 172: LearningRateScheduler setting learning rate to 0.001.
+Epoch 172/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4546 - top1: 0.4546
+Epoch 172: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4546 - top1: 0.4546 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 173: LearningRateScheduler setting learning rate to 0.001.
+Epoch 173/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4524 - top1: 0.4524
+Epoch 173: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4524 - top1: 0.4524 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 174: LearningRateScheduler setting learning rate to 0.001.
+Epoch 174/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4509 - top1: 0.4509
+Epoch 174: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4509 - top1: 0.4509 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 175: LearningRateScheduler setting learning rate to 0.001.
+Epoch 175/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4548 - top1: 0.4548
+Epoch 175: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4548 - top1: 0.4548 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 176: LearningRateScheduler setting learning rate to 0.001.
+Epoch 176/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4522 - top1: 0.4522
+Epoch 176: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4525 - top1: 0.4525 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 177: LearningRateScheduler setting learning rate to 0.001.
+Epoch 177/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4526 - top1: 0.4526
+Epoch 177: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4526 - top1: 0.4526 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 178: LearningRateScheduler setting learning rate to 0.001.
+Epoch 178/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4549 - top1: 0.4549
+Epoch 178: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4549 - top1: 0.4549 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 179: LearningRateScheduler setting learning rate to 0.001.
+Epoch 179/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4517 - top1: 0.4517
+Epoch 179: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4517 - top1: 0.4517 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 180: LearningRateScheduler setting learning rate to 0.001.
+Epoch 180/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4532 - top1: 0.4532
+Epoch 180: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4532 - top1: 0.4532 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 181: LearningRateScheduler setting learning rate to 0.001.
+Epoch 181/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4537 - top1: 0.4537
+Epoch 181: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4537 - top1: 0.4537 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 182: LearningRateScheduler setting learning rate to 0.001.
+Epoch 182/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4532 - top1: 0.4532
+Epoch 182: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4531 - top1: 0.4531 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 183: LearningRateScheduler setting learning rate to 0.001.
+Epoch 183/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4530 - top1: 0.4530
+Epoch 183: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4530 - top1: 0.4530 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 184: LearningRateScheduler setting learning rate to 0.001.
+Epoch 184/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4544 - top1: 0.4544
+Epoch 184: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4544 - top1: 0.4544 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 185: LearningRateScheduler setting learning rate to 0.001.
+Epoch 185/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4510 - top1: 0.4510
+Epoch 185: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4510 - top1: 0.4510 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 186: LearningRateScheduler setting learning rate to 0.001.
+Epoch 186/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4536 - top1: 0.4536
+Epoch 186: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4536 - top1: 0.4536 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 187: LearningRateScheduler setting learning rate to 0.001.
+Epoch 187/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4514 - top1: 0.4514
+Epoch 187: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4514 - top1: 0.4514 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 188: LearningRateScheduler setting learning rate to 0.001.
+Epoch 188/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4530 - top1: 0.4530
+Epoch 188: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4532 - top1: 0.4532 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 189: LearningRateScheduler setting learning rate to 0.001.
+Epoch 189/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4511 - top1: 0.4511
+Epoch 189: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 56ms/step - loss: nan - accuracy: 0.4512 - top1: 0.4512 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 190: LearningRateScheduler setting learning rate to 0.001.
+Epoch 190/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4558 - top1: 0.4558
+Epoch 190: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4556 - top1: 0.4556 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 191: LearningRateScheduler setting learning rate to 0.001.
+Epoch 191/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4533 - top1: 0.4533
+Epoch 191: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4534 - top1: 0.4534 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 192: LearningRateScheduler setting learning rate to 0.001.
+Epoch 192/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4526 - top1: 0.4526
+Epoch 192: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4526 - top1: 0.4526 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 193: LearningRateScheduler setting learning rate to 0.001.
+Epoch 193/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4534 - top1: 0.4534
+Epoch 193: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4534 - top1: 0.4534 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 194: LearningRateScheduler setting learning rate to 0.001.
+Epoch 194/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4541 - top1: 0.4541
+Epoch 194: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4541 - top1: 0.4541 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 195: LearningRateScheduler setting learning rate to 0.001.
+Epoch 195/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4524 - top1: 0.4524
+Epoch 195: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4524 - top1: 0.4524 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 196: LearningRateScheduler setting learning rate to 0.001.
+Epoch 196/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4530 - top1: 0.4530
+Epoch 196: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4527 - top1: 0.4527 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 197: LearningRateScheduler setting learning rate to 0.001.
+Epoch 197/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4515 - top1: 0.4515
+Epoch 197: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4515 - top1: 0.4515 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 198: LearningRateScheduler setting learning rate to 0.001.
+Epoch 198/200
+345/346 [============================>.] - ETA: 0s - loss: nan - accuracy: 0.4545 - top1: 0.4545
+Epoch 198: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4537 - top1: 0.4537 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 199: LearningRateScheduler setting learning rate to 0.001.
+Epoch 199/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4546 - top1: 0.4546
+Epoch 199: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4546 - top1: 0.4546 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+
+Epoch 200: LearningRateScheduler setting learning rate to 0.001.
+Epoch 200/200
+346/346 [==============================] - ETA: 0s - loss: nan - accuracy: 0.4532 - top1: 0.4532
+Epoch 200: accuracy did not improve from 0.45653
+346/346 [==============================] - 19s 55ms/step - loss: nan - accuracy: 0.4532 - top1: 0.4532 - val_loss: nan - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0010
+>> TREINAMENTO FINALIZADO COM SUCESSO
+>> MELHOR MODELO FOI SALVO EM:  ResNet50/Results/Checkpoints_experimento 6/best_weights.h5
+==================================================================
+==================================================================
+PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO
+
+Process finished with exit code 0
