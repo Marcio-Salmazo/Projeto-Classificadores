@@ -13,7 +13,7 @@ from ResNet.ResNet_Trainer import ResNet_Trainer
 from ResNet.ResNet_DataLoader import load_data
 from ResNet.ResNet18_Pure import build_resnet18
 
-# REMOVE WARNINGS E INFO DO LOG, MANTENDO APENAS ERROS CRÍTICOS
+# REMOVE WARNINGS E INFO DO LOG, MANTENDO APENAS ERROS CRÍTICOSX
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 
 # ******************************************************************************************************************** #
@@ -21,7 +21,7 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # ******************************************************************************************************************** #
 # PARÂMETROS EXIGIDOS PELA RESNET
 
-RUN_NAME = "experimento 7"
+RUN_NAME = "experimento 9"
 
 IMAGE_SIZE = 224
 BATCH_SIZE = 64

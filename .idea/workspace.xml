@@ -6,6 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="544fb9f4-5b69-4c91-b4ee-0c035b6679a2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Documentacao Unificada de Experimentos.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Documentacao Unificada de Experimentos.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 7 - ResNet (bs64)/Experimento 7 - Pycharm LOG.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 7 - ResNet (bs64)/train/events.out.tfevents.1770238047.DESKTOP-U4G98NN.38164.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 7 - ResNet (bs64)/training_metrics.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 7 - ResNet (bs64)/training_metrics.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 7 - ResNet (bs64)/validation/events.out.tfevents.1770238073.DESKTOP-U4G98NN.38164.1.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 8 - ResNet (500ep)/Experimento 8 - Pycharm LOG.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 8 - ResNet (500ep)/train/events.out.tfevents.1770238535.ACER5.968.0.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 8 - ResNet (500ep)/training_metrics.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 8 - ResNet (500ep)/training_metrics.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Project/ResNet/Results/Experimento 8 - ResNet (500ep)/validation/events.out.tfevents.1770238561.ACER5.968.1.v2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Main_Project/ResNet_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet_Main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,17 +39,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.ResNet_Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.ResNet_Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
