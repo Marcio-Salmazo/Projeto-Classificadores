@@ -1,0 +1,1242 @@
+-----------------------------------------------------------------------------------------------------------
+                                  INICIANDO PIPELINE DE EXECUÇÃO                                           
+-----------------------------------------------------------------------------------------------------------
+Found 11074 files belonging to 3 classes.
+Found 2767 files belonging to 3 classes.
+>> LOGS PROVENIENTES DO CARREGAMENTO DO DATASET
+
+Treinamento:  11074
+Validação:  2767
+Índices:  ['Indolor', 'Muita dor', 'Pouca dor']
+Classes detectadas: 3
+
+==================================================================
+>> CONSTRUINDO MODELO RESNET-50
+Model: "ResNet18_paper"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 224, 224, 3)]     0         
+                                                                 
+ res_net18__builder (ResNet1  (None, 3)                11192003  
+ 8_Builder)                                                      
+                                                                 
+=================================================================
+Total params: 11,192,003
+Trainable params: 11,182,275
+Non-trainable params: 9,728
+_________________________________________________________________
+==================================================================
+        TREINAMENTO INICIADO COM A ARQUITETURA RESNET-50          
+==================================================================
+>> ÉPOCAS DE TREINAMENTO: 200
+>> STEPS POR ÉPOCA: 173
+>> QUANTIDADE TOTAL DE STEPS: 34600
+
+==================================================================
+
+Epoch 1: LearningRateScheduler setting learning rate to 0.01.
+Epoch 1/200
+2026-02-04 17:47:33.463357: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+173/173 [==============================] - ETA: 0s - loss: 1.4402 - accuracy: 0.4488 - top1: 0.4488
+Epoch 1: accuracy improved from -inf to 0.44879, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 29s 107ms/step - loss: 1.4402 - accuracy: 0.4488 - top1: 0.4488 - val_loss: 1.4538 - val_accuracy: 0.3848 - val_top1: 0.3848 - lr: 0.0100
+
+Epoch 2: LearningRateScheduler setting learning rate to 0.01.
+Epoch 2/200
+173/173 [==============================] - ETA: 0s - loss: 1.4369 - accuracy: 0.4503 - top1: 0.4503
+Epoch 2: accuracy improved from 0.44879 to 0.45032, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 12s 68ms/step - loss: 1.4369 - accuracy: 0.4503 - top1: 0.4503 - val_loss: 1.4346 - val_accuracy: 0.4553 - val_top1: 0.4553 - lr: 0.0100
+
+Epoch 3: LearningRateScheduler setting learning rate to 0.01.
+Epoch 3/200
+173/173 [==============================] - ETA: 0s - loss: 1.4286 - accuracy: 0.4548 - top1: 0.4548
+Epoch 3: accuracy improved from 0.45032 to 0.45477, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 12s 69ms/step - loss: 1.4286 - accuracy: 0.4548 - top1: 0.4548 - val_loss: 1.4174 - val_accuracy: 0.5185 - val_top1: 0.5185 - lr: 0.0100
+
+Epoch 4: LearningRateScheduler setting learning rate to 0.01.
+Epoch 4/200
+173/173 [==============================] - ETA: 0s - loss: 1.4267 - accuracy: 0.4582 - top1: 0.4582
+Epoch 4: accuracy improved from 0.45477 to 0.45822, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.4267 - accuracy: 0.4582 - top1: 0.4582 - val_loss: 1.4238 - val_accuracy: 0.4600 - val_top1: 0.4600 - lr: 0.0100
+
+Epoch 5: LearningRateScheduler setting learning rate to 0.01.
+Epoch 5/200
+173/173 [==============================] - ETA: 0s - loss: 1.4123 - accuracy: 0.4885 - top1: 0.4885
+Epoch 5: accuracy improved from 0.45822 to 0.48847, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 12s 68ms/step - loss: 1.4123 - accuracy: 0.4885 - top1: 0.4885 - val_loss: 1.3846 - val_accuracy: 0.5411 - val_top1: 0.5411 - lr: 0.0100
+
+Epoch 6: LearningRateScheduler setting learning rate to 0.01.
+Epoch 6/200
+173/173 [==============================] - ETA: 0s - loss: 1.4106 - accuracy: 0.4921 - top1: 0.4921
+Epoch 6: accuracy improved from 0.48847 to 0.49210, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 12s 67ms/step - loss: 1.4106 - accuracy: 0.4921 - top1: 0.4921 - val_loss: 1.3761 - val_accuracy: 0.5589 - val_top1: 0.5589 - lr: 0.0100
+
+Epoch 7: LearningRateScheduler setting learning rate to 0.01.
+Epoch 7/200
+173/173 [==============================] - ETA: 0s - loss: 1.3967 - accuracy: 0.4953 - top1: 0.4953
+Epoch 7: accuracy improved from 0.49210 to 0.49528, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 12s 67ms/step - loss: 1.3967 - accuracy: 0.4953 - top1: 0.4953 - val_loss: 1.3578 - val_accuracy: 0.5491 - val_top1: 0.5491 - lr: 0.0100
+
+Epoch 8: LearningRateScheduler setting learning rate to 0.01.
+Epoch 8/200
+173/173 [==============================] - ETA: 0s - loss: 1.4014 - accuracy: 0.4895 - top1: 0.4895
+Epoch 8: accuracy did not improve from 0.49528
+173/173 [==============================] - 11s 64ms/step - loss: 1.4014 - accuracy: 0.4895 - top1: 0.4895 - val_loss: 1.3714 - val_accuracy: 0.5316 - val_top1: 0.5316 - lr: 0.0100
+
+Epoch 9: LearningRateScheduler setting learning rate to 0.01.
+Epoch 9/200
+173/173 [==============================] - ETA: 0s - loss: 1.3821 - accuracy: 0.5141 - top1: 0.5141
+Epoch 9: accuracy improved from 0.49528 to 0.51408, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.3821 - accuracy: 0.5141 - top1: 0.5141 - val_loss: 1.3494 - val_accuracy: 0.5509 - val_top1: 0.5509 - lr: 0.0100
+
+Epoch 10: LearningRateScheduler setting learning rate to 0.01.
+Epoch 10/200
+173/173 [==============================] - ETA: 0s - loss: 1.3654 - accuracy: 0.5217 - top1: 0.5217
+Epoch 10: accuracy improved from 0.51408 to 0.52171, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.3654 - accuracy: 0.5217 - top1: 0.5217 - val_loss: 1.3547 - val_accuracy: 0.5156 - val_top1: 0.5156 - lr: 0.0100
+
+Epoch 11: LearningRateScheduler setting learning rate to 0.01.
+Epoch 11/200
+173/173 [==============================] - ETA: 0s - loss: 1.3563 - accuracy: 0.5163 - top1: 0.5163
+Epoch 11: accuracy did not improve from 0.52171
+173/173 [==============================] - 11s 64ms/step - loss: 1.3563 - accuracy: 0.5163 - top1: 0.5163 - val_loss: 1.3141 - val_accuracy: 0.5647 - val_top1: 0.5647 - lr: 0.0100
+
+Epoch 12: LearningRateScheduler setting learning rate to 0.01.
+Epoch 12/200
+173/173 [==============================] - ETA: 0s - loss: 1.3583 - accuracy: 0.5194 - top1: 0.5194
+Epoch 12: accuracy did not improve from 0.52171
+173/173 [==============================] - 11s 64ms/step - loss: 1.3583 - accuracy: 0.5194 - top1: 0.5194 - val_loss: 1.3206 - val_accuracy: 0.5570 - val_top1: 0.5570 - lr: 0.0100
+
+Epoch 13: LearningRateScheduler setting learning rate to 0.01.
+Epoch 13/200
+173/173 [==============================] - ETA: 0s - loss: 1.3577 - accuracy: 0.5202 - top1: 0.5202
+Epoch 13: accuracy did not improve from 0.52171
+173/173 [==============================] - 11s 64ms/step - loss: 1.3577 - accuracy: 0.5202 - top1: 0.5202 - val_loss: 1.3037 - val_accuracy: 0.5592 - val_top1: 0.5592 - lr: 0.0100
+
+Epoch 14: LearningRateScheduler setting learning rate to 0.01.
+Epoch 14/200
+173/173 [==============================] - ETA: 0s - loss: 1.3159 - accuracy: 0.5474 - top1: 0.5474
+Epoch 14: accuracy improved from 0.52171 to 0.54741, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.3159 - accuracy: 0.5474 - top1: 0.5474 - val_loss: 1.2533 - val_accuracy: 0.5959 - val_top1: 0.5959 - lr: 0.0100
+
+Epoch 15: LearningRateScheduler setting learning rate to 0.01.
+Epoch 15/200
+173/173 [==============================] - ETA: 0s - loss: 1.3012 - accuracy: 0.5540 - top1: 0.5540
+Epoch 15: accuracy improved from 0.54741 to 0.55395, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.3012 - accuracy: 0.5540 - top1: 0.5540 - val_loss: 1.2158 - val_accuracy: 0.6374 - val_top1: 0.6374 - lr: 0.0100
+
+Epoch 16: LearningRateScheduler setting learning rate to 0.01.
+Epoch 16/200
+173/173 [==============================] - ETA: 0s - loss: 1.2724 - accuracy: 0.5770 - top1: 0.5770
+Epoch 16: accuracy improved from 0.55395 to 0.57702, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.2724 - accuracy: 0.5770 - top1: 0.5770 - val_loss: 1.2038 - val_accuracy: 0.6134 - val_top1: 0.6134 - lr: 0.0100
+
+Epoch 17: LearningRateScheduler setting learning rate to 0.01.
+Epoch 17/200
+173/173 [==============================] - ETA: 0s - loss: 1.2574 - accuracy: 0.5838 - top1: 0.5838
+Epoch 17: accuracy improved from 0.57702 to 0.58383, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.2574 - accuracy: 0.5838 - top1: 0.5838 - val_loss: 1.2049 - val_accuracy: 0.6261 - val_top1: 0.6261 - lr: 0.0100
+
+Epoch 18: LearningRateScheduler setting learning rate to 0.01.
+Epoch 18/200
+173/173 [==============================] - ETA: 0s - loss: 1.2269 - accuracy: 0.5971 - top1: 0.5971
+Epoch 18: accuracy improved from 0.58383 to 0.59709, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.2269 - accuracy: 0.5971 - top1: 0.5971 - val_loss: 1.1552 - val_accuracy: 0.6544 - val_top1: 0.6544 - lr: 0.0100
+
+Epoch 19: LearningRateScheduler setting learning rate to 0.01.
+Epoch 19/200
+173/173 [==============================] - ETA: 0s - loss: 1.2102 - accuracy: 0.6032 - top1: 0.6032
+Epoch 19: accuracy improved from 0.59709 to 0.60318, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.2102 - accuracy: 0.6032 - top1: 0.6032 - val_loss: 1.1725 - val_accuracy: 0.6181 - val_top1: 0.6181 - lr: 0.0100
+
+Epoch 20: LearningRateScheduler setting learning rate to 0.01.
+Epoch 20/200
+173/173 [==============================] - ETA: 0s - loss: 1.2164 - accuracy: 0.5984 - top1: 0.5984
+Epoch 20: accuracy did not improve from 0.60318
+173/173 [==============================] - 11s 64ms/step - loss: 1.2164 - accuracy: 0.5984 - top1: 0.5984 - val_loss: 1.1237 - val_accuracy: 0.6421 - val_top1: 0.6421 - lr: 0.0100
+
+Epoch 21: LearningRateScheduler setting learning rate to 0.01.
+Epoch 21/200
+173/173 [==============================] - ETA: 0s - loss: 1.1721 - accuracy: 0.6224 - top1: 0.6224
+Epoch 21: accuracy improved from 0.60318 to 0.62243, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.1721 - accuracy: 0.6224 - top1: 0.6224 - val_loss: 1.1473 - val_accuracy: 0.6344 - val_top1: 0.6344 - lr: 0.0100
+
+Epoch 22: LearningRateScheduler setting learning rate to 0.01.
+Epoch 22/200
+173/173 [==============================] - ETA: 0s - loss: 1.1677 - accuracy: 0.6202 - top1: 0.6202
+Epoch 22: accuracy did not improve from 0.62243
+173/173 [==============================] - 11s 64ms/step - loss: 1.1677 - accuracy: 0.6202 - top1: 0.6202 - val_loss: 1.1385 - val_accuracy: 0.6312 - val_top1: 0.6312 - lr: 0.0100
+
+Epoch 23: LearningRateScheduler setting learning rate to 0.01.
+Epoch 23/200
+173/173 [==============================] - ETA: 0s - loss: 1.1616 - accuracy: 0.6193 - top1: 0.6193
+Epoch 23: accuracy did not improve from 0.62243
+173/173 [==============================] - 11s 64ms/step - loss: 1.1616 - accuracy: 0.6193 - top1: 0.6193 - val_loss: 1.0818 - val_accuracy: 0.6610 - val_top1: 0.6610 - lr: 0.0100
+
+Epoch 24: LearningRateScheduler setting learning rate to 0.01.
+Epoch 24/200
+173/173 [==============================] - ETA: 0s - loss: 1.1216 - accuracy: 0.6393 - top1: 0.6393
+Epoch 24: accuracy improved from 0.62243 to 0.63933, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.1216 - accuracy: 0.6393 - top1: 0.6393 - val_loss: 1.0534 - val_accuracy: 0.6661 - val_top1: 0.6661 - lr: 0.0100
+
+Epoch 25: LearningRateScheduler setting learning rate to 0.01.
+Epoch 25/200
+173/173 [==============================] - ETA: 0s - loss: 1.1359 - accuracy: 0.6312 - top1: 0.6312
+Epoch 25: accuracy did not improve from 0.63933
+173/173 [==============================] - 11s 64ms/step - loss: 1.1359 - accuracy: 0.6312 - top1: 0.6312 - val_loss: 1.0424 - val_accuracy: 0.6777 - val_top1: 0.6777 - lr: 0.0100
+
+Epoch 26: LearningRateScheduler setting learning rate to 0.01.
+Epoch 26/200
+173/173 [==============================] - ETA: 0s - loss: 1.1140 - accuracy: 0.6418 - top1: 0.6418
+Epoch 26: accuracy improved from 0.63933 to 0.64178, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.1140 - accuracy: 0.6418 - top1: 0.6418 - val_loss: 1.0333 - val_accuracy: 0.6897 - val_top1: 0.6897 - lr: 0.0100
+
+Epoch 27: LearningRateScheduler setting learning rate to 0.01.
+Epoch 27/200
+173/173 [==============================] - ETA: 0s - loss: 1.0960 - accuracy: 0.6549 - top1: 0.6549
+Epoch 27: accuracy improved from 0.64178 to 0.65486, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.0960 - accuracy: 0.6549 - top1: 0.6549 - val_loss: 0.9910 - val_accuracy: 0.7155 - val_top1: 0.7155 - lr: 0.0100
+
+Epoch 28: LearningRateScheduler setting learning rate to 0.01.
+Epoch 28/200
+173/173 [==============================] - ETA: 0s - loss: 1.0764 - accuracy: 0.6573 - top1: 0.6573
+Epoch 28: accuracy improved from 0.65486 to 0.65731, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.0764 - accuracy: 0.6573 - top1: 0.6573 - val_loss: 0.9879 - val_accuracy: 0.7071 - val_top1: 0.7071 - lr: 0.0100
+
+Epoch 29: LearningRateScheduler setting learning rate to 0.01.
+Epoch 29/200
+173/173 [==============================] - ETA: 0s - loss: 1.0542 - accuracy: 0.6667 - top1: 0.6667
+Epoch 29: accuracy improved from 0.65731 to 0.66667, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.0542 - accuracy: 0.6667 - top1: 0.6667 - val_loss: 0.9795 - val_accuracy: 0.7071 - val_top1: 0.7071 - lr: 0.0100
+
+Epoch 30: LearningRateScheduler setting learning rate to 0.01.
+Epoch 30/200
+173/173 [==============================] - ETA: 0s - loss: 1.0562 - accuracy: 0.6715 - top1: 0.6715
+Epoch 30: accuracy improved from 0.66667 to 0.67148, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 1.0562 - accuracy: 0.6715 - top1: 0.6715 - val_loss: 0.9650 - val_accuracy: 0.7162 - val_top1: 0.7162 - lr: 0.0100
+
+Epoch 31: LearningRateScheduler setting learning rate to 0.001.
+Epoch 31/200
+173/173 [==============================] - ETA: 0s - loss: 0.9945 - accuracy: 0.7035 - top1: 0.7035
+Epoch 31: accuracy improved from 0.67148 to 0.70354, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.9945 - accuracy: 0.7035 - top1: 0.7035 - val_loss: 0.9090 - val_accuracy: 0.7391 - val_top1: 0.7391 - lr: 0.0010
+
+Epoch 32: LearningRateScheduler setting learning rate to 0.001.
+Epoch 32/200
+173/173 [==============================] - ETA: 0s - loss: 0.9691 - accuracy: 0.7125 - top1: 0.7125
+Epoch 32: accuracy improved from 0.70354 to 0.71253, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.9691 - accuracy: 0.7125 - top1: 0.7125 - val_loss: 0.8906 - val_accuracy: 0.7613 - val_top1: 0.7613 - lr: 0.0010
+
+Epoch 33: LearningRateScheduler setting learning rate to 0.001.
+Epoch 33/200
+173/173 [==============================] - ETA: 0s - loss: 0.9608 - accuracy: 0.7193 - top1: 0.7193
+Epoch 33: accuracy improved from 0.71253 to 0.71935, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.9608 - accuracy: 0.7193 - top1: 0.7193 - val_loss: 0.8836 - val_accuracy: 0.7605 - val_top1: 0.7605 - lr: 0.0010
+
+Epoch 34: LearningRateScheduler setting learning rate to 0.001.
+Epoch 34/200
+173/173 [==============================] - ETA: 0s - loss: 0.9637 - accuracy: 0.7213 - top1: 0.7213
+Epoch 34: accuracy improved from 0.71935 to 0.72134, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.9637 - accuracy: 0.7213 - top1: 0.7213 - val_loss: 0.8896 - val_accuracy: 0.7555 - val_top1: 0.7555 - lr: 0.0010
+
+Epoch 35: LearningRateScheduler setting learning rate to 0.001.
+Epoch 35/200
+173/173 [==============================] - ETA: 0s - loss: 0.9505 - accuracy: 0.7273 - top1: 0.7273
+Epoch 35: accuracy improved from 0.72134 to 0.72734, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.9505 - accuracy: 0.7273 - top1: 0.7273 - val_loss: 0.8881 - val_accuracy: 0.7649 - val_top1: 0.7649 - lr: 0.0010
+
+Epoch 36: LearningRateScheduler setting learning rate to 0.001.
+Epoch 36/200
+173/173 [==============================] - ETA: 0s - loss: 0.9557 - accuracy: 0.7224 - top1: 0.7224
+Epoch 36: accuracy did not improve from 0.72734
+173/173 [==============================] - 11s 64ms/step - loss: 0.9557 - accuracy: 0.7224 - top1: 0.7224 - val_loss: 0.8758 - val_accuracy: 0.7602 - val_top1: 0.7602 - lr: 0.0010
+
+Epoch 37: LearningRateScheduler setting learning rate to 0.001.
+Epoch 37/200
+173/173 [==============================] - ETA: 0s - loss: 0.9376 - accuracy: 0.7333 - top1: 0.7333
+Epoch 37: accuracy improved from 0.72734 to 0.73333, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.9376 - accuracy: 0.7333 - top1: 0.7333 - val_loss: 0.8761 - val_accuracy: 0.7624 - val_top1: 0.7624 - lr: 0.0010
+
+Epoch 38: LearningRateScheduler setting learning rate to 0.001.
+Epoch 38/200
+173/173 [==============================] - ETA: 0s - loss: 0.9462 - accuracy: 0.7261 - top1: 0.7261
+Epoch 38: accuracy did not improve from 0.73333
+173/173 [==============================] - 11s 64ms/step - loss: 0.9462 - accuracy: 0.7261 - top1: 0.7261 - val_loss: 0.8827 - val_accuracy: 0.7536 - val_top1: 0.7536 - lr: 0.0010
+
+Epoch 39: LearningRateScheduler setting learning rate to 0.001.
+Epoch 39/200
+173/173 [==============================] - ETA: 0s - loss: 0.9332 - accuracy: 0.7330 - top1: 0.7330
+Epoch 39: accuracy did not improve from 0.73333
+173/173 [==============================] - 11s 64ms/step - loss: 0.9332 - accuracy: 0.7330 - top1: 0.7330 - val_loss: 0.8825 - val_accuracy: 0.7536 - val_top1: 0.7536 - lr: 0.0010
+
+Epoch 40: LearningRateScheduler setting learning rate to 0.001.
+Epoch 40/200
+173/173 [==============================] - ETA: 0s - loss: 0.9305 - accuracy: 0.7334 - top1: 0.7334
+Epoch 40: accuracy improved from 0.73333 to 0.73342, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.9305 - accuracy: 0.7334 - top1: 0.7334 - val_loss: 0.8853 - val_accuracy: 0.7507 - val_top1: 0.7507 - lr: 0.0010
+
+Epoch 41: LearningRateScheduler setting learning rate to 0.001.
+Epoch 41/200
+173/173 [==============================] - ETA: 0s - loss: 0.9348 - accuracy: 0.7354 - top1: 0.7354
+Epoch 41: accuracy improved from 0.73342 to 0.73542, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 66ms/step - loss: 0.9348 - accuracy: 0.7354 - top1: 0.7354 - val_loss: 0.8559 - val_accuracy: 0.7664 - val_top1: 0.7664 - lr: 0.0010
+
+Epoch 42: LearningRateScheduler setting learning rate to 0.001.
+Epoch 42/200
+173/173 [==============================] - ETA: 0s - loss: 0.9193 - accuracy: 0.7368 - top1: 0.7368
+Epoch 42: accuracy improved from 0.73542 to 0.73678, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.9193 - accuracy: 0.7368 - top1: 0.7368 - val_loss: 0.8615 - val_accuracy: 0.7693 - val_top1: 0.7693 - lr: 0.0010
+
+Epoch 43: LearningRateScheduler setting learning rate to 0.001.
+Epoch 43/200
+173/173 [==============================] - ETA: 0s - loss: 0.9263 - accuracy: 0.7363 - top1: 0.7363
+Epoch 43: accuracy did not improve from 0.73678
+173/173 [==============================] - 11s 66ms/step - loss: 0.9263 - accuracy: 0.7363 - top1: 0.7363 - val_loss: 0.8697 - val_accuracy: 0.7631 - val_top1: 0.7631 - lr: 0.0010
+
+Epoch 44: LearningRateScheduler setting learning rate to 0.001.
+Epoch 44/200
+173/173 [==============================] - ETA: 0s - loss: 0.9159 - accuracy: 0.7411 - top1: 0.7411
+Epoch 44: accuracy improved from 0.73678 to 0.74114, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 66ms/step - loss: 0.9159 - accuracy: 0.7411 - top1: 0.7411 - val_loss: 0.8438 - val_accuracy: 0.7820 - val_top1: 0.7820 - lr: 0.0010
+
+Epoch 45: LearningRateScheduler setting learning rate to 0.001.
+Epoch 45/200
+173/173 [==============================] - ETA: 0s - loss: 0.9155 - accuracy: 0.7433 - top1: 0.7433
+Epoch 45: accuracy improved from 0.74114 to 0.74332, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.9155 - accuracy: 0.7433 - top1: 0.7433 - val_loss: 0.8741 - val_accuracy: 0.7634 - val_top1: 0.7634 - lr: 0.0010
+
+Epoch 46: LearningRateScheduler setting learning rate to 0.001.
+Epoch 46/200
+173/173 [==============================] - ETA: 0s - loss: 0.9123 - accuracy: 0.7437 - top1: 0.7437
+Epoch 46: accuracy improved from 0.74332 to 0.74369, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 66ms/step - loss: 0.9123 - accuracy: 0.7437 - top1: 0.7437 - val_loss: 0.8583 - val_accuracy: 0.7802 - val_top1: 0.7802 - lr: 0.0010
+
+Epoch 47: LearningRateScheduler setting learning rate to 0.001.
+Epoch 47/200
+173/173 [==============================] - ETA: 0s - loss: 0.9128 - accuracy: 0.7400 - top1: 0.7400
+Epoch 47: accuracy did not improve from 0.74369
+173/173 [==============================] - 11s 64ms/step - loss: 0.9128 - accuracy: 0.7400 - top1: 0.7400 - val_loss: 0.8489 - val_accuracy: 0.7733 - val_top1: 0.7733 - lr: 0.0010
+
+Epoch 48: LearningRateScheduler setting learning rate to 0.001.
+Epoch 48/200
+173/173 [==============================] - ETA: 0s - loss: 0.9203 - accuracy: 0.7420 - top1: 0.7420
+Epoch 48: accuracy did not improve from 0.74369
+173/173 [==============================] - 11s 64ms/step - loss: 0.9203 - accuracy: 0.7420 - top1: 0.7420 - val_loss: 0.8619 - val_accuracy: 0.7653 - val_top1: 0.7653 - lr: 0.0010
+
+Epoch 49: LearningRateScheduler setting learning rate to 0.001.
+Epoch 49/200
+173/173 [==============================] - ETA: 0s - loss: 0.8953 - accuracy: 0.7499 - top1: 0.7499
+Epoch 49: accuracy improved from 0.74369 to 0.74986, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 66ms/step - loss: 0.8953 - accuracy: 0.7499 - top1: 0.7499 - val_loss: 0.8429 - val_accuracy: 0.7805 - val_top1: 0.7805 - lr: 0.0010
+
+Epoch 50: LearningRateScheduler setting learning rate to 0.001.
+Epoch 50/200
+173/173 [==============================] - ETA: 0s - loss: 0.8973 - accuracy: 0.7533 - top1: 0.7533
+Epoch 50: accuracy improved from 0.74986 to 0.75332, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 66ms/step - loss: 0.8973 - accuracy: 0.7533 - top1: 0.7533 - val_loss: 0.8882 - val_accuracy: 0.7522 - val_top1: 0.7522 - lr: 0.0010
+
+Epoch 51: LearningRateScheduler setting learning rate to 0.001.
+Epoch 51/200
+173/173 [==============================] - ETA: 0s - loss: 0.8982 - accuracy: 0.7510 - top1: 0.7510
+Epoch 51: accuracy did not improve from 0.75332
+173/173 [==============================] - 11s 64ms/step - loss: 0.8982 - accuracy: 0.7510 - top1: 0.7510 - val_loss: 0.8499 - val_accuracy: 0.7892 - val_top1: 0.7892 - lr: 0.0010
+
+Epoch 52: LearningRateScheduler setting learning rate to 0.001.
+Epoch 52/200
+173/173 [==============================] - ETA: 0s - loss: 0.9044 - accuracy: 0.7458 - top1: 0.7458
+Epoch 52: accuracy did not improve from 0.75332
+173/173 [==============================] - 11s 64ms/step - loss: 0.9044 - accuracy: 0.7458 - top1: 0.7458 - val_loss: 0.8303 - val_accuracy: 0.7885 - val_top1: 0.7885 - lr: 0.0010
+
+Epoch 53: LearningRateScheduler setting learning rate to 0.001.
+Epoch 53/200
+173/173 [==============================] - ETA: 0s - loss: 0.8934 - accuracy: 0.7539 - top1: 0.7539
+Epoch 53: accuracy improved from 0.75332 to 0.75386, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8934 - accuracy: 0.7539 - top1: 0.7539 - val_loss: 0.8376 - val_accuracy: 0.7798 - val_top1: 0.7798 - lr: 0.0010
+
+Epoch 54: LearningRateScheduler setting learning rate to 0.001.
+Epoch 54/200
+173/173 [==============================] - ETA: 0s - loss: 0.8881 - accuracy: 0.7571 - top1: 0.7571
+Epoch 54: accuracy improved from 0.75386 to 0.75713, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8881 - accuracy: 0.7571 - top1: 0.7571 - val_loss: 0.8663 - val_accuracy: 0.7627 - val_top1: 0.7627 - lr: 0.0010
+
+Epoch 55: LearningRateScheduler setting learning rate to 0.001.
+Epoch 55/200
+173/173 [==============================] - ETA: 0s - loss: 0.8879 - accuracy: 0.7559 - top1: 0.7559
+Epoch 55: accuracy did not improve from 0.75713
+173/173 [==============================] - 11s 64ms/step - loss: 0.8879 - accuracy: 0.7559 - top1: 0.7559 - val_loss: 0.8540 - val_accuracy: 0.7762 - val_top1: 0.7762 - lr: 0.0010
+
+Epoch 56: LearningRateScheduler setting learning rate to 0.001.
+Epoch 56/200
+173/173 [==============================] - ETA: 0s - loss: 0.8937 - accuracy: 0.7541 - top1: 0.7541
+Epoch 56: accuracy did not improve from 0.75713
+173/173 [==============================] - 11s 64ms/step - loss: 0.8937 - accuracy: 0.7541 - top1: 0.7541 - val_loss: 0.8340 - val_accuracy: 0.7856 - val_top1: 0.7856 - lr: 0.0010
+
+Epoch 57: LearningRateScheduler setting learning rate to 0.001.
+Epoch 57/200
+173/173 [==============================] - ETA: 0s - loss: 0.8881 - accuracy: 0.7599 - top1: 0.7599
+Epoch 57: accuracy improved from 0.75713 to 0.75995, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8881 - accuracy: 0.7599 - top1: 0.7599 - val_loss: 0.8388 - val_accuracy: 0.7903 - val_top1: 0.7903 - lr: 0.0010
+
+Epoch 58: LearningRateScheduler setting learning rate to 0.001.
+Epoch 58/200
+173/173 [==============================] - ETA: 0s - loss: 0.8761 - accuracy: 0.7592 - top1: 0.7592
+Epoch 58: accuracy did not improve from 0.75995
+173/173 [==============================] - 11s 64ms/step - loss: 0.8761 - accuracy: 0.7592 - top1: 0.7592 - val_loss: 0.8310 - val_accuracy: 0.7823 - val_top1: 0.7823 - lr: 0.0010
+
+Epoch 59: LearningRateScheduler setting learning rate to 0.001.
+Epoch 59/200
+173/173 [==============================] - ETA: 0s - loss: 0.8750 - accuracy: 0.7636 - top1: 0.7636
+Epoch 59: accuracy improved from 0.75995 to 0.76358, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8750 - accuracy: 0.7636 - top1: 0.7636 - val_loss: 0.8442 - val_accuracy: 0.7791 - val_top1: 0.7791 - lr: 0.0010
+
+Epoch 60: LearningRateScheduler setting learning rate to 0.001.
+Epoch 60/200
+173/173 [==============================] - ETA: 0s - loss: 0.8922 - accuracy: 0.7565 - top1: 0.7565
+Epoch 60: accuracy did not improve from 0.76358
+173/173 [==============================] - 11s 64ms/step - loss: 0.8922 - accuracy: 0.7565 - top1: 0.7565 - val_loss: 0.8350 - val_accuracy: 0.7900 - val_top1: 0.7900 - lr: 0.0010
+
+Epoch 61: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 61/200
+173/173 [==============================] - ETA: 0s - loss: 0.8695 - accuracy: 0.7662 - top1: 0.7662
+Epoch 61: accuracy improved from 0.76358 to 0.76621, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8695 - accuracy: 0.7662 - top1: 0.7662 - val_loss: 0.8131 - val_accuracy: 0.8020 - val_top1: 0.8020 - lr: 1.0000e-04
+
+Epoch 62: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 62/200
+173/173 [==============================] - ETA: 0s - loss: 0.8574 - accuracy: 0.7703 - top1: 0.7703
+Epoch 62: accuracy improved from 0.76621 to 0.77030, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8574 - accuracy: 0.7703 - top1: 0.7703 - val_loss: 0.8114 - val_accuracy: 0.8031 - val_top1: 0.8031 - lr: 1.0000e-04
+
+Epoch 63: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 63/200
+173/173 [==============================] - ETA: 0s - loss: 0.8561 - accuracy: 0.7753 - top1: 0.7753
+Epoch 63: accuracy improved from 0.77030 to 0.77530, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8561 - accuracy: 0.7753 - top1: 0.7753 - val_loss: 0.8140 - val_accuracy: 0.8005 - val_top1: 0.8005 - lr: 1.0000e-04
+
+Epoch 64: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 64/200
+173/173 [==============================] - ETA: 0s - loss: 0.8599 - accuracy: 0.7726 - top1: 0.7726
+Epoch 64: accuracy did not improve from 0.77530
+173/173 [==============================] - 11s 64ms/step - loss: 0.8599 - accuracy: 0.7726 - top1: 0.7726 - val_loss: 0.8121 - val_accuracy: 0.8016 - val_top1: 0.8016 - lr: 1.0000e-04
+
+Epoch 65: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 65/200
+173/173 [==============================] - ETA: 0s - loss: 0.8570 - accuracy: 0.7748 - top1: 0.7748
+Epoch 65: accuracy did not improve from 0.77530
+173/173 [==============================] - 11s 64ms/step - loss: 0.8570 - accuracy: 0.7748 - top1: 0.7748 - val_loss: 0.8110 - val_accuracy: 0.8016 - val_top1: 0.8016 - lr: 1.0000e-04
+
+Epoch 66: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 66/200
+173/173 [==============================] - ETA: 0s - loss: 0.8508 - accuracy: 0.7746 - top1: 0.7746
+Epoch 66: accuracy did not improve from 0.77530
+173/173 [==============================] - 11s 64ms/step - loss: 0.8508 - accuracy: 0.7746 - top1: 0.7746 - val_loss: 0.8118 - val_accuracy: 0.8038 - val_top1: 0.8038 - lr: 1.0000e-04
+
+Epoch 67: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 67/200
+173/173 [==============================] - ETA: 0s - loss: 0.8566 - accuracy: 0.7705 - top1: 0.7705
+Epoch 67: accuracy did not improve from 0.77530
+173/173 [==============================] - 11s 64ms/step - loss: 0.8566 - accuracy: 0.7705 - top1: 0.7705 - val_loss: 0.8136 - val_accuracy: 0.7983 - val_top1: 0.7983 - lr: 1.0000e-04
+
+Epoch 68: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 68/200
+173/173 [==============================] - ETA: 0s - loss: 0.8520 - accuracy: 0.7712 - top1: 0.7712
+Epoch 68: accuracy did not improve from 0.77530
+173/173 [==============================] - 11s 64ms/step - loss: 0.8520 - accuracy: 0.7712 - top1: 0.7712 - val_loss: 0.8113 - val_accuracy: 0.8012 - val_top1: 0.8012 - lr: 1.0000e-04
+
+Epoch 69: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 69/200
+173/173 [==============================] - ETA: 0s - loss: 0.8519 - accuracy: 0.7774 - top1: 0.7774
+Epoch 69: accuracy improved from 0.77530 to 0.77738, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8519 - accuracy: 0.7774 - top1: 0.7774 - val_loss: 0.8086 - val_accuracy: 0.8009 - val_top1: 0.8009 - lr: 1.0000e-04
+
+Epoch 70: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 70/200
+173/173 [==============================] - ETA: 0s - loss: 0.8480 - accuracy: 0.7768 - top1: 0.7768
+Epoch 70: accuracy did not improve from 0.77738
+173/173 [==============================] - 11s 64ms/step - loss: 0.8480 - accuracy: 0.7768 - top1: 0.7768 - val_loss: 0.8102 - val_accuracy: 0.8063 - val_top1: 0.8063 - lr: 1.0000e-04
+
+Epoch 71: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 71/200
+173/173 [==============================] - ETA: 0s - loss: 0.8610 - accuracy: 0.7714 - top1: 0.7714
+Epoch 71: accuracy did not improve from 0.77738
+173/173 [==============================] - 11s 64ms/step - loss: 0.8610 - accuracy: 0.7714 - top1: 0.7714 - val_loss: 0.8118 - val_accuracy: 0.8041 - val_top1: 0.8041 - lr: 1.0000e-04
+
+Epoch 72: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 72/200
+173/173 [==============================] - ETA: 0s - loss: 0.8429 - accuracy: 0.7762 - top1: 0.7762
+Epoch 72: accuracy did not improve from 0.77738
+173/173 [==============================] - 11s 64ms/step - loss: 0.8429 - accuracy: 0.7762 - top1: 0.7762 - val_loss: 0.8083 - val_accuracy: 0.8049 - val_top1: 0.8049 - lr: 1.0000e-04
+
+Epoch 73: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 73/200
+173/173 [==============================] - ETA: 0s - loss: 0.8575 - accuracy: 0.7750 - top1: 0.7750
+Epoch 73: accuracy did not improve from 0.77738
+173/173 [==============================] - 11s 64ms/step - loss: 0.8575 - accuracy: 0.7750 - top1: 0.7750 - val_loss: 0.8096 - val_accuracy: 0.8063 - val_top1: 0.8063 - lr: 1.0000e-04
+
+Epoch 74: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 74/200
+173/173 [==============================] - ETA: 0s - loss: 0.8557 - accuracy: 0.7749 - top1: 0.7749
+Epoch 74: accuracy did not improve from 0.77738
+173/173 [==============================] - 11s 64ms/step - loss: 0.8557 - accuracy: 0.7749 - top1: 0.7749 - val_loss: 0.8062 - val_accuracy: 0.8060 - val_top1: 0.8060 - lr: 1.0000e-04
+
+Epoch 75: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 75/200
+173/173 [==============================] - ETA: 0s - loss: 0.8547 - accuracy: 0.7775 - top1: 0.7775
+Epoch 75: accuracy improved from 0.77738 to 0.77747, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8547 - accuracy: 0.7775 - top1: 0.7775 - val_loss: 0.8080 - val_accuracy: 0.8056 - val_top1: 0.8056 - lr: 1.0000e-04
+
+Epoch 76: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 76/200
+173/173 [==============================] - ETA: 0s - loss: 0.8529 - accuracy: 0.7731 - top1: 0.7731
+Epoch 76: accuracy did not improve from 0.77747
+173/173 [==============================] - 11s 64ms/step - loss: 0.8529 - accuracy: 0.7731 - top1: 0.7731 - val_loss: 0.8081 - val_accuracy: 0.8031 - val_top1: 0.8031 - lr: 1.0000e-04
+
+Epoch 77: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 77/200
+173/173 [==============================] - ETA: 0s - loss: 0.8513 - accuracy: 0.7746 - top1: 0.7746
+Epoch 77: accuracy did not improve from 0.77747
+173/173 [==============================] - 11s 64ms/step - loss: 0.8513 - accuracy: 0.7746 - top1: 0.7746 - val_loss: 0.8073 - val_accuracy: 0.8031 - val_top1: 0.8031 - lr: 1.0000e-04
+
+Epoch 78: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 78/200
+173/173 [==============================] - ETA: 0s - loss: 0.8411 - accuracy: 0.7830 - top1: 0.7830
+Epoch 78: accuracy improved from 0.77747 to 0.78302, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8411 - accuracy: 0.7830 - top1: 0.7830 - val_loss: 0.8129 - val_accuracy: 0.7972 - val_top1: 0.7972 - lr: 1.0000e-04
+
+Epoch 79: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 79/200
+173/173 [==============================] - ETA: 0s - loss: 0.8452 - accuracy: 0.7811 - top1: 0.7811
+Epoch 79: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8452 - accuracy: 0.7811 - top1: 0.7811 - val_loss: 0.8125 - val_accuracy: 0.7987 - val_top1: 0.7987 - lr: 1.0000e-04
+
+Epoch 80: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 80/200
+173/173 [==============================] - ETA: 0s - loss: 0.8535 - accuracy: 0.7722 - top1: 0.7722
+Epoch 80: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8535 - accuracy: 0.7722 - top1: 0.7722 - val_loss: 0.8112 - val_accuracy: 0.7987 - val_top1: 0.7987 - lr: 1.0000e-04
+
+Epoch 81: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 81/200
+173/173 [==============================] - ETA: 0s - loss: 0.8474 - accuracy: 0.7781 - top1: 0.7781
+Epoch 81: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8474 - accuracy: 0.7781 - top1: 0.7781 - val_loss: 0.8082 - val_accuracy: 0.7991 - val_top1: 0.7991 - lr: 1.0000e-04
+
+Epoch 82: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 82/200
+173/173 [==============================] - ETA: 0s - loss: 0.8539 - accuracy: 0.7739 - top1: 0.7739
+Epoch 82: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8539 - accuracy: 0.7739 - top1: 0.7739 - val_loss: 0.8038 - val_accuracy: 0.8049 - val_top1: 0.8049 - lr: 1.0000e-04
+
+Epoch 83: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 83/200
+173/173 [==============================] - ETA: 0s - loss: 0.8472 - accuracy: 0.7755 - top1: 0.7755
+Epoch 83: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8472 - accuracy: 0.7755 - top1: 0.7755 - val_loss: 0.8087 - val_accuracy: 0.8009 - val_top1: 0.8009 - lr: 1.0000e-04
+
+Epoch 84: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 84/200
+173/173 [==============================] - ETA: 0s - loss: 0.8467 - accuracy: 0.7810 - top1: 0.7810
+Epoch 84: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8467 - accuracy: 0.7810 - top1: 0.7810 - val_loss: 0.8062 - val_accuracy: 0.8016 - val_top1: 0.8016 - lr: 1.0000e-04
+
+Epoch 85: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 85/200
+173/173 [==============================] - ETA: 0s - loss: 0.8405 - accuracy: 0.7794 - top1: 0.7794
+Epoch 85: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8405 - accuracy: 0.7794 - top1: 0.7794 - val_loss: 0.8052 - val_accuracy: 0.8063 - val_top1: 0.8063 - lr: 1.0000e-04
+
+Epoch 86: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 86/200
+173/173 [==============================] - ETA: 0s - loss: 0.8436 - accuracy: 0.7822 - top1: 0.7822
+Epoch 86: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8436 - accuracy: 0.7822 - top1: 0.7822 - val_loss: 0.8114 - val_accuracy: 0.8027 - val_top1: 0.8027 - lr: 1.0000e-04
+
+Epoch 87: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 87/200
+173/173 [==============================] - ETA: 0s - loss: 0.8445 - accuracy: 0.7804 - top1: 0.7804
+Epoch 87: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8445 - accuracy: 0.7804 - top1: 0.7804 - val_loss: 0.8147 - val_accuracy: 0.7936 - val_top1: 0.7936 - lr: 1.0000e-04
+
+Epoch 88: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 88/200
+173/173 [==============================] - ETA: 0s - loss: 0.8460 - accuracy: 0.7797 - top1: 0.7797
+Epoch 88: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8460 - accuracy: 0.7797 - top1: 0.7797 - val_loss: 0.8078 - val_accuracy: 0.8034 - val_top1: 0.8034 - lr: 1.0000e-04
+
+Epoch 89: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 89/200
+173/173 [==============================] - ETA: 0s - loss: 0.8473 - accuracy: 0.7754 - top1: 0.7754
+Epoch 89: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8473 - accuracy: 0.7754 - top1: 0.7754 - val_loss: 0.8119 - val_accuracy: 0.7987 - val_top1: 0.7987 - lr: 1.0000e-04
+
+Epoch 90: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 90/200
+173/173 [==============================] - ETA: 0s - loss: 0.8438 - accuracy: 0.7787 - top1: 0.7787
+Epoch 90: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8438 - accuracy: 0.7787 - top1: 0.7787 - val_loss: 0.8045 - val_accuracy: 0.8038 - val_top1: 0.8038 - lr: 1.0000e-04
+
+Epoch 91: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 91/200
+173/173 [==============================] - ETA: 0s - loss: 0.8473 - accuracy: 0.7765 - top1: 0.7765
+Epoch 91: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8473 - accuracy: 0.7765 - top1: 0.7765 - val_loss: 0.8064 - val_accuracy: 0.8001 - val_top1: 0.8001 - lr: 1.0000e-04
+
+Epoch 92: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 92/200
+173/173 [==============================] - ETA: 0s - loss: 0.8404 - accuracy: 0.7791 - top1: 0.7791
+Epoch 92: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8404 - accuracy: 0.7791 - top1: 0.7791 - val_loss: 0.8090 - val_accuracy: 0.8001 - val_top1: 0.8001 - lr: 1.0000e-04
+
+Epoch 93: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 93/200
+173/173 [==============================] - ETA: 0s - loss: 0.8426 - accuracy: 0.7803 - top1: 0.7803
+Epoch 93: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8426 - accuracy: 0.7803 - top1: 0.7803 - val_loss: 0.8072 - val_accuracy: 0.8070 - val_top1: 0.8070 - lr: 1.0000e-04
+
+Epoch 94: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 94/200
+173/173 [==============================] - ETA: 0s - loss: 0.8412 - accuracy: 0.7774 - top1: 0.7774
+Epoch 94: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8412 - accuracy: 0.7774 - top1: 0.7774 - val_loss: 0.8035 - val_accuracy: 0.8023 - val_top1: 0.8023 - lr: 1.0000e-04
+
+Epoch 95: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 95/200
+173/173 [==============================] - ETA: 0s - loss: 0.8506 - accuracy: 0.7765 - top1: 0.7765
+Epoch 95: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8506 - accuracy: 0.7765 - top1: 0.7765 - val_loss: 0.7965 - val_accuracy: 0.8081 - val_top1: 0.8081 - lr: 1.0000e-04
+
+Epoch 96: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 96/200
+173/173 [==============================] - ETA: 0s - loss: 0.8368 - accuracy: 0.7819 - top1: 0.7819
+Epoch 96: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8368 - accuracy: 0.7819 - top1: 0.7819 - val_loss: 0.8012 - val_accuracy: 0.8060 - val_top1: 0.8060 - lr: 1.0000e-04
+
+Epoch 97: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 97/200
+173/173 [==============================] - ETA: 0s - loss: 0.8430 - accuracy: 0.7797 - top1: 0.7797
+Epoch 97: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8430 - accuracy: 0.7797 - top1: 0.7797 - val_loss: 0.8042 - val_accuracy: 0.8045 - val_top1: 0.8045 - lr: 1.0000e-04
+
+Epoch 98: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 98/200
+173/173 [==============================] - ETA: 0s - loss: 0.8370 - accuracy: 0.7823 - top1: 0.7823
+Epoch 98: accuracy did not improve from 0.78302
+173/173 [==============================] - 11s 64ms/step - loss: 0.8370 - accuracy: 0.7823 - top1: 0.7823 - val_loss: 0.8001 - val_accuracy: 0.8100 - val_top1: 0.8100 - lr: 1.0000e-04
+
+Epoch 99: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 99/200
+173/173 [==============================] - ETA: 0s - loss: 0.8407 - accuracy: 0.7839 - top1: 0.7839
+Epoch 99: accuracy improved from 0.78302 to 0.78392, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8407 - accuracy: 0.7839 - top1: 0.7839 - val_loss: 0.8046 - val_accuracy: 0.8031 - val_top1: 0.8031 - lr: 1.0000e-04
+
+Epoch 100: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 100/200
+173/173 [==============================] - ETA: 0s - loss: 0.8434 - accuracy: 0.7839 - top1: 0.7839
+Epoch 100: accuracy did not improve from 0.78392
+173/173 [==============================] - 11s 64ms/step - loss: 0.8434 - accuracy: 0.7839 - top1: 0.7839 - val_loss: 0.8005 - val_accuracy: 0.8085 - val_top1: 0.8085 - lr: 1.0000e-04
+
+Epoch 101: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 101/200
+173/173 [==============================] - ETA: 0s - loss: 0.8376 - accuracy: 0.7851 - top1: 0.7851
+Epoch 101: accuracy improved from 0.78392 to 0.78510, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8376 - accuracy: 0.7851 - top1: 0.7851 - val_loss: 0.7983 - val_accuracy: 0.8092 - val_top1: 0.8092 - lr: 1.0000e-04
+
+Epoch 102: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 102/200
+173/173 [==============================] - ETA: 0s - loss: 0.8396 - accuracy: 0.7795 - top1: 0.7795
+Epoch 102: accuracy did not improve from 0.78510
+173/173 [==============================] - 11s 64ms/step - loss: 0.8396 - accuracy: 0.7795 - top1: 0.7795 - val_loss: 0.7988 - val_accuracy: 0.8070 - val_top1: 0.8070 - lr: 1.0000e-04
+
+Epoch 103: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 103/200
+173/173 [==============================] - ETA: 0s - loss: 0.8444 - accuracy: 0.7801 - top1: 0.7801
+Epoch 103: accuracy did not improve from 0.78510
+173/173 [==============================] - 11s 64ms/step - loss: 0.8444 - accuracy: 0.7801 - top1: 0.7801 - val_loss: 0.8018 - val_accuracy: 0.8045 - val_top1: 0.8045 - lr: 1.0000e-04
+
+Epoch 104: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 104/200
+173/173 [==============================] - ETA: 0s - loss: 0.8398 - accuracy: 0.7825 - top1: 0.7825
+Epoch 104: accuracy did not improve from 0.78510
+173/173 [==============================] - 11s 64ms/step - loss: 0.8398 - accuracy: 0.7825 - top1: 0.7825 - val_loss: 0.8020 - val_accuracy: 0.8074 - val_top1: 0.8074 - lr: 1.0000e-04
+
+Epoch 105: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 105/200
+173/173 [==============================] - ETA: 0s - loss: 0.8379 - accuracy: 0.7833 - top1: 0.7833
+Epoch 105: accuracy did not improve from 0.78510
+173/173 [==============================] - 11s 64ms/step - loss: 0.8379 - accuracy: 0.7833 - top1: 0.7833 - val_loss: 0.8014 - val_accuracy: 0.8012 - val_top1: 0.8012 - lr: 1.0000e-04
+
+Epoch 106: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 106/200
+173/173 [==============================] - ETA: 0s - loss: 0.8436 - accuracy: 0.7757 - top1: 0.7757
+Epoch 106: accuracy did not improve from 0.78510
+173/173 [==============================] - 11s 64ms/step - loss: 0.8436 - accuracy: 0.7757 - top1: 0.7757 - val_loss: 0.7980 - val_accuracy: 0.8114 - val_top1: 0.8114 - lr: 1.0000e-04
+
+Epoch 107: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 107/200
+173/173 [==============================] - ETA: 0s - loss: 0.8402 - accuracy: 0.7844 - top1: 0.7844
+Epoch 107: accuracy did not improve from 0.78510
+173/173 [==============================] - 11s 64ms/step - loss: 0.8402 - accuracy: 0.7844 - top1: 0.7844 - val_loss: 0.7957 - val_accuracy: 0.8118 - val_top1: 0.8118 - lr: 1.0000e-04
+
+Epoch 108: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 108/200
+173/173 [==============================] - ETA: 0s - loss: 0.8363 - accuracy: 0.7848 - top1: 0.7848
+Epoch 108: accuracy did not improve from 0.78510
+173/173 [==============================] - 11s 64ms/step - loss: 0.8363 - accuracy: 0.7848 - top1: 0.7848 - val_loss: 0.8036 - val_accuracy: 0.8052 - val_top1: 0.8052 - lr: 1.0000e-04
+
+Epoch 109: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 109/200
+173/173 [==============================] - ETA: 0s - loss: 0.8343 - accuracy: 0.7856 - top1: 0.7856
+Epoch 109: accuracy improved from 0.78510 to 0.78556, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8343 - accuracy: 0.7856 - top1: 0.7856 - val_loss: 0.7962 - val_accuracy: 0.8107 - val_top1: 0.8107 - lr: 1.0000e-04
+
+Epoch 110: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 110/200
+173/173 [==============================] - ETA: 0s - loss: 0.8362 - accuracy: 0.7814 - top1: 0.7814
+Epoch 110: accuracy did not improve from 0.78556
+173/173 [==============================] - 11s 65ms/step - loss: 0.8362 - accuracy: 0.7814 - top1: 0.7814 - val_loss: 0.7953 - val_accuracy: 0.8085 - val_top1: 0.8085 - lr: 1.0000e-04
+
+Epoch 111: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 111/200
+173/173 [==============================] - ETA: 0s - loss: 0.8303 - accuracy: 0.7850 - top1: 0.7850
+Epoch 111: accuracy did not improve from 0.78556
+173/173 [==============================] - 11s 64ms/step - loss: 0.8303 - accuracy: 0.7850 - top1: 0.7850 - val_loss: 0.7940 - val_accuracy: 0.8100 - val_top1: 0.8100 - lr: 1.0000e-04
+
+Epoch 112: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 112/200
+173/173 [==============================] - ETA: 0s - loss: 0.8383 - accuracy: 0.7798 - top1: 0.7798
+Epoch 112: accuracy did not improve from 0.78556
+173/173 [==============================] - 11s 64ms/step - loss: 0.8383 - accuracy: 0.7798 - top1: 0.7798 - val_loss: 0.7930 - val_accuracy: 0.8125 - val_top1: 0.8125 - lr: 1.0000e-04
+
+Epoch 113: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 113/200
+173/173 [==============================] - ETA: 0s - loss: 0.8372 - accuracy: 0.7851 - top1: 0.7851
+Epoch 113: accuracy did not improve from 0.78556
+173/173 [==============================] - 11s 64ms/step - loss: 0.8372 - accuracy: 0.7851 - top1: 0.7851 - val_loss: 0.7928 - val_accuracy: 0.8085 - val_top1: 0.8085 - lr: 1.0000e-04
+
+Epoch 114: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 114/200
+173/173 [==============================] - ETA: 0s - loss: 0.8363 - accuracy: 0.7874 - top1: 0.7874
+Epoch 114: accuracy improved from 0.78556 to 0.78738, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8363 - accuracy: 0.7874 - top1: 0.7874 - val_loss: 0.7949 - val_accuracy: 0.8085 - val_top1: 0.8085 - lr: 1.0000e-04
+
+Epoch 115: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 115/200
+173/173 [==============================] - ETA: 0s - loss: 0.8408 - accuracy: 0.7767 - top1: 0.7767
+Epoch 115: accuracy did not improve from 0.78738
+173/173 [==============================] - 11s 64ms/step - loss: 0.8408 - accuracy: 0.7767 - top1: 0.7767 - val_loss: 0.7968 - val_accuracy: 0.8118 - val_top1: 0.8118 - lr: 1.0000e-04
+
+Epoch 116: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 116/200
+173/173 [==============================] - ETA: 0s - loss: 0.8354 - accuracy: 0.7836 - top1: 0.7836
+Epoch 116: accuracy did not improve from 0.78738
+173/173 [==============================] - 11s 64ms/step - loss: 0.8354 - accuracy: 0.7836 - top1: 0.7836 - val_loss: 0.7922 - val_accuracy: 0.8147 - val_top1: 0.8147 - lr: 1.0000e-04
+
+Epoch 117: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 117/200
+173/173 [==============================] - ETA: 0s - loss: 0.8346 - accuracy: 0.7860 - top1: 0.7860
+Epoch 117: accuracy did not improve from 0.78738
+173/173 [==============================] - 11s 64ms/step - loss: 0.8346 - accuracy: 0.7860 - top1: 0.7860 - val_loss: 0.7958 - val_accuracy: 0.8100 - val_top1: 0.8100 - lr: 1.0000e-04
+
+Epoch 118: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 118/200
+173/173 [==============================] - ETA: 0s - loss: 0.8331 - accuracy: 0.7885 - top1: 0.7885
+Epoch 118: accuracy improved from 0.78738 to 0.78847, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8331 - accuracy: 0.7885 - top1: 0.7885 - val_loss: 0.7929 - val_accuracy: 0.8143 - val_top1: 0.8143 - lr: 1.0000e-04
+
+Epoch 119: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 119/200
+173/173 [==============================] - ETA: 0s - loss: 0.8324 - accuracy: 0.7858 - top1: 0.7858
+Epoch 119: accuracy did not improve from 0.78847
+173/173 [==============================] - 11s 64ms/step - loss: 0.8324 - accuracy: 0.7858 - top1: 0.7858 - val_loss: 0.7920 - val_accuracy: 0.8110 - val_top1: 0.8110 - lr: 1.0000e-04
+
+Epoch 120: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 120/200
+173/173 [==============================] - ETA: 0s - loss: 0.8346 - accuracy: 0.7816 - top1: 0.7816
+Epoch 120: accuracy did not improve from 0.78847
+173/173 [==============================] - 11s 64ms/step - loss: 0.8346 - accuracy: 0.7816 - top1: 0.7816 - val_loss: 0.7961 - val_accuracy: 0.8078 - val_top1: 0.8078 - lr: 1.0000e-04
+
+Epoch 121: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 121/200
+173/173 [==============================] - ETA: 0s - loss: 0.8327 - accuracy: 0.7890 - top1: 0.7890
+Epoch 121: accuracy improved from 0.78847 to 0.78901, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8327 - accuracy: 0.7890 - top1: 0.7890 - val_loss: 0.7918 - val_accuracy: 0.8110 - val_top1: 0.8110 - lr: 1.0000e-04
+
+Epoch 122: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 122/200
+173/173 [==============================] - ETA: 0s - loss: 0.8282 - accuracy: 0.7862 - top1: 0.7862
+Epoch 122: accuracy did not improve from 0.78901
+173/173 [==============================] - 11s 64ms/step - loss: 0.8282 - accuracy: 0.7862 - top1: 0.7862 - val_loss: 0.8014 - val_accuracy: 0.8012 - val_top1: 0.8012 - lr: 1.0000e-04
+
+Epoch 123: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 123/200
+173/173 [==============================] - ETA: 0s - loss: 0.8318 - accuracy: 0.7879 - top1: 0.7879
+Epoch 123: accuracy did not improve from 0.78901
+173/173 [==============================] - 11s 65ms/step - loss: 0.8318 - accuracy: 0.7879 - top1: 0.7879 - val_loss: 0.7963 - val_accuracy: 0.8110 - val_top1: 0.8110 - lr: 1.0000e-04
+
+Epoch 124: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 124/200
+173/173 [==============================] - ETA: 0s - loss: 0.8308 - accuracy: 0.7830 - top1: 0.7830
+Epoch 124: accuracy did not improve from 0.78901
+173/173 [==============================] - 11s 64ms/step - loss: 0.8308 - accuracy: 0.7830 - top1: 0.7830 - val_loss: 0.7892 - val_accuracy: 0.8110 - val_top1: 0.8110 - lr: 1.0000e-04
+
+Epoch 125: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 125/200
+173/173 [==============================] - ETA: 0s - loss: 0.8337 - accuracy: 0.7863 - top1: 0.7863
+Epoch 125: accuracy did not improve from 0.78901
+173/173 [==============================] - 11s 64ms/step - loss: 0.8337 - accuracy: 0.7863 - top1: 0.7863 - val_loss: 0.7912 - val_accuracy: 0.8118 - val_top1: 0.8118 - lr: 1.0000e-04
+
+Epoch 126: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 126/200
+173/173 [==============================] - ETA: 0s - loss: 0.8181 - accuracy: 0.7918 - top1: 0.7918
+Epoch 126: accuracy improved from 0.78901 to 0.79183, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8181 - accuracy: 0.7918 - top1: 0.7918 - val_loss: 0.7957 - val_accuracy: 0.8041 - val_top1: 0.8041 - lr: 1.0000e-04
+
+Epoch 127: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 127/200
+173/173 [==============================] - ETA: 0s - loss: 0.8279 - accuracy: 0.7854 - top1: 0.7854
+Epoch 127: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8279 - accuracy: 0.7854 - top1: 0.7854 - val_loss: 0.7903 - val_accuracy: 0.8125 - val_top1: 0.8125 - lr: 1.0000e-04
+
+Epoch 128: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 128/200
+173/173 [==============================] - ETA: 0s - loss: 0.8312 - accuracy: 0.7873 - top1: 0.7873
+Epoch 128: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8312 - accuracy: 0.7873 - top1: 0.7873 - val_loss: 0.7909 - val_accuracy: 0.8125 - val_top1: 0.8125 - lr: 1.0000e-04
+
+Epoch 129: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 129/200
+173/173 [==============================] - ETA: 0s - loss: 0.8270 - accuracy: 0.7894 - top1: 0.7894
+Epoch 129: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8270 - accuracy: 0.7894 - top1: 0.7894 - val_loss: 0.7905 - val_accuracy: 0.8114 - val_top1: 0.8114 - lr: 1.0000e-04
+
+Epoch 130: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 130/200
+173/173 [==============================] - ETA: 0s - loss: 0.8356 - accuracy: 0.7821 - top1: 0.7821
+Epoch 130: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 65ms/step - loss: 0.8356 - accuracy: 0.7821 - top1: 0.7821 - val_loss: 0.7906 - val_accuracy: 0.8110 - val_top1: 0.8110 - lr: 1.0000e-04
+
+Epoch 131: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 131/200
+173/173 [==============================] - ETA: 0s - loss: 0.8337 - accuracy: 0.7862 - top1: 0.7862
+Epoch 131: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8337 - accuracy: 0.7862 - top1: 0.7862 - val_loss: 0.7935 - val_accuracy: 0.8081 - val_top1: 0.8081 - lr: 1.0000e-04
+
+Epoch 132: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 132/200
+173/173 [==============================] - ETA: 0s - loss: 0.8271 - accuracy: 0.7907 - top1: 0.7907
+Epoch 132: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8271 - accuracy: 0.7907 - top1: 0.7907 - val_loss: 0.7867 - val_accuracy: 0.8169 - val_top1: 0.8169 - lr: 1.0000e-04
+
+Epoch 133: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 133/200
+173/173 [==============================] - ETA: 0s - loss: 0.8310 - accuracy: 0.7808 - top1: 0.7808
+Epoch 133: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8310 - accuracy: 0.7808 - top1: 0.7808 - val_loss: 0.7853 - val_accuracy: 0.8172 - val_top1: 0.8172 - lr: 1.0000e-04
+
+Epoch 134: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 134/200
+173/173 [==============================] - ETA: 0s - loss: 0.8274 - accuracy: 0.7897 - top1: 0.7897
+Epoch 134: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8274 - accuracy: 0.7897 - top1: 0.7897 - val_loss: 0.7918 - val_accuracy: 0.8118 - val_top1: 0.8118 - lr: 1.0000e-04
+
+Epoch 135: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 135/200
+173/173 [==============================] - ETA: 0s - loss: 0.8269 - accuracy: 0.7867 - top1: 0.7867
+Epoch 135: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8269 - accuracy: 0.7867 - top1: 0.7867 - val_loss: 0.7856 - val_accuracy: 0.8161 - val_top1: 0.8161 - lr: 1.0000e-04
+
+Epoch 136: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 136/200
+173/173 [==============================] - ETA: 0s - loss: 0.8316 - accuracy: 0.7808 - top1: 0.7808
+Epoch 136: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8316 - accuracy: 0.7808 - top1: 0.7808 - val_loss: 0.7849 - val_accuracy: 0.8121 - val_top1: 0.8121 - lr: 1.0000e-04
+
+Epoch 137: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 137/200
+173/173 [==============================] - ETA: 0s - loss: 0.8332 - accuracy: 0.7856 - top1: 0.7856
+Epoch 137: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8332 - accuracy: 0.7856 - top1: 0.7856 - val_loss: 0.7907 - val_accuracy: 0.8121 - val_top1: 0.8121 - lr: 1.0000e-04
+
+Epoch 138: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 138/200
+173/173 [==============================] - ETA: 0s - loss: 0.8240 - accuracy: 0.7892 - top1: 0.7892
+Epoch 138: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8240 - accuracy: 0.7892 - top1: 0.7892 - val_loss: 0.7893 - val_accuracy: 0.8132 - val_top1: 0.8132 - lr: 1.0000e-04
+
+Epoch 139: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 139/200
+173/173 [==============================] - ETA: 0s - loss: 0.8256 - accuracy: 0.7839 - top1: 0.7839
+Epoch 139: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8256 - accuracy: 0.7839 - top1: 0.7839 - val_loss: 0.7852 - val_accuracy: 0.8169 - val_top1: 0.8169 - lr: 1.0000e-04
+
+Epoch 140: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 140/200
+173/173 [==============================] - ETA: 0s - loss: 0.8331 - accuracy: 0.7852 - top1: 0.7852
+Epoch 140: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 65ms/step - loss: 0.8331 - accuracy: 0.7852 - top1: 0.7852 - val_loss: 0.7863 - val_accuracy: 0.8169 - val_top1: 0.8169 - lr: 1.0000e-04
+
+Epoch 141: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 141/200
+173/173 [==============================] - ETA: 0s - loss: 0.8322 - accuracy: 0.7868 - top1: 0.7868
+Epoch 141: accuracy did not improve from 0.79183
+173/173 [==============================] - 11s 64ms/step - loss: 0.8322 - accuracy: 0.7868 - top1: 0.7868 - val_loss: 0.7840 - val_accuracy: 0.8172 - val_top1: 0.8172 - lr: 1.0000e-04
+
+Epoch 142: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 142/200
+173/173 [==============================] - ETA: 0s - loss: 0.8188 - accuracy: 0.7925 - top1: 0.7925
+Epoch 142: accuracy improved from 0.79183 to 0.79246, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8188 - accuracy: 0.7925 - top1: 0.7925 - val_loss: 0.7881 - val_accuracy: 0.8147 - val_top1: 0.8147 - lr: 1.0000e-04
+
+Epoch 143: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 143/200
+173/173 [==============================] - ETA: 0s - loss: 0.8202 - accuracy: 0.7921 - top1: 0.7921
+Epoch 143: accuracy did not improve from 0.79246
+173/173 [==============================] - 11s 65ms/step - loss: 0.8202 - accuracy: 0.7921 - top1: 0.7921 - val_loss: 0.7877 - val_accuracy: 0.8150 - val_top1: 0.8150 - lr: 1.0000e-04
+
+Epoch 144: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 144/200
+173/173 [==============================] - ETA: 0s - loss: 0.8288 - accuracy: 0.7852 - top1: 0.7852
+Epoch 144: accuracy did not improve from 0.79246
+173/173 [==============================] - 11s 64ms/step - loss: 0.8288 - accuracy: 0.7852 - top1: 0.7852 - val_loss: 0.7859 - val_accuracy: 0.8136 - val_top1: 0.8136 - lr: 1.0000e-04
+
+Epoch 145: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 145/200
+173/173 [==============================] - ETA: 0s - loss: 0.8232 - accuracy: 0.7893 - top1: 0.7893
+Epoch 145: accuracy did not improve from 0.79246
+173/173 [==============================] - 11s 64ms/step - loss: 0.8232 - accuracy: 0.7893 - top1: 0.7893 - val_loss: 0.7890 - val_accuracy: 0.8096 - val_top1: 0.8096 - lr: 1.0000e-04
+
+Epoch 146: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 146/200
+173/173 [==============================] - ETA: 0s - loss: 0.8240 - accuracy: 0.7908 - top1: 0.7908
+Epoch 146: accuracy did not improve from 0.79246
+173/173 [==============================] - 11s 64ms/step - loss: 0.8240 - accuracy: 0.7908 - top1: 0.7908 - val_loss: 0.7901 - val_accuracy: 0.8092 - val_top1: 0.8092 - lr: 1.0000e-04
+
+Epoch 147: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 147/200
+173/173 [==============================] - ETA: 0s - loss: 0.8255 - accuracy: 0.7878 - top1: 0.7878
+Epoch 147: accuracy did not improve from 0.79246
+173/173 [==============================] - 11s 64ms/step - loss: 0.8255 - accuracy: 0.7878 - top1: 0.7878 - val_loss: 0.7933 - val_accuracy: 0.8114 - val_top1: 0.8114 - lr: 1.0000e-04
+
+Epoch 148: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 148/200
+173/173 [==============================] - ETA: 0s - loss: 0.8285 - accuracy: 0.7847 - top1: 0.7847
+Epoch 148: accuracy did not improve from 0.79246
+173/173 [==============================] - 11s 64ms/step - loss: 0.8285 - accuracy: 0.7847 - top1: 0.7847 - val_loss: 0.7797 - val_accuracy: 0.8187 - val_top1: 0.8187 - lr: 1.0000e-04
+
+Epoch 149: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 149/200
+173/173 [==============================] - ETA: 0s - loss: 0.8223 - accuracy: 0.7905 - top1: 0.7905
+Epoch 149: accuracy did not improve from 0.79246
+173/173 [==============================] - 11s 64ms/step - loss: 0.8223 - accuracy: 0.7905 - top1: 0.7905 - val_loss: 0.7818 - val_accuracy: 0.8190 - val_top1: 0.8190 - lr: 1.0000e-04
+
+Epoch 150: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 150/200
+173/173 [==============================] - ETA: 0s - loss: 0.8255 - accuracy: 0.7858 - top1: 0.7858
+Epoch 150: accuracy did not improve from 0.79246
+173/173 [==============================] - 11s 64ms/step - loss: 0.8255 - accuracy: 0.7858 - top1: 0.7858 - val_loss: 0.7854 - val_accuracy: 0.8143 - val_top1: 0.8143 - lr: 1.0000e-04
+
+Epoch 151: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 151/200
+173/173 [==============================] - ETA: 0s - loss: 0.8190 - accuracy: 0.7910 - top1: 0.7910
+Epoch 151: accuracy did not improve from 0.79246
+173/173 [==============================] - 11s 66ms/step - loss: 0.8190 - accuracy: 0.7910 - top1: 0.7910 - val_loss: 0.7799 - val_accuracy: 0.8180 - val_top1: 0.8180 - lr: 1.0000e-04
+
+Epoch 152: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 152/200
+173/173 [==============================] - ETA: 0s - loss: 0.8214 - accuracy: 0.7916 - top1: 0.7916
+Epoch 152: accuracy did not improve from 0.79246
+173/173 [==============================] - 11s 66ms/step - loss: 0.8214 - accuracy: 0.7916 - top1: 0.7916 - val_loss: 0.7781 - val_accuracy: 0.8169 - val_top1: 0.8169 - lr: 1.0000e-04
+
+Epoch 153: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 153/200
+173/173 [==============================] - ETA: 0s - loss: 0.8234 - accuracy: 0.7916 - top1: 0.7916
+Epoch 153: accuracy did not improve from 0.79246
+173/173 [==============================] - 11s 66ms/step - loss: 0.8234 - accuracy: 0.7916 - top1: 0.7916 - val_loss: 0.7847 - val_accuracy: 0.8154 - val_top1: 0.8154 - lr: 1.0000e-04
+
+Epoch 154: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 154/200
+173/173 [==============================] - ETA: 0s - loss: 0.8198 - accuracy: 0.7958 - top1: 0.7958
+Epoch 154: accuracy improved from 0.79246 to 0.79582, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 12s 71ms/step - loss: 0.8198 - accuracy: 0.7958 - top1: 0.7958 - val_loss: 0.7861 - val_accuracy: 0.8143 - val_top1: 0.8143 - lr: 1.0000e-04
+
+Epoch 155: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 155/200
+173/173 [==============================] - ETA: 0s - loss: 0.8158 - accuracy: 0.7907 - top1: 0.7907
+Epoch 155: accuracy did not improve from 0.79582
+173/173 [==============================] - 12s 67ms/step - loss: 0.8158 - accuracy: 0.7907 - top1: 0.7907 - val_loss: 0.7905 - val_accuracy: 0.8147 - val_top1: 0.8147 - lr: 1.0000e-04
+
+Epoch 156: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 156/200
+173/173 [==============================] - ETA: 0s - loss: 0.8182 - accuracy: 0.7923 - top1: 0.7923
+Epoch 156: accuracy did not improve from 0.79582
+173/173 [==============================] - 11s 66ms/step - loss: 0.8182 - accuracy: 0.7923 - top1: 0.7923 - val_loss: 0.7835 - val_accuracy: 0.8172 - val_top1: 0.8172 - lr: 1.0000e-04
+
+Epoch 157: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 157/200
+173/173 [==============================] - ETA: 0s - loss: 0.8204 - accuracy: 0.7959 - top1: 0.7959
+Epoch 157: accuracy improved from 0.79582 to 0.79591, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 12s 67ms/step - loss: 0.8204 - accuracy: 0.7959 - top1: 0.7959 - val_loss: 0.7820 - val_accuracy: 0.8143 - val_top1: 0.8143 - lr: 1.0000e-04
+
+Epoch 158: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 158/200
+173/173 [==============================] - ETA: 0s - loss: 0.8285 - accuracy: 0.7896 - top1: 0.7896
+Epoch 158: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 66ms/step - loss: 0.8285 - accuracy: 0.7896 - top1: 0.7896 - val_loss: 0.7881 - val_accuracy: 0.8169 - val_top1: 0.8169 - lr: 1.0000e-04
+
+Epoch 159: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 159/200
+173/173 [==============================] - ETA: 0s - loss: 0.8167 - accuracy: 0.7938 - top1: 0.7938
+Epoch 159: accuracy did not improve from 0.79591
+173/173 [==============================] - 12s 68ms/step - loss: 0.8167 - accuracy: 0.7938 - top1: 0.7938 - val_loss: 0.7797 - val_accuracy: 0.8183 - val_top1: 0.8183 - lr: 1.0000e-04
+
+Epoch 160: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 160/200
+173/173 [==============================] - ETA: 0s - loss: 0.8195 - accuracy: 0.7923 - top1: 0.7923
+Epoch 160: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 64ms/step - loss: 0.8195 - accuracy: 0.7923 - top1: 0.7923 - val_loss: 0.7890 - val_accuracy: 0.8114 - val_top1: 0.8114 - lr: 1.0000e-04
+
+Epoch 161: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 161/200
+173/173 [==============================] - ETA: 0s - loss: 0.8188 - accuracy: 0.7910 - top1: 0.7910
+Epoch 161: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 65ms/step - loss: 0.8188 - accuracy: 0.7910 - top1: 0.7910 - val_loss: 0.7850 - val_accuracy: 0.8110 - val_top1: 0.8110 - lr: 1.0000e-04
+
+Epoch 162: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 162/200
+173/173 [==============================] - ETA: 0s - loss: 0.8207 - accuracy: 0.7935 - top1: 0.7935
+Epoch 162: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 65ms/step - loss: 0.8207 - accuracy: 0.7935 - top1: 0.7935 - val_loss: 0.7781 - val_accuracy: 0.8169 - val_top1: 0.8169 - lr: 1.0000e-04
+
+Epoch 163: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 163/200
+173/173 [==============================] - ETA: 0s - loss: 0.8174 - accuracy: 0.7893 - top1: 0.7893
+Epoch 163: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 65ms/step - loss: 0.8174 - accuracy: 0.7893 - top1: 0.7893 - val_loss: 0.7742 - val_accuracy: 0.8205 - val_top1: 0.8205 - lr: 1.0000e-04
+
+Epoch 164: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 164/200
+173/173 [==============================] - ETA: 0s - loss: 0.8190 - accuracy: 0.7879 - top1: 0.7879
+Epoch 164: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 65ms/step - loss: 0.8190 - accuracy: 0.7879 - top1: 0.7879 - val_loss: 0.7770 - val_accuracy: 0.8187 - val_top1: 0.8187 - lr: 1.0000e-04
+
+Epoch 165: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 165/200
+173/173 [==============================] - ETA: 0s - loss: 0.8223 - accuracy: 0.7873 - top1: 0.7873
+Epoch 165: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 64ms/step - loss: 0.8223 - accuracy: 0.7873 - top1: 0.7873 - val_loss: 0.7809 - val_accuracy: 0.8154 - val_top1: 0.8154 - lr: 1.0000e-04
+
+Epoch 166: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 166/200
+173/173 [==============================] - ETA: 0s - loss: 0.8161 - accuracy: 0.7936 - top1: 0.7936
+Epoch 166: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 65ms/step - loss: 0.8161 - accuracy: 0.7936 - top1: 0.7936 - val_loss: 0.7789 - val_accuracy: 0.8201 - val_top1: 0.8201 - lr: 1.0000e-04
+
+Epoch 167: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 167/200
+173/173 [==============================] - ETA: 0s - loss: 0.8198 - accuracy: 0.7905 - top1: 0.7905
+Epoch 167: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 65ms/step - loss: 0.8198 - accuracy: 0.7905 - top1: 0.7905 - val_loss: 0.7768 - val_accuracy: 0.8198 - val_top1: 0.8198 - lr: 1.0000e-04
+
+Epoch 168: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 168/200
+173/173 [==============================] - ETA: 0s - loss: 0.8160 - accuracy: 0.7912 - top1: 0.7912
+Epoch 168: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 64ms/step - loss: 0.8160 - accuracy: 0.7912 - top1: 0.7912 - val_loss: 0.7733 - val_accuracy: 0.8212 - val_top1: 0.8212 - lr: 1.0000e-04
+
+Epoch 169: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 169/200
+173/173 [==============================] - ETA: 0s - loss: 0.8183 - accuracy: 0.7950 - top1: 0.7950
+Epoch 169: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 64ms/step - loss: 0.8183 - accuracy: 0.7950 - top1: 0.7950 - val_loss: 0.7753 - val_accuracy: 0.8227 - val_top1: 0.8227 - lr: 1.0000e-04
+
+Epoch 170: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 170/200
+173/173 [==============================] - ETA: 0s - loss: 0.8159 - accuracy: 0.7953 - top1: 0.7953
+Epoch 170: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 64ms/step - loss: 0.8159 - accuracy: 0.7953 - top1: 0.7953 - val_loss: 0.7698 - val_accuracy: 0.8194 - val_top1: 0.8194 - lr: 1.0000e-04
+
+Epoch 171: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 171/200
+173/173 [==============================] - ETA: 0s - loss: 0.8193 - accuracy: 0.7936 - top1: 0.7936
+Epoch 171: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 64ms/step - loss: 0.8193 - accuracy: 0.7936 - top1: 0.7936 - val_loss: 0.7746 - val_accuracy: 0.8194 - val_top1: 0.8194 - lr: 1.0000e-04
+
+Epoch 172: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 172/200
+173/173 [==============================] - ETA: 0s - loss: 0.8164 - accuracy: 0.7916 - top1: 0.7916
+Epoch 172: accuracy did not improve from 0.79591
+173/173 [==============================] - 11s 64ms/step - loss: 0.8164 - accuracy: 0.7916 - top1: 0.7916 - val_loss: 0.7714 - val_accuracy: 0.8219 - val_top1: 0.8219 - lr: 1.0000e-04
+
+Epoch 173: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 173/200
+173/173 [==============================] - ETA: 0s - loss: 0.8159 - accuracy: 0.7968 - top1: 0.7968
+Epoch 173: accuracy improved from 0.79591 to 0.79682, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 66ms/step - loss: 0.8159 - accuracy: 0.7968 - top1: 0.7968 - val_loss: 0.7822 - val_accuracy: 0.8158 - val_top1: 0.8158 - lr: 1.0000e-04
+
+Epoch 174: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 174/200
+172/173 [============================>.] - ETA: 0s - loss: 0.8157 - accuracy: 0.7922 - top1: 0.7922
+Epoch 174: accuracy did not improve from 0.79682
+173/173 [==============================] - 11s 65ms/step - loss: 0.8156 - accuracy: 0.7923 - top1: 0.7923 - val_loss: 0.7814 - val_accuracy: 0.8190 - val_top1: 0.8190 - lr: 1.0000e-04
+
+Epoch 175: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 175/200
+173/173 [==============================] - ETA: 0s - loss: 0.8130 - accuracy: 0.7911 - top1: 0.7911
+Epoch 175: accuracy did not improve from 0.79682
+173/173 [==============================] - 11s 65ms/step - loss: 0.8130 - accuracy: 0.7911 - top1: 0.7911 - val_loss: 0.7750 - val_accuracy: 0.8209 - val_top1: 0.8209 - lr: 1.0000e-04
+
+Epoch 176: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 176/200
+173/173 [==============================] - ETA: 0s - loss: 0.8149 - accuracy: 0.7937 - top1: 0.7937
+Epoch 176: accuracy did not improve from 0.79682
+173/173 [==============================] - 11s 65ms/step - loss: 0.8149 - accuracy: 0.7937 - top1: 0.7937 - val_loss: 0.7710 - val_accuracy: 0.8176 - val_top1: 0.8176 - lr: 1.0000e-04
+
+Epoch 177: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 177/200
+173/173 [==============================] - ETA: 0s - loss: 0.8137 - accuracy: 0.7965 - top1: 0.7965
+Epoch 177: accuracy did not improve from 0.79682
+173/173 [==============================] - 11s 65ms/step - loss: 0.8137 - accuracy: 0.7965 - top1: 0.7965 - val_loss: 0.7781 - val_accuracy: 0.8183 - val_top1: 0.8183 - lr: 1.0000e-04
+
+Epoch 178: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 178/200
+173/173 [==============================] - ETA: 0s - loss: 0.8183 - accuracy: 0.7901 - top1: 0.7901
+Epoch 178: accuracy did not improve from 0.79682
+173/173 [==============================] - 11s 65ms/step - loss: 0.8183 - accuracy: 0.7901 - top1: 0.7901 - val_loss: 0.7768 - val_accuracy: 0.8209 - val_top1: 0.8209 - lr: 1.0000e-04
+
+Epoch 179: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 179/200
+173/173 [==============================] - ETA: 0s - loss: 0.8098 - accuracy: 0.7979 - top1: 0.7979
+Epoch 179: accuracy improved from 0.79682 to 0.79791, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 12s 67ms/step - loss: 0.8098 - accuracy: 0.7979 - top1: 0.7979 - val_loss: 0.7714 - val_accuracy: 0.8201 - val_top1: 0.8201 - lr: 1.0000e-04
+
+Epoch 180: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 180/200
+173/173 [==============================] - ETA: 0s - loss: 0.8134 - accuracy: 0.7931 - top1: 0.7931
+Epoch 180: accuracy did not improve from 0.79791
+173/173 [==============================] - 11s 66ms/step - loss: 0.8134 - accuracy: 0.7931 - top1: 0.7931 - val_loss: 0.7744 - val_accuracy: 0.8209 - val_top1: 0.8209 - lr: 1.0000e-04
+
+Epoch 181: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 181/200
+173/173 [==============================] - ETA: 0s - loss: 0.8072 - accuracy: 0.7935 - top1: 0.7935
+Epoch 181: accuracy did not improve from 0.79791
+173/173 [==============================] - 11s 65ms/step - loss: 0.8072 - accuracy: 0.7935 - top1: 0.7935 - val_loss: 0.7715 - val_accuracy: 0.8219 - val_top1: 0.8219 - lr: 1.0000e-04
+
+Epoch 182: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 182/200
+173/173 [==============================] - ETA: 0s - loss: 0.8215 - accuracy: 0.7885 - top1: 0.7885
+Epoch 182: accuracy did not improve from 0.79791
+173/173 [==============================] - 11s 63ms/step - loss: 0.8215 - accuracy: 0.7885 - top1: 0.7885 - val_loss: 0.7726 - val_accuracy: 0.8187 - val_top1: 0.8187 - lr: 1.0000e-04
+
+Epoch 183: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 183/200
+173/173 [==============================] - ETA: 0s - loss: 0.8130 - accuracy: 0.7972 - top1: 0.7972
+Epoch 183: accuracy did not improve from 0.79791
+173/173 [==============================] - 11s 64ms/step - loss: 0.8130 - accuracy: 0.7972 - top1: 0.7972 - val_loss: 0.7688 - val_accuracy: 0.8249 - val_top1: 0.8249 - lr: 1.0000e-04
+
+Epoch 184: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 184/200
+173/173 [==============================] - ETA: 0s - loss: 0.8131 - accuracy: 0.7942 - top1: 0.7942
+Epoch 184: accuracy did not improve from 0.79791
+173/173 [==============================] - 11s 64ms/step - loss: 0.8131 - accuracy: 0.7942 - top1: 0.7942 - val_loss: 0.7825 - val_accuracy: 0.8190 - val_top1: 0.8190 - lr: 1.0000e-04
+
+Epoch 185: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 185/200
+173/173 [==============================] - ETA: 0s - loss: 0.8083 - accuracy: 0.7959 - top1: 0.7959
+Epoch 185: accuracy did not improve from 0.79791
+173/173 [==============================] - 11s 64ms/step - loss: 0.8083 - accuracy: 0.7959 - top1: 0.7959 - val_loss: 0.7722 - val_accuracy: 0.8252 - val_top1: 0.8252 - lr: 1.0000e-04
+
+Epoch 186: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 186/200
+173/173 [==============================] - ETA: 0s - loss: 0.8114 - accuracy: 0.7973 - top1: 0.7973
+Epoch 186: accuracy did not improve from 0.79791
+173/173 [==============================] - 11s 63ms/step - loss: 0.8114 - accuracy: 0.7973 - top1: 0.7973 - val_loss: 0.7728 - val_accuracy: 0.8249 - val_top1: 0.8249 - lr: 1.0000e-04
+
+Epoch 187: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 187/200
+173/173 [==============================] - ETA: 0s - loss: 0.8113 - accuracy: 0.7961 - top1: 0.7961
+Epoch 187: accuracy did not improve from 0.79791
+173/173 [==============================] - 11s 63ms/step - loss: 0.8113 - accuracy: 0.7961 - top1: 0.7961 - val_loss: 0.7695 - val_accuracy: 0.8205 - val_top1: 0.8205 - lr: 1.0000e-04
+
+Epoch 188: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 188/200
+173/173 [==============================] - ETA: 0s - loss: 0.8080 - accuracy: 0.7976 - top1: 0.7976
+Epoch 188: accuracy did not improve from 0.79791
+173/173 [==============================] - 11s 63ms/step - loss: 0.8080 - accuracy: 0.7976 - top1: 0.7976 - val_loss: 0.7710 - val_accuracy: 0.8241 - val_top1: 0.8241 - lr: 1.0000e-04
+
+Epoch 189: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 189/200
+173/173 [==============================] - ETA: 0s - loss: 0.8116 - accuracy: 0.7991 - top1: 0.7991
+Epoch 189: accuracy improved from 0.79791 to 0.79909, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8116 - accuracy: 0.7991 - top1: 0.7991 - val_loss: 0.7719 - val_accuracy: 0.8219 - val_top1: 0.8219 - lr: 1.0000e-04
+
+Epoch 190: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 190/200
+173/173 [==============================] - ETA: 0s - loss: 0.8096 - accuracy: 0.7949 - top1: 0.7949
+Epoch 190: accuracy did not improve from 0.79909
+173/173 [==============================] - 11s 63ms/step - loss: 0.8096 - accuracy: 0.7949 - top1: 0.7949 - val_loss: 0.7649 - val_accuracy: 0.8212 - val_top1: 0.8212 - lr: 1.0000e-04
+
+Epoch 191: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 191/200
+173/173 [==============================] - ETA: 0s - loss: 0.8087 - accuracy: 0.7965 - top1: 0.7965
+Epoch 191: accuracy did not improve from 0.79909
+173/173 [==============================] - 11s 63ms/step - loss: 0.8087 - accuracy: 0.7965 - top1: 0.7965 - val_loss: 0.7701 - val_accuracy: 0.8187 - val_top1: 0.8187 - lr: 1.0000e-04
+
+Epoch 192: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 192/200
+173/173 [==============================] - ETA: 0s - loss: 0.8050 - accuracy: 0.8002 - top1: 0.8002
+Epoch 192: accuracy improved from 0.79909 to 0.80018, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 64ms/step - loss: 0.8050 - accuracy: 0.8002 - top1: 0.8002 - val_loss: 0.7789 - val_accuracy: 0.8136 - val_top1: 0.8136 - lr: 1.0000e-04
+
+Epoch 193: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 193/200
+173/173 [==============================] - ETA: 0s - loss: 0.8099 - accuracy: 0.7987 - top1: 0.7987
+Epoch 193: accuracy did not improve from 0.80018
+173/173 [==============================] - 11s 65ms/step - loss: 0.8099 - accuracy: 0.7987 - top1: 0.7987 - val_loss: 0.7676 - val_accuracy: 0.8230 - val_top1: 0.8230 - lr: 1.0000e-04
+
+Epoch 194: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 194/200
+173/173 [==============================] - ETA: 0s - loss: 0.8003 - accuracy: 0.8015 - top1: 0.8015
+Epoch 194: accuracy improved from 0.80018 to 0.80154, saving model to ResNet/Results/Checkpoints_experimento 7\best_weights.h5
+173/173 [==============================] - 11s 65ms/step - loss: 0.8003 - accuracy: 0.8015 - top1: 0.8015 - val_loss: 0.7661 - val_accuracy: 0.8216 - val_top1: 0.8216 - lr: 1.0000e-04
+
+Epoch 195: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 195/200
+173/173 [==============================] - ETA: 0s - loss: 0.8157 - accuracy: 0.7945 - top1: 0.7945
+Epoch 195: accuracy did not improve from 0.80154
+173/173 [==============================] - 11s 64ms/step - loss: 0.8157 - accuracy: 0.7945 - top1: 0.7945 - val_loss: 0.7693 - val_accuracy: 0.8187 - val_top1: 0.8187 - lr: 1.0000e-04
+
+Epoch 196: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 196/200
+173/173 [==============================] - ETA: 0s - loss: 0.8124 - accuracy: 0.7969 - top1: 0.7969
+Epoch 196: accuracy did not improve from 0.80154
+173/173 [==============================] - 11s 64ms/step - loss: 0.8124 - accuracy: 0.7969 - top1: 0.7969 - val_loss: 0.7633 - val_accuracy: 0.8230 - val_top1: 0.8230 - lr: 1.0000e-04
+
+Epoch 197: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 197/200
+173/173 [==============================] - ETA: 0s - loss: 0.8043 - accuracy: 0.7990 - top1: 0.7990
+Epoch 197: accuracy did not improve from 0.80154
+173/173 [==============================] - 11s 64ms/step - loss: 0.8043 - accuracy: 0.7990 - top1: 0.7990 - val_loss: 0.7645 - val_accuracy: 0.8209 - val_top1: 0.8209 - lr: 1.0000e-04
+
+Epoch 198: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 198/200
+173/173 [==============================] - ETA: 0s - loss: 0.8050 - accuracy: 0.8000 - top1: 0.8000
+Epoch 198: accuracy did not improve from 0.80154
+173/173 [==============================] - 11s 64ms/step - loss: 0.8050 - accuracy: 0.8000 - top1: 0.8000 - val_loss: 0.7608 - val_accuracy: 0.8281 - val_top1: 0.8281 - lr: 1.0000e-04
+
+Epoch 199: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 199/200
+173/173 [==============================] - ETA: 0s - loss: 0.8010 - accuracy: 0.7969 - top1: 0.7969
+Epoch 199: accuracy did not improve from 0.80154
+173/173 [==============================] - 11s 64ms/step - loss: 0.8010 - accuracy: 0.7969 - top1: 0.7969 - val_loss: 0.7663 - val_accuracy: 0.8223 - val_top1: 0.8223 - lr: 1.0000e-04
+
+Epoch 200: LearningRateScheduler setting learning rate to 0.0001.
+Epoch 200/200
+173/173 [==============================] - ETA: 0s - loss: 0.8041 - accuracy: 0.8003 - top1: 0.8003
+Epoch 200: accuracy did not improve from 0.80154
+173/173 [==============================] - 11s 64ms/step - loss: 0.8041 - accuracy: 0.8003 - top1: 0.8003 - val_loss: 0.7689 - val_accuracy: 0.8234 - val_top1: 0.8234 - lr: 1.0000e-04
+>> TREINAMENTO FINALIZADO COM SUCESSO
+>> MELHOR MODELO FOI SALVO EM:  ResNet/Results/Checkpoints_experimento 7/best_weights.h5
+==================================================================
+==================================================================
+PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO

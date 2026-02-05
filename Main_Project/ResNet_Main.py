@@ -21,10 +21,10 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # ******************************************************************************************************************** #
 # PARÂMETROS EXIGIDOS PELA RESNET
 
-RUN_NAME = "experimento 6 Corrigido"
+RUN_NAME = "experimento 7"
 
 IMAGE_SIZE = 224
-BATCH_SIZE = 32
+BATCH_SIZE = 64
 VAL_SPLIT = 0.2
 
 EPOCHS = 200
@@ -39,9 +39,9 @@ WEIGHT_DECAY = 1e-4
 # Nome do diretório para armazenar o dataset organizado
 DATA_DIR_NAME = f"Dataset_VAL{int(VAL_SPLIT*100)}%"
 # Diretório de logs de treinamento
-LOG_DIR = f"ResNet50/Results/logs/{RUN_NAME}"
+LOG_DIR = f"ResNet/Results/logs/{RUN_NAME}"
 # Caminho e nome para o checkpoint do treinamento
-CHECKPOINT_PATH = f"ResNet50/Results/Checkpoints_{RUN_NAME}/best_weights.h5"
+CHECKPOINT_PATH = f"ResNet/Results/Checkpoints_{RUN_NAME}/best_weights.h5"
 
 # ======================================================================================================================
 # DIAGNÓSTICO DO USO DA GPU, DEFINIÇÃO DE SEEDS E ATIVAÇÃO DE MIXED PRECISION
