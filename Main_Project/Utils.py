@@ -13,6 +13,7 @@ from pathlib import Path
 from tkinter import filedialog, messagebox
 from tensorflow.keras import mixed_precision
 
+
 # ******************************************************************************************************************** #
 #                                              FUNÇÕES AUXILIARES                                                      #
 # ******************************************************************************************************************** #
@@ -26,12 +27,14 @@ def set_global_seed(seed=42):
     tf.random.set_seed(seed)
     print(f"Seeds fixados (seed={seed}) para reprodutibilidade.")
 
+
 # ======================================================================================================================
 # ATIVAÇÃO DO MIXED PRECISION
 
 def enable_mixed_precision():
     mixed_precision.set_global_policy("mixed_float16")
     print("Mixed precision ativada (float16) para acelerar o treinamento.")
+
 
 # ======================================================================================================================
 #  FUNÇÃO DE RETORNO DO CAMINHO ABSOLUTO
@@ -40,6 +43,7 @@ def resource_path(relative_path):
     """ Retorna o caminho absoluto para o arquivo, compatível com PyInstaller """
     base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
     return os.path.join(base_path, relative_path)
+
 
 # ======================================================================================================================
 # FUNÇÃO PARA OBTER O CAMINHO DE UM DIRETÓRIO VIA EXPLORER
@@ -63,11 +67,11 @@ def open_directory(msg):
 
     return path
 
+
 # ======================================================================================================================
 # FUNÇÃO PARA EXTRAÇÃO DO CAMINHO DO ARQUIVOS
 
 def open_file():
-
     root = tk.Tk()
     root.withdraw()
 
@@ -76,6 +80,7 @@ def open_file():
     if not file_path:
         return None
     return file_path
+
 
 # ======================================================================================================================
 # FUNÇÃO PARA OBTER A CONTAGEM DE IMAGENS NA BASE
@@ -86,6 +91,7 @@ def count_images(dir_path):
         for _, _, files in os.walk(dir_path)
         if any(f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp')) for f in files)
     )
+
 
 # ======================================================================================================================
 # FUNÇÃO PARA CHECAR A ESTRUTURA DA BASE
@@ -103,7 +109,6 @@ def check_structure(dir_path):
 # ******************************************************************************************************************** #
 
 def split_dataset(source_dir, output_dir, val_split=0.2, seed=42, extensions=(".jpg", ".jpeg", ".png")):
-
     """
         Divide automaticamente um dataset em train/val, copiando arquivos.
 

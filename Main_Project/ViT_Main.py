@@ -52,10 +52,23 @@ print(str(OUTPUT_DIR))
 # EXECUÇÃO PRINCIPAL
 
 def main():
+
     # ----------------------------------------------------------------
-    # SELEÇÃO DO DIRETÓRIO CONTENDO O DATASET E VALIDAÇÃO DA ESTRUTURA
+    # SELEÇÃO AUTOMÁTICA DO DIRETÓRIO CONTENDO O DATASET
+    # DEVE SER UTILIZADO PARA O TREINAMENTO REMOTO NA UFU
     # ----------------------------------------------------------------
 
+    PROJECT_ROOT = Path(__file__).resolve().parent.parent
+    BASE_DATAPATH = PROJECT_ROOT / "Datasets" / "Dataset_VAL20%"
+    TRAIN_PATH = BASE_DATAPATH / "train"
+    VAL_PATH = BASE_DATAPATH / "val"
+
+    # ----------------------------------------------------------------
+    # SELEÇÃO MANUAL DO DIRETÓRIO CONTENDO O DATASET E
+    # VALIDAÇÃO DA ESTRUTURA GERAL DOS DIRETÓRIOS
+    # DEVE SER UTILIZADO PARA O TREINAMENTO LOCAL
+    # ----------------------------------------------------------------
+    '''
     while True:
         base_datapath = Utils.open_directory('Selecione o diretório contendo a base de dados. Opte por escolher o'
                                              ' diretório já organizado com as divisões para treino e validação,'
@@ -83,11 +96,22 @@ def main():
     else:
         TRAIN_PATH = f"{base_datapath}/train"
         VAL_PATH = f"{base_datapath}/val"
+    '''
 
     # ----------------------------------------------------------------
-    # SELEÇÃO DO ARQUIVO CONTENDO OS PESOS PRÉ-TREINADOS
+    # SELEÇÃO AUTOMÁTICA DO ARQUIVO CONTENDO O OS PESOS PRÉ-TREINADOS
+    # DEVE SER UTILIZADO PARA O TREINAMENTO REMOTO NA UFU
     # ----------------------------------------------------------------
 
+    BASE_WEIGHTS_PATH = PROJECT_ROOT / "Datasets" / "Pesos VIT_B16"
+    WEIGHTS_PATH = BASE_WEIGHTS_PATH / "imagenet21k_ViT-B_16.npz"
+
+    # ----------------------------------------------------------------
+    # SELEÇÃO MANUAL DO ARQUIVO CONTENDO OS PESOS PRÉ-TREINADOS
+    # DEVE SER UTILIZADO PARA O TREINAMENTO LOCAL
+    # ----------------------------------------------------------------
+
+    '''
     messagebox.showinfo("Info", "Escolha o arquivo de pesos pré-treinados para o Fine-Tuning")
 
     while True:
@@ -96,6 +120,7 @@ def main():
             print("Seleção do arquivo cancelado pelo usuário")
             continue
         break
+    '''
 
     print(
         "\n-----------------------------------------------------------------------------------------------------------")
