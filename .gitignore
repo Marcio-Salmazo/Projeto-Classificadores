@@ -11,6 +11,7 @@
 Datasets/DATASET EQUINOS
 Datasets/DATASET IMAGENET
 Datasets/DATASET RATOS
+Datasets/Pesos VIT_B16/imagenet21k_ViT-B_16.npz
 
 # ESPECÍFICOS DO NOTEBOOK
 

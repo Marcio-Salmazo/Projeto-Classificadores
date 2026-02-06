@@ -138,16 +138,16 @@ def load_data(train_dir, val_dir, batch_size):
         .prefetch(1)
     )
 
-    steps_train = tf.data.experimental.cardinality(train_ds_raw).numpy() // batch_size
-    steps_val = tf.data.experimental.cardinality(val_ds_raw).numpy() // batch_size
+    # steps_train = tf.data.experimental.cardinality(train_ds_raw).numpy() // batch_size
+    # steps_val = tf.data.experimental.cardinality(val_ds_raw).numpy() // batch_size
 
     return (
         train_ds,
         val_ds,
         class_names,
-        num_classes,
-        steps_train,
-        steps_val
+        num_classes
+        #steps_train,
+        #steps_val
     )
 
 
