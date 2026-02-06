@@ -30,7 +30,9 @@ clu>=0.0.3
 tensorflow-datasets>=4.7.0
 
 # TensorFlow (apenas tf.data / TFRecords)
-tensorflow>=2.13,<2.16
+# tensorflow>=2.13,<2.16
+
+tensorflow==2.15.0
 
 # Utilidades
 tqdm

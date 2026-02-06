@@ -1,0 +1,66 @@
+FortiClient User: email institucional
+FortiClient Pass: senha do email institucional
+
+=============================================================================
+
+Comando no CMD para conetar no cluster: ssh -p1032 ch4518@200.19.151.2
+Pass: IvONBLu2SH8
+
+=============================================================================
+
+Comando para exibr o caminho absoluto do diretório atual: pwd
+(Print Working Directory)
+
+=============================================================================
+
+Comando para passar arquivos win -> remote cluster:
+
+scp -P porta -r caminho/do/seu/projeto usuario@ip_do_servidor:/home/usuario/projeto_mestrado
+
+Exemplo: 
+
+scp -P 1032 -r /c/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores ch4518@200.19.151.2:/home/ch4518/projeto_mestrado
+
+Observação: DEVE-SE UTILIZAR O GIT BASH
+
+=============================================================================
+
+CHECKLIST:
+
+1️⃣ Entrar no servidor (login node)
+2️⃣ Conferir se o projeto está no cluster
+	
+	~ cd projeto mestrado
+	~ ls
+
+3️⃣ Criar ambiente Python (ISOLADO)
+	a) Checar versão do python: python3 --version
+	b) Criar as .venv: python3 -m venv venv
+	c) Ativar a venv criada: source venv/bin/activate
+	d) Atualizar pip (opcional): pip install --upgrade pip
+
+4️⃣ Instalar dependências (com a venv ativada)
+	~ pip install -r requirements.txt
+
+5️⃣ Verificar GPU
+	~ nvidia-smi
+
+6️⃣ Rodar um teste simples (sanity check)
+	- Entrar no diretório do script e rodar: python nome_script.py
+
+7️⃣ Nunca rode treino pesado direto no login node
+	* usar tmux apenas para testes
+	* usar scheduler (Slurm/PBS) para treino longo
+
+Quando você acessa o servidor via ssh, você entra no chamado login node. Esse nó existe apenas para tarefas leves, como navegar em diretórios, editar arquivos, compilar código, instalar dependências e submeter trabalhos para execução. Ele não foi projetado para executar tarefas pesadas, como o treinamento de redes neurais por horas ou dias. Se vários usuários fizerem isso ao mesmo tempo, o sistema inteiro fica lento ou até instável.
+
+O local correto para executar treinamentos pesados são os chamados nós de computação (compute nodes). Esses nós possuem CPUs mais potentes, GPUs e grande quantidade de memória RAM. No entanto, você não acessa esses nós diretamente via SSH. O acesso é mediado por um sistema que organiza quem usa o quê e por quanto tempo.
+
+Esse sistema é o Slurm. Ele é um gerenciador de filas e recursos do supercomputador. Em vez de executar o treinamento diretamente, você escreve um pequeno script descrevendo o que precisa: quantidade de memória, número de GPUs, tempo máximo de execução e o comando que deve ser rodado. O Slurm coloca esse pedido em uma fila e executa o seu treinamento automaticamente quando houver recursos disponíveis.
+
+O tmux é uma ferramenta diferente. Ele não gerencia recursos do supercomputador, nem escolhe nós de computação. O tmux serve apenas para manter uma sessão de terminal ativa mesmo se você fechar o SSH ou sua internet cair. Ele é útil para testes rápidos, pequenos experimentos ou depuração de código, mas não deve ser usado para treinamentos longos ou com GPU, porque continua rodando no login node.
+
+
+
+
+
