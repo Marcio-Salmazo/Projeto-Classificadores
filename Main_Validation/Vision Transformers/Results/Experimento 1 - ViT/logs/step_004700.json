@@ -1,6 +1,6 @@
 {
     "step": 4700,
-    "timestamp": "2025-12-15T18:43:19.826096",
-    "train_loss": 1.671343207359314,
-    "train_accuracy": 0.5625
+    "timestamp": "2025-12-18T02:56:07.140942",
+    "train_loss": 6.823728561401367,
+    "train_accuracy": 0.59375
 }

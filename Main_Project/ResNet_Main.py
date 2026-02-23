@@ -11,6 +11,7 @@ from pathlib import Path
 from ResNet.ResNet50_Pure import build_resnet50
 from ResNet.ResNet_Trainer import ResNet_Trainer
 from ResNet.ResNet_DataLoader import load_data
+from ResNet.ResNet_Shallow import build_resnet10
 from ResNet.ResNet_Shallow import build_resnet18
 from ResNet.ResNet_Shallow import build_resnet34
 
@@ -22,7 +23,7 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # ******************************************************************************************************************** #
 # PARÂMETROS EXIGIDOS PELA RESNET
 
-RUN_NAME = "experimento 10"
+RUN_NAME = "experimento 11"
 
 IMAGE_SIZE = 224
 BATCH_SIZE = 64
@@ -131,9 +132,24 @@ def main():
     '''
 
     # ----------------------------------------------------------------
-    #                   CONSTRUÇÃO DO MODELO RESNET-18
+    #                   CONSTRUÇÃO DO MODELO RESNET-10
     # ----------------------------------------------------------------
 
+    print("==================================================================")
+    print(">> CONSTRUINDO MODELO RESNET-10")
+
+    model = build_resnet10(
+        input_shape=(IMAGE_SIZE, IMAGE_SIZE, 3),
+        num_classes=NUM_CLASSES,
+        include_top=True,
+        weight_decay=WEIGHT_DECAY
+    )
+    model.summary()
+
+    # ----------------------------------------------------------------
+    #                   CONSTRUÇÃO DO MODELO RESNET-18
+    # ----------------------------------------------------------------
+    '''
     print("==================================================================")
     print(">> CONSTRUINDO MODELO RESNET-18")
 
@@ -144,6 +160,7 @@ def main():
         weight_decay=WEIGHT_DECAY
     )
     model.summary()
+    '''
 
     # ----------------------------------------------------------------
     #                   CONSTRUÇÃO DO MODELO RESNET-34

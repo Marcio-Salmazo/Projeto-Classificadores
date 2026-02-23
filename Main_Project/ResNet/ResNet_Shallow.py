@@ -6,7 +6,7 @@ DEFAULT_WEIGHT_DECAY = 1e-4
 
 
 # ======================================================================================================================
-#                                   BLOCO RESIDUAL BÁSICO (USADO NA RESNET 18 E 34)
+#                                               BLOCO RESIDUAL BÁSICO
 # ======================================================================================================================
 class BasicBlock(layers.Layer):
     """
@@ -124,6 +124,99 @@ def make_stage(filters, blocks, stride_first, weight_decay, name):
 
 
 # ======================================================================================================================
+#                                           BUILDER DA RESNET-10
+# ======================================================================================================================
+class ResNet10_Builder(Model):
+    """
+    Implementação da ResNet-10 baseada no mesmo padrão estrutural da ResNet-18,
+    porém utilizando apenas 1 bloco residual por stage: (1,1,1,1).
+    """
+
+    def __init__(
+            self,
+            num_classes=1000,
+            include_top=True,
+            weight_decay=DEFAULT_WEIGHT_DECAY,
+            **kwargs
+    ):
+        super().__init__(**kwargs)
+
+        self.include_top = include_top
+        self.num_classes = num_classes
+
+        # Camada inicial (igual à ResNet-18)
+        self.conv1 = layers.Conv2D(
+            64,
+            kernel_size=7,
+            strides=2,
+            padding="same",
+            use_bias=False,
+            kernel_regularizer=regularizers.l2(weight_decay),
+        )
+        self.bn1 = layers.BatchNormalization(momentum=0.9, epsilon=1e-5)
+        self.relu = layers.Activation("relu")
+        self.maxpool = layers.MaxPool2D(pool_size=3, strides=2, padding="same")
+
+        # Stages — profundidade (1,1,1,1)
+        self.conv2_x = make_stage(
+            filters=64,
+            blocks=1,
+            stride_first=1,
+            weight_decay=weight_decay,
+            name="conv2_x",
+        )
+        self.conv3_x = make_stage(
+            filters=128,
+            blocks=1,
+            stride_first=2,
+            weight_decay=weight_decay,
+            name="conv3_x",
+        )
+        self.conv4_x = make_stage(
+            filters=256,
+            blocks=1,
+            stride_first=2,
+            weight_decay=weight_decay,
+            name="conv4_x",
+        )
+        self.conv5_x = make_stage(
+            filters=512,
+            blocks=1,
+            stride_first=2,
+            weight_decay=weight_decay,
+            name="conv5_x",
+        )
+
+        # Cabeça de classificação
+        self.avgpool = layers.GlobalAveragePooling2D()
+        if include_top:
+            self.fc = layers.Dense(
+                num_classes,
+                activation="softmax",
+                kernel_regularizer=regularizers.l2(weight_decay),
+            )
+        else:
+            self.fc = None
+
+    def call(self, inputs, training=False):
+        x = self.conv1(inputs)
+        x = self.bn1(x, training=training)
+        x = self.relu(x)
+        x = self.maxpool(x)
+
+        x = self.conv2_x(x, training=training)
+        x = self.conv3_x(x, training=training)
+        x = self.conv4_x(x, training=training)
+        x = self.conv5_x(x, training=training)
+
+        x = self.avgpool(x)
+        if self.include_top:
+            x = self.fc(x)
+
+        return x
+
+
+# ======================================================================================================================
 #                                           BUILDER DA RESNET-18
 # ======================================================================================================================
 class ResNet18_Builder(Model):
@@ -216,7 +309,7 @@ class ResNet18_Builder(Model):
 
 
 # ======================================================================================================================
-#                                           BUILDER DA RESNET-18
+#                                           BUILDER DA RESNET-34
 # ======================================================================================================================
 
 class ResNet34_Builder(Model):
@@ -312,6 +405,33 @@ class ResNet34_Builder(Model):
 # ======================================================================================================================
 #                                           FUNÇÃO DE CONSTRUÇÃO
 # ======================================================================================================================
+def build_resnet10(
+        input_shape=(224, 224, 3),
+        num_classes=1000,
+        include_top=True,
+        weight_decay=DEFAULT_WEIGHT_DECAY,
+):
+    """
+    Função utilitária para construir a ResNet-10 no formato Keras Functional.
+    """
+    inputs = tf.keras.Input(shape=input_shape)
+    backbone = ResNet10_Builder(
+        num_classes=num_classes,
+        include_top=include_top,
+        weight_decay=weight_decay,
+    )
+
+    outputs = backbone(inputs, training=False)
+
+    model = tf.keras.Model(
+        inputs=inputs,
+        outputs=outputs,
+        name="ResNet10_paper",
+    )
+
+    return model
+
+
 def build_resnet18(
         input_shape=(224, 224, 3),
         num_classes=1000,
