@@ -23,13 +23,13 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # ******************************************************************************************************************** #
 # PARÂMETROS EXIGIDOS PELA RESNET
 
-RUN_NAME = "experimento 14"
+RUN_NAME = "experimento 13"
 
 IMAGE_SIZE = 224
 BATCH_SIZE = 32
 VAL_SPLIT = 0.2
 
-EPOCHS = 3000
+EPOCHS = 1000
 NUM_CLASSES = 3
 INITIAL_LR = 0.01
 MOMENTUM = 0.9

@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="544fb9f4-5b69-4c91-b4ee-0c035b6679a2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Documentacao Unificada de Experimentos.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Documentacao Unificada de Experimentos.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main_Project/ResNet_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Project/ResNet_Main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
