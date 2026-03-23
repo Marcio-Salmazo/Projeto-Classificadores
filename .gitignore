@@ -1,25 +1,5 @@
-# COMUNS À AMBOS
-
 *.h5
-.venv/
-.vit_venv/
-.tf_venv/
 .cnn_venv/
-
-# ESPECÍFICOS DO DESKTOP
-
-Datasets/DATASET EQUINOS
+Project_VIT/Dataset and Weights/
+Project_CNN/Default Dataset/
 Datasets/DATASET IMAGENET
-Datasets/DATASET RATOS
-Datasets/Pesos VIT_B16/imagenet21k_ViT-B_16.npz
-
-# ESPECÍFICOS DO NOTEBOOK
-
-Datasets/Dataset_Ratos
-Datasets/ImageNet_TFRecords
-Datasets/Pre_Trained_Weights
-Main_Validation/Vision Transformers/Results/Experimento 1 - ViT/checkpoint_5000
-Main_Validation/Vision Transformers/Results/Experimento 2 - ViT/checkpoint_20000
-Main_Project/VisionTransformers/Results/Experimento 3 - ViT/best_0
-Main_Project/VisionTransformers/Results/Experimento 3 - ViT/final_1735
-Main_Project/VisionTransformers/Results/Experimento 4 - ViT (Rev1)/final_500
