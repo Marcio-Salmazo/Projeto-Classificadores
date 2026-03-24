@@ -1,43 +1,30 @@
-# ******************************************************************************************************************** #
-#                                                   IMPORTAÇÕES                                                        #
-# ******************************************************************************************************************** #
+# ======================================================================================================================
+#                                        BIBLIOTECAS E CONFIGURAÇÕES INICIAIS
+# ======================================================================================================================
 
-import tensorflow as tf
-from tensorflow.keras import mixed_precision
-
-# ******************************************************************************************************************** #
-#                                           CONFIGURAÇÕES DE DESEMPENHO                                                #
-# ******************************************************************************************************************** #
-
-# Impede o TF de alocar toda a VRAM da GPU
-gpus = tf.config.experimental.list_physical_devices("GPU")
-if gpus:
-    try:
-        for gpu in gpus:
-            tf.config.experimental.set_memory_growth(gpu, True)
-    except RuntimeError as e:
-        print(e)
-
+import shutil
+import Utils
+import numpy as np
 import os
+from tkinter import messagebox
+from pathlib import Path
+import tensorflow as tf  # pyright: ignore[reportMissingModuleSource]
 
-# Forçar TensorFlow a rodar no CPU, visto que a GPU não é necessária para carregar imagens.
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
-
-# ******************************************************************************************************************** #
-#                                              CARREGAMENTO DE DADOS                                                   #
-# ******************************************************************************************************************** #
+tf.config.set_visible_devices([], 'GPU')
 
 AUTOTUNE = tf.data.AUTOTUNE
-VAL_AUTOTUNE = 1
-# ImageNet normalization (canonical)
+# IMAGENET_MEAN e IMAGENET_STD servem para normalização futura, de acordo com o artigo
 IMAGENET_MEAN = tf.constant([0.485, 0.456, 0.406], dtype=tf.float32)
-IMAGENET_STD  = tf.constant([0.229, 0.224, 0.225], dtype=tf.float32)
+IMAGENET_STD = tf.constant([0.229, 0.224, 0.225], dtype=tf.float32)
+
 
 # ======================================================================================================================
-# FUNÇÃO PARA O PRE-PROCESSAMENTO DO CONJUNTO DE TREINO
-def preprocess_train(image, label):
+#                            FUNÇÃO PARA O PRE-PROCESSAMENTO DO CONJUNTO DE TREINO
+# ======================================================================================================================
 
+def preprocess_train(image, label):
     label = tf.cast(label, tf.int32)
+
     # Scale jitter: short side ∈ [256, 480]
     target_short = tf.random.uniform([], 256, 481, dtype=tf.int32)
 
@@ -63,12 +50,14 @@ def preprocess_train(image, label):
 
     return image, label
 
+
 # ======================================================================================================================
-# FUNÇÃO PARA O PRE-PROCESSAMENTO DO CONJUNTO DE VALIDAÇÃO
+#                               FUNÇÃO PARA O PRE-PROCESSAMENTO DO CONJUNTO DE VALIDAÇÃO
+# ======================================================================================================================
 
 def preprocess_val(image, label):
-
     label = tf.cast(label, tf.int32)
+
     # Resize mantendo aspecto: short side = 256
     h = tf.cast(tf.shape(image)[0], tf.float32)
     w = tf.cast(tf.shape(image)[1], tf.float32)
@@ -89,11 +78,12 @@ def preprocess_val(image, label):
 
     return image, label
 
+
 # ======================================================================================================================
-# FUNÇÃO PARA O CARREGAMENTO EFETIVO DA BASE
+#                                       FUNÇÃO PARA O CARREGAMENTO EFETIVO DA BASE
+# ======================================================================================================================
 
-def load_data(train_dir, val_dir, batch_size):
-
+def load_data(train_dir, val_dir):
     """
         Observação: batch_size=None inicialmente garante que o TensorFlow NÃO crie batches automaticamente.
         Dessa forma, o dataset fica element-wise, não batch-wise. O fluxo de atividades fica:
@@ -126,35 +116,89 @@ def load_data(train_dir, val_dir, batch_size):
     train_ds = (
         train_ds_raw
         .map(preprocess_train, num_parallel_calls=AUTOTUNE)
-        .batch(batch_size)
-        .repeat()
         .prefetch(AUTOTUNE)
     )
 
     val_ds = (
         val_ds_raw
         .map(preprocess_val, num_parallel_calls=AUTOTUNE)
-        .batch(batch_size)
-        .prefetch(1)
+        .prefetch(AUTOTUNE)
     )
-
-    # steps_train = tf.data.experimental.cardinality(train_ds_raw).numpy() // batch_size
-    # steps_val = tf.data.experimental.cardinality(val_ds_raw).numpy() // batch_size
 
     return (
         train_ds,
         val_ds,
         class_names,
         num_classes
-        #steps_train,
-        #steps_val
     )
 
 
+# ======================================================================================================================
+#                                FUNÇÃO PARA A TRANSFORMAÇÃO DE TENSORES PARA NUMPY
+# ======================================================================================================================
+
+def tf_to_numpy(dataset):
+    images, labels = [], []
+
+    for img, lab in dataset:
+        images.append(img.numpy())
+        labels.append(lab.numpy())
+
+    return np.array(images), np.array(labels)
 
 
+# ======================================================================================================================
+#                      FUNÇÃO PRINCIPAL PARA PROCESSAR OS DADOS E GERAR OS ARQUIVOS NUMPY
+# ======================================================================================================================
+
+def main():
+    # Parâmetros principais
+    DATA_DIR_NAME = 'Processed Dataset'
+    DATASET_SPLIT = 0.2
+
+    while True:
+        base_datapath = Utils.open_directory('Selecione o diretório contendo a base de dados. Opte por escolher o'
+                                             ' diretório já organizado com as divisões para treino e validação,'
+                                             ' (se houver)')
+        if base_datapath:
+            break
+        messagebox.showinfo("Info", "Seleção de diretório cancelada pelo usuário")
+
+    # Avalia se o diretório selecionado possui a divisão entre treino e validação
+    if not os.path.isdir(f"{base_datapath}/train") or not os.path.isdir(f"{base_datapath}/val"):
+
+        messagebox.showinfo("Info", "A base não contém originalmente a divisão entre treino e validação, "
+                                    "essa estrutura será criada a seguir.")
+        org_data = os.path.join(base_datapath, DATA_DIR_NAME)
+
+        # Exclui o diretório caso ele já existe e recria-o
+        if Path(org_data).exists():
+            shutil.rmtree(Path(org_data))
+        Path(org_data).mkdir(parents=True, exist_ok=True)
+
+        TRAIN_PATH, VAL_PATH = Utils.split_dataset(base_datapath, org_data, val_split=DATASET_SPLIT,
+                                                   seed=42, extensions=(".jpg", ".jpeg", ".png"))
+
+    else:
+        TRAIN_PATH = f"{base_datapath}/train"
+        VAL_PATH = f"{base_datapath}/val"
+
+    train_ds, val_ds, class_names, num_classes = load_data(TRAIN_PATH, VAL_PATH)
+
+    print("\nConvertendo dados para treino...")
+    x_train, y_train = tf_to_numpy(train_ds)
+    print("Convertendo dados para validação...")
+    x_val, y_val = tf_to_numpy(val_ds)
+
+    np.save("x_train.npy", x_train)
+    np.save("y_train.npy", y_train)
+    np.save("x_val.npy", x_val)
+    np.save("y_val.npy", y_val)
+
+    print("Dados salvos!")
+    print("Quantidade de classes encontradas: ", num_classes)
+    print("Nome das classes encontradas: ", class_names)
 
 
-
-
-
+if __name__ == "__main__":
+    main()

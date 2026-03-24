@@ -1,5 +1,6 @@
 *.h5
 .cnn_venv/
 Project_VIT/Dataset and Weights/
-Project_CNN/Default Dataset/
-Datasets/DATASET IMAGENET
+Project_CNN/Processed Dataset/
+Datasets/ImageNet1K
+Project_VIT/Main/Results/Experimento 5 - Vit/Checkpoints

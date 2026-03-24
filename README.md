@@ -1,90 +1,84 @@
-# Implemetação de classificadores
+# Classificadores neurais - Visão Geral:
 
-O repositório contém os arquivos fonte referentes à implemetação das arquiteturas de rede neural ResNet-50 e 
-Vision transformers para a classificação de imagens. No contexto do meu projeto de mestrado, o objetivo é classificar 
-a imagem facial de roedores quanto à presença e intensidade dor. A implementação das arquiteturas é feita de de forma 
-acessível e intuitiva, utilizando uma interface gráfica via PyQt5 que facilita a exploração e aplicação dessa 
-tecnologia em diferentes cenários.
+Este repositório contém a implementação de arquiteturas de Deep Learning voltadas para classificação 
+de imagens faciais de roedores, com o objetivo de detectar e estimar a intensidade de dor (seguindo
+os critérios estabelecidos pela *Mouse Grimmace Scale*). O projeto está inserido no contexto do meu 
+trabalho de mestrado e busca automatizar a análise laboratorial, reduzindo a dependência de 
+avaliação humana. A proposta utiliza duas abordagens principais:
 
-A ResNet50 (Residual Network com 50 camadas) é uma das arquiteturas mais populares e influentes no campo de visão 
-computacional. Sua principal inovação é o uso de conexões residuais (skip connections), que permitem que os gradientes 
-fluam com mais facilidade durante o treinamento de redes muito profundas. Esse mecanismo resolve um problema comum 
-em arquiteturas anteriores: a degradação do desempenho à medida que mais camadas eram adicionadas.
+* **Arquiteturas da famiília ResNet (CNN)** &rarr; aprendizado baseado em convoluções
 
-O Vision Transformer representa uma mudança de paradigma em visão computacional, pois adapta os mecanismos de atenção 
-originalmente desenvolvidos para processamento de linguagem natural (os Transformers) ao domínio de imagens. 
-Em vez de processar uma imagem por meio de convoluções, o ViT a divide em pequenos blocos (patches), que são tratados 
-como "palavras visuais". Esses blocos são então passados por camadas de autoatenção, que permitem ao modelo aprender 
-relações globais entre diferentes regiões da imagem desde as primeiras etapas do processamento.
+  * As redes neurais residuais (Residual Neural Networks), popularizadas pela arquitetura ResNet, 
+  representam um avanço no campo do aprendizado profundo dentro da área de Visão Computacional. 
+  Foi desenvolvida para enfrentar o problema da degradação do desempenho em redes muito profundas, 
+  por meio de “atalhos” (skip connections), que permitem que a informação contorne uma ou mais camadas, 
+  facilitando o aprendizado de funções residuais em vez de transformações completas.
 
-## Dados pessoais
-**Nome:** Marcio Salmazo Ramos \
-**Redes sociais e contato:**
 
-| [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcio-ramos-b94669235) | [![Instagram](https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/marcio.salmazo) | [![Gmail](https://img.shields.io/badge/Gmail-333333?style=for-the-badge&logo=gmail&logoColor=red)](mailto:contato.marcio.salmazo19@gmail.com) | [![GitHub](https://img.shields.io/badge/GitHub-0077B5?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Marcio-Salmazo) |
-|---|---|---|---|
+* **Arquitetura Vision Transformer (ViT)** &rarr; aprendizado baseado em atenção
 
-## Objetivos da atividade
-
-Este trabalho tem como principal objetivo o desenvolvimento de uma ferramenta automatizada, voltada para a detecção e 
-classificação de padrões faciais que expressam a presença de dor em animais. A proposta se baseia na Grimmace Scale 
-associada a técnicas de visão computacional e aprendizado de máquina, visando superar as limitações dos métodos 
-convencionais, que ainda dependem predominantemente da observação humana manual. 
-A partir dessa premissa, o desenvolvimento desta aplicação se desdobra nos seguintes objetivos específicos:
-
-* Preparar dados para treinamento (Separando os grupos de treinamento e teste);
-* Construir, compilar e treinar o modelo referente às arquiteturas citadas 
-  (aplicando os parâmetros necessários para seu funcionamento);
-* Retornar resultados via logs, bem como armazenar o arquivo contendo os pesos aprendidos para análises de desempenho;
+  * A ViT representa uma mudança de paradigma em visão computacional por adaptar os mecanismos de atenção 
+  originalmente desenvolvidos para processamento de linguagem natural ao domínio de imagens. 
+  Em vez de processar uma imagem por meio de convoluções, o ViT a divide em pequenos blocos (patches), 
+  que operam como "palavras visuais". Esses blocos são então passados por camadas de autoatenção, 
+  que permitem ao modelo aprender relações globais entre diferentes regiões da imagem desde as 
+  primeiras etapas do processamento.
 
 ## 📂 Estrutura de diretórios do projeto
 
 O repositório está organizado de acordo com a seguinte estrutura:
 
-    ├── Documentation/
+    ├── Documents and Backups/
     ├     └── (...)
-    ├── Main_Project/
+    ├── Project_CNN/
     ├     └── (...)
-    ├── Main_Validation/
-    ├     └── (...) 
-    ├── Old Versions Backups/
-    ├     └── (...) 
+    ├── Project_VIT/
+    ├     └── (...)
     ├── Requirements/
     ├     └── (...) 
     ├── .gitignore
     ├
     └──README.md
 
-### Diretórios mais relevantes:
+### Detalhamento dos diretórios:
 
-1. **Main_Project** &rarr; Contém os arquivos referentes à implementação do projeto principal
-   voltado para a classificação das imagens de camundongos. Além de agregar os diretórios 
-   responsáveis por armazenar logs e pesos de treinamento;
-
-
-2. **Main_Validation** &rarr; Contém os arquivos referentes à implementação do projeto 
-   voltado para a replicação de estudos envolvendo a ResNet e a ViT. A ideia é construir a 
-   arquitetura fiel à um estudo científico consolidado para garantir a confiabilidade de seu
-   funcionamento;
-
-
-3. **Old Versions Backups** &rarr; Contém os arquivos referentes à implementação antiga do projeto,
-   a qual contava com uma interface gráfica construída por meio da biblioteca PyQt5. A ideia central
-   era criar um ambiente mais amigável ao usuário, contudo, incompatibilidades entre bibliotecas e
-   a má integração entre os módulos acabaram por consumir bastante tempo do cronograma do projeto, o que
-   levou à decisão de descartar essa implementação em prol de algo mais simples e objetivo, permitindo
-   dar foco ao real objetivo do projeto.
+1. **Documents and Backups** &rarr; Contém os arquivos de documentação do projeto, o que inclui os 
+artigos científicos utilizados como referência para a validação das arquiteturas de rede, bem como 
+os arquivos referentes à documentação dos experimentos conduzidos, reunindo em um único local todo 
+o material necessário para consulta e reprodutibilidade dos testes. 
+<br>
+<br>
+    Adicionalmente, o diretório contém os arquivos referentes à implementação antiga do projeto,
+a qual contava com uma interface gráfica construída por meio da biblioteca PyQt5. A ideia central
+era criar um ambiente mais amigável ao usuário, contudo, incompatibilidades entre bibliotecas e
+a má integração entre os módulos acabaram por consumir bastante tempo do cronograma do projeto, o que
+levou à decisão de descartar essa implementação em prol de algo mais simples e objetivo, permitindo
+dar foco ao real objetivo do projeto.
 
 
-4. **Documentation** &rarr; Contém os arquivos de documentação do projeto, o que inclui os artigos científicos 
-utilizados como referência para a validação das arquiteturas de rede, bem como os arquivos .docx referentes
-à documentação dos experimentos conduzidos, reunindo em um único local todo o material necessário para consulta e 
-reprodutibilidade dos testes. 
+2. **Project_CNN** &rarr; Contém os arquivos referentes à implementação da arquitetura 
+convolucional resideual, além de agregar os diretórios responsáveis por armazenar logs e 
+checkpoints do treinamento. O diretório contém sub-pastas dedicadas à organização das 
+implementações voltadas para a validação da rede construída (buscando seguir os mesmos 
+parâmetros do artigo de referência) e as implementações voltadas para o objetivo central 
+do projeto (Treinamento utilizando uma base de dados com expressões faciais de camundongos).
+
+
+3. **Project_VIT** &rarr; Contém os arquivos referentes à implementação da arquitetura 
+baseada em transformers, além de agregar os diretórios responsáveis por armazenar logs e 
+checkpoints do treinamento. O diretório também contém sub-pastas dedicadas à organização das 
+implementações voltadas para a validação da rede construída e as implementações voltadas para 
+o objetivo central do projeto.
+
+
+4. **Requirements** &rarr; Contém os arquivos .txt referentes à definição dos requisitos
+necessários para cada um dos ambientes virtuais que devem ser criados durante à execução 
+dos scripts.
 
 ## 📂 Estrutura da base de dados para utilização do projeto principal
 
-Para que o código referente ao projeto principal reconheça devidamente a base de dados, é necessário seguir a 
-seguinte estrutura:
+Para que o código referente ao projeto principal reconheça devidamente a base de dados, ]
+é necessário seguir a seguinte estrutura:
 
     ├── Diretório contendo a base de dados (Arquivos .png)/
     │    │
@@ -125,45 +119,24 @@ e validação, o script de organização não é executado e o treino prossegue 
 
 ## ✔️ Testes de confiabilidade
 
-Com o intuito de garantir que as implementações das arquiteturas ResNet-50 e Vision Transformer (ViT) 
+Com o intuito de garantir que as implementações das arquiteturas ResNet e Vision Transformer 
 estejam corretas e produzam resultados condizentes com aqueles descritos na literatura científica, 
-foi feita a replicação de dois estudos  consolidados na área. 
-A obtenção de resultados equivalentes aos reportados nos trabalhos permite validar o comportamento 
-das redes, garantindo que suas funcionalidades estejam corretamente implementadas. 
-A partir dessa base confiável, torna-se possível introduzir modificações pontuais nas arquiteturas, 
-para adaptá-las aos objetivos específicos deste projeto.
-
-**Estrutura atual do diretório Main_Validadtion:**
-
-    ├── RESNET/
-    │    ├── Checkpoints/
-    │    │      └── (Diretório contendo os melhores pesos de treinamento)
-    │    ├── logs/
-    │    │      └── (Diretório de logs e relatórios referente ao treinamento)
-    │    └── (Arquivos.py referentes à construção e treinamento da rede ResNet50)
-    │
-    ├── VISION TRANSFORMER/
-    │    ├── Checkpoints/
-    │    │      └── (Diretório de logs referente ao treinamento, contendo checkpoints, logs por época e relatório)
-    │    └── (Arquivos.py referentes à construção e treinamento da rede ViT)
-    │
-    ├── Create_TFRecords.py
-    │
-    └── Process_ImageNet.py
-
-* **OBSERVAÇÃO:** Os arquivos *Create_TFRecords.py* e *Process_ImageNet.py* não são exclusivos para o processo de 
-validação das arquiteturas, são scripts auxiliares para tratar a base de dados da ImageNet no formato de TFRecords 
+foi feita a replicação de dois estudos  consolidados na área. A obtenção de resultados equivalentes 
+aos reportados nos trabalhos permite validar o comportamento das redes, garantindo que sua construção 
+esteja corretamente implementadas. A partir dessa base confiável, torna-se possível introduzir 
+modificações pontuais nas arquiteturas, para adaptá-las aos objetivos específicos deste projeto.
 
 
-* **OBSERVAÇÃO:** O TFRecords é um formato de arquivo binário simples e eficiente, projetado especificamente pela Google para armazenar 
-sequências de dados no TensorFlow Permite o pré-carregamento e o streaming eficiente de grandes volumes de dados, 
-o que acelera o treinamento de modelos de aprendizado de máquina, especialmente em pipelines de dados complexos ou 
-distribuídos. Adicionalmente, pode armazenar uma variedade de tipos de dados (inteiros, floats, strings, imagens) 
-e estruturas de dados complexas, serializando-os em um formato de buffer de protocolo 
+* **OBSERVAÇÃO:** Os arquivos *Create_TFRecords.py* e *Process_ImageNet.py* são scripts auxiliares 
+utilizados para tratar a base de dados da ImageNet no formato de TFRecords, o qual se caracteriza como
+um formato de arquivo binário simples e eficiente, projetado especificamente pela Google para armazenar 
+sequências de dados no TensorFlow, permitindo o pré-carregamento e o streaming eficiente de grandes 
+volumes de dados, o que acelera o treinamento de modelos de aprendizado de máquina.
 
-### 1. Validação para a ViT (Vision Transformer):
+### 1. Configurações para a validação da ViT:
 
-* ***Artigo de referência utilizado:*** Dosovitskiy et al., 2021 – “An Image is Worth 16x16 words: Transformers for Image Recognition at Scale”
+* ***Artigo de referência utilizado:*** Dosovitskiy et al., 2021 – “An Image is Worth 16x16 words: 
+Transformers for Image Recognition at Scale”
 * ***Dataset utilizado:*** ImageNet (ILSVRC2012)
 * ***Acesso:*** https://arxiv.org/abs/2010.11929
 
@@ -211,7 +184,7 @@ e estruturas de dados complexas, serializando-os em um formato de buffer de prot
                                       da Imagenet devem ser excluídos após 
                                       a criação dos TFRecords (Booleano)
 
-### 2. Validação para a ResNet-50:
+### 2. Configurações para a validação da ResNet:
 
 * ***Artigo de referência utilizado:*** He et al., 2015 – “Deep Residual Learning for Image Recognition” 
 * ***Dataset utilizado:*** ImageNet (ILSVRC2012)
@@ -244,269 +217,58 @@ Estão localizadas no arquivo ***ResNet_Main.py:***
     - OUTPUT_DIR = Diretório de checkpoints do ViT
     - CHECKPOINT_PATH = Caminhos para o checkpoint
 
----
 
-## 🪟 Funcionalidades do ANTIGO PROJETO
+## ⚙️ Detalhamento dos parâmetros exigidos pelas redes
 
-### Localização: Old Versions Backups/Old Project Scripts (OG Networks)
-* **OBSERVAÇÃO I:** Para que essa versão opere normalmente, é interessante inserir o conteúdo do diretório na pasta raiz do
-  projeto (onde ficam alocados os ambientes virtuais). Isso serve apenas para garantir que nenhum caminho fixo definido
-  em código seja quebrado durante a execução do programa. O mesmo deve ser feito com o diretório 'Figures'.
+### 1. ResNet
 
-
-* **OBSERVAÇÃO II:** A antiga versão do projeto utiliza uma estrutura de rede diferente daquelas utilizadas pelo projeto 
-  principal (localizado em Main_Project). Este é um dos motivos pelo seu eventual abandono, uma vez que foi optado pela
-  utilização de implementações já consolidadas pela literatura científica.
-
-
-* **OBSERVAÇÃO III:** O diretório *Old Project Scripts (ViT+Interface)* refere-se à uma versão mais "atualizada" do 
-  projeto contido no diretório *Old Project Scripts (OG Networks)*, contudo ela também é mais problemática. A ideia era
-  integrar a arquitetura ViT préviamente validada ao projeto com interface gráfica, contudo, problemas com 
-  com incompatibilidade de bibliotecas, complexidade pelo uso de diferentes ambientes virtuais e instabilidade geral
-  levaram ao abandono dessa tentativa de integração.
-
-
-* **OBSERVAÇÃO IV:** Caso for utilizar os scripts do projeto antigo é necessário atualizar alguns 
-  caminhos fixos definidos. Como por exemplo: O caminho do ambiente virtual .vit_venv no arquivo Interface.py do 
-  diretório Old Main Project Scripts (ViT+Interface)".
-
-### ✯ Janela Inicial - Old Project Scripts (OG Networks)
-
-A janela inicial do programa é divida em 2 setores: uma área à esquerda dedicada à exibição das mensagens de log 
-(informando sobre o status da operação) e uma área à direita dedicada às funcionalidades do sistema. 
-Em um primeiro momento a área de funcionalidades exige ao usuário a escolha da arquitetura que será 
-utilizada (ViT ou ResNet), por meio de *radiobuttons*. No momento em que o usuário confirma a seleção, 
-são apresentados as seguintes funcionalidades (referentes à arquitetura selecionada):
-
-  - **Selecionar dataset** – Permite selecionar a pasta contendo a base de dados para o treinamento. 
-    Importante salientar que o diretório escolhido deve conter subpastas (cada uma representando as diferentes classes). 
-    Essa função exige a definição do tamanho de entrada, tamanho dos lotes (batch) e porcentagem de divisão para os 
-    dados de validação;
----
-  - **Construir ResNet50** – Constrói e compila a arquiteura da rede, definindo os parâmetros como formato de entrada, 
-    modelo base, camadas da rede, funções de ativação, otimizadores, função custo, dentre outros;  
----
-   - **Construir Modelo ViT** – Constrói e compila a arquiteura da rede. Essa função exige a definição de parâmetros 
-     específicos à ViT, os quais são detalhados na seção 'Parâmetros exigidos pelo programa' deste mesmo documento;
----
-  - **Iniciar treinamento** – Inicia o treinamento da rede. Para ter início, exige a definição de um nome para o 
-    arquivo de log e a quantidade de épocas para o treinamento;  
----
-  - **Abrir TensorBoard** – Inicia o Tensorboard e abre uma página na web para exibição dos arquivos de log. 
-    Esta função exige a escolha do diretório que contém os logs 
-    (geralmente está em logs/fit na pasta raiz do executável);  
----
-  - **Fechar programa** – encerra a aplicação.
-
-## ⚙️ Parâmetros exigidos pela ResNet-50
 - **Input size** - Tamanho que as imagens devem ser redimensionadas para servir como entrada da rede. O valor inserido 
     definira a altura e largura da imagem;
-
 
 - **Batch size** - Refere-se ao número de amostras de dados que um modelo de aprendizado de máquina processa 
     em uma única iteração;
 
-
 - **Split (treino/validação)** - Define a porcentagem de dados destinados para treino e validação. 
     Exemplo: 0.2 -> 20% para validação e 80% para treino;
 
-
 - **Nome para logs** - Permite a definição do nome do arquivo de logs gerado após o treinamento;
-
 
 - **Épocas** - Permite definir a quantidade de épocas de treinamento.
 
-## ⚙️ Parâmetros exigidos pela ViT
-- **Input size** - Análogo ao requisito exigido pela ResNet50;
+### 2. Vision Transformers
 
+- **Input size** - Análogo ao requisito exigido pela ResNet50;
 
 - **Batch size** - Análogo ao requisito exigido pela ResNet50;
 
-
 - **Split (treino/validação)** - Análogo ao requisito exigido pela ResNet50;
 
-
 - **Épocas** - Análogo ao requisito exigido pela ResNet50;
-
 
 - **Patch size** - O tamanho dos blocos (patches) em que a imagem será dividida. Quanto menor o patch, mais detalhes 
 o modelo enxerga desde o início, mas também aumenta a quantidade de patches a processar (mais custo computacional);
 
-
 - **Projection Dim** - A dimensão do vetor em que cada patch será representado após a projeção linear 
 (Dimensões maiores permitem mais capacidade de representação, mas também exigem mais memória e poder de processamento);
-
 
 - **Transform Layers** - Número de blocos de transformers (compostos por atenção + MLP) empilhados no modelo. 
 Quanto mais camadas, mais refinada e abstrata fica a representação;
 
-
 - **Attention Heads** - Cada camada de atenção pode ter várias "cabeças", que aprendem a focar em diferentes 
 aspectos da imagem ao mesmo tempo;
 
-
 - **MLP Units** - Número de neurônios nas camadas densas (feed-forward layers) que seguem a parte de atenção em 
 cada bloco do transformador. Normalmente é um valor maior que o 'projection dim'.
-
 
 - **Nome para logs** - Análogo ao requisito exigido pela ResNet50;
 
 > 🔎 **Observações Importantes**  
 > - O valor de 'Split' deve estar em notação de ponto flutuante, estritamente entre 0.0 e 1.0;
 > - O aplicativo indica valores 'padrões' caso o usuário não saiba ao certo o valor de alguns parâmetros;
-> - O diretório escolhido para o dataset deve conter subpastas (cada uma representando as diferentes classes);  
 > - Seguir as versões dos pré-requisitos à risca, uma vez que versões mais novas podem gerar conflitos na IDE.
 
----
 
-## 🔧 Pré-requisitos e Instalação de ambientes virtuais
-Os requisitos específicos de cada projeto devem ser instalados em ambientes virtuais separdos, de acordo 
-com o que foi definido no tópico abaixo 'Tutorial para criação dos ambientes virtuais e instalação de dependências'
-
-### Requisitos gerais:
-
-- Sistema Operacional: **Windows**;  
-- Python **3.9.13** (específico);  
-
-### Requisitos para o ambiente .gen_venv (Destinado aos projetos antigos):
-
-* Os pacotes devem ser inseridos no ambiente virtual destinado à execução geral do antigo projeto, incluindo a
-condução de treinamentos que utilizam especificamente a arquitetura RESNET-50 e a INTERFACE em PYQT5.
-
-
-* Os requisitos a seguir estão alocados em General_Requirements.txt, no diretório 
-'./Old Versions Backups/Old Requirements/' e podem ser instalados via pip.
-
-
-- tensorflow **2.10.0**
-- numpy **1.23.5**
-- scipy **1.13.1**
-- tensorboard **2.10.1**
-- Pillow
-- scikit-learn **1.6.1**
-- openpyxl
-- PyQt5 **5.15.11**
-- pandas **2.3.3**
-- tensorflow-datasets **4.7.0**
-- protobuf **3.19.0**
-- matplotlib
-- seaborn
-- tqdm
-- ipykernel
-
-### Requisitos para o ambiente .tf_venv (Destinado exclusivamente aos projetos de Validação):
-
-* Os pacotes devem ser inseridos no ambiente virtuaL destinado exclusivamente para execução do tensorflow
-voltado para a criação dos TFRecords, caso os aquivos .TAR da imagenet sejam utilizados em um processo de
-pré-treino ou fine-tunning
-
-
-* Os requisitos a seguir estão alocados em TFRecords_Requirements.txt, no diretório 
-'./Requirements/' e podem ser instalados via pip.
-
-- tensorflow **2.10.0**
-- numpy **1.23.5**
-- tensorflow-datasets **4.7.0**
-- absl-py **0.12.0 (Ou superior)**
-- tqdm
-- pillow
-- scipy
-
-### Requisitos para o ambiente .vit_venv:
-
-* Os pacotes devem ser inseridos no ambiente virtual destinado à condução de treinamentos
-que utilizam especificamente a arquitetura VISION TRANSFORMERS, uma vez que, no projeto de validação
-é utilizado uma versão do jax/flax que é incompatível com a versão do Tensorflow exigida por outros módulos
-
-
-* Os requisitos a seguir estão alocados em ViT_Requirements.txt, no diretório 
-'./Requirements/' e podem ser instalados via pip.
-
-- numpy **1.26 (Ou superior)**
-
-- jax[cuda11_pip] **0.4.23**
---find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-
-- jaxlib **0.4.20 (Ou superior)**
-- flax **0.8.3**
-- optax **0.2.4**
-- chex **0.1.87 (Ou superior)**
-- orbax-checkpoint **0.3.5**
-- einops **0.3.0 (Ou superior)**
-- absl-py **0.12.0 (Ou superior)**
-- ml-collections **0.1.0 (Ou superior)**
-- clu **0.0.3 (Ou superior)**
-- tensorflow-datasets **4.7.0 (Ou superior)**
-- tensorflow entre **2.13 e 2.16**
-- tqdm
-- scipy
-
-### Requisitos para o ambiente .cnn_venv (Destinado exclusivamente ao projeto de Validação da ResNet):
-
-* Os pacotes devem ser inseridos no ambiente virtual destinado à condução de treinamentos
-que utilizam especificamente a arquitetura RESNET-50.
-
-
-* Os requisitos a seguir estão alocados em ResNet_Requirements.txt, no diretório 
-'./Requirements/' e podem ser instalados via pip.
-
-- tensorflow **2.10.1**
-- tensorflow-datasets **4.9.2**
-- numpy **1.23.5**
-- protobuf **3.20.3**
-- tensorboard **2.10.1**
-- matplotlib **3.7.3**
-- tqdm **4.66.1**
-- Pillow **9.5.0**
-
----
-
-### OBSERVAÇÃO IMPORTANTE: 
-* Os requisitos destinados ao ambiente .vit_venv também servem para o projeto principal, sendo o ambiente virtual
-utilizado para sua execução, contudo, os requisitos para este projeto em específico estão localizados em 
-'.../Requirements/ViT_Requirements.txt' exclusivamente por uma questão de organização.
-
----
-### Tutorial para criação dos ambientes virtuais e instalação de dependências:
-
-- **Ambiente virtual .gen_venv (Válido apenas para implementações antigas):** 
-
-      > cd Projeto-Classificadores
-      > python -m venv .gen_venv
-      > .\.gen_venv\Scripts\activate
-      > pip install -r .\Old Versions Backups\Old Requirements\General_Requirements.txt
-
-- **Ambiente virtual .vit_venv:**
-
-      > cd Projeto-Classificadores
-      > python -m venv .vit_venv
-      > .\.vit_venv\Scripts\activate
-      > pip install -r .\Requirements\ViT_Requirements.txt
-
-- **Ambiente virtual .tf_venv:**
-
-      > cd Projeto-Classificadores
-      > python -m venv .tf_venv
-      > .\.tf_venv\Scripts\activate
-      > pip install -r .\Requirements\TFRecords_requirements.txt
-
-- **Ambiente virtual .cnn_venv:**
-
-      > cd Projeto-Classificadores
-      > python -m venv .cnn_venv
-      > .\.cnn_venv\Scripts\activate
-      > pip install -r .\Requirements\ResNet_Requirements.txt
-
-- **OBSERVAÇÃO 1:** Sempre lembrar de fechar o ambiente virtual, caso precise utilizar o outro.
-
-
-- **OBSERVAÇÃO 2:** Seguir o tutorial sobre a instalação da GPU para o Tensorflow ANTES de 
-criar o ambiente virtual e instalar as dependências.
-
----
-
-## 🛠️ Tutorial para instalar GPU para TensorFlow no Windows:
-### Esse tutorial garante o uso da GPU durante o treinamento para o projeto principal, bem como a validação da ResNet-50
+## 🛠️ Tutorial para configurar o uso da GPU para o TensorFlow durante o treinamento com a ResNet:
 
 1. **Desinstalar pacotes conflitantes (opcional, mas recomendado):** utilizar o comando *pip uninstall tensorflow 
 tensorflow-gpu tensorflow-intel* ou desinstalar manualmente via explorador do windows;
@@ -540,33 +302,33 @@ C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\libnvvp
 
 7. **Testar o download:** Abrir o console python e inserir os seguintes comandos:
 
-import tensorflow as tf\
-print(tf.config.list_physical_devices('GPU'))
+        >> import tensorflow as tf\
+        >> print(tf.config.list_physical_devices('GPU'))
 
 Se o resultado for algo como *[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]*, indica que o 
 processo foi realizado com sucesso.
 
-## 🛠️ Instalação da GPU para os arquivos de validação da arquitetura ViT:
-### Esse tutorial garante o uso da GPU durante o treinamento para o projeto principal, bem como a validação da ResNet-50
+
+## 🛠️ Tutorial para configurar o uso da GPU para o TensorFlow durante o treinamento com a ViT:
 
 A partir das versões 0.4.x, o JAX não fornece mais wheels pré-compilados para CUDA 11.2.
 Os wheels atuais são distribuídos apenas para: CUDA 11.8 e CUDA 12.x. Por isso torna-se necessário
-fazer a instalação de uma versão mais recente (sem alterar o funcionamento do CUDA 11.2).
+fazer a instalação de uma versão mais recente (sem alterar o funcionamento do CUDA 11.2). 
 
-* **Este é o motivo pelo qual se faz necessário a definição de dois ambientes virtuais distintos. A implementação do ViT com o JAX exige dependências que podem quebrar a implementação anterior.**
+* Após seguir o tutorial anterior para instalar GPU para TensorFlow, é necessário seguir as seguintes etapas:
 
-Após seguir o tutorial anterior para instalar GPU para TensorFlow, é necessário seguir as seguintes etapas:
+1. **Confirmar A placa NVIDIA e drivers:**
 
-1. **Confirmar sua placa NVIDIA e drivers:**
+   * Abra o terminal e digite:
 
-Abra o terminal e digite:
+           nvidia-smi
+   * Se aparecer algo como:
 
-        nvidia-smi
-Se aparecer algo como:
+           Driver Version: 535.xx
+           CUDA Version: 12.2
 
-        Driver Version: 535.xx
-        CUDA Version: 12.2
-Está tudo perfeito (JAX usará o driver, não o toolkit).
+    Está tudo perfeito (JAX usará o driver, não o toolkit).
+
 
 2. **Baixar o CUDA Toolkit 11.8 (site oficial NVIDIA):** Download oficial pelo site da NVIDIA 
 https://developer.nvidia.com/cuda-11-8-0-download-archive
@@ -590,21 +352,166 @@ OBS: O instalador colocará o CUDA 11.8 em C:\Program Files\NVIDIA GPU Computing
        Abra o terminal e digite o comando:
            dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin"
         
-       Se aparecer nvcc.exe → deu certo.
-
-6. **Não adicione o CUDA 11.8 ao PATH:** O JAX usa as DLLs diretamente da pasta do CUDA Toolkit, com isso Mantemos o ambiente do TensorFlow totalmente intacto.
+    Se aparecer nvcc.exe → deu certo.
 
 
-7. **Instalar os requisitos referentes à validação da arquitetura ViT**: vit_requirements.txt
+6. **Não adicione o CUDA 11.8 ao PATH:** O JAX usa as DLLs diretamente da pasta do CUDA Toolkit, 
+com isso Mantemos o ambiente do TensorFlow totalmente intacto.
+
+## ▶️ Tutorial para a Execução do projeto principal com a arquitetura ResNet
+
+1. Criar um ambiente virtual python (Especificamente na versão 3.9.13) e instalar dependências. 
+No diretório raíz do projeto (*\Projeto-Classificadores*) abrir o CMD e inserir os seguintes comandos:
+
+        >> python -m venv .cnn_venv
+        >> .\.cnn_venv\Scripts\activate
+        >> pip install -r .\Requirements\CNN_Requirements.txt
+
+2. Abrir o diretório *\Projeto-Classificadores\Project_CNN\Main* em alguma IDE python 
+de preferência do usuário (Recomendo o uso do PyCharm). No caso da IDE PyCharm, o usuário deve:
+
+        >> Main Menu -> Settings -> Project -> Python Interpreter
+        >> Add Interpreter -> Add Local Interpreter
+        >> Select Existing -> Selecionar o ambiente virtual criado na primeira etapa 
+
+3. Configurar os parâmetros do arquivo ResNet_Main.py localizado em *Project_CNN/Main/ResNet_Main.py*. 
+O usuário pode escolher configurações mais adequadas ao teste a ser conduzido.
 
 
-8. **Testar o download:** Abrir o console python e inserir os seguintes comandos:
+4. Executar o arquivo ResNet_Main.py diretamente da IDE. O script vai solicitar ao usuário para selecionar
+a base de dados que deve ser utilizada no treinamento, a qual deve estar organizada de acordo com o
+que foi descrito na terceira seção deste documento. 
 
-        python -c "import jax; print(jax.devices())"
 
-Se o resultado for algo como [gpu(id=0)], indica que o processo foi realizado com sucesso.
+5. Ao final do treinamento serão gerados arquivos de LOG e Checkpopints nos caminhos definidos
+pelo usuário no Script principal. Cabe ao usuário organizá-los da forma que julgar ser mais
+conveniente
 
----
+## ▶️ Tutorial para a Execução do projeto principal com a arquitetura Vision Transformer
+
+Durante o desenvolvimento, foi identificado um problema crítico, no qual o TensorFlow e JAX possuem dependências incompatíveis (numpy, ml-dtypes, CUDA).
+Por isso, a solução adotada foi a separação completa do pipeline de execução
+em dois ambientes virtuais distintos:
+
+* Ambiente 1 (TensorFlow + Numpy) → Utilizado para o preprocessamento das imagens e carregamento dos dados de entrada.
+* Ambiente 2 (JAX) → Treinamento efeitivo do modelo, com utilização da GPU
+
+***Observação:*** Foi necessário o uso do WSL (Windows Subsystem for Linux) para garantir a compatibilidade do CUDA + JAX. Caso contrário, a utilização
+da GPU era prejudicada, impactando diretamente o treino 
+
+1. **Instalação do WSL:**
+   
+    - Abrir o CMD no modo administrador e executar o comando:
+      
+          >> wsl --install
+
+    - Verificar a instalação com o comando:
+  
+          >> wsl
+
+    - Atualizar o sistema Linux:
+          
+          >> sudo apt update && sudo apt upgrade -y
+
+2. **Configuração da GPU**
+   
+      - Inserir o comando dentro do terminal WSL:
+          
+            >> nvidia-smi 
+      
+      - Caso a GPU e o CUDA sejam exibidos, o processo deu certo. Vale ressaltar que é necessário a instalação dos Drivers NVIDIA e do CUDA compatível (conforme apresentado nas seções anteriores) no próprio Windows.
+
+3. **Instalação do Python - Versão 3.10**
+
+      - Dentro do terminal do WSL, executar os seguintes comandos em ordem:
+
+            >> sudo apt install software-properties-common -y
+            >> sudo add-apt-repository ppa:deadsnakes/ppa -y
+            >> sudo apt update
+            >> sudo apt install python3.10 python3.10-venv python3.10-dev -y
+            >> python3.10 --version
+
+4. **Copiar arquivos para o ambiente WSL**
+   
+      - Os arquivos python para a execução da ViT, bem como o dataset precisam ser copiados para o ambiente linux do WSL, para isso, recomenda-se a cópia de todo o diretório 'Project_VIT'. Este processo pode ser feito por meio do comando:
+
+            >> mkdir vit_project
+            >> cp -r /mnt/c/Users/'SeuUsuario'/.../Projeto-Classificadores/Project_VIT/* .
+
+5. **Criação dos ambientes virtuais**
+   
+      - Os ambientes virtuais devem ser criados na pasta raíz para onde foram extraídos os conteúdos de *Project_VIT*
+  
+      - Criação do ambiente com TensorFlow para a gestão do carregamento de dados, bem como o processamento das imagens de entrada:
+   
+            >> python3.10 -m venv vit_tf_env
+            >> source vit_tf_env/bin/activate
+            >> pip install --upgrade pip
+            >> pip install tensorflow==2.15.0 numpy==1.26.4 tensorflow-datasets
+
+      - Criação do ambiente com JAX para a gestão do treinamento com a GPU:
+      - ***Observação:*** Alguns do pacotes exigidos nesta etapa podem gerar conflitos de dependências, por isso, foi adotado a utilização de um arquivo de Constraints, para forçar o versionamento correto de alguns pacotes. O arquivo de Constraints está localizado na raiz do diretório *Project_VIT*, denominado 'ViT_Constraints.txt'.
+   
+            >> pip install "jax[cuda12_pip]==0.4.28" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+            >> pip install flax==0.8.3 optax==0.2.2 chex==0.1.86 orbax-checkpoint -c constraints.txt
+            >> pip install numpy scipy einops absl-py ml-collections clu tqdm -c constraints.txt
+            
+
+      - ***Observação 2:*** Para testar se a operação deu certo, verificar:
+
+            -----------------------------------------------------
+            >> pip list | grep jax
+            -----------------------------------------------------
+            O resultado deve ser algo como:
+            -> jax     0.4.28
+            -> jaxlib  0.4.28+cuda
+
+            -----------------------------------------------------
+            >> python -c "import jax; print(jax.devices())"
+            -----------------------------------------------------
+            O resultado deve ser algo como:
+            -> [GpuDevice(id=0)]
+
+5. **Configuração da IDE VsCode para a execução**
+      
+      - É necessário ter o VsCode instalado no Windows
+      - É necessário fazer o download da extensão WSL (da própria Microsoft)
+      - Ainda no terminal do WSL, na pasta raiz do projeto (Project_VIT), inserir o seguinte comando:
+
+            >> code .
+      
+      - O VsCode será aberto automaticamente no local do projeto. Para confirmar se ele está devidamente conectado ao WSL basta verificar no canto inferior esquerdo a presença de 'WSL: Ubuntu'
+      - Selecionar o Interpretador python, apontando para os ambientes virtuais criados. Para isso, basta executar:
+            
+            >> No proprio VsCode:
+            >> Ctrl + Shift + P → Python: Select Interpreter
+            >> Escolher o caminho: /home/'usuario'/'venv'/bin/python
+            
+      - ***Observação 2:*** Modificar 'usuario' e 'venv' de acordo com o que foi definido pelo usuário  
+
+6. **Execução do Script para o processamento dos dados**
+   
+      - As imagens do dataset e as labels, são préviamente transformadas para o formato do Numpy, a fim de que a etapa de seu processamento seja totalmente separada da etapa de treinamento (Evitando conflito de bibliotecas), por isso, inicialmente o script *ViT_DataLoader.py* deve ser excutado.
+  
+        1. Selecionar no VsCode o ambiente virtual *'vit_tf_env'*, o qual contém o Tensorflow para o carregamento dos dados.
+        2. Executar separadamente o Script *ViT_DataLoader.py*
+   
+      - Serão criados arquivos .npy responsáveis por armazenar os dados das imagems (x_train, x_val) e suas respectivas labels (y_train, y_val), as quais serão carregadas automaticamente pelo Script de treinamento.
+      - ***Observação:*** Os arquivos gerados devem ficar alocados no mesmo diretório que o Script *ViT_Main.py*
+
+7. **Execução do Script para o treinamento**
+
+     - Selecionar no VsCode o ambiente virtual *'vit_jax_env'*, o qual contém o pipeline com JAX + CUDA para o treinamento via GPU.
+     - Executar o Script *ViT_Main.py* diretamente do VsCode.
+  
+     - ***Observação:*** O usuário pode alterar algumas configurações referentes à hiperparâmetros no Script *ViT_Main.py* antes de sua execução, conforme julgar necessário
+  
+     - ***Observação 2:*** Após o término do treinamento, os logs e checkpoints serão armazenados no diretório 'Results'
+
+
+- **OBSERVAÇÃO 1:** Sempre lembrar de fechar o ambiente virtual, caso precise utilizar o outro, o que pode ser feito pelo comando 'deactivate' no terminal do WSL, ou pelo próprio VsCode.
+
+- **OBSERVAÇÃO 2:** Seguir o tutorial sobre a instalação da GPU para o Tensorflow ANTES de criar o ambiente virtual e instalar as dependências. De modo geral, recomenda-se seguir o passo-a-passo NA ORDEM DE APRESENTAÇÃO descrito neste documento. 
 
 ## ⚖️ Downlaod dos pesos pré-treinados
 
@@ -612,65 +519,6 @@ Os pesos utilizados para inicializar a arquitetura ViT foram obtidos por meio do
 oficial de implementação desta arquitura citado no artigo 
 “An Image is Worth 16x16 words: Transformers for Image Recognition at Scale”.
 Podendo ser diretamente acessado pelo link: https://console.cloud.google.com/storage/browser/vit_models/imagenet21k 
-
-## ▶️ Modo de uso para o projeto principal
-
-1. Abrir o projeto em uma IDE python de sua preferência e criar o ambiente virtual seguindo as orientações
-   fornecidas préviamente (recomendo o PyCharm Community Edition);
-
-
-2. Instalar os pacotes requeridos pela aplicação (Ver seção de pré-requisitos);
-
-
-3. Definir os hiperparâmetros exigidos nos arquivos ResNet_Main.py ou ViT_Main.py (De acordo com a arquitetura
-selecionada);
-
-
-4. Para iniciar um treinamento utilizando a arquitetura ResNet, executar o arquivo ResNet_Main.py (Localizado no 
-diretório '.\Main_Project');
-
-
-5. Para iniciar um treinamento utilizando a arquitetura ViT, executar o arquivo ViT_Main.py (Localizado no 
-diretório '.\Main_Project');
-
-
-6. Selecionar o Dataset e o arquivos de pesos, conforme for solicitado pela aplicação;
-
-
-7. Aguardar o término do treinamento e avaliar os arquivos gerados com as métricas de treinamento coletadas.
-
----
-
-## ▶️ Modo de uso para a validação das arquiteturas
-
-1. Abrir o projeto em uma IDE python de sua preferência e criar o ambiente virtual seguindo as orientações
-   fornecidas préviamente (recomendo o PyCharm Community Edition);
-
-
-2. Instalar os pacotes requeridos pela aplicação (Ver seção de pré-requisitos);
-
-
-3. Realizar o download da base de dados ImageNet (Utilizada pela literatura base);
-
-
-4. Atualizar em código os caminhos exigidos (Para o dataset e para o armazenamento dos TFRecords);
-
-
-5. Caso queira aplicar a validação da ResNet-50, executar o arquivo 'ResNet50_MainTest.py';
-
-
-6. Caso queira aplicar a validação da ViT, executar o arquivo 'ViT_MainTest.py';
-
-
-7. Aguardar até o encerramento do treino para obter o arquivo de pesos e logs.
-
----
-
-## 🕷️ Bugs conhecidos
-
-* N/A
-
----
 
 ## ⚠️ Erros Comuns
 
@@ -713,8 +561,19 @@ diretório '.\Main_Project');
   - Adequação da arquitetura ResNet-50 ao projeto principal;
   - Re-organização do diretório de documentação;
   - Inclusão do dataset utilizado no mestrado ao repositório.
-  
+
+- **v0.6.0**
+  - Reorganização completa dos diretórios do projeto, separando o conteúdo destinado à ViT e à ResNet;
+  - Utilização de ambientes separados para a execução da ViT, visando evitar problemas de incompatibilidade de pacotes
+  - Utilização do WSL para evitar incompatibilidade (ViT)
 ---
+
+## Dados pessoais
+**Nome:** Marcio Salmazo Ramos \
+**Redes sociais e contato:**
+
+| [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcio-ramos-b94669235) | [![Instagram](https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/marcio.salmazo) | [![Gmail](https://img.shields.io/badge/Gmail-333333?style=for-the-badge&logo=gmail&logoColor=red)](mailto:contato.marcio.salmazo19@gmail.com) | [![GitHub](https://img.shields.io/badge/GitHub-0077B5?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Marcio-Salmazo) |
+|---|---|---|---|
 
 ## 👨‍💻 Autores / Contribuidores
 

@@ -1,15 +1,16 @@
-""" Execução AUTOMÁTICA do pipeline Vision Transformer (ViT) segundo o artigo: """
-import shutil
-import tkinter as tk
+# ======================================================================================================================
+#                                              PACOTES E BIBLIOTECAS
+# ======================================================================================================================
 import os
-from pathlib import Path
-
+import jax
 import Utils
-# from ResNet.ResNet_DataLoader import load_data
-from ViT_DataLoader import load_data
-
+import numpy as np
 from ViT_Trainer import train_vit
 from tkinter import messagebox
+
+
+# Validar que a GPU está sendo utilizada
+print(jax.devices())
 
 # Definição da variável de ambiente XLA_PYTHON_CLIENT_ALLOCATOR com o valor "platform" durante a execução do programa.
 # Essa variável é usada por bibliotecas que usam XLA para controlar como a memória é alocada, especialmente em GPU.
@@ -17,101 +18,36 @@ from tkinter import messagebox
 os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
 
 # ======================================================================================================================
-# PARÂMETROS PARA O CARREGAMENTO DE DADOS
+#                             PARÂMETROS PARA A VIT E PARA O CARREGAMENTO DE DADOS
+# ======================================================================================================================
 
 IMAGE_INPUT_SIZE = 224
-IMAGE_BATCH_SIZE = 32
+BATCH_SIZE = 32
 DATASET_SPLIT = 0.2
-
-# ======================================================================================================================
-# PARÂMETROS EXIGIDOS PELA VIT
-# OBSERVAÇÃO: CONFIGURAR O STEPS_PER_EPOCH MAIS A BAIXO NO CÓDIGO (CONFORME NECESSÁRIO)
-
+NUM_CLASSES = 3
 PATCH_SIZE = 16  # OBRIGATÓRIO para seguir fielmente a ViT-B/16
 HIDDEN_SIZE = 768  # ⚠️ crítico para a utilização dos pesos pré-treinados
 TRANSFORMER_LAYERS = 12  # ⚠️ crítico para a utilização dos pesos pré-treinados
 NUM_HEADS = 12  # ⚠️ crítico para a utilização dos pesos pré-treinados
 MLP_UNITS = 3072  # ⚠️ crítico para a utilização dos pesos pré-treinados
-BATCH_SIZE_VIT = IMAGE_BATCH_SIZE
-EPOCHS = 5
+EPOCHS = 100
 WARMUP_STEPS = 0
 BASE_LR = 1e-4
 MODE = "finetune"
 
 # Nome do diretório para armazenar o dataset organizado
 DATA_DIR_NAME = f"Dataset_VAL{int(DATASET_SPLIT * 100)}%"
+# Caminho onde os resultados devem ser armazenados
+OUTPUT_DIR = Utils.resource_path("Results")
 
-# ======================================================================================================================
-# CAMINHOS DOS CHECKPOINTS
-
-OUTPUT_DIR = Utils.resource_path("VisionTransformers\\Results")
-print(str(OUTPUT_DIR))
 
 
 # ======================================================================================================================
-# EXECUÇÃO PRINCIPAL
+#                                       FUNÇÃO PRINCIPAL (ORQUESTRADOR)
+# ======================================================================================================================
 
 def main():
 
-    # ----------------------------------------------------------------
-    # SELEÇÃO AUTOMÁTICA DO DIRETÓRIO CONTENDO O DATASET
-    # DEVE SER UTILIZADO PARA O TREINAMENTO REMOTO NA UFU
-    # ----------------------------------------------------------------
-
-    PROJECT_ROOT = Path(__file__).resolve().parent.parent
-    BASE_DATAPATH = PROJECT_ROOT / "Datasets" / "Dataset_VAL20%"
-    TRAIN_PATH = BASE_DATAPATH / "train"
-    VAL_PATH = BASE_DATAPATH / "val"
-
-    # ----------------------------------------------------------------
-    # SELEÇÃO MANUAL DO DIRETÓRIO CONTENDO O DATASET E
-    # VALIDAÇÃO DA ESTRUTURA GERAL DOS DIRETÓRIOS
-    # DEVE SER UTILIZADO PARA O TREINAMENTO LOCAL
-    # ----------------------------------------------------------------
-    '''
-    while True:
-        base_datapath = Utils.open_directory('Selecione o diretório contendo a base de dados. Opte por escolher o'
-                                             ' diretório já organizado com as divisões para treino e validação,'
-                                             ' (se houver)')
-        if not base_datapath:
-            messagebox.showinfo("Info", "Seleção de diretório cancelada pelo usuário")
-            continue
-        break
-
-    # AVALIA SE O CAMINHO SELECIONADO CONTÉM A DIVISÃO DE TRAIN E VAL
-    if not os.path.isdir(f"{base_datapath}/train") or not os.path.isdir(f"{base_datapath}/val"):
-
-        messagebox.showinfo("Info", "A base não contém originalmente a divisão entre treino e validação, "
-                                    "essa estrutura será criada a seguir.")
-        org_data = os.path.join(base_datapath, DATA_DIR_NAME)
-
-        # Exclui o diretório caso ele já existe e recria-o
-        if Path(org_data).exists():
-            shutil.rmtree(Path(org_data))
-        Path(org_data).mkdir(parents=True, exist_ok=True)
-
-        TRAIN_PATH, VAL_PATH = Utils.split_dataset(base_datapath, org_data, val_split=DATASET_SPLIT,
-                                                   seed=42, extensions=(".jpg", ".jpeg", ".png"))
-
-    else:
-        TRAIN_PATH = f"{base_datapath}/train"
-        VAL_PATH = f"{base_datapath}/val"
-    '''
-
-    # ----------------------------------------------------------------
-    # SELEÇÃO AUTOMÁTICA DO ARQUIVO CONTENDO O OS PESOS PRÉ-TREINADOS
-    # DEVE SER UTILIZADO PARA O TREINAMENTO REMOTO NA UFU
-    # ----------------------------------------------------------------
-
-    BASE_WEIGHTS_PATH = PROJECT_ROOT / "Datasets" / "Pesos VIT_B16"
-    WEIGHTS_PATH = BASE_WEIGHTS_PATH / "imagenet21k_ViT-B_16.npz"
-
-    # ----------------------------------------------------------------
-    # SELEÇÃO MANUAL DO ARQUIVO CONTENDO OS PESOS PRÉ-TREINADOS
-    # DEVE SER UTILIZADO PARA O TREINAMENTO LOCAL
-    # ----------------------------------------------------------------
-
-    '''
     messagebox.showinfo("Info", "Escolha o arquivo de pesos pré-treinados para o Fine-Tuning")
 
     while True:
@@ -120,56 +56,45 @@ def main():
             print("Seleção do arquivo cancelado pelo usuário")
             continue
         break
-    '''
 
-    print(
-        "\n-----------------------------------------------------------------------------------------------------------")
+    print("\n---------------------------------------------------------------------------------------------------------")
     print("                                  INICIANDO PIPELINE DE EXECUÇÃO                                           ")
-    print("-----------------------------------------------------------------------------------------------------------")
+    print("\n---------------------------------------------------------------------------------------------------------")
 
-    # ----------------------------------------------------------------
-    #                   CARREGAMENTO DOS DADOS E LOG
-    # ----------------------------------------------------------------
-
-    train_ds, val_ds, class_names, num_classes = load_data(TRAIN_PATH, VAL_PATH, IMAGE_BATCH_SIZE)
-    num_train_samples = Utils.count_images(TRAIN_PATH)
-    num_val_samples = Utils.count_images(VAL_PATH)
-
-    print(">> LOGS PROVENIENTES DO CARREGAMENTO DO DATASET\n")
-
-    print("Treinamento: ", num_train_samples)
-    print("Validação: ", num_val_samples)
-    print("Índices: ", class_names)
-    print(f"Classes detectadas: {num_classes}\n")
-
-    # ==================================================================================================================
-    # CHAMADA DO PRÉ-TREINO
+    # Carregamento dos dados préviamente processados
+    XTRAIN = np.load("x_train.npy")
+    YTRAIN = np.load("y_train.npy")
+    XVAL = np.load("x_val.npy")
+    YVAL = np.load("y_val.npy")
 
     # Configuração automática de steps por época, com base nos valores obtidos pelo DataLoader
-    # STEPS_PER_EPOCH = num_train_samples // BATCH_SIZE_VIT
-    # STEPS_VAL = num_val_samples // BATCH_SIZE_VIT
+    STEPS_PER_EPOCH = len(XTRAIN) // BATCH_SIZE
+    STEPS_VAL = len(XVAL) // BATCH_SIZE
 
     # Configuração manual  de steps por época para a condução de testes com uma parcela da base (Sanity-Check)
-    STEPS_PER_EPOCH = 100
-    STEPS_VAL = 50
+    # STEPS_PER_EPOCH = 100
+    # STEPS_VAL = 50
 
+    # Cálculo do total de steps do treino
     TOTAL_STEPS = STEPS_PER_EPOCH * EPOCHS
 
-    print("Total Samples:", num_train_samples)
-    print("Batch size :", BATCH_SIZE_VIT)
+    # Log para o terminal
+    print("Batch size :", BATCH_SIZE)
     print("Steps per epoch:", STEPS_PER_EPOCH)
     print("Total Steps:", TOTAL_STEPS)
 
     train_vit(
-        train_ds=train_ds,
-        val_ds=val_ds,
+        x_train=XTRAIN,
+        y_train=YTRAIN,
+        x_val=XVAL,
+        y_val=YVAL,
         output_dir=str(OUTPUT_DIR),
         patches=(PATCH_SIZE, PATCH_SIZE),
         hidden_size=HIDDEN_SIZE,
         depth=TRANSFORMER_LAYERS,
         num_heads=NUM_HEADS,
         mlp_dim=MLP_UNITS,
-        num_classes=num_classes,
+        num_classes=NUM_CLASSES,
         total_steps=TOTAL_STEPS,
         warmup_steps=WARMUP_STEPS,
         base_lr=BASE_LR,
@@ -179,7 +104,6 @@ def main():
         steps_val=STEPS_VAL,
         epochs=EPOCHS
     )
-
 
 if __name__ == "__main__":
     main()

@@ -1,9 +1,7 @@
-# ******************************************************************************************************************** #
-#                                                   IMPORTAÇÕES                                                        #
-# ******************************************************************************************************************** #
+# ======================================================================================================================
+#                                                   IMPORTAÇÕES
+# ======================================================================================================================
 import sys
-
-import tensorflow as tf
 import numpy as np
 import random
 import os
@@ -11,33 +9,20 @@ import tkinter as tk
 import shutil
 from pathlib import Path
 from tkinter import filedialog, messagebox
-from tensorflow.keras import mixed_precision
 
-
-# ******************************************************************************************************************** #
-#                                              FUNÇÕES AUXILIARES                                                      #
-# ******************************************************************************************************************** #
-
-# DEFINIÇÃO DE SEEDS PARA REPRODUTIBILIDADE
+# ======================================================================================================================
+#                                   DEFINIÇÃO DE SEEDS PARA REPRODUTIBILIDADE
+# ======================================================================================================================
 
 def set_global_seed(seed=42):
     random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
     np.random.seed(seed)
-    tf.random.set_seed(seed)
     print(f"Seeds fixados (seed={seed}) para reprodutibilidade.")
 
-
 # ======================================================================================================================
-# ATIVAÇÃO DO MIXED PRECISION
-
-def enable_mixed_precision():
-    mixed_precision.set_global_policy("mixed_float16")
-    print("Mixed precision ativada (float16) para acelerar o treinamento.")
-
-
+#                                       FUNÇÃO DE RETORNO DO CAMINHO ABSOLUTO
 # ======================================================================================================================
-#  FUNÇÃO DE RETORNO DO CAMINHO ABSOLUTO
 
 def resource_path(relative_path):
     """ Retorna o caminho absoluto para o arquivo, compatível com PyInstaller """
@@ -46,7 +31,8 @@ def resource_path(relative_path):
 
 
 # ======================================================================================================================
-# FUNÇÃO PARA OBTER O CAMINHO DE UM DIRETÓRIO VIA EXPLORER
+#                               FUNÇÃO PARA OBTER O CAMINHO DE UM DIRETÓRIO VIA EXPLORER
+# ======================================================================================================================
 
 def open_directory(msg):
     """
@@ -67,9 +53,9 @@ def open_directory(msg):
 
     return path
 
-
 # ======================================================================================================================
-# FUNÇÃO PARA EXTRAÇÃO DO CAMINHO DO ARQUIVOS
+#                                       FUNÇÃO PARA EXTRAÇÃO DO CAMINHO DO ARQUIVOS
+# ======================================================================================================================
 
 def open_file():
     root = tk.Tk()
@@ -83,7 +69,8 @@ def open_file():
 
 
 # ======================================================================================================================
-# FUNÇÃO PARA OBTER A CONTAGEM DE IMAGENS NA BASE
+#                                     FUNÇÃO PARA OBTER A CONTAGEM DE IMAGENS NA BASE
+# ======================================================================================================================
 
 def count_images(dir_path):
     return sum(
@@ -94,7 +81,8 @@ def count_images(dir_path):
 
 
 # ======================================================================================================================
-# FUNÇÃO PARA CHECAR A ESTRUTURA DA BASE
+#                                         FUNÇÃO PARA CHECAR A ESTRUTURA DA BASE
+# ======================================================================================================================
 
 def check_structure(dir_path):
     return sum(
@@ -104,9 +92,9 @@ def check_structure(dir_path):
     )
 
 
-# ******************************************************************************************************************** #
-#                                          ORGANIZAÇÃO DA BASE DE DADOS                                                #
-# ******************************************************************************************************************** #
+# ======================================================================================================================
+#                                          ORGANIZAÇÃO DA BASE DE DADOS
+# ======================================================================================================================
 
 def split_dataset(source_dir, output_dir, val_split=0.2, seed=42, extensions=(".jpg", ".jpeg", ".png")):
     """

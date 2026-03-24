@@ -1,18 +1,10 @@
-# -------------------------------------------------------------------------------------------------------------------- #
-#                                                                                                                      #
-#            Arquivo responsável pelo treino + fine-tuning do Vision Transformer puro,                                 #
-#            seguindo fielmente o paper "An Image is Worth 16x16 Words".                                               #
-#            Aqui são definidos:                                                                                       #
-#                * perda (cross-entropy) e métricas;                                                                   #
-#                * train_step e eval_step escritos em JAX e decorados com jax.pmap para execução distribuída;          #
-#                * função train_vit(...) que monta dataset, modelo, inicializa parâmetros, cria otimizador,            #
-#                  replica estado para dispositivos e faz o loop de treinamento,                                       #
-#                  salvando checkpoints e chamando avaliação periódica;                                                #
-#                * função evaluate_vit(...) que avalia o modelo em batches do conjunto de validação.                   #
-#                                                                                                                      #
-# -------------------------------------------------------------------------------------------------------------------- #
+# ======================================================================================================================
+#                                              PACOTES E BIBLIOTECAS
+# ======================================================================================================================
 import os
+
 os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
+
 import jax
 import jax.numpy as jnp
 import optax
@@ -25,26 +17,30 @@ from flax.training import train_state, checkpoints
 from ViT_Model import VisionTransformer
 from ViT_Utils import load_vit_npz
 
-# ======================================================================================================================
-# AUXILIAR DE LOGS (PARA TREINO E VALIDAÇÃO)
-'''
-def save_metrics_json(output_dir, step, metrics):
-    """Salva métricas em JSON."""
-    logs_dir = os.path.join(output_dir, "logs")
-    os.makedirs(logs_dir, exist_ok=True)
 
-    filepath = os.path.join(logs_dir, f"step_{step:06d}.json")
-    with open(filepath, "w") as f:
-        json.dump(metrics, f, indent=4)
-'''
+# ======================================================================================================================
+#                                           FUNÇÃO GERADORA DE BATCHES
+# ======================================================================================================================
+def create_batches(x, y, batch_size):
+    for i in range(0, len(x), batch_size):
+        yield x[i:i + batch_size], y[i:i + batch_size]
+
+
+# ======================================================================================================================
+#                               FUNÇÃO AUXILIAR PARA CONVERSÃO DE TIPOS NATIVOS
+# ======================================================================================================================
 
 def to_python_type(x):
     if hasattr(x, "item"):
         return x.item()
     return x
 
-def save_metrics_json(output_dir, step_epoch, metrics, mode):
 
+# ======================================================================================================================
+#                           FUNÇÃO AUXILIAR PARA ARMAZENAR MÉTRICAS DE TREINO EM JSON
+# ======================================================================================================================
+
+def save_metrics_json(output_dir, step_epoch, metrics, mode):
     """Salva métricas em JSON."""
     logs_dir = os.path.join(output_dir, "logs")
     os.makedirs(logs_dir, exist_ok=True)
@@ -61,6 +57,11 @@ def save_metrics_json(output_dir, step_epoch, metrics, mode):
 
     with open(filepath, "w") as f:
         json.dump(safe_metrics, f, indent=4)
+
+
+# ======================================================================================================================
+#                           FUNÇÃO AUXILIAR PARA ARMAZENAR MÉTRICAS NO DOCUMENTO .CSV
+# ======================================================================================================================
 
 def append_metrics_csv(output_dir, metrics):
     """Acrescenta linha ao CSV principal de logs."""
@@ -81,19 +82,8 @@ def append_metrics_csv(output_dir, metrics):
 
 
 # ======================================================================================================================
-# CONVERTE AS IMAGENS E LABELS DO BATCH PARA JAX ARRAYS
-
-def tf_to_jax(batch_tf):
-    images_tf, labels_tf = batch_tf
-    images_np = np.asarray(images_tf)
-    labels_np = np.asarray(labels_tf)
-
-    # Formato das imagens -> (BATCH,HEIGHT,WIDTH,CHANNELS)
-    return jnp.array(images_np), jnp.array(labels_np)
-
-
+#                    CRIAÇÃO DO OTIMIZADOR DE PRÉ-TREINO ANÁLOGO AO APRESENTADO NO ARTIGO
 # ======================================================================================================================
-# CRIAÇÃO DO OTIMIZADOR DE PRÉ-TREINO IDÊNTICO AO APRESENTADO NO ARTIGO
 
 def create_optimizer_pretrain(base_lr, warmup_steps, total_steps):
     """
@@ -118,7 +108,8 @@ def create_optimizer_pretrain(base_lr, warmup_steps, total_steps):
 
 
 # ======================================================================================================================
-# CRIAÇÃO DO OTIMIZADOR DE FINE-TUNNING IDÊNTICO AO APRESENTADO NO ARTIGO
+#                       CRIAÇÃO DO OTIMIZADOR DE FINE-TUNNING ANÁLOGO AO APRESENTADO NO ARTIGO
+# ======================================================================================================================
 
 def create_optimizer_finetune(base_lr):
     """
@@ -134,7 +125,8 @@ def create_optimizer_finetune(base_lr):
 
 
 # ======================================================================================================================
-# DEFINIÇÃO DA FUNÇÃO DE PERDA E DAS MÉTRICAS
+#                                   DEFINIÇÃO DAS FUNÇÕES DE PERDA E DAS MÉTRICAS
+# ======================================================================================================================
 
 def cross_entropy_loss(logits, labels):
     one_hot = jax.nn.one_hot(labels, logits.shape[-1])
@@ -150,9 +142,8 @@ def compute_train_metrics(logits, labels):
 
 
 def compute_eval_metrics(logits, labels):
-
     accuracy = jnp.mean(jnp.argmax(logits, axis=-1) == labels)
-    log_probs = jax.nn.log_softmax(logits)     # cross-entropy
+    log_probs = jax.nn.log_softmax(logits)  # cross-entropy
     loss = -jnp.mean(log_probs[jnp.arange(labels.size), labels])
     return {
         "loss": loss,
@@ -161,7 +152,8 @@ def compute_eval_metrics(logits, labels):
 
 
 # ======================================================================================================================
-# FUNÇÃO DE TREINO VIA JAX
+#                                                FUNÇÃO DE TREINO VIA JAX
+# ======================================================================================================================
 
 @jax.jit
 def train_step_jit(state, batch, rng):
@@ -205,41 +197,40 @@ def train_step_jit(state, batch, rng):
     return new_state, metrics
 
 
-# ==================================================================================================================== #
-#                                                      OBSERVAÇÃO
+# =====================================================================================================================
+#                                                      OBSERVAÇÃO:
 #     O CÓDIGO ORIGINAL UTILIZA @PMAP PARA PARALELIZAR E DISTRIBUIR O TREINAMENTO ENTRE MÚLTIPLOS DISPOSITIVOS
 #     COMO O TREINAMENTO FOI FEITO UTILIZANDO UMA ÚNICA GPU (DO MEU COMPUTADOR PESSOAL), FORAM APLICADAS AS
 #     MODIFICAÇÕES NECESSÁRIAS PARA RETIRAR ESTE PARALELISMO (UTILIZANDO O DECORADOR JIT)
-# ==================================================================================================================== #
+# =====================================================================================================================
 
 # ======================================================================================================================
-# LOOP PRINCIPAL DE TREINAMENTO
+#                                            LOOP PRINCIPAL DE TREINAMENTO
+# ======================================================================================================================
 
 def train_vit(
 
         # Parâmetros base
-        train_ds,
-        val_ds,
+        x_train,
+        y_train,
+        x_val,
+        y_val,
         output_dir: str,
         patches=(16, 16),
         hidden_size=768,
         depth=12,
         num_heads=12,
         mlp_dim=3072,
-        num_classes=1000,   # (VALOR ALEATÓRIO)
-        total_steps=100000, # (VALOR ALEATÓRIO)
-        warmup_steps=10000, # (VALOR ALEATÓRIO)
+        num_classes=1000,  # (VALOR ALEATÓRIO)
+        total_steps=100000,  # (VALOR ALEATÓRIO)
+        warmup_steps=10000,  # (VALOR ALEATÓRIO)
         base_lr=2e-4,
         mode="finetune",
         weights_path=None,
-        steps_per_epoch=100, # (VALOR ALEATÓRIO)
-        steps_val = 100,     # (VALOR ALEATÓRIO)
-        epochs=5 # (VALOR ALEATÓRIO)
-    ):
-
-    train_iter = iter(train_ds)
-    val_iter = iter(val_ds)
-
+        steps_per_epoch=100,  # (VALOR ALEATÓRIO)
+        steps_val=100,  # (VALOR ALEATÓRIO)
+        epochs=5  # (VALOR ALEATÓRIO)
+):
     # Criação do modelo e definição das configurações
     transformer_cfg = dict(
         num_layers=depth,
@@ -300,28 +291,33 @@ def train_vit(
     print("           INICIANDO LOOP DE TREINAMENTO             ")
     print("=====================================================")
 
+    train_batches = create_batches(x_train, y_train, batch_size=32)
+
+    for step, (images, labels) in enumerate(train_batches):
+        images = jnp.array(images)
+        labels = jnp.array(labels)
+
+        rng, dropout_rng = jax.random.split(rng)
+
+        state, metrics = train_step_jit(state, (images, labels), dropout_rng)
+
     for epoch in range(epochs):
 
         # Buffers para métricas de treino (nível epoch)
         epoch_train_losses = []
         epoch_train_accs = []
 
-        # Reinicia o dataset a cada época
-        train_iter = iter(train_ds)
+        train_batches = create_batches(x_train, y_train, batch_size=32)
 
-        for step in range(steps_per_epoch):
-            try:
-                batch_tf = next(train_iter)
-            except StopIteration:
-                # segurança extra
-                break
+        for step, (images, labels) in enumerate(train_batches):
 
-            batch = tf_to_jax(batch_tf)
+            images = jnp.array(images)
+            labels = jnp.array(labels)
 
             # gerar RNG novo para dropout
             rng, dropout_rng = jax.random.split(rng)
             # Apresenta apenas o batch atual e as métricas locais daquele batch
-            state, metrics = train_step_jit(state, batch, dropout_rng)
+            state, metrics = train_step_jit(state, (images, labels), dropout_rng)
 
             # Acumula métricas do treino
             epoch_train_losses.append(float(metrics["loss"]))
@@ -367,10 +363,11 @@ def train_vit(
 
         if epoch % 20 == 0 and epoch != 0:
 
-            val_iter = iter(val_ds)
             eval_results = evaluate_epoch(
                 state,
-                val_iter,
+                x_val,
+                y_val,
+                batch_size=32,
                 num_batches=steps_val,
                 num_classes=num_classes,
             )
@@ -390,7 +387,7 @@ def train_vit(
                     "val_f1_macro": float(eval_results["f1_macro"]),
                 }
                 # Salvar JSON para este step
-                save_metrics_json(output_dir, epoch, val_log,  mode='epochs')
+                save_metrics_json(output_dir, epoch, val_log, mode='epochs')
                 # Escrever linha no CSV
                 append_metrics_csv(output_dir, val_log)
 
@@ -431,13 +428,12 @@ def train_vit(
     print("             AVALIAÇÃO FINAL DO MODELO               ")
     print("=====================================================")
 
-    # Reinicializar o val_iter
-    val_iter = iter(val_ds)
-
     final_results = evaluate_epoch(
         state,
-        val_iter,
-        num_batches=steps_val,  # ou None se quiser tudo
+        x_val,
+        y_val,
+        batch_size=32,
+        num_batches=steps_val,
         num_classes=num_classes,
     )
 
@@ -458,7 +454,7 @@ def train_vit(
             "val_f1_macro_final": float(final_results["f1_macro"]),
         }
 
-        save_metrics_json(output_dir, total_steps, final_log,  mode='steps')
+        save_metrics_json(output_dir, total_steps, final_log, mode='steps')
         append_metrics_csv(output_dir, final_log)
 
         if "confusion_matrix" in final_results:
@@ -478,15 +474,16 @@ def train_vit(
     checkpoints.save_checkpoint(output_dir, state, total_steps, prefix="final_", overwrite=True)
     print(">> TREINO CONCLUÍDO")
 
+
 # ======================================================================================================================
 #                           FUNÇÕES VOLTADAS PARA A AVALIAÇÃO DO TREINAMENTO
 # ======================================================================================================================
 
-# ======================================================================================================================
 # Accuracy balanceada (importante se dataset não for equilibrado)
 def balanced_accuracy(cm):
     recalls = np.diag(cm) / (cm.sum(axis=1) + 1e-8)
     return np.mean(recalls)
+
 
 # Precision, Recall e F1-score (macro), Sem usar sklearn (boa prática no JAX):
 def precision_recall_f1(cm):
@@ -504,6 +501,7 @@ def precision_recall_f1(cm):
         "f1_macro": np.mean(f1),
     }
 
+
 # Cálculo da matriz de confusão
 def compute_confusion_matrix(labels, preds, num_classes):
     labels = np.asarray(labels)
@@ -515,6 +513,8 @@ def compute_confusion_matrix(labels, preds, num_classes):
 
     return cm
 
+
+# Armazenamento da matriz de confusão
 def save_confusion_matrix(output_dir, step, cm):
     """
     Salva a matriz de confusão como arquivo .npy
@@ -524,6 +524,7 @@ def save_confusion_matrix(output_dir, step, cm):
 
     path = os.path.join(cm_dir, f"cm_step_{step:06d}.npy")
     np.save(path, cm)
+
 
 @jax.jit
 def eval_step_jit(state, batch):
@@ -537,11 +538,15 @@ def eval_step_jit(state, batch):
     metrics = compute_eval_metrics(logits, labels)
     return metrics, logits, labels
 
+
+# Avaliação da época
 def evaluate_epoch(
-    state,
-    val_iter,
-    num_batches=50,
-    num_classes=3,
+        state,
+        x_val,
+        y_val,
+        batch_size=32,
+        num_batches=50,
+        num_classes=3,
 ):
     """
     Avalia o modelo no conjunto de validação.
@@ -557,20 +562,15 @@ def evaluate_epoch(
 
     batch_count = 0
 
-    while True:
+    for i, (images, labels) in enumerate(create_batches(x_val, y_val, batch_size)):
 
-        # Caso num_batches seja definido, ao alcançar o total de iterações, o loop se encerra
-        if num_batches is not None and batch_count >= num_batches:
-            break
-        # Caso contrário, tenta-se obter o próximo batch do dataset.
-        try:
-            batch_tf = next(val_iter)
-        # Quando o dataset acaba? O iterador lança automaticamente StopIteration
-        except StopIteration:
+        if num_batches is not None and i >= num_batches:
             break
 
-        batch = tf_to_jax(batch_tf)
-        metrics, logits, labels = eval_step_jit(state, batch)
+        images = jnp.array(images)
+        labels = jnp.array(labels)
+
+        metrics, logits, labels = eval_step_jit(state, (images, labels))
 
         losses.append(float(metrics["loss"]))
         accs.append(float(metrics["accuracy"]))
