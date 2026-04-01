@@ -1,0 +1,6 @@
+EXPERIMENTO 3 - ADEQUAÇÃO DA BASE E TESTE DE SANIDADE
+EXPERIMENTO 4 - ANÁLISE DOS RÓTULOS DE VALIDAÇÃO 
+EXPERIMENTO 4 (REV 1) - CORREÇÕES DO EXPERIMENTO 4
+	- Adição do 'step_val' para evitar loop infinito durante a etapa de validação final.
+	- Alteração da métrica top1 para 'accuracy'
+EXPERIMENTO 5 (GPU) - TREINAMENTO COM USO CORRETO DA GPU VIA WSL E JAX + CUDA 

@@ -472,7 +472,7 @@ da GPU era prejudicada, impactando diretamente o treino
             O resultado deve ser algo como:
             -> [GpuDevice(id=0)]
 
-5. **Configuração da IDE VsCode para a execução**
+6. **Configuração da IDE VsCode para a execução**
       
       - É necessário ter o VsCode instalado no Windows
       - É necessário fazer o download da extensão WSL (da própria Microsoft)
@@ -489,7 +489,7 @@ da GPU era prejudicada, impactando diretamente o treino
             
       - ***Observação 2:*** Modificar 'usuario' e 'venv' de acordo com o que foi definido pelo usuário  
 
-6. **Execução do Script para o processamento dos dados**
+7. **Execução do Script para o processamento dos dados**
    
       - As imagens do dataset e as labels, são préviamente transformadas para o formato do Numpy, a fim de que a etapa de seu processamento seja totalmente separada da etapa de treinamento (Evitando conflito de bibliotecas), por isso, inicialmente o script *ViT_DataLoader.py* deve ser excutado.
   
@@ -499,7 +499,7 @@ da GPU era prejudicada, impactando diretamente o treino
       - Serão criados arquivos .npy responsáveis por armazenar os dados das imagems (x_train, x_val) e suas respectivas labels (y_train, y_val), as quais serão carregadas automaticamente pelo Script de treinamento.
       - ***Observação:*** Os arquivos gerados devem ficar alocados no mesmo diretório que o Script *ViT_Main.py*
 
-7. **Execução do Script para o treinamento**
+8. **Execução do Script para o treinamento**
 
      - Selecionar no VsCode o ambiente virtual *'vit_jax_env'*, o qual contém o pipeline com JAX + CUDA para o treinamento via GPU.
      - Executar o Script *ViT_Main.py* diretamente do VsCode.
@@ -507,6 +507,33 @@ da GPU era prejudicada, impactando diretamente o treino
      - ***Observação:*** O usuário pode alterar algumas configurações referentes à hiperparâmetros no Script *ViT_Main.py* antes de sua execução, conforme julgar necessário
   
      - ***Observação 2:*** Após o término do treinamento, os logs e checkpoints serão armazenados no diretório 'Results'
+
+9. **Execução dos Scripts de processamento dos dados e treinamento da rede no próprio WSL**
+  
+   - Caso ocorra algum problema durante a execução do VSCode, o usuário pode conduzir o processo inteiramente pelo terminal do WSL. Após abrir o terminal do ubuntu, basta seguir os seguintes comandos, na respectiva ordem:
+               
+      I. Entrar na pasta raiz do projeto:
+      
+            >> cd 'diretório do projeto'
+
+      II. Ativar o ambiente 'vit_tf_env' :
+
+            >> .\vit_tf_env\Scripts\activate
+      
+      III. Executar o script 'ViT_DataLoader.py':
+
+            >> python ViT_DataLoader.py
+      
+      IV. Aguardar a conclusão do Script e certificar que os aqruivos *x_train*, *y_train*, *x_val* e *y_val* foram criados no mesmo diretório que o arquivo *ViT_Main.py*
+
+      V. Desativar o ambiente atual e ativar o ambiente 'vit_tf_env': 
+
+            >> deactivate
+            >> .\vit_jax_env\Scripts\activate
+
+      VI. Executar o script 'ViT_Main.py':
+
+            >> python ViT_Main.py     
 
 
 - **OBSERVAÇÃO 1:** Sempre lembrar de fechar o ambiente virtual, caso precise utilizar o outro, o que pode ser feito pelo comando 'deactivate' no terminal do WSL, ou pelo próprio VsCode.
