@@ -23,13 +23,13 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # ******************************************************************************************************************** #
 # PARÂMETROS EXIGIDOS PELA RESNET
 
-RUN_NAME = "Teste Geral"
+RUN_NAME = "Experimento 17"
 
 IMAGE_SIZE = 224
 BATCH_SIZE = 32
 VAL_SPLIT = 0.2
 
-EPOCHS = 1000
+EPOCHS = 500
 NUM_CLASSES = 3
 INITIAL_LR = 0.01
 MOMENTUM = 0.9
@@ -115,10 +115,10 @@ def main():
     print("Índices: ", class_names)
     print(f"Classes detectadas: {num_classes}\n")
 
+    '''
     # ----------------------------------------------------------------
     #                   CONSTRUÇÃO DO MODELO RESNET-50
     # ----------------------------------------------------------------
-    '''
     print("==================================================================")
     print(">> CONSTRUINDO MODELO RESNET-50")
 
@@ -134,7 +134,6 @@ def main():
     # ----------------------------------------------------------------
     #                   CONSTRUÇÃO DO MODELO RESNET-10
     # ----------------------------------------------------------------
-    '''
     print("==================================================================")
     print(">> CONSTRUINDO MODELO RESNET-10")
 
@@ -145,8 +144,8 @@ def main():
         weight_decay=WEIGHT_DECAY
     )
     model.summary()
-    '''
 
+    '''
     # ----------------------------------------------------------------
     #                   CONSTRUÇÃO DO MODELO RESNET-18
     # ----------------------------------------------------------------
@@ -161,11 +160,12 @@ def main():
         weight_decay=WEIGHT_DECAY
     )
     model.summary()
+    '''
 
+    '''
     # ----------------------------------------------------------------
     #                   CONSTRUÇÃO DO MODELO RESNET-34
     # ----------------------------------------------------------------
-    '''
     print("==================================================================")
     print(">> CONSTRUINDO MODELO RESNET-34")
 
