@@ -23,13 +23,13 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # ******************************************************************************************************************** #
 # PARÂMETROS EXIGIDOS PELA RESNET
 
-RUN_NAME = "Experimento 17"
+RUN_NAME = "Experimento 18"
 
 IMAGE_SIZE = 224
 BATCH_SIZE = 32
 VAL_SPLIT = 0.2
 
-EPOCHS = 500
+EPOCHS = 3000
 NUM_CLASSES = 3
 INITIAL_LR = 0.01
 MOMENTUM = 0.9
@@ -131,6 +131,7 @@ def main():
     model.summary()
     '''
 
+    '''
     # ----------------------------------------------------------------
     #                   CONSTRUÇÃO DO MODELO RESNET-10
     # ----------------------------------------------------------------
@@ -144,6 +145,7 @@ def main():
         weight_decay=WEIGHT_DECAY
     )
     model.summary()
+    '''
 
     '''
     # ----------------------------------------------------------------
@@ -162,7 +164,7 @@ def main():
     model.summary()
     '''
 
-    '''
+
     # ----------------------------------------------------------------
     #                   CONSTRUÇÃO DO MODELO RESNET-34
     # ----------------------------------------------------------------
@@ -176,7 +178,7 @@ def main():
         weight_decay=WEIGHT_DECAY
     )
     model.summary()
-    '''
+
 
     # ----------------------------------------------------------------
     #                       TREINAMENTO
