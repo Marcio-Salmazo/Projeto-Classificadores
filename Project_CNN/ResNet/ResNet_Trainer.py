@@ -9,20 +9,20 @@ class ResNet_Trainer:
     """
 
     def __init__(
-        self,
-        model,
-        train_ds,
-        val_ds,
-        num_classes=1000,
-        batch_size=256,
-        epochs=120,
-        initial_lr=0.1,
-        momentum=0.9,
-        weight_decay=1e-4,
-        train_size=1281167,   # ImageNet train
-        val_size=50000,       # ImageNet val
-        log_dir="logs",
-        checkpoint_path="checkpoints/resnet50_best.h5",
+            self,
+            model,
+            train_ds,
+            val_ds,
+            num_classes=1000,
+            batch_size=256,
+            epochs=120,
+            initial_lr=0.1,
+            momentum=0.9,
+            weight_decay=1e-4,
+            train_size=1281167,  # ImageNet train
+            val_size=50000,  # ImageNet val
+            log_dir="logs",
+            checkpoint_path="checkpoints/resnet_best.h5",
     ):
         self.model = model
         self.train_ds = train_ds
@@ -78,7 +78,6 @@ class ResNet_Trainer:
         # --------------------------------------------------------------------------------------------------------------
         self.callbacks = self._create_callbacks(log_dir, checkpoint_path)
 
-
     # ==================================================================================================================
     # Learning rate e step decay (≈ epochs 30 e 60)
     '''
@@ -110,6 +109,7 @@ class ResNet_Trainer:
         em pontos que correspondem às epochs 30 e 60, Frameworks modernos adotaram isso como “regra”.
         A implementação abaixo busca replicar algo semelhante à lógica tradicional do Caffe
     '''
+
     def _lr_schedule(self, epoch, lr):
         if epoch < 30:
             return self.initial_lr

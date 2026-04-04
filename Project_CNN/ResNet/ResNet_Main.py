@@ -6,6 +6,8 @@ from tkinter import messagebox
 from pathlib import Path
 from ResNet50_Pure import build_resnet50
 from ResNet_Trainer import ResNet_Trainer
+from ResNet_Trainer2 import train
+
 from ResNet_DataLoader import load_data
 from ResNet_Shallow import build_resnet10
 from ResNet_Shallow import build_resnet18
@@ -18,13 +20,13 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # ======================================================================================================================
 # PARÂMETROS EXIGIDOS PELA RESNET
 
-RUN_NAME = "Experimento 18"
+RUN_NAME = "teste old trainer"
 
 IMAGE_SIZE = 224
 BATCH_SIZE = 32
 VAL_SPLIT = 0.2
 
-EPOCHS = 3000
+EPOCHS = 10
 NUM_CLASSES = 3
 INITIAL_LR = 0.01
 MOMENTUM = 0.9
@@ -57,7 +59,6 @@ enable_mixed_precision()
 # EXECUÇÃO PRINCIPAL
 
 def main():
-
     # SOLICITA AO USUÁRIO O DIRETÓRIO CONTENDO A BASE DE DADOS (PREFERENCIALMENTE JÁ ORGANIZADA EM SUBSETS)
     while True:
         base_datapath = open_directory('Selecione o diretório contendo a base de dados. Opte por escolher o'
@@ -167,7 +168,10 @@ def main():
     )
     model.summary()
 
-    # TREINAMENTO DO MODELO COMPILADO
+    # OBSERVAÇÃO: AMBOS OS TRAINER OPERAM DO MESMO MODO
+    # O MAIS NOVO (TRAINER2) APENAS TEM UM CÓDIGO MAIS LIMPO
+    '''
+    # TREINAMENTO DO MODELO COMPILADO COM TRAINER ANTIGO
     trainer = ResNet_Trainer(
         model=model,
         train_ds=train_ds,
@@ -184,8 +188,14 @@ def main():
         log_dir=LOG_DIR,
         checkpoint_path=CHECKPOINT_PATH
     )
-
+    
     trainer.train()
+    '''
+
+    # TREINAMENTO DO MODELO COMPILADO COM TRAINER NOVO
+    train(model=model, train_ds=train_ds, val_ds=val_ds, batch_size=BATCH_SIZE, epochs=EPOCHS,
+          train_size=num_train_samples, val_size=num_val_samples, initial_lr=INITIAL_LR, momentum=MOMENTUM,
+          log_dir=LOG_DIR, checkpoint_path=CHECKPOINT_PATH)
 
     print("==================================================================")
     print("PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO")
