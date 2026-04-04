@@ -1,6 +1,5 @@
 import tensorflow as tf
 import os
-import math
 
 
 class ResNet_Trainer:
@@ -45,7 +44,6 @@ class ResNet_Trainer:
         # --------------------------------------------------------------------------------------------------------------
         # Otimizador definido igual ao artigo: SGD + momentum + weight decay (CANÔNICO)
         # --------------------------------------------------------------------------------------------------------------
-
         self.optimizer = tf.keras.optimizers.SGD(
             learning_rate=initial_lr,
             momentum=momentum
@@ -80,9 +78,9 @@ class ResNet_Trainer:
         # --------------------------------------------------------------------------------------------------------------
         self.callbacks = self._create_callbacks(log_dir, checkpoint_path)
 
+
     # ==================================================================================================================
     # Learning rate e step decay (≈ epochs 30 e 60)
-
     '''
         O paper não define exatamente quando considerar que ocorreu plateau,
         O repositório oficial em Caffe mostra que plateaus ocorrem APROXIMADAMENTE 

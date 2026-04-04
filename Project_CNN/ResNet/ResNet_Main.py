@@ -1,11 +1,7 @@
-# ******************************************************************************************************************** #
-#                                                   IMPORTAÇÕES                                                        #
-# ******************************************************************************************************************** #
-
 import shutil
 import tensorflow as tf
 import os
-import Utils
+
 from tkinter import messagebox
 from pathlib import Path
 from ResNet50_Pure import build_resnet50
@@ -14,13 +10,12 @@ from ResNet_DataLoader import load_data
 from ResNet_Shallow import build_resnet10
 from ResNet_Shallow import build_resnet18
 from ResNet_Shallow import build_resnet34
+from ResNet_Utils import set_global_seed, enable_mixed_precision, open_directory, split_dataset, count_images
 
 # REMOVE WARNINGS E INFO DO LOG, MANTENDO APENAS ERROS CRÍTICOSX
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 
-# ******************************************************************************************************************** #
-#                                            DEFINIÇÃO DE PARÂMETROS                                                   #
-# ******************************************************************************************************************** #
+# ======================================================================================================================
 # PARÂMETROS EXIGIDOS PELA RESNET
 
 RUN_NAME = "Experimento 18"
@@ -54,23 +49,20 @@ if gpus:
 else:
     print("Nenhuma GPU detectada. Treinamento será lento.")
 
-Utils.set_global_seed(42)
-Utils.enable_mixed_precision()
+set_global_seed(42)
+enable_mixed_precision()
 
 
-# ******************************************************************************************************************** #
-#                                                 EXECUÇÃO PRINCIPAL                                                   #
-# ******************************************************************************************************************** #
+# ======================================================================================================================
+# EXECUÇÃO PRINCIPAL
 
 def main():
-    # ----------------------------------------------------------------
-    # SELEÇÃO DO DIRETÓRIO CONTENDO O DATASET E VALIDAÇÃO DA ESTRUTURA
-    # ----------------------------------------------------------------
 
+    # SOLICITA AO USUÁRIO O DIRETÓRIO CONTENDO A BASE DE DADOS (PREFERENCIALMENTE JÁ ORGANIZADA EM SUBSETS)
     while True:
-        base_datapath = Utils.open_directory('Selecione o diretório contendo a base de dados. Opte por escolher o'
-                                             ' diretório já organizado com as divisões para treino e validação,'
-                                             ' (se houver)')
+        base_datapath = open_directory('Selecione o diretório contendo a base de dados. Opte por escolher o'
+                                       ' diretório já organizado com as divisões para treino e validação,'
+                                       ' (se houver)')
         if not base_datapath:
             messagebox.showinfo("Info", "Seleção de diretório cancelada pelo usuário")
             continue
@@ -88,25 +80,22 @@ def main():
             shutil.rmtree(Path(org_data))
         Path(org_data).mkdir(parents=True, exist_ok=True)
 
-        TRAIN_PATH, VAL_PATH = Utils.split_dataset(base_datapath, org_data, val_split=VAL_SPLIT,
-                                                   seed=42, extensions=(".jpg", ".jpeg", ".png"))
+        TRAIN_PATH, VAL_PATH = split_dataset(base_datapath, org_data, val_split=VAL_SPLIT,
+                                             seed=42, extensions=(".jpg", ".jpeg", ".png"))
 
     else:
         TRAIN_PATH = f"{base_datapath}/train"
         VAL_PATH = f"{base_datapath}/val"
 
-    print(
-        "\n-----------------------------------------------------------------------------------------------------------")
+    print("\n")
+    print("-----------------------------------------------------------------------------------------------------------")
     print("                                  INICIANDO PIPELINE DE EXECUÇÃO                                           ")
     print("-----------------------------------------------------------------------------------------------------------")
 
-    # ----------------------------------------------------------------
-    #                   CARREGAMENTO DOS DADOS E LOG
-    # ----------------------------------------------------------------
-
+    # CARREGAMENTO DE DADOS E EXIBIÇÃO DE LOGS
     train_ds, val_ds, class_names, num_classes = load_data(TRAIN_PATH, VAL_PATH, BATCH_SIZE)
-    num_train_samples = Utils.count_images(TRAIN_PATH)
-    num_val_samples = Utils.count_images(VAL_PATH)
+    num_train_samples = count_images(TRAIN_PATH)
+    num_val_samples = count_images(VAL_PATH)
 
     print(">> LOGS PROVENIENTES DO CARREGAMENTO DO DATASET\n")
 
@@ -164,7 +153,6 @@ def main():
     model.summary()
     '''
 
-
     # ----------------------------------------------------------------
     #                   CONSTRUÇÃO DO MODELO RESNET-34
     # ----------------------------------------------------------------
@@ -179,11 +167,7 @@ def main():
     )
     model.summary()
 
-
-    # ----------------------------------------------------------------
-    #                       TREINAMENTO
-    # ----------------------------------------------------------------
-
+    # TREINAMENTO DO MODELO COMPILADO
     trainer = ResNet_Trainer(
         model=model,
         train_ds=train_ds,

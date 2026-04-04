@@ -1,16 +1,6 @@
-# ******************************************************************************************************************** #
-#                                                   IMPORTAÇÕES                                                        #
-# ******************************************************************************************************************** #
-
 import tensorflow as tf
-from tensorflow.keras import mixed_precision
-
-# ******************************************************************************************************************** #
-#                                              CARREGAMENTO DE DADOS                                                   #
-# ******************************************************************************************************************** #
 
 AUTOTUNE = tf.data.AUTOTUNE
-# ImageNet normalization (canonical)
 IMAGENET_MEAN = tf.constant([0.485, 0.456, 0.406], dtype=tf.float32)
 IMAGENET_STD = tf.constant([0.229, 0.224, 0.225], dtype=tf.float32)
 
@@ -46,7 +36,6 @@ def preprocess_train(image, label):
 
 # ======================================================================================================================
 # FUNÇÃO PARA O PRE-PROCESSAMENTO DO CONJUNTO DE VALIDAÇÃO
-
 def preprocess_val(image, label):
     # Resize mantendo aspecto: short side = 256
     h = tf.cast(tf.shape(image)[0], tf.float32)
@@ -71,7 +60,6 @@ def preprocess_val(image, label):
 
 # ======================================================================================================================
 # FUNÇÃO PARA O CARREGAMENTO EFETIVO DA BASE
-
 def load_data(train_dir, val_dir, batch_size):
     train_ds_raw = tf.keras.utils.image_dataset_from_directory(
         train_dir,
