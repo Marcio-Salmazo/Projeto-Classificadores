@@ -1,6 +1,60 @@
+import tensorflow as tf
 from tensorflow.keras.layers import *
 from tensorflow.keras.models import Model
 
+
+# ======================================================================================================================
+# MOBILENET V1
+
+def depthwise_separable_conv(x, filters, stride):
+    # Depthwise
+    x = DepthwiseConv2D(3, strides=stride, padding='same', use_bias=False)(x)
+    x = BatchNormalization()(x)
+    x = ReLU()(x)
+
+    # Pointwise
+    x = Conv2D(filters, 1, padding='same', use_bias=False)(x)
+    x = BatchNormalization()(x)
+    x = ReLU()(x)
+
+    return x
+
+
+def MobileNetV1(input_shape=(224, 224, 3), num_classes=1000, alpha=1):
+
+    def f(filters):
+        return int(filters * alpha)
+
+    inputs = Input(shape=input_shape)
+
+    x = Conv2D(f(32), 3, strides=2, padding='same', use_bias=False)(inputs)
+    x = BatchNormalization()(x)
+    x = ReLU()(x)
+
+    x = depthwise_separable_conv(x, f(64), 1)
+
+    x = depthwise_separable_conv(x, f(128), 2)
+    x = depthwise_separable_conv(x, f(128), 1)
+
+    x = depthwise_separable_conv(x, f(256), 2)
+    x = depthwise_separable_conv(x, f(256), 1)
+
+    x = depthwise_separable_conv(x, f(512), 2)
+
+    for _ in range(5):
+        x = depthwise_separable_conv(x, f(512), 1)
+
+    x = depthwise_separable_conv(x, f(1024), 2)
+    x = depthwise_separable_conv(x, f(1024), 1)
+
+    x = GlobalAveragePooling2D()(x)
+    outputs = Dense(num_classes, activation='softmax')(x)
+
+    return Model(inputs, outputs)
+
+
+# ======================================================================================================================
+# MOBILENET V2
 
 def relu6(x):
     return tf.nn.relu6(x)
