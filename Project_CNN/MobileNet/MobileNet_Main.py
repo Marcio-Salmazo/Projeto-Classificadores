@@ -23,9 +23,8 @@ BATCH_SIZE = 32
 VAL_SPLIT = 0.2
 EPOCHS = 10
 NUM_CLASSES = 3
-INITIAL_LR = 0.01
+INITIAL_LR = 0.045
 MOMENTUM = 0.9
-WEIGHT_DECAY = 1e-4
 
 # ======================================================================================================================
 # DIAGNÓSTICO DO USO DA GPU, DEFINIÇÃO DE SEEDS E ATIVAÇÃO DE MIXED PRECISION
@@ -104,7 +103,7 @@ def main():
 
     # CONSTRUÇÃO E COMPILAÇÃO DO MODELO
     model = MobileNetV1(input_shape=(INPUT_SIZE, INPUT_SIZE, 3), num_classes=NUM_CLASSES, alpha=0.5)
-    model = compile_model(model)
+    model = compile_model(model, INITIAL_LR, MOMENTUM)
     model.summary()
 
     # TREINAMENTO DO MODELO COMPILADO

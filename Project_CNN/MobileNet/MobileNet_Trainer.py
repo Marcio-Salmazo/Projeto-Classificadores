@@ -4,11 +4,11 @@ import os
 import datetime
 
 
-def compile_model(model):
+def compile_model(model, LR=0.045, MOMENTUM=0.9):
     optimizer = tf.keras.optimizers.RMSprop(
-        learning_rate=0.045,
+        learning_rate=LR,
         rho=0.9,
-        momentum=0.9
+        momentum=MOMENTUM
     )
     model.compile(
         optimizer=optimizer,
