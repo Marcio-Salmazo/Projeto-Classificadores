@@ -18,10 +18,13 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 
 RUN_NAME = "DENSENET BS32 3K"
 
-INPUT_SIZE = 224
+# DenseNet se baseia na concatenação, fazendo com que a memória cresce expressivamente
+# dessa forma, é necessário que o INPUT SIZE seja reduzido
+INPUT_SIZE = 128
 BATCH_SIZE = 32
 VAL_SPLIT = 0.2
 EPOCHS = 3000
+GROWTH_RATE = 16
 NUM_CLASSES = 3
 INITIAL_LR = 0.01
 MOMENTUM = 0.9
@@ -54,7 +57,6 @@ CHECKPOINT_PATH = f"Results/Checkpoints_{RUN_NAME}/best_weights.h5"
 # ======================================================================================================================
 # EXECUÇÃO PRINCIPAL
 def main():
-
     # SOLICITA AO USUÁRIO O DIRETÓRIO CONTENDO A BASE DE DADOS (PREFERENCIALMENTE JÁ ORGANIZADA EM SUBSETS)
     while True:
         base_datapath = open_directory('Selecione o diretório contendo a base de dados. Opte por escolher o'
@@ -102,7 +104,7 @@ def main():
     print(f"Classes detectadas: {num_classes}\n")
 
     # CONSTRUÇÃO E COMPILAÇÃO DO MODELO
-    model = Shallow_densenet(input_shape=(INPUT_SIZE, INPUT_SIZE, 3), num_classes=NUM_CLASSES)
+    model = Shallow_densenet(input_shape=(INPUT_SIZE, INPUT_SIZE, 3), num_classes=NUM_CLASSES, growth_rate=GROWTH_RATE)
     model = compile_model(model, INITIAL_LR, MOMENTUM)
     model.summary()
 
@@ -110,6 +112,12 @@ def main():
     train_model(model, train_ds, val_ds, epochs=EPOCHS)
 
     print(">> PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO")
+
+    # Limpeza da memória após treino
+    import gc
+    del model
+    gc.collect()
+    tf.keras.backend.clear_session()
 
 
 if __name__ == "__main__":

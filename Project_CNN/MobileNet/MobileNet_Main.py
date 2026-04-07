@@ -55,7 +55,6 @@ CHECKPOINT_PATH = f"Results/Checkpoints_{RUN_NAME}/best_weights.h5"
 # ======================================================================================================================
 # EXECUÇÃO PRINCIPAL
 def main():
-
     # SOLICITA AO USUÁRIO O DIRETÓRIO CONTENDO A BASE DE DADOS (PREFERENCIALMENTE JÁ ORGANIZADA EM SUBSETS)
     while True:
         base_datapath = open_directory('Selecione o diretório contendo a base de dados. Opte por escolher o'

@@ -41,7 +41,7 @@ def transition_layer(x, compression=0.5):
 
 
 # ARQUITETURA OTIMIZADA DA DENSENET-121 >> ALINHADA COM NOSSO ESCOPO
-def Shallow_densenet(input_shape=(224,224,3), num_classes=3):
+def Shallow_densenet(input_shape=(128,128,3), num_classes=3, growth_rate=16):
 
     inputs = Input(shape=input_shape)
 
@@ -49,7 +49,7 @@ def Shallow_densenet(input_shape=(224,224,3), num_classes=3):
     x = Conv2D(32, 3, strides=1, padding='same', use_bias=False)(inputs)
 
     # Configuração mais leve e Otimizada
-    growth_rate = 16
+    growth_rate = growth_rate
     block_layers = [4, 6, 8, 6]
 
     # Dense Block 1
