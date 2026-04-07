@@ -16,14 +16,14 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # ======================================================================================================================
 # PARÂMETROS EXIGIDOS PELA MOBILENET
 
-RUN_NAME = "testeDensr"
+RUN_NAME = "DENSENET BS32 3K"
 
 INPUT_SIZE = 224
 BATCH_SIZE = 32
 VAL_SPLIT = 0.2
-EPOCHS = 10
+EPOCHS = 3000
 NUM_CLASSES = 3
-INITIAL_LR = 0.1
+INITIAL_LR = 0.01
 MOMENTUM = 0.9
 
 # ======================================================================================================================

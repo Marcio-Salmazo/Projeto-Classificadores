@@ -4,7 +4,7 @@ import os
 import datetime
 
 
-def compile_model(model, LR=0.045, MOMENTUM=0.9):
+def compile_model(model, LR=1e-4, MOMENTUM=0.9):
     optimizer = tf.keras.optimizers.RMSprop(
         learning_rate=LR,
         rho=0.9,
@@ -45,11 +45,17 @@ def train_model(model, train_ds, val_ds, epochs=50):
         write_images=False
     )
 
+    early_stopping = tf.keras.callbacks.EarlyStopping(
+        monitor='val_loss',
+        patience=20,
+        restore_best_weights=True
+    )
+
     history = model.fit(
         train_ds,
         validation_data=val_ds,
         epochs=epochs,
-        callbacks=[lr_scheduler, csv_logger, tensorboard_callback]
+        callbacks=[lr_scheduler, csv_logger, tensorboard_callback, early_stopping]
     )
 
     return history

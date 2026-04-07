@@ -16,14 +16,15 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # ======================================================================================================================
 # PARÂMETROS EXIGIDOS PELA MOBILENET
 
-RUN_NAME = "Experiment"
+RUN_NAME = "Experiment 2 Reduced"
 
-INPUT_SIZE = 224
+INPUT_SIZE = 160
 BATCH_SIZE = 32
 VAL_SPLIT = 0.2
-EPOCHS = 10
+EPOCHS = 3000
+ALPHA = 0.5
 NUM_CLASSES = 3
-INITIAL_LR = 0.045
+INITIAL_LR = 1e-4
 MOMENTUM = 0.9
 
 # ======================================================================================================================
@@ -90,7 +91,7 @@ def main():
     print("-----------------------------------------------------------------------------------------------------------")
 
     # CARREGAMENTO DE DADOS E EXIBIÇÃO DE LOGS
-    train_ds, val_ds, class_names, num_classes = load_data(TRAIN_PATH, VAL_PATH, BATCH_SIZE)
+    train_ds, val_ds, class_names, num_classes = load_data(TRAIN_PATH, VAL_PATH, BATCH_SIZE, INPUT_SIZE)
     num_train_samples = count_images(TRAIN_PATH)
     num_val_samples = count_images(VAL_PATH)
 
@@ -102,7 +103,7 @@ def main():
     print(f"Classes detectadas: {num_classes}\n")
 
     # CONSTRUÇÃO E COMPILAÇÃO DO MODELO
-    model = MobileNetV1(input_shape=(INPUT_SIZE, INPUT_SIZE, 3), num_classes=NUM_CLASSES, alpha=0.5)
+    model = MobileNetV1(input_shape=(INPUT_SIZE, INPUT_SIZE, 3), num_classes=NUM_CLASSES, alpha=ALPHA)
     model = compile_model(model, INITIAL_LR, MOMENTUM)
     model.summary()
 
