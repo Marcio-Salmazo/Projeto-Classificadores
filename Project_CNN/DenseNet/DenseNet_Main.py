@@ -5,7 +5,7 @@ from tkinter import messagebox
 from pathlib import Path
 
 from DenseNet_Utils import open_directory, count_images, set_global_seed, split_dataset
-from DenseNet_Builder import DenseNet121
+from DenseNet_Builder import Shallow_densenet
 from DenseNet_Dataloader import load_data
 from DenseNet_Trainer import compile_model, train_model
 from tensorflow.keras import mixed_precision
@@ -90,7 +90,7 @@ def main():
     print("-----------------------------------------------------------------------------------------------------------")
 
     # CARREGAMENTO DE DADOS E EXIBIÇÃO DE LOGS
-    train_ds, val_ds, class_names, num_classes = load_data(TRAIN_PATH, VAL_PATH, BATCH_SIZE)
+    train_ds, val_ds, class_names, num_classes = load_data(TRAIN_PATH, VAL_PATH, BATCH_SIZE, INPUT_SIZE)
     num_train_samples = count_images(TRAIN_PATH)
     num_val_samples = count_images(VAL_PATH)
 
@@ -102,7 +102,7 @@ def main():
     print(f"Classes detectadas: {num_classes}\n")
 
     # CONSTRUÇÃO E COMPILAÇÃO DO MODELO
-    model = DenseNet121(input_shape=(INPUT_SIZE, INPUT_SIZE, 3), num_classes=NUM_CLASSES)
+    model = Shallow_densenet(input_shape=(INPUT_SIZE, INPUT_SIZE, 3), num_classes=NUM_CLASSES)
     model = compile_model(model, INITIAL_LR, MOMENTUM)
     model.summary()
 

@@ -3,20 +3,24 @@ from tensorflow.keras.layers import *
 from tensorflow.keras.models import Model
 
 
-def dense_layer(x, growth_rate):
+def dense_layer(x, growth_rate, dropout_rate=0.2):
+
     # Bottleneck: 1x1 conv com 4k canais
     x1 = BatchNormalization()(x)
     x1 = Activation('relu')(x1)
-    x1 = Conv2D(4 * growth_rate, kernel_size=1, padding='same', use_bias=False)(x1)
+    x1 = Conv2D(4 * growth_rate, 1, padding='same', use_bias=False)(x1)
 
     # 3x3 conv
     x1 = BatchNormalization()(x1)
     x1 = Activation('relu')(x1)
-    x1 = Conv2D(growth_rate, kernel_size=3, padding='same', use_bias=False)(x1)
+    x1 = Conv2D(growth_rate, 3, padding='same', use_bias=False)(x1)
+
+    # Regularização
+    if dropout_rate:
+        x1 = Dropout(dropout_rate)(x1)
 
     # Concatenação (ESSENCIAL da DenseNet)
-    x = Concatenate()([x, x1])
-    return x
+    return Concatenate()([x, x1])
 
 
 def dense_block(x, num_layers, growth_rate):
@@ -30,12 +34,53 @@ def transition_layer(x, compression=0.5):
 
     x = BatchNormalization()(x)
     x = Activation('relu')(x)
-    x = Conv2D(filters, kernel_size=1, padding='same', use_bias=False)(x)
-    x = AveragePooling2D(pool_size=2, strides=2)(x)
+    x = Conv2D(filters, 1, padding='same', use_bias=False)(x)
+    x = AveragePooling2D(2, strides=2)(x)
 
     return x
 
 
+# ARQUITETURA OTIMIZADA DA DENSENET-121 >> ALINHADA COM NOSSO ESCOPO
+def Shallow_densenet(input_shape=(224,224,3), num_classes=3):
+
+    inputs = Input(shape=input_shape)
+
+    # Entrada leve
+    x = Conv2D(32, 3, strides=1, padding='same', use_bias=False)(inputs)
+
+    # Configuração mais leve e Otimizada
+    growth_rate = 16
+    block_layers = [4, 6, 8, 6]
+
+    # Dense Block 1
+    x = dense_block(x, block_layers[0], growth_rate)
+    x = transition_layer(x)
+
+    # Dense Block 2
+    x = dense_block(x, block_layers[1], growth_rate)
+    x = transition_layer(x)
+
+    # Dense Block 3
+    x = dense_block(x, block_layers[2], growth_rate)
+    x = transition_layer(x)
+
+    # Dense Block 4
+    x = dense_block(x, block_layers[3], growth_rate)
+
+    # Final
+    x = BatchNormalization()(x)
+    x = Activation('relu')(x)
+    x = GlobalAveragePooling2D()(x)
+
+    x = Dropout(0.3)(x)
+
+    outputs = Dense(num_classes, activation='softmax')(x)
+
+    return Model(inputs, outputs)
+
+
+# ARQUITETURA ORIGINAL DN-121 >> FIEL À IMPLEMENTAÇÃO DO ARTIGO
+'''
 def DenseNet121(input_shape=(224, 224, 3), num_classes=1000):
 
     inputs = Input(shape=input_shape)
@@ -64,3 +109,4 @@ def DenseNet121(input_shape=(224, 224, 3), num_classes=1000):
     outputs = Dense(num_classes, activation='softmax')(x)
 
     return Model(inputs, outputs)
+'''

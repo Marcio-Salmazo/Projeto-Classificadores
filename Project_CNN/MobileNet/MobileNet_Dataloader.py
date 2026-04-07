@@ -8,7 +8,6 @@ IMAGENET_STD = tf.constant([0.229, 0.224, 0.225], dtype=tf.float32)
 # ======================================================================================================================
 # FUNÇÃO PARA O PRE-PROCESSAMENTO DO CONJUNTO DE TREINO
 def preprocess_train(image, label):
-
     # Resize direto (mantendo consistência com MobileNet)
     image = tf.image.resize(image, (160, 160))
 
@@ -23,16 +22,16 @@ def preprocess_train(image, label):
 
     return image, label
 
+
 # ======================================================================================================================
 # FUNÇÃO PARA O PRE-PROCESSAMENTO DO CONJUNTO DE VALIDAÇÃO
-
 def preprocess_val(image, label):
-
     image = tf.image.resize(image, (160, 160))
     image = tf.cast(image, tf.float32) / 255.0
     image = (image - IMAGENET_MEAN) / IMAGENET_STD
 
     return image, label
+
 
 # ======================================================================================================================
 # FUNÇÃO PARA O CARREGAMENTO EFETIVO DA BASE
