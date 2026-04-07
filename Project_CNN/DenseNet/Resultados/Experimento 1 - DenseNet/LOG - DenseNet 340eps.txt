@@ -1,0 +1,1840 @@
+-----------------------------------------------------------------------------------------------------------
+                                  INICIANDO PIPELINE DE EXECUÇÃO                                           
+-----------------------------------------------------------------------------------------------------------
+Found 11074 files belonging to 3 classes.
+Found 2767 files belonging to 3 classes.
+
+>> LOGS PROVENIENTES DO CARREGAMENTO DO DATASET
+Treinamento:  11074
+Validação:  2767
+Índices:  ['Indolor', 'Muita dor', 'Pouca dor']
+Classes detectadas: 3
+
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(None, 128, 128, 3  0           []                               
+                                )]                                                                
+                                                                                                  
+ conv2d (Conv2D)                (None, 128, 128, 32  864         ['input_1[0][0]']                
+                                )                                                                 
+                                                                                                  
+ batch_normalization (BatchNorm  (None, 128, 128, 32  128        ['conv2d[0][0]']                 
+ alization)                     )                                                                 
+                                                                                                  
+ activation (Activation)        (None, 128, 128, 32  0           ['batch_normalization[0][0]']    
+                                )                                                                 
+                                                                                                  
+ conv2d_1 (Conv2D)              (None, 128, 128, 64  2048        ['activation[0][0]']             
+                                )                                                                 
+                                                                                                  
+ batch_normalization_1 (BatchNo  (None, 128, 128, 64  256        ['conv2d_1[0][0]']               
+ rmalization)                   )                                                                 
+                                                                                                  
+ activation_1 (Activation)      (None, 128, 128, 64  0           ['batch_normalization_1[0][0]']  
+                                )                                                                 
+                                                                                                  
+ conv2d_2 (Conv2D)              (None, 128, 128, 16  9216        ['activation_1[0][0]']           
+                                )                                                                 
+                                                                                                  
+ dropout (Dropout)              (None, 128, 128, 16  0           ['conv2d_2[0][0]']               
+                                )                                                                 
+                                                                                                  
+ concatenate (Concatenate)      (None, 128, 128, 48  0           ['conv2d[0][0]',                 
+                                )                                 'dropout[0][0]']                
+                                                                                                  
+ batch_normalization_2 (BatchNo  (None, 128, 128, 48  192        ['concatenate[0][0]']            
+ rmalization)                   )                                                                 
+                                                                                                  
+ activation_2 (Activation)      (None, 128, 128, 48  0           ['batch_normalization_2[0][0]']  
+                                )                                                                 
+                                                                                                  
+ conv2d_3 (Conv2D)              (None, 128, 128, 64  3072        ['activation_2[0][0]']           
+                                )                                                                 
+                                                                                                  
+ batch_normalization_3 (BatchNo  (None, 128, 128, 64  256        ['conv2d_3[0][0]']               
+ rmalization)                   )                                                                 
+                                                                                                  
+ activation_3 (Activation)      (None, 128, 128, 64  0           ['batch_normalization_3[0][0]']  
+                                )                                                                 
+                                                                                                  
+ conv2d_4 (Conv2D)              (None, 128, 128, 16  9216        ['activation_3[0][0]']           
+                                )                                                                 
+                                                                                                  
+ dropout_1 (Dropout)            (None, 128, 128, 16  0           ['conv2d_4[0][0]']               
+                                )                                                                 
+                                                                                                  
+ concatenate_1 (Concatenate)    (None, 128, 128, 64  0           ['concatenate[0][0]',            
+                                )                                 'dropout_1[0][0]']              
+                                                                                                  
+ batch_normalization_4 (BatchNo  (None, 128, 128, 64  256        ['concatenate_1[0][0]']          
+ rmalization)                   )                                                                 
+                                                                                                  
+ activation_4 (Activation)      (None, 128, 128, 64  0           ['batch_normalization_4[0][0]']  
+                                )                                                                 
+                                                                                                  
+ conv2d_5 (Conv2D)              (None, 128, 128, 64  4096        ['activation_4[0][0]']           
+                                )                                                                 
+                                                                                                  
+ batch_normalization_5 (BatchNo  (None, 128, 128, 64  256        ['conv2d_5[0][0]']               
+ rmalization)                   )                                                                 
+                                                                                                  
+ activation_5 (Activation)      (None, 128, 128, 64  0           ['batch_normalization_5[0][0]']  
+                                )                                                                 
+                                                                                                  
+ conv2d_6 (Conv2D)              (None, 128, 128, 16  9216        ['activation_5[0][0]']           
+                                )                                                                 
+                                                                                                  
+ dropout_2 (Dropout)            (None, 128, 128, 16  0           ['conv2d_6[0][0]']               
+                                )                                                                 
+                                                                                                  
+ concatenate_2 (Concatenate)    (None, 128, 128, 80  0           ['concatenate_1[0][0]',          
+                                )                                 'dropout_2[0][0]']              
+                                                                                                  
+ batch_normalization_6 (BatchNo  (None, 128, 128, 80  320        ['concatenate_2[0][0]']          
+ rmalization)                   )                                                                 
+                                                                                                  
+ activation_6 (Activation)      (None, 128, 128, 80  0           ['batch_normalization_6[0][0]']  
+                                )                                                                 
+                                                                                                  
+ conv2d_7 (Conv2D)              (None, 128, 128, 64  5120        ['activation_6[0][0]']           
+                                )                                                                 
+                                                                                                  
+ batch_normalization_7 (BatchNo  (None, 128, 128, 64  256        ['conv2d_7[0][0]']               
+ rmalization)                   )                                                                 
+                                                                                                  
+ activation_7 (Activation)      (None, 128, 128, 64  0           ['batch_normalization_7[0][0]']  
+                                )                                                                 
+                                                                                                  
+ conv2d_8 (Conv2D)              (None, 128, 128, 16  9216        ['activation_7[0][0]']           
+                                )                                                                 
+                                                                                                  
+ dropout_3 (Dropout)            (None, 128, 128, 16  0           ['conv2d_8[0][0]']               
+                                )                                                                 
+                                                                                                  
+ concatenate_3 (Concatenate)    (None, 128, 128, 96  0           ['concatenate_2[0][0]',          
+                                )                                 'dropout_3[0][0]']              
+                                                                                                  
+ batch_normalization_8 (BatchNo  (None, 128, 128, 96  384        ['concatenate_3[0][0]']          
+ rmalization)                   )                                                                 
+                                                                                                  
+ activation_8 (Activation)      (None, 128, 128, 96  0           ['batch_normalization_8[0][0]']  
+                                )                                                                 
+                                                                                                  
+ conv2d_9 (Conv2D)              (None, 128, 128, 48  4608        ['activation_8[0][0]']           
+                                )                                                                 
+                                                                                                  
+ average_pooling2d (AveragePool  (None, 64, 64, 48)  0           ['conv2d_9[0][0]']               
+ ing2D)                                                                                           
+                                                                                                  
+ batch_normalization_9 (BatchNo  (None, 64, 64, 48)  192         ['average_pooling2d[0][0]']      
+ rmalization)                                                                                     
+                                                                                                  
+ activation_9 (Activation)      (None, 64, 64, 48)   0           ['batch_normalization_9[0][0]']  
+                                                                                                  
+ conv2d_10 (Conv2D)             (None, 64, 64, 64)   3072        ['activation_9[0][0]']           
+                                                                                                  
+ batch_normalization_10 (BatchN  (None, 64, 64, 64)  256         ['conv2d_10[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_10 (Activation)     (None, 64, 64, 64)   0           ['batch_normalization_10[0][0]'] 
+                                                                                                  
+ conv2d_11 (Conv2D)             (None, 64, 64, 16)   9216        ['activation_10[0][0]']          
+                                                                                                  
+ dropout_4 (Dropout)            (None, 64, 64, 16)   0           ['conv2d_11[0][0]']              
+                                                                                                  
+ concatenate_4 (Concatenate)    (None, 64, 64, 64)   0           ['average_pooling2d[0][0]',      
+                                                                  'dropout_4[0][0]']              
+                                                                                                  
+ batch_normalization_11 (BatchN  (None, 64, 64, 64)  256         ['concatenate_4[0][0]']          
+ ormalization)                                                                                    
+                                                                                                  
+ activation_11 (Activation)     (None, 64, 64, 64)   0           ['batch_normalization_11[0][0]'] 
+                                                                                                  
+ conv2d_12 (Conv2D)             (None, 64, 64, 64)   4096        ['activation_11[0][0]']          
+                                                                                                  
+ batch_normalization_12 (BatchN  (None, 64, 64, 64)  256         ['conv2d_12[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_12 (Activation)     (None, 64, 64, 64)   0           ['batch_normalization_12[0][0]'] 
+                                                                                                  
+ conv2d_13 (Conv2D)             (None, 64, 64, 16)   9216        ['activation_12[0][0]']          
+                                                                                                  
+ dropout_5 (Dropout)            (None, 64, 64, 16)   0           ['conv2d_13[0][0]']              
+                                                                                                  
+ concatenate_5 (Concatenate)    (None, 64, 64, 80)   0           ['concatenate_4[0][0]',          
+                                                                  'dropout_5[0][0]']              
+                                                                                                  
+ batch_normalization_13 (BatchN  (None, 64, 64, 80)  320         ['concatenate_5[0][0]']          
+ ormalization)                                                                                    
+                                                                                                  
+ activation_13 (Activation)     (None, 64, 64, 80)   0           ['batch_normalization_13[0][0]'] 
+                                                                                                  
+ conv2d_14 (Conv2D)             (None, 64, 64, 64)   5120        ['activation_13[0][0]']          
+                                                                                                  
+ batch_normalization_14 (BatchN  (None, 64, 64, 64)  256         ['conv2d_14[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_14 (Activation)     (None, 64, 64, 64)   0           ['batch_normalization_14[0][0]'] 
+                                                                                                  
+ conv2d_15 (Conv2D)             (None, 64, 64, 16)   9216        ['activation_14[0][0]']          
+                                                                                                  
+ dropout_6 (Dropout)            (None, 64, 64, 16)   0           ['conv2d_15[0][0]']              
+                                                                                                  
+ concatenate_6 (Concatenate)    (None, 64, 64, 96)   0           ['concatenate_5[0][0]',          
+                                                                  'dropout_6[0][0]']              
+                                                                                                  
+ batch_normalization_15 (BatchN  (None, 64, 64, 96)  384         ['concatenate_6[0][0]']          
+ ormalization)                                                                                    
+                                                                                                  
+ activation_15 (Activation)     (None, 64, 64, 96)   0           ['batch_normalization_15[0][0]'] 
+                                                                                                  
+ conv2d_16 (Conv2D)             (None, 64, 64, 64)   6144        ['activation_15[0][0]']          
+                                                                                                  
+ batch_normalization_16 (BatchN  (None, 64, 64, 64)  256         ['conv2d_16[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_16 (Activation)     (None, 64, 64, 64)   0           ['batch_normalization_16[0][0]'] 
+                                                                                                  
+ conv2d_17 (Conv2D)             (None, 64, 64, 16)   9216        ['activation_16[0][0]']          
+                                                                                                  
+ dropout_7 (Dropout)            (None, 64, 64, 16)   0           ['conv2d_17[0][0]']              
+                                                                                                  
+ concatenate_7 (Concatenate)    (None, 64, 64, 112)  0           ['concatenate_6[0][0]',          
+                                                                  'dropout_7[0][0]']              
+                                                                                                  
+ batch_normalization_17 (BatchN  (None, 64, 64, 112)  448        ['concatenate_7[0][0]']          
+ ormalization)                                                                                    
+                                                                                                  
+ activation_17 (Activation)     (None, 64, 64, 112)  0           ['batch_normalization_17[0][0]'] 
+                                                                                                  
+ conv2d_18 (Conv2D)             (None, 64, 64, 64)   7168        ['activation_17[0][0]']          
+                                                                                                  
+ batch_normalization_18 (BatchN  (None, 64, 64, 64)  256         ['conv2d_18[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_18 (Activation)     (None, 64, 64, 64)   0           ['batch_normalization_18[0][0]'] 
+                                                                                                  
+ conv2d_19 (Conv2D)             (None, 64, 64, 16)   9216        ['activation_18[0][0]']          
+                                                                                                  
+ dropout_8 (Dropout)            (None, 64, 64, 16)   0           ['conv2d_19[0][0]']              
+                                                                                                  
+ concatenate_8 (Concatenate)    (None, 64, 64, 128)  0           ['concatenate_7[0][0]',          
+                                                                  'dropout_8[0][0]']              
+                                                                                                  
+ batch_normalization_19 (BatchN  (None, 64, 64, 128)  512        ['concatenate_8[0][0]']          
+ ormalization)                                                                                    
+                                                                                                  
+ activation_19 (Activation)     (None, 64, 64, 128)  0           ['batch_normalization_19[0][0]'] 
+                                                                                                  
+ conv2d_20 (Conv2D)             (None, 64, 64, 64)   8192        ['activation_19[0][0]']          
+                                                                                                  
+ batch_normalization_20 (BatchN  (None, 64, 64, 64)  256         ['conv2d_20[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_20 (Activation)     (None, 64, 64, 64)   0           ['batch_normalization_20[0][0]'] 
+                                                                                                  
+ conv2d_21 (Conv2D)             (None, 64, 64, 16)   9216        ['activation_20[0][0]']          
+                                                                                                  
+ dropout_9 (Dropout)            (None, 64, 64, 16)   0           ['conv2d_21[0][0]']              
+                                                                                                  
+ concatenate_9 (Concatenate)    (None, 64, 64, 144)  0           ['concatenate_8[0][0]',          
+                                                                  'dropout_9[0][0]']              
+                                                                                                  
+ batch_normalization_21 (BatchN  (None, 64, 64, 144)  576        ['concatenate_9[0][0]']          
+ ormalization)                                                                                    
+                                                                                                  
+ activation_21 (Activation)     (None, 64, 64, 144)  0           ['batch_normalization_21[0][0]'] 
+                                                                                                  
+ conv2d_22 (Conv2D)             (None, 64, 64, 72)   10368       ['activation_21[0][0]']          
+                                                                                                  
+ average_pooling2d_1 (AveragePo  (None, 32, 32, 72)  0           ['conv2d_22[0][0]']              
+ oling2D)                                                                                         
+                                                                                                  
+ batch_normalization_22 (BatchN  (None, 32, 32, 72)  288         ['average_pooling2d_1[0][0]']    
+ ormalization)                                                                                    
+                                                                                                  
+ activation_22 (Activation)     (None, 32, 32, 72)   0           ['batch_normalization_22[0][0]'] 
+                                                                                                  
+ conv2d_23 (Conv2D)             (None, 32, 32, 64)   4608        ['activation_22[0][0]']          
+                                                                                                  
+ batch_normalization_23 (BatchN  (None, 32, 32, 64)  256         ['conv2d_23[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_23 (Activation)     (None, 32, 32, 64)   0           ['batch_normalization_23[0][0]'] 
+                                                                                                  
+ conv2d_24 (Conv2D)             (None, 32, 32, 16)   9216        ['activation_23[0][0]']          
+                                                                                                  
+ dropout_10 (Dropout)           (None, 32, 32, 16)   0           ['conv2d_24[0][0]']              
+                                                                                                  
+ concatenate_10 (Concatenate)   (None, 32, 32, 88)   0           ['average_pooling2d_1[0][0]',    
+                                                                  'dropout_10[0][0]']             
+                                                                                                  
+ batch_normalization_24 (BatchN  (None, 32, 32, 88)  352         ['concatenate_10[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_24 (Activation)     (None, 32, 32, 88)   0           ['batch_normalization_24[0][0]'] 
+                                                                                                  
+ conv2d_25 (Conv2D)             (None, 32, 32, 64)   5632        ['activation_24[0][0]']          
+                                                                                                  
+ batch_normalization_25 (BatchN  (None, 32, 32, 64)  256         ['conv2d_25[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_25 (Activation)     (None, 32, 32, 64)   0           ['batch_normalization_25[0][0]'] 
+                                                                                                  
+ conv2d_26 (Conv2D)             (None, 32, 32, 16)   9216        ['activation_25[0][0]']          
+                                                                                                  
+ dropout_11 (Dropout)           (None, 32, 32, 16)   0           ['conv2d_26[0][0]']              
+                                                                                                  
+ concatenate_11 (Concatenate)   (None, 32, 32, 104)  0           ['concatenate_10[0][0]',         
+                                                                  'dropout_11[0][0]']             
+                                                                                                  
+ batch_normalization_26 (BatchN  (None, 32, 32, 104)  416        ['concatenate_11[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_26 (Activation)     (None, 32, 32, 104)  0           ['batch_normalization_26[0][0]'] 
+                                                                                                  
+ conv2d_27 (Conv2D)             (None, 32, 32, 64)   6656        ['activation_26[0][0]']          
+                                                                                                  
+ batch_normalization_27 (BatchN  (None, 32, 32, 64)  256         ['conv2d_27[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_27 (Activation)     (None, 32, 32, 64)   0           ['batch_normalization_27[0][0]'] 
+                                                                                                  
+ conv2d_28 (Conv2D)             (None, 32, 32, 16)   9216        ['activation_27[0][0]']          
+                                                                                                  
+ dropout_12 (Dropout)           (None, 32, 32, 16)   0           ['conv2d_28[0][0]']              
+                                                                                                  
+ concatenate_12 (Concatenate)   (None, 32, 32, 120)  0           ['concatenate_11[0][0]',         
+                                                                  'dropout_12[0][0]']             
+                                                                                                  
+ batch_normalization_28 (BatchN  (None, 32, 32, 120)  480        ['concatenate_12[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_28 (Activation)     (None, 32, 32, 120)  0           ['batch_normalization_28[0][0]'] 
+                                                                                                  
+ conv2d_29 (Conv2D)             (None, 32, 32, 64)   7680        ['activation_28[0][0]']          
+                                                                                                  
+ batch_normalization_29 (BatchN  (None, 32, 32, 64)  256         ['conv2d_29[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_29 (Activation)     (None, 32, 32, 64)   0           ['batch_normalization_29[0][0]'] 
+                                                                                                  
+ conv2d_30 (Conv2D)             (None, 32, 32, 16)   9216        ['activation_29[0][0]']          
+                                                                                                  
+ dropout_13 (Dropout)           (None, 32, 32, 16)   0           ['conv2d_30[0][0]']              
+                                                                                                  
+ concatenate_13 (Concatenate)   (None, 32, 32, 136)  0           ['concatenate_12[0][0]',         
+                                                                  'dropout_13[0][0]']             
+                                                                                                  
+ batch_normalization_30 (BatchN  (None, 32, 32, 136)  544        ['concatenate_13[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_30 (Activation)     (None, 32, 32, 136)  0           ['batch_normalization_30[0][0]'] 
+                                                                                                  
+ conv2d_31 (Conv2D)             (None, 32, 32, 64)   8704        ['activation_30[0][0]']          
+                                                                                                  
+ batch_normalization_31 (BatchN  (None, 32, 32, 64)  256         ['conv2d_31[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_31 (Activation)     (None, 32, 32, 64)   0           ['batch_normalization_31[0][0]'] 
+                                                                                                  
+ conv2d_32 (Conv2D)             (None, 32, 32, 16)   9216        ['activation_31[0][0]']          
+                                                                                                  
+ dropout_14 (Dropout)           (None, 32, 32, 16)   0           ['conv2d_32[0][0]']              
+                                                                                                  
+ concatenate_14 (Concatenate)   (None, 32, 32, 152)  0           ['concatenate_13[0][0]',         
+                                                                  'dropout_14[0][0]']             
+                                                                                                  
+ batch_normalization_32 (BatchN  (None, 32, 32, 152)  608        ['concatenate_14[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_32 (Activation)     (None, 32, 32, 152)  0           ['batch_normalization_32[0][0]'] 
+                                                                                                  
+ conv2d_33 (Conv2D)             (None, 32, 32, 64)   9728        ['activation_32[0][0]']          
+                                                                                                  
+ batch_normalization_33 (BatchN  (None, 32, 32, 64)  256         ['conv2d_33[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_33 (Activation)     (None, 32, 32, 64)   0           ['batch_normalization_33[0][0]'] 
+                                                                                                  
+ conv2d_34 (Conv2D)             (None, 32, 32, 16)   9216        ['activation_33[0][0]']          
+                                                                                                  
+ dropout_15 (Dropout)           (None, 32, 32, 16)   0           ['conv2d_34[0][0]']              
+                                                                                                  
+ concatenate_15 (Concatenate)   (None, 32, 32, 168)  0           ['concatenate_14[0][0]',         
+                                                                  'dropout_15[0][0]']             
+                                                                                                  
+ batch_normalization_34 (BatchN  (None, 32, 32, 168)  672        ['concatenate_15[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_34 (Activation)     (None, 32, 32, 168)  0           ['batch_normalization_34[0][0]'] 
+                                                                                                  
+ conv2d_35 (Conv2D)             (None, 32, 32, 64)   10752       ['activation_34[0][0]']          
+                                                                                                  
+ batch_normalization_35 (BatchN  (None, 32, 32, 64)  256         ['conv2d_35[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_35 (Activation)     (None, 32, 32, 64)   0           ['batch_normalization_35[0][0]'] 
+                                                                                                  
+ conv2d_36 (Conv2D)             (None, 32, 32, 16)   9216        ['activation_35[0][0]']          
+                                                                                                  
+ dropout_16 (Dropout)           (None, 32, 32, 16)   0           ['conv2d_36[0][0]']              
+                                                                                                  
+ concatenate_16 (Concatenate)   (None, 32, 32, 184)  0           ['concatenate_15[0][0]',         
+                                                                  'dropout_16[0][0]']             
+                                                                                                  
+ batch_normalization_36 (BatchN  (None, 32, 32, 184)  736        ['concatenate_16[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_36 (Activation)     (None, 32, 32, 184)  0           ['batch_normalization_36[0][0]'] 
+                                                                                                  
+ conv2d_37 (Conv2D)             (None, 32, 32, 64)   11776       ['activation_36[0][0]']          
+                                                                                                  
+ batch_normalization_37 (BatchN  (None, 32, 32, 64)  256         ['conv2d_37[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_37 (Activation)     (None, 32, 32, 64)   0           ['batch_normalization_37[0][0]'] 
+                                                                                                  
+ conv2d_38 (Conv2D)             (None, 32, 32, 16)   9216        ['activation_37[0][0]']          
+                                                                                                  
+ dropout_17 (Dropout)           (None, 32, 32, 16)   0           ['conv2d_38[0][0]']              
+                                                                                                  
+ concatenate_17 (Concatenate)   (None, 32, 32, 200)  0           ['concatenate_16[0][0]',         
+                                                                  'dropout_17[0][0]']             
+                                                                                                  
+ batch_normalization_38 (BatchN  (None, 32, 32, 200)  800        ['concatenate_17[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_38 (Activation)     (None, 32, 32, 200)  0           ['batch_normalization_38[0][0]'] 
+                                                                                                  
+ conv2d_39 (Conv2D)             (None, 32, 32, 100)  20000       ['activation_38[0][0]']          
+                                                                                                  
+ average_pooling2d_2 (AveragePo  (None, 16, 16, 100)  0          ['conv2d_39[0][0]']              
+ oling2D)                                                                                         
+                                                                                                  
+ batch_normalization_39 (BatchN  (None, 16, 16, 100)  400        ['average_pooling2d_2[0][0]']    
+ ormalization)                                                                                    
+                                                                                                  
+ activation_39 (Activation)     (None, 16, 16, 100)  0           ['batch_normalization_39[0][0]'] 
+                                                                                                  
+ conv2d_40 (Conv2D)             (None, 16, 16, 64)   6400        ['activation_39[0][0]']          
+                                                                                                  
+ batch_normalization_40 (BatchN  (None, 16, 16, 64)  256         ['conv2d_40[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_40 (Activation)     (None, 16, 16, 64)   0           ['batch_normalization_40[0][0]'] 
+                                                                                                  
+ conv2d_41 (Conv2D)             (None, 16, 16, 16)   9216        ['activation_40[0][0]']          
+                                                                                                  
+ dropout_18 (Dropout)           (None, 16, 16, 16)   0           ['conv2d_41[0][0]']              
+                                                                                                  
+ concatenate_18 (Concatenate)   (None, 16, 16, 116)  0           ['average_pooling2d_2[0][0]',    
+                                                                  'dropout_18[0][0]']             
+                                                                                                  
+ batch_normalization_41 (BatchN  (None, 16, 16, 116)  464        ['concatenate_18[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_41 (Activation)     (None, 16, 16, 116)  0           ['batch_normalization_41[0][0]'] 
+                                                                                                  
+ conv2d_42 (Conv2D)             (None, 16, 16, 64)   7424        ['activation_41[0][0]']          
+                                                                                                  
+ batch_normalization_42 (BatchN  (None, 16, 16, 64)  256         ['conv2d_42[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_42 (Activation)     (None, 16, 16, 64)   0           ['batch_normalization_42[0][0]'] 
+                                                                                                  
+ conv2d_43 (Conv2D)             (None, 16, 16, 16)   9216        ['activation_42[0][0]']          
+                                                                                                  
+ dropout_19 (Dropout)           (None, 16, 16, 16)   0           ['conv2d_43[0][0]']              
+                                                                                                  
+ concatenate_19 (Concatenate)   (None, 16, 16, 132)  0           ['concatenate_18[0][0]',         
+                                                                  'dropout_19[0][0]']             
+                                                                                                  
+ batch_normalization_43 (BatchN  (None, 16, 16, 132)  528        ['concatenate_19[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_43 (Activation)     (None, 16, 16, 132)  0           ['batch_normalization_43[0][0]'] 
+                                                                                                  
+ conv2d_44 (Conv2D)             (None, 16, 16, 64)   8448        ['activation_43[0][0]']          
+                                                                                                  
+ batch_normalization_44 (BatchN  (None, 16, 16, 64)  256         ['conv2d_44[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_44 (Activation)     (None, 16, 16, 64)   0           ['batch_normalization_44[0][0]'] 
+                                                                                                  
+ conv2d_45 (Conv2D)             (None, 16, 16, 16)   9216        ['activation_44[0][0]']          
+                                                                                                  
+ dropout_20 (Dropout)           (None, 16, 16, 16)   0           ['conv2d_45[0][0]']              
+                                                                                                  
+ concatenate_20 (Concatenate)   (None, 16, 16, 148)  0           ['concatenate_19[0][0]',         
+                                                                  'dropout_20[0][0]']             
+                                                                                                  
+ batch_normalization_45 (BatchN  (None, 16, 16, 148)  592        ['concatenate_20[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_45 (Activation)     (None, 16, 16, 148)  0           ['batch_normalization_45[0][0]'] 
+                                                                                                  
+ conv2d_46 (Conv2D)             (None, 16, 16, 64)   9472        ['activation_45[0][0]']          
+                                                                                                  
+ batch_normalization_46 (BatchN  (None, 16, 16, 64)  256         ['conv2d_46[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_46 (Activation)     (None, 16, 16, 64)   0           ['batch_normalization_46[0][0]'] 
+                                                                                                  
+ conv2d_47 (Conv2D)             (None, 16, 16, 16)   9216        ['activation_46[0][0]']          
+                                                                                                  
+ dropout_21 (Dropout)           (None, 16, 16, 16)   0           ['conv2d_47[0][0]']              
+                                                                                                  
+ concatenate_21 (Concatenate)   (None, 16, 16, 164)  0           ['concatenate_20[0][0]',         
+                                                                  'dropout_21[0][0]']             
+                                                                                                  
+ batch_normalization_47 (BatchN  (None, 16, 16, 164)  656        ['concatenate_21[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_47 (Activation)     (None, 16, 16, 164)  0           ['batch_normalization_47[0][0]'] 
+                                                                                                  
+ conv2d_48 (Conv2D)             (None, 16, 16, 64)   10496       ['activation_47[0][0]']          
+                                                                                                  
+ batch_normalization_48 (BatchN  (None, 16, 16, 64)  256         ['conv2d_48[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_48 (Activation)     (None, 16, 16, 64)   0           ['batch_normalization_48[0][0]'] 
+                                                                                                  
+ conv2d_49 (Conv2D)             (None, 16, 16, 16)   9216        ['activation_48[0][0]']          
+                                                                                                  
+ dropout_22 (Dropout)           (None, 16, 16, 16)   0           ['conv2d_49[0][0]']              
+                                                                                                  
+ concatenate_22 (Concatenate)   (None, 16, 16, 180)  0           ['concatenate_21[0][0]',         
+                                                                  'dropout_22[0][0]']             
+                                                                                                  
+ batch_normalization_49 (BatchN  (None, 16, 16, 180)  720        ['concatenate_22[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_49 (Activation)     (None, 16, 16, 180)  0           ['batch_normalization_49[0][0]'] 
+                                                                                                  
+ conv2d_50 (Conv2D)             (None, 16, 16, 64)   11520       ['activation_49[0][0]']          
+                                                                                                  
+ batch_normalization_50 (BatchN  (None, 16, 16, 64)  256         ['conv2d_50[0][0]']              
+ ormalization)                                                                                    
+                                                                                                  
+ activation_50 (Activation)     (None, 16, 16, 64)   0           ['batch_normalization_50[0][0]'] 
+                                                                                                  
+ conv2d_51 (Conv2D)             (None, 16, 16, 16)   9216        ['activation_50[0][0]']          
+                                                                                                  
+ dropout_23 (Dropout)           (None, 16, 16, 16)   0           ['conv2d_51[0][0]']              
+                                                                                                  
+ concatenate_23 (Concatenate)   (None, 16, 16, 196)  0           ['concatenate_22[0][0]',         
+                                                                  'dropout_23[0][0]']             
+                                                                                                  
+ batch_normalization_51 (BatchN  (None, 16, 16, 196)  784        ['concatenate_23[0][0]']         
+ ormalization)                                                                                    
+                                                                                                  
+ activation_51 (Activation)     (None, 16, 16, 196)  0           ['batch_normalization_51[0][0]'] 
+                                                                                                  
+ global_average_pooling2d (Glob  (None, 196)         0           ['activation_51[0][0]']          
+ alAveragePooling2D)                                                                              
+                                                                                                  
+ dropout_24 (Dropout)           (None, 196)          0           ['global_average_pooling2d[0][0]'
+                                                                 ]                                
+                                                                                                  
+ dense (Dense)                  (None, 3)            591         ['dropout_24[0][0]']             
+                                                                                                  
+==================================================================================================
+Total params: 444,191
+Trainable params: 434,615
+Non-trainable params: 9,576
+__________________________________________________________________________________________________
+Epoch 1/3000
+2026-04-07 09:55:59.372886: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+347/347 [==============================] - 58s 147ms/step - loss: 0.8719 - accuracy: 0.5675 - val_loss: 1.1396 - val_accuracy: 0.5056 - lr: 0.0100
+Epoch 2/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.7632 - accuracy: 0.6395 - val_loss: 3.7398 - val_accuracy: 0.4919 - lr: 0.0100
+Epoch 3/3000
+347/347 [==============================] - 48s 138ms/step - loss: 0.7061 - accuracy: 0.6768 - val_loss: 0.8407 - val_accuracy: 0.5775 - lr: 0.0100
+Epoch 4/3000
+347/347 [==============================] - 49s 139ms/step - loss: 0.6620 - accuracy: 0.6899 - val_loss: 1.0872 - val_accuracy: 0.5320 - lr: 0.0100
+Epoch 5/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.6230 - accuracy: 0.7143 - val_loss: 2.1175 - val_accuracy: 0.4109 - lr: 0.0100
+Epoch 6/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.5942 - accuracy: 0.7295 - val_loss: 0.9323 - val_accuracy: 0.5782 - lr: 0.0100
+Epoch 7/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.5622 - accuracy: 0.7415 - val_loss: 1.3827 - val_accuracy: 0.5540 - lr: 0.0100
+Epoch 8/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.5343 - accuracy: 0.7638 - val_loss: 0.8776 - val_accuracy: 0.6126 - lr: 0.0100
+Epoch 9/3000
+347/347 [==============================] - 47s 135ms/step - loss: 0.5180 - accuracy: 0.7729 - val_loss: 1.3200 - val_accuracy: 0.4734 - lr: 0.0100
+Epoch 10/3000
+347/347 [==============================] - 47s 135ms/step - loss: 0.4919 - accuracy: 0.7860 - val_loss: 1.7775 - val_accuracy: 0.3925 - lr: 0.0100
+Epoch 11/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.4693 - accuracy: 0.7928 - val_loss: 1.0492 - val_accuracy: 0.5829 - lr: 0.0100
+Epoch 12/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.4531 - accuracy: 0.8087 - val_loss: 2.6932 - val_accuracy: 0.5598 - lr: 0.0100
+Epoch 13/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.4312 - accuracy: 0.8160 - val_loss: 0.7550 - val_accuracy: 0.6621 - lr: 0.0100
+Epoch 14/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.4217 - accuracy: 0.8240 - val_loss: 1.5032 - val_accuracy: 0.5305 - lr: 0.0100
+Epoch 15/3000
+347/347 [==============================] - 47s 135ms/step - loss: 0.4254 - accuracy: 0.8189 - val_loss: 0.4614 - val_accuracy: 0.8059 - lr: 0.0100
+Epoch 16/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.4061 - accuracy: 0.8297 - val_loss: 0.8848 - val_accuracy: 0.6480 - lr: 0.0100
+Epoch 17/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.3951 - accuracy: 0.8318 - val_loss: 0.9210 - val_accuracy: 0.6617 - lr: 0.0100
+Epoch 18/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.3815 - accuracy: 0.8397 - val_loss: 0.6690 - val_accuracy: 0.7102 - lr: 0.0100
+Epoch 19/3000
+347/347 [==============================] - 47s 135ms/step - loss: 0.3727 - accuracy: 0.8431 - val_loss: 0.6708 - val_accuracy: 0.6990 - lr: 0.0100
+Epoch 20/3000
+347/347 [==============================] - 47s 135ms/step - loss: 0.3675 - accuracy: 0.8449 - val_loss: 0.6096 - val_accuracy: 0.7420 - lr: 0.0100
+Epoch 21/3000
+347/347 [==============================] - 48s 137ms/step - loss: 0.3553 - accuracy: 0.8538 - val_loss: 0.8332 - val_accuracy: 0.6364 - lr: 0.0100
+Epoch 22/3000
+347/347 [==============================] - 47s 135ms/step - loss: 0.3442 - accuracy: 0.8589 - val_loss: 0.4161 - val_accuracy: 0.8226 - lr: 0.0100
+Epoch 23/3000
+347/347 [==============================] - 47s 135ms/step - loss: 0.3355 - accuracy: 0.8634 - val_loss: 0.4434 - val_accuracy: 0.8229 - lr: 0.0100
+Epoch 24/3000
+347/347 [==============================] - 47s 135ms/step - loss: 0.3305 - accuracy: 0.8660 - val_loss: 0.7542 - val_accuracy: 0.6603 - lr: 0.0100
+Epoch 25/3000
+347/347 [==============================] - 47s 135ms/step - loss: 0.3265 - accuracy: 0.8685 - val_loss: 0.5280 - val_accuracy: 0.7752 - lr: 0.0100
+Epoch 26/3000
+347/347 [==============================] - 47s 135ms/step - loss: 0.3218 - accuracy: 0.8686 - val_loss: 0.7652 - val_accuracy: 0.6570 - lr: 0.0100
+Epoch 27/3000
+347/347 [==============================] - 48s 136ms/step - loss: 0.3226 - accuracy: 0.8659 - val_loss: 1.3169 - val_accuracy: 0.5847 - lr: 0.0100
+Epoch 28/3000
+347/347 [==============================] - 49s 139ms/step - loss: 0.3131 - accuracy: 0.8723 - val_loss: 0.8784 - val_accuracy: 0.6527 - lr: 0.0100
+Epoch 29/3000
+347/347 [==============================] - 49s 139ms/step - loss: 0.3438 - accuracy: 0.8588 - val_loss: 0.6976 - val_accuracy: 0.7300 - lr: 0.0100
+Epoch 30/3000
+347/347 [==============================] - 49s 140ms/step - loss: 0.2987 - accuracy: 0.8805 - val_loss: 0.8784 - val_accuracy: 0.6935 - lr: 0.0100
+Epoch 31/3000
+347/347 [==============================] - 48s 137ms/step - loss: 0.2927 - accuracy: 0.8815 - val_loss: 0.3770 - val_accuracy: 0.8515 - lr: 0.0100
+Epoch 32/3000
+347/347 [==============================] - 49s 140ms/step - loss: 0.2878 - accuracy: 0.8846 - val_loss: 1.1897 - val_accuracy: 0.6520 - lr: 0.0100
+Epoch 33/3000
+347/347 [==============================] - 49s 141ms/step - loss: 0.2978 - accuracy: 0.8781 - val_loss: 0.5824 - val_accuracy: 0.7492 - lr: 0.0100
+Epoch 34/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.2646 - accuracy: 0.8946 - val_loss: 0.6195 - val_accuracy: 0.7781 - lr: 0.0100
+Epoch 35/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.2831 - accuracy: 0.8850 - val_loss: 0.7254 - val_accuracy: 0.6892 - lr: 0.0100
+Epoch 36/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.3028 - accuracy: 0.8767 - val_loss: 1.2288 - val_accuracy: 0.6014 - lr: 0.0100
+Epoch 37/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.2822 - accuracy: 0.8869 - val_loss: 0.4858 - val_accuracy: 0.7897 - lr: 0.0100
+Epoch 38/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.2566 - accuracy: 0.8985 - val_loss: 1.2692 - val_accuracy: 0.5226 - lr: 0.0100
+Epoch 39/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.2820 - accuracy: 0.8863 - val_loss: 0.6877 - val_accuracy: 0.7185 - lr: 0.0100
+Epoch 40/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.2515 - accuracy: 0.8974 - val_loss: 1.0531 - val_accuracy: 0.7221 - lr: 0.0100
+Epoch 41/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.2443 - accuracy: 0.9017 - val_loss: 1.0114 - val_accuracy: 0.6310 - lr: 0.0100
+Epoch 42/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.2253 - accuracy: 0.9115 - val_loss: 0.2994 - val_accuracy: 0.8815 - lr: 1.0000e-03
+Epoch 43/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.1813 - accuracy: 0.9312 - val_loss: 0.2844 - val_accuracy: 0.8858 - lr: 1.0000e-03
+Epoch 44/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.1720 - accuracy: 0.9312 - val_loss: 0.2713 - val_accuracy: 0.8941 - lr: 1.0000e-03
+Epoch 45/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.1677 - accuracy: 0.9361 - val_loss: 0.2879 - val_accuracy: 0.8927 - lr: 1.0000e-03
+Epoch 46/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.1683 - accuracy: 0.9360 - val_loss: 0.2826 - val_accuracy: 0.8901 - lr: 1.0000e-03
+Epoch 47/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.1675 - accuracy: 0.9368 - val_loss: 0.2753 - val_accuracy: 0.9003 - lr: 1.0000e-03
+Epoch 48/3000
+347/347 [==============================] - 47s 134ms/step - loss: 0.1691 - accuracy: 0.9358 - val_loss: 0.2800 - val_accuracy: 0.8909 - lr: 1.0000e-03
+Epoch 49/3000
+347/347 [==============================] - 47s 136ms/step - loss: 0.1601 - accuracy: 0.9360 - val_loss: 0.2827 - val_accuracy: 0.8984 - lr: 1.0000e-03
+Epoch 50/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1629 - accuracy: 0.9377
+[Plateau Check] Variação últimas 50 épocas: 0.370056
+347/347 [==============================] - 47s 136ms/step - loss: 0.1631 - accuracy: 0.9376 - val_loss: 0.2985 - val_accuracy: 0.8854 - lr: 1.0000e-03
+Epoch 51/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1620 - accuracy: 0.9384
+[Plateau Check] Variação últimas 50 épocas: 0.298898
+347/347 [==============================] - 47s 134ms/step - loss: 0.1619 - accuracy: 0.9384 - val_loss: 0.3028 - val_accuracy: 0.8901 - lr: 1.0000e-03
+Epoch 52/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1542 - accuracy: 0.9408
+[Plateau Check] Variação últimas 50 épocas: 0.263771
+347/347 [==============================] - 47s 134ms/step - loss: 0.1546 - accuracy: 0.9406 - val_loss: 0.2911 - val_accuracy: 0.8956 - lr: 1.0000e-03
+Epoch 53/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1647 - accuracy: 0.9394
+[Plateau Check] Variação últimas 50 épocas: 0.250677
+347/347 [==============================] - 47s 134ms/step - loss: 0.1649 - accuracy: 0.9393 - val_loss: 0.2796 - val_accuracy: 0.8988 - lr: 1.0000e-03
+Epoch 54/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1543 - accuracy: 0.9401
+[Plateau Check] Variação últimas 50 épocas: 0.226296
+347/347 [==============================] - 47s 134ms/step - loss: 0.1543 - accuracy: 0.9401 - val_loss: 0.2725 - val_accuracy: 0.8956 - lr: 1.0000e-03
+Epoch 55/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1466 - accuracy: 0.9460
+[Plateau Check] Variação últimas 50 épocas: 0.216363
+347/347 [==============================] - 47s 134ms/step - loss: 0.1468 - accuracy: 0.9459 - val_loss: 0.2645 - val_accuracy: 0.9003 - lr: 1.0000e-04
+Epoch 56/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1445 - accuracy: 0.9454
+[Plateau Check] Variação últimas 50 épocas: 0.204443
+347/347 [==============================] - 47s 134ms/step - loss: 0.1444 - accuracy: 0.9455 - val_loss: 0.2623 - val_accuracy: 0.9003 - lr: 1.0000e-04
+Epoch 57/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1428 - accuracy: 0.9451
+[Plateau Check] Variação últimas 50 épocas: 0.182138
+347/347 [==============================] - 47s 134ms/step - loss: 0.1429 - accuracy: 0.9450 - val_loss: 0.2620 - val_accuracy: 0.9010 - lr: 1.0000e-04
+Epoch 58/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1416 - accuracy: 0.9454
+[Plateau Check] Variação últimas 50 épocas: 0.173018
+347/347 [==============================] - 47s 134ms/step - loss: 0.1417 - accuracy: 0.9454 - val_loss: 0.2639 - val_accuracy: 0.9021 - lr: 1.0000e-04
+Epoch 59/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1426 - accuracy: 0.9480
+[Plateau Check] Variação últimas 50 épocas: 0.162001
+347/347 [==============================] - 47s 134ms/step - loss: 0.1426 - accuracy: 0.9480 - val_loss: 0.2629 - val_accuracy: 0.8999 - lr: 1.0000e-04
+Epoch 60/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1434 - accuracy: 0.9465
+[Plateau Check] Variação últimas 50 épocas: 0.155228
+347/347 [==============================] - 47s 135ms/step - loss: 0.1443 - accuracy: 0.9465 - val_loss: 0.2617 - val_accuracy: 0.9006 - lr: 1.0000e-04
+Epoch 61/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1417 - accuracy: 0.9452
+[Plateau Check] Variação últimas 50 épocas: 0.139245
+347/347 [==============================] - 47s 134ms/step - loss: 0.1419 - accuracy: 0.9451 - val_loss: 0.2614 - val_accuracy: 0.9013 - lr: 1.0000e-04
+Epoch 62/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1411 - accuracy: 0.9465
+[Plateau Check] Variação últimas 50 épocas: 0.132021
+347/347 [==============================] - 47s 134ms/step - loss: 0.1411 - accuracy: 0.9465 - val_loss: 0.2635 - val_accuracy: 0.9028 - lr: 1.0000e-04
+Epoch 63/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1421 - accuracy: 0.9472
+[Plateau Check] Variação últimas 50 épocas: 0.129041
+347/347 [==============================] - 47s 134ms/step - loss: 0.1421 - accuracy: 0.9471 - val_loss: 0.2626 - val_accuracy: 0.9006 - lr: 1.0000e-04
+Epoch 64/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1412 - accuracy: 0.9462
+[Plateau Check] Variação últimas 50 épocas: 0.129041
+347/347 [==============================] - 47s 134ms/step - loss: 0.1414 - accuracy: 0.9461 - val_loss: 0.2616 - val_accuracy: 0.9031 - lr: 1.0000e-04
+Epoch 65/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1370 - accuracy: 0.9500
+[Plateau Check] Variação últimas 50 épocas: 0.120191
+347/347 [==============================] - 47s 134ms/step - loss: 0.1371 - accuracy: 0.9499 - val_loss: 0.2628 - val_accuracy: 0.9010 - lr: 1.0000e-04
+Epoch 66/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1403 - accuracy: 0.9431
+[Plateau Check] Variação últimas 50 épocas: 0.118115
+347/347 [==============================] - 47s 134ms/step - loss: 0.1402 - accuracy: 0.9431 - val_loss: 0.2619 - val_accuracy: 0.9024 - lr: 1.0000e-04
+Epoch 67/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1365 - accuracy: 0.9479
+[Plateau Check] Variação últimas 50 épocas: 0.110168
+347/347 [==============================] - 47s 134ms/step - loss: 0.1367 - accuracy: 0.9478 - val_loss: 0.2631 - val_accuracy: 0.9003 - lr: 1.0000e-04
+Epoch 68/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1376 - accuracy: 0.9478
+[Plateau Check] Variação últimas 50 épocas: 0.106827
+347/347 [==============================] - 47s 134ms/step - loss: 0.1376 - accuracy: 0.9478 - val_loss: 0.2611 - val_accuracy: 0.9028 - lr: 1.0000e-04
+Epoch 69/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1392 - accuracy: 0.9468
+[Plateau Check] Variação últimas 50 épocas: 0.105021
+347/347 [==============================] - 47s 134ms/step - loss: 0.1392 - accuracy: 0.9468 - val_loss: 0.2615 - val_accuracy: 0.9039 - lr: 1.0000e-04
+Epoch 70/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1382 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.096081
+347/347 [==============================] - 47s 134ms/step - loss: 0.1390 - accuracy: 0.9481 - val_loss: 0.2619 - val_accuracy: 0.9035 - lr: 1.0000e-04
+Epoch 71/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1379 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.091114
+347/347 [==============================] - 47s 134ms/step - loss: 0.1384 - accuracy: 0.9482 - val_loss: 0.2620 - val_accuracy: 0.9028 - lr: 1.0000e-04
+Epoch 72/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1468 - accuracy: 0.9447
+[Plateau Check] Variação últimas 50 épocas: 0.091114
+347/347 [==============================] - 47s 134ms/step - loss: 0.1468 - accuracy: 0.9447 - val_loss: 0.2626 - val_accuracy: 0.9013 - lr: 1.0000e-04
+Epoch 73/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1383 - accuracy: 0.9484
+[Plateau Check] Variação últimas 50 épocas: 0.091114
+347/347 [==============================] - 47s 134ms/step - loss: 0.1383 - accuracy: 0.9484 - val_loss: 0.2629 - val_accuracy: 0.9010 - lr: 1.0000e-04
+Epoch 74/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1375 - accuracy: 0.9475
+[Plateau Check] Variação últimas 50 épocas: 0.091114
+347/347 [==============================] - 47s 134ms/step - loss: 0.1375 - accuracy: 0.9475 - val_loss: 0.2626 - val_accuracy: 0.9031 - lr: 1.0000e-04
+Epoch 75/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1421 - accuracy: 0.9451
+[Plateau Check] Variação últimas 50 épocas: 0.091114
+347/347 [==============================] - 47s 134ms/step - loss: 0.1421 - accuracy: 0.9451 - val_loss: 0.2633 - val_accuracy: 0.9017 - lr: 1.0000e-04
+Epoch 76/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1423 - accuracy: 0.9481
+[Plateau Check] Variação últimas 50 épocas: 0.091114
+347/347 [==============================] - 47s 135ms/step - loss: 0.1425 - accuracy: 0.9480 - val_loss: 0.2630 - val_accuracy: 0.9028 - lr: 1.0000e-04
+Epoch 77/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1415 - accuracy: 0.9475
+[Plateau Check] Variação últimas 50 épocas: 0.091114
+347/347 [==============================] - 47s 135ms/step - loss: 0.1415 - accuracy: 0.9475 - val_loss: 0.2629 - val_accuracy: 0.9024 - lr: 1.0000e-04
+Epoch 78/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1361 - accuracy: 0.9488
+[Plateau Check] Variação últimas 50 épocas: 0.091114
+347/347 [==============================] - 47s 134ms/step - loss: 0.1361 - accuracy: 0.9488 - val_loss: 0.2620 - val_accuracy: 0.9053 - lr: 1.0000e-04
+Epoch 79/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1350 - accuracy: 0.9516
+[Plateau Check] Variação últimas 50 épocas: 0.074770
+347/347 [==============================] - 47s 134ms/step - loss: 0.1350 - accuracy: 0.9515 - val_loss: 0.2623 - val_accuracy: 0.9039 - lr: 1.0000e-05
+Epoch 80/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1338 - accuracy: 0.9502
+[Plateau Check] Variação últimas 50 épocas: 0.074770
+347/347 [==============================] - 47s 134ms/step - loss: 0.1343 - accuracy: 0.9502 - val_loss: 0.2626 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 81/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1447 - accuracy: 0.9462
+[Plateau Check] Variação últimas 50 épocas: 0.074770
+347/347 [==============================] - 47s 134ms/step - loss: 0.1449 - accuracy: 0.9461 - val_loss: 0.2634 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 82/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1405 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.074770
+347/347 [==============================] - 47s 134ms/step - loss: 0.1406 - accuracy: 0.9500 - val_loss: 0.2620 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 83/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1412 - accuracy: 0.9450
+[Plateau Check] Variação últimas 50 épocas: 0.074770
+347/347 [==============================] - 47s 134ms/step - loss: 0.1414 - accuracy: 0.9449 - val_loss: 0.2623 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 84/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1353 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.074770
+347/347 [==============================] - 47s 134ms/step - loss: 0.1356 - accuracy: 0.9501 - val_loss: 0.2628 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 85/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1373 - accuracy: 0.9492
+[Plateau Check] Variação últimas 50 épocas: 0.074770
+347/347 [==============================] - 47s 134ms/step - loss: 0.1374 - accuracy: 0.9492 - val_loss: 0.2615 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 86/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1443 - accuracy: 0.9466
+[Plateau Check] Variação últimas 50 épocas: 0.065198
+347/347 [==============================] - 47s 134ms/step - loss: 0.1445 - accuracy: 0.9465 - val_loss: 0.2615 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 87/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1322 - accuracy: 0.9498
+[Plateau Check] Variação últimas 50 épocas: 0.065198
+347/347 [==============================] - 47s 134ms/step - loss: 0.1324 - accuracy: 0.9497 - val_loss: 0.2624 - val_accuracy: 0.9028 - lr: 1.0000e-05
+Epoch 88/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1396 - accuracy: 0.9480
+[Plateau Check] Variação últimas 50 épocas: 0.065198
+347/347 [==============================] - 47s 134ms/step - loss: 0.1400 - accuracy: 0.9479 - val_loss: 0.2619 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 89/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1365 - accuracy: 0.9510
+[Plateau Check] Variação últimas 50 épocas: 0.054091
+347/347 [==============================] - 47s 134ms/step - loss: 0.1366 - accuracy: 0.9509 - val_loss: 0.2629 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 90/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1359 - accuracy: 0.9475
+[Plateau Check] Variação últimas 50 épocas: 0.049846
+347/347 [==============================] - 47s 134ms/step - loss: 0.1359 - accuracy: 0.9475 - val_loss: 0.2624 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 91/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1371 - accuracy: 0.9483
+[Plateau Check] Variação últimas 50 épocas: 0.040004
+347/347 [==============================] - 49s 139ms/step - loss: 0.1376 - accuracy: 0.9482 - val_loss: 0.2622 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 92/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1373 - accuracy: 0.9484
+[Plateau Check] Variação últimas 50 épocas: 0.020318
+347/347 [==============================] - 48s 136ms/step - loss: 0.1373 - accuracy: 0.9484 - val_loss: 0.2622 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 93/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1410 - accuracy: 0.9479
+[Plateau Check] Variação últimas 50 épocas: 0.020318
+347/347 [==============================] - 47s 134ms/step - loss: 0.1412 - accuracy: 0.9478 - val_loss: 0.2619 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 94/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1394 - accuracy: 0.9489
+[Plateau Check] Variação últimas 50 épocas: 0.015712
+347/347 [==============================] - 47s 134ms/step - loss: 0.1393 - accuracy: 0.9489 - val_loss: 0.2622 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 95/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1408 - accuracy: 0.9454
+[Plateau Check] Variação últimas 50 épocas: 0.015712
+347/347 [==============================] - 47s 135ms/step - loss: 0.1409 - accuracy: 0.9453 - val_loss: 0.2623 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 96/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1388 - accuracy: 0.9472
+[Plateau Check] Variação últimas 50 épocas: 0.015712
+347/347 [==============================] - 47s 134ms/step - loss: 0.1390 - accuracy: 0.9471 - val_loss: 0.2623 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 97/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1390 - accuracy: 0.9485
+[Plateau Check] Variação últimas 50 épocas: 0.015712
+347/347 [==============================] - 47s 134ms/step - loss: 0.1391 - accuracy: 0.9485 - val_loss: 0.2628 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 98/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1368 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.015532
+347/347 [==============================] - 47s 134ms/step - loss: 0.1368 - accuracy: 0.9483 - val_loss: 0.2629 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 99/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1365 - accuracy: 0.9504
+[Plateau Check] Variação últimas 50 épocas: 0.013906
+347/347 [==============================] - 47s 135ms/step - loss: 0.1365 - accuracy: 0.9504 - val_loss: 0.2623 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 100/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1392 - accuracy: 0.9489
+[Plateau Check] Variação últimas 50 épocas: 0.013094
+347/347 [==============================] - 47s 134ms/step - loss: 0.1392 - accuracy: 0.9489 - val_loss: 0.2620 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 101/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1355 - accuracy: 0.9481
+[Plateau Check] Variação últimas 50 épocas: 0.012191
+347/347 [==============================] - 47s 134ms/step - loss: 0.1359 - accuracy: 0.9479 - val_loss: 0.2628 - val_accuracy: 0.9039 - lr: 1.0000e-05
+Epoch 102/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1373 - accuracy: 0.9487
+[Plateau Check] Variação últimas 50 épocas: 0.012191
+347/347 [==============================] - 47s 134ms/step - loss: 0.1373 - accuracy: 0.9487 - val_loss: 0.2625 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 103/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1349 - accuracy: 0.9484
+[Plateau Check] Variação últimas 50 épocas: 0.011378
+347/347 [==============================] - 47s 135ms/step - loss: 0.1349 - accuracy: 0.9484 - val_loss: 0.2628 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 104/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1404 - accuracy: 0.9474
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 134ms/step - loss: 0.1404 - accuracy: 0.9474 - val_loss: 0.2624 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 105/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1407 - accuracy: 0.9470
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 134ms/step - loss: 0.1406 - accuracy: 0.9470 - val_loss: 0.2624 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 106/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1362 - accuracy: 0.9495
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 134ms/step - loss: 0.1362 - accuracy: 0.9495 - val_loss: 0.2622 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 107/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1368 - accuracy: 0.9488
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 134ms/step - loss: 0.1377 - accuracy: 0.9486 - val_loss: 0.2616 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 108/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1385 - accuracy: 0.9466
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 134ms/step - loss: 0.1386 - accuracy: 0.9465 - val_loss: 0.2623 - val_accuracy: 0.9039 - lr: 1.0000e-05
+Epoch 109/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1336 - accuracy: 0.9512
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 134ms/step - loss: 0.1337 - accuracy: 0.9511 - val_loss: 0.2627 - val_accuracy: 0.9035 - lr: 1.0000e-05
+Epoch 110/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1372 - accuracy: 0.9485
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 134ms/step - loss: 0.1374 - accuracy: 0.9484 - val_loss: 0.2624 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 111/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1345 - accuracy: 0.9510
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 134ms/step - loss: 0.1346 - accuracy: 0.9509 - val_loss: 0.2622 - val_accuracy: 0.9035 - lr: 1.0000e-05
+Epoch 112/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1336 - accuracy: 0.9510
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 134ms/step - loss: 0.1338 - accuracy: 0.9509 - val_loss: 0.2632 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 113/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1385 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 134ms/step - loss: 0.1386 - accuracy: 0.9482 - val_loss: 0.2632 - val_accuracy: 0.9039 - lr: 1.0000e-05
+Epoch 114/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1417 - accuracy: 0.9470
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 135ms/step - loss: 0.1417 - accuracy: 0.9470 - val_loss: 0.2626 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 115/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1352 - accuracy: 0.9484
+[Plateau Check] Variação últimas 50 épocas: 0.008398
+347/347 [==============================] - 47s 134ms/step - loss: 0.1351 - accuracy: 0.9484 - val_loss: 0.2626 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 116/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1395 - accuracy: 0.9470
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 134ms/step - loss: 0.1398 - accuracy: 0.9468 - val_loss: 0.2623 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 117/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1413 - accuracy: 0.9464
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1413 - accuracy: 0.9464 - val_loss: 0.2627 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 118/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1403 - accuracy: 0.9467
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1411 - accuracy: 0.9466 - val_loss: 0.2619 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 119/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1406 - accuracy: 0.9462
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 134ms/step - loss: 0.1408 - accuracy: 0.9461 - val_loss: 0.2627 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 120/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1375 - accuracy: 0.9493
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 134ms/step - loss: 0.1375 - accuracy: 0.9493 - val_loss: 0.2623 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 121/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1401 - accuracy: 0.9473
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 134ms/step - loss: 0.1403 - accuracy: 0.9471 - val_loss: 0.2631 - val_accuracy: 0.9035 - lr: 1.0000e-05
+Epoch 122/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1355 - accuracy: 0.9510
+[Plateau Check] Variação últimas 50 épocas: 0.006592
+347/347 [==============================] - 47s 135ms/step - loss: 0.1358 - accuracy: 0.9510 - val_loss: 0.2630 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 123/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1338 - accuracy: 0.9506
+[Plateau Check] Variação últimas 50 épocas: 0.006592
+347/347 [==============================] - 47s 134ms/step - loss: 0.1344 - accuracy: 0.9505 - val_loss: 0.2622 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 124/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1356 - accuracy: 0.9473
+[Plateau Check] Variação últimas 50 épocas: 0.006592
+347/347 [==============================] - 47s 135ms/step - loss: 0.1356 - accuracy: 0.9473 - val_loss: 0.2623 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 125/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1347 - accuracy: 0.9488
+[Plateau Check] Variação últimas 50 épocas: 0.006592
+347/347 [==============================] - 47s 135ms/step - loss: 0.1348 - accuracy: 0.9487 - val_loss: 0.2635 - val_accuracy: 0.9035 - lr: 1.0000e-05
+Epoch 126/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1329 - accuracy: 0.9495
+[Plateau Check] Variação últimas 50 épocas: 0.006592
+347/347 [==============================] - 47s 134ms/step - loss: 0.1333 - accuracy: 0.9494 - val_loss: 0.2617 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 127/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1307 - accuracy: 0.9502
+[Plateau Check] Variação últimas 50 épocas: 0.006592
+347/347 [==============================] - 47s 134ms/step - loss: 0.1307 - accuracy: 0.9502 - val_loss: 0.2622 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 128/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1356 - accuracy: 0.9492
+[Plateau Check] Variação últimas 50 épocas: 0.006592
+347/347 [==============================] - 47s 135ms/step - loss: 0.1359 - accuracy: 0.9492 - val_loss: 0.2618 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 129/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1338 - accuracy: 0.9516
+[Plateau Check] Variação últimas 50 épocas: 0.006682
+347/347 [==============================] - 47s 134ms/step - loss: 0.1338 - accuracy: 0.9516 - val_loss: 0.2627 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 130/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1326 - accuracy: 0.9491
+[Plateau Check] Variação últimas 50 épocas: 0.006682
+347/347 [==============================] - 47s 134ms/step - loss: 0.1326 - accuracy: 0.9491 - val_loss: 0.2624 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 131/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1349 - accuracy: 0.9474
+[Plateau Check] Variação últimas 50 épocas: 0.006682
+347/347 [==============================] - 47s 135ms/step - loss: 0.1349 - accuracy: 0.9474 - val_loss: 0.2627 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 132/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1423 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.006682
+347/347 [==============================] - 47s 134ms/step - loss: 0.1424 - accuracy: 0.9482 - val_loss: 0.2631 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 133/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1331 - accuracy: 0.9500
+[Plateau Check] Variação últimas 50 épocas: 0.006321
+347/347 [==============================] - 47s 134ms/step - loss: 0.1331 - accuracy: 0.9500 - val_loss: 0.2621 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 134/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1325 - accuracy: 0.9499
+[Plateau Check] Variação últimas 50 épocas: 0.006321
+347/347 [==============================] - 47s 134ms/step - loss: 0.1325 - accuracy: 0.9499 - val_loss: 0.2632 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 135/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1387 - accuracy: 0.9475
+[Plateau Check] Variação últimas 50 épocas: 0.006321
+347/347 [==============================] - 47s 134ms/step - loss: 0.1387 - accuracy: 0.9475 - val_loss: 0.2627 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 136/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1366 - accuracy: 0.9472
+[Plateau Check] Variação últimas 50 épocas: 0.006321
+347/347 [==============================] - 47s 134ms/step - loss: 0.1368 - accuracy: 0.9471 - val_loss: 0.2636 - val_accuracy: 0.9039 - lr: 1.0000e-05
+Epoch 137/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1384 - accuracy: 0.9472
+[Plateau Check] Variação últimas 50 épocas: 0.006321
+347/347 [==============================] - 47s 134ms/step - loss: 0.1390 - accuracy: 0.9471 - val_loss: 0.2631 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 138/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1349 - accuracy: 0.9502
+[Plateau Check] Variação últimas 50 épocas: 0.006321
+347/347 [==============================] - 47s 134ms/step - loss: 0.1349 - accuracy: 0.9502 - val_loss: 0.2626 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 139/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1403 - accuracy: 0.9465
+[Plateau Check] Variação últimas 50 épocas: 0.006321
+347/347 [==============================] - 47s 134ms/step - loss: 0.1406 - accuracy: 0.9465 - val_loss: 0.2625 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 140/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1346 - accuracy: 0.9509
+[Plateau Check] Variação últimas 50 épocas: 0.006321
+347/347 [==============================] - 47s 135ms/step - loss: 0.1346 - accuracy: 0.9509 - val_loss: 0.2631 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 141/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1386 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.006321
+347/347 [==============================] - 47s 135ms/step - loss: 0.1394 - accuracy: 0.9500 - val_loss: 0.2627 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 142/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1402 - accuracy: 0.9474
+[Plateau Check] Variação últimas 50 épocas: 0.006321
+347/347 [==============================] - 47s 134ms/step - loss: 0.1403 - accuracy: 0.9474 - val_loss: 0.2632 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 143/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1410 - accuracy: 0.9447
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 134ms/step - loss: 0.1412 - accuracy: 0.9446 - val_loss: 0.2624 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 144/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1419 - accuracy: 0.9473
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 134ms/step - loss: 0.1419 - accuracy: 0.9473 - val_loss: 0.2631 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 145/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1354 - accuracy: 0.9493
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1359 - accuracy: 0.9493 - val_loss: 0.2619 - val_accuracy: 0.9039 - lr: 1.0000e-05
+Epoch 146/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1403 - accuracy: 0.9461
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1404 - accuracy: 0.9460 - val_loss: 0.2623 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 147/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1342 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1345 - accuracy: 0.9481 - val_loss: 0.2621 - val_accuracy: 0.9031 - lr: 1.0000e-05
+Epoch 148/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1383 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 134ms/step - loss: 0.1382 - accuracy: 0.9482 - val_loss: 0.2627 - val_accuracy: 0.9071 - lr: 1.0000e-05
+Epoch 149/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1360 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 134ms/step - loss: 0.1360 - accuracy: 0.9501 - val_loss: 0.2622 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 150/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1340 - accuracy: 0.9491
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1342 - accuracy: 0.9489 - val_loss: 0.2632 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 151/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1342 - accuracy: 0.9487
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1343 - accuracy: 0.9486 - val_loss: 0.2628 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 152/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1440 - accuracy: 0.9449
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1443 - accuracy: 0.9448 - val_loss: 0.2625 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 153/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1343 - accuracy: 0.9488
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1343 - accuracy: 0.9488 - val_loss: 0.2628 - val_accuracy: 0.9031 - lr: 1.0000e-05
+Epoch 154/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1351 - accuracy: 0.9492
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1351 - accuracy: 0.9492 - val_loss: 0.2619 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 155/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1371 - accuracy: 0.9491
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1372 - accuracy: 0.9490 - val_loss: 0.2626 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 156/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1384 - accuracy: 0.9481
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 134ms/step - loss: 0.1385 - accuracy: 0.9480 - val_loss: 0.2622 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 157/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1348 - accuracy: 0.9497
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1349 - accuracy: 0.9496 - val_loss: 0.2619 - val_accuracy: 0.9078 - lr: 1.0000e-05
+Epoch 158/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1324 - accuracy: 0.9522
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1326 - accuracy: 0.9521 - val_loss: 0.2630 - val_accuracy: 0.9031 - lr: 1.0000e-05
+Epoch 159/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1343 - accuracy: 0.9494
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1343 - accuracy: 0.9494 - val_loss: 0.2621 - val_accuracy: 0.9071 - lr: 1.0000e-05
+Epoch 160/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1360 - accuracy: 0.9497
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1360 - accuracy: 0.9497 - val_loss: 0.2621 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 161/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1305 - accuracy: 0.9519
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1308 - accuracy: 0.9518 - val_loss: 0.2620 - val_accuracy: 0.9039 - lr: 1.0000e-05
+Epoch 162/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1353 - accuracy: 0.9498
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1354 - accuracy: 0.9497 - val_loss: 0.2621 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 163/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1370 - accuracy: 0.9500
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1371 - accuracy: 0.9500 - val_loss: 0.2618 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 164/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1447 - accuracy: 0.9435
+[Plateau Check] Variação últimas 50 épocas: 0.008759
+347/347 [==============================] - 47s 135ms/step - loss: 0.1449 - accuracy: 0.9434 - val_loss: 0.2625 - val_accuracy: 0.9039 - lr: 1.0000e-05
+Epoch 165/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1345 - accuracy: 0.9492
+[Plateau Check] Variação últimas 50 épocas: 0.008759
+347/347 [==============================] - 47s 135ms/step - loss: 0.1346 - accuracy: 0.9492 - val_loss: 0.2620 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 166/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1334 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.008759
+347/347 [==============================] - 47s 135ms/step - loss: 0.1335 - accuracy: 0.9501 - val_loss: 0.2625 - val_accuracy: 0.9031 - lr: 1.0000e-05
+Epoch 167/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1375 - accuracy: 0.9486
+[Plateau Check] Variação últimas 50 épocas: 0.008759
+347/347 [==============================] - 47s 134ms/step - loss: 0.1378 - accuracy: 0.9485 - val_loss: 0.2623 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 168/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1349 - accuracy: 0.9508
+[Plateau Check] Variação últimas 50 épocas: 0.008759
+347/347 [==============================] - 47s 135ms/step - loss: 0.1356 - accuracy: 0.9507 - val_loss: 0.2617 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 169/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1342 - accuracy: 0.9508
+[Plateau Check] Variação últimas 50 épocas: 0.008759
+347/347 [==============================] - 47s 135ms/step - loss: 0.1345 - accuracy: 0.9507 - val_loss: 0.2624 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 170/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1395 - accuracy: 0.9484
+[Plateau Check] Variação últimas 50 épocas: 0.008759
+347/347 [==============================] - 47s 135ms/step - loss: 0.1395 - accuracy: 0.9484 - val_loss: 0.2623 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 171/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1283 - accuracy: 0.9524
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 135ms/step - loss: 0.1286 - accuracy: 0.9523 - val_loss: 0.2624 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 172/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1337 - accuracy: 0.9511
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 135ms/step - loss: 0.1336 - accuracy: 0.9511 - val_loss: 0.2626 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 173/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1356 - accuracy: 0.9477
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 135ms/step - loss: 0.1364 - accuracy: 0.9475 - val_loss: 0.2620 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 174/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1342 - accuracy: 0.9517
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 135ms/step - loss: 0.1344 - accuracy: 0.9516 - val_loss: 0.2619 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 175/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1388 - accuracy: 0.9473
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 134ms/step - loss: 0.1388 - accuracy: 0.9473 - val_loss: 0.2619 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 176/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1341 - accuracy: 0.9506
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 135ms/step - loss: 0.1341 - accuracy: 0.9506 - val_loss: 0.2618 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 177/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1327 - accuracy: 0.9505
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 135ms/step - loss: 0.1326 - accuracy: 0.9505 - val_loss: 0.2617 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 178/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1375 - accuracy: 0.9508
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 134ms/step - loss: 0.1382 - accuracy: 0.9506 - val_loss: 0.2614 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 179/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1317 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 134ms/step - loss: 0.1317 - accuracy: 0.9501 - val_loss: 0.2619 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 180/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1350 - accuracy: 0.9506
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 135ms/step - loss: 0.1352 - accuracy: 0.9505 - val_loss: 0.2625 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 181/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1354 - accuracy: 0.9468
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 135ms/step - loss: 0.1358 - accuracy: 0.9467 - val_loss: 0.2623 - val_accuracy: 0.9075 - lr: 1.0000e-05
+Epoch 182/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1385 - accuracy: 0.9496
+[Plateau Check] Variação últimas 50 épocas: 0.008940
+347/347 [==============================] - 47s 134ms/step - loss: 0.1384 - accuracy: 0.9496 - val_loss: 0.2629 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 183/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1309 - accuracy: 0.9529
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1311 - accuracy: 0.9529 - val_loss: 0.2629 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 184/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1400 - accuracy: 0.9492
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1400 - accuracy: 0.9493 - val_loss: 0.2637 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 185/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1368 - accuracy: 0.9473
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1369 - accuracy: 0.9473 - val_loss: 0.2629 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 186/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1367 - accuracy: 0.9506
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1375 - accuracy: 0.9504 - val_loss: 0.2626 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 187/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1382 - accuracy: 0.9465
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1387 - accuracy: 0.9465 - val_loss: 0.2628 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 188/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1355 - accuracy: 0.9497
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1355 - accuracy: 0.9497 - val_loss: 0.2628 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 189/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1342 - accuracy: 0.9499
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1342 - accuracy: 0.9499 - val_loss: 0.2630 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 190/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1361 - accuracy: 0.9489
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1361 - accuracy: 0.9489 - val_loss: 0.2637 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 191/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1324 - accuracy: 0.9500
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 134ms/step - loss: 0.1324 - accuracy: 0.9500 - val_loss: 0.2630 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 192/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1401 - accuracy: 0.9454
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1401 - accuracy: 0.9454 - val_loss: 0.2625 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 193/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1397 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 134ms/step - loss: 0.1405 - accuracy: 0.9481 - val_loss: 0.2619 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 194/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1346 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1348 - accuracy: 0.9482 - val_loss: 0.2626 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 195/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1336 - accuracy: 0.9528
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1336 - accuracy: 0.9528 - val_loss: 0.2627 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 196/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1333 - accuracy: 0.9520
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1333 - accuracy: 0.9520 - val_loss: 0.2621 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 197/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1344 - accuracy: 0.9491
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1346 - accuracy: 0.9490 - val_loss: 0.2622 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 198/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1366 - accuracy: 0.9505
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1372 - accuracy: 0.9504 - val_loss: 0.2621 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 199/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1333 - accuracy: 0.9484
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1337 - accuracy: 0.9483 - val_loss: 0.2632 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 200/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1379 - accuracy: 0.9464
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1381 - accuracy: 0.9464 - val_loss: 0.2625 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 201/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1355 - accuracy: 0.9492
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1355 - accuracy: 0.9493 - val_loss: 0.2625 - val_accuracy: 0.9075 - lr: 1.0000e-05
+Epoch 202/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1391 - accuracy: 0.9485
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1391 - accuracy: 0.9485 - val_loss: 0.2630 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 203/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1335 - accuracy: 0.9498
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1340 - accuracy: 0.9497 - val_loss: 0.2621 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 204/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1354 - accuracy: 0.9496
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1355 - accuracy: 0.9495 - val_loss: 0.2624 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 205/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1329 - accuracy: 0.9495
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1335 - accuracy: 0.9494 - val_loss: 0.2628 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 206/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1384 - accuracy: 0.9469
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1385 - accuracy: 0.9468 - val_loss: 0.2630 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 207/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1347 - accuracy: 0.9486
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1352 - accuracy: 0.9485 - val_loss: 0.2628 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 208/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1404 - accuracy: 0.9466
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1403 - accuracy: 0.9466 - val_loss: 0.2630 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 209/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1391 - accuracy: 0.9489
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1397 - accuracy: 0.9487 - val_loss: 0.2622 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 210/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1318 - accuracy: 0.9518
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1323 - accuracy: 0.9517 - val_loss: 0.2627 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 211/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1405 - accuracy: 0.9476
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1405 - accuracy: 0.9476 - val_loss: 0.2632 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 212/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1373 - accuracy: 0.9479
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1374 - accuracy: 0.9478 - val_loss: 0.2629 - val_accuracy: 0.9075 - lr: 1.0000e-05
+Epoch 213/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1321 - accuracy: 0.9502
+[Plateau Check] Variação últimas 50 épocas: 0.009482
+347/347 [==============================] - 47s 135ms/step - loss: 0.1321 - accuracy: 0.9502 - val_loss: 0.2628 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 214/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1398 - accuracy: 0.9487
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1399 - accuracy: 0.9486 - val_loss: 0.2628 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 215/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1353 - accuracy: 0.9483
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 134ms/step - loss: 0.1357 - accuracy: 0.9483 - val_loss: 0.2626 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 216/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1334 - accuracy: 0.9519
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1336 - accuracy: 0.9518 - val_loss: 0.2626 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 217/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1357 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1358 - accuracy: 0.9481 - val_loss: 0.2629 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 218/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1357 - accuracy: 0.9495
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1360 - accuracy: 0.9494 - val_loss: 0.2622 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 219/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1349 - accuracy: 0.9494
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 134ms/step - loss: 0.1348 - accuracy: 0.9494 - val_loss: 0.2625 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 220/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1343 - accuracy: 0.9497
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 134ms/step - loss: 0.1343 - accuracy: 0.9497 - val_loss: 0.2626 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 221/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1385 - accuracy: 0.9470
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1385 - accuracy: 0.9470 - val_loss: 0.2624 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 222/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1362 - accuracy: 0.9499
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1365 - accuracy: 0.9498 - val_loss: 0.2620 - val_accuracy: 0.9075 - lr: 1.0000e-05
+Epoch 223/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1353 - accuracy: 0.9487
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1353 - accuracy: 0.9487 - val_loss: 0.2626 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 224/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1367 - accuracy: 0.9490
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1370 - accuracy: 0.9489 - val_loss: 0.2635 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 225/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1363 - accuracy: 0.9467
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1365 - accuracy: 0.9466 - val_loss: 0.2630 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 226/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1290 - accuracy: 0.9526
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1292 - accuracy: 0.9525 - val_loss: 0.2628 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 227/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1324 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1326 - accuracy: 0.9500 - val_loss: 0.2626 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 228/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1359 - accuracy: 0.9492
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1359 - accuracy: 0.9492 - val_loss: 0.2630 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 229/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1292 - accuracy: 0.9514
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1293 - accuracy: 0.9513 - val_loss: 0.2627 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 230/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1369 - accuracy: 0.9485
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1370 - accuracy: 0.9484 - val_loss: 0.2632 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 231/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1367 - accuracy: 0.9478
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1368 - accuracy: 0.9476 - val_loss: 0.2622 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 232/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1381 - accuracy: 0.9494
+[Plateau Check] Variação últimas 50 épocas: 0.007495
+347/347 [==============================] - 47s 135ms/step - loss: 0.1382 - accuracy: 0.9493 - val_loss: 0.2627 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 233/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1349 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.007405
+347/347 [==============================] - 47s 135ms/step - loss: 0.1349 - accuracy: 0.9501 - val_loss: 0.2629 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 234/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1288 - accuracy: 0.9519
+[Plateau Check] Variação últimas 50 épocas: 0.007405
+347/347 [==============================] - 47s 135ms/step - loss: 0.1288 - accuracy: 0.9519 - val_loss: 0.2625 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 235/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1346 - accuracy: 0.9505
+[Plateau Check] Variação últimas 50 épocas: 0.007405
+347/347 [==============================] - 47s 135ms/step - loss: 0.1346 - accuracy: 0.9505 - val_loss: 0.2631 - val_accuracy: 0.9078 - lr: 1.0000e-05
+Epoch 236/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1347 - accuracy: 0.9493
+[Plateau Check] Variação últimas 50 épocas: 0.007405
+347/347 [==============================] - 47s 135ms/step - loss: 0.1347 - accuracy: 0.9493 - val_loss: 0.2624 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 237/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1341 - accuracy: 0.9515
+[Plateau Check] Variação últimas 50 épocas: 0.007405
+347/347 [==============================] - 47s 135ms/step - loss: 0.1343 - accuracy: 0.9514 - val_loss: 0.2626 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 238/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1325 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.007405
+347/347 [==============================] - 47s 134ms/step - loss: 0.1325 - accuracy: 0.9502 - val_loss: 0.2619 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 239/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1329 - accuracy: 0.9511
+[Plateau Check] Variação últimas 50 épocas: 0.007405
+347/347 [==============================] - 47s 135ms/step - loss: 0.1332 - accuracy: 0.9510 - val_loss: 0.2620 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 240/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1307 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.007405
+347/347 [==============================] - 47s 135ms/step - loss: 0.1307 - accuracy: 0.9483 - val_loss: 0.2622 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 241/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1336 - accuracy: 0.9494
+[Plateau Check] Variação últimas 50 épocas: 0.007405
+347/347 [==============================] - 47s 135ms/step - loss: 0.1336 - accuracy: 0.9494 - val_loss: 0.2628 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 242/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1364 - accuracy: 0.9474
+[Plateau Check] Variação últimas 50 épocas: 0.006411
+347/347 [==============================] - 47s 135ms/step - loss: 0.1364 - accuracy: 0.9474 - val_loss: 0.2625 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 243/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1310 - accuracy: 0.9505
+[Plateau Check] Variação últimas 50 épocas: 0.006411
+347/347 [==============================] - 47s 135ms/step - loss: 0.1310 - accuracy: 0.9505 - val_loss: 0.2621 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 244/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1362 - accuracy: 0.9491
+[Plateau Check] Variação últimas 50 épocas: 0.006411
+347/347 [==============================] - 47s 135ms/step - loss: 0.1365 - accuracy: 0.9490 - val_loss: 0.2627 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 245/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1406 - accuracy: 0.9469
+[Plateau Check] Variação últimas 50 épocas: 0.006141
+347/347 [==============================] - 47s 135ms/step - loss: 0.1407 - accuracy: 0.9468 - val_loss: 0.2628 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 246/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1364 - accuracy: 0.9488
+[Plateau Check] Variação últimas 50 épocas: 0.006141
+347/347 [==============================] - 47s 135ms/step - loss: 0.1364 - accuracy: 0.9488 - val_loss: 0.2618 - val_accuracy: 0.9039 - lr: 1.0000e-05
+Epoch 247/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1348 - accuracy: 0.9478
+[Plateau Check] Variação últimas 50 épocas: 0.006141
+347/347 [==============================] - 47s 135ms/step - loss: 0.1348 - accuracy: 0.9478 - val_loss: 0.2633 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 248/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1312 - accuracy: 0.9511
+[Plateau Check] Variação últimas 50 épocas: 0.006141
+347/347 [==============================] - 47s 135ms/step - loss: 0.1314 - accuracy: 0.9511 - val_loss: 0.2625 - val_accuracy: 0.9028 - lr: 1.0000e-05
+Epoch 249/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1361 - accuracy: 0.9495
+[Plateau Check] Variação últimas 50 épocas: 0.006141
+347/347 [==============================] - 47s 134ms/step - loss: 0.1360 - accuracy: 0.9495 - val_loss: 0.2632 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 250/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1315 - accuracy: 0.9523
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1317 - accuracy: 0.9522 - val_loss: 0.2623 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 251/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1366 - accuracy: 0.9503
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1368 - accuracy: 0.9502 - val_loss: 0.2625 - val_accuracy: 0.9039 - lr: 1.0000e-05
+Epoch 252/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1378 - accuracy: 0.9466
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1378 - accuracy: 0.9466 - val_loss: 0.2624 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 253/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1294 - accuracy: 0.9515
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1299 - accuracy: 0.9514 - val_loss: 0.2632 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 254/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1391 - accuracy: 0.9479
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1397 - accuracy: 0.9477 - val_loss: 0.2623 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 255/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1348 - accuracy: 0.9493
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1348 - accuracy: 0.9493 - val_loss: 0.2627 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 256/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1350 - accuracy: 0.9502
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1354 - accuracy: 0.9502 - val_loss: 0.2626 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 257/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1342 - accuracy: 0.9497
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1342 - accuracy: 0.9497 - val_loss: 0.2630 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 258/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1327 - accuracy: 0.9499
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1329 - accuracy: 0.9498 - val_loss: 0.2636 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 259/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1321 - accuracy: 0.9510
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1321 - accuracy: 0.9511 - val_loss: 0.2629 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 260/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1325 - accuracy: 0.9514
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1329 - accuracy: 0.9513 - val_loss: 0.2629 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 261/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1334 - accuracy: 0.9508
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1334 - accuracy: 0.9508 - val_loss: 0.2626 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 262/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1377 - accuracy: 0.9480
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 134ms/step - loss: 0.1378 - accuracy: 0.9480 - val_loss: 0.2626 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 263/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1340 - accuracy: 0.9498
+[Plateau Check] Variação últimas 50 épocas: 0.005870
+347/347 [==============================] - 47s 135ms/step - loss: 0.1342 - accuracy: 0.9497 - val_loss: 0.2635 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 264/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1327 - accuracy: 0.9535
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1328 - accuracy: 0.9534 - val_loss: 0.2626 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 265/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1328 - accuracy: 0.9468
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1328 - accuracy: 0.9468 - val_loss: 0.2620 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 266/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1312 - accuracy: 0.9529
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1313 - accuracy: 0.9528 - val_loss: 0.2627 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 267/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1314 - accuracy: 0.9494
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1316 - accuracy: 0.9493 - val_loss: 0.2627 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 268/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1316 - accuracy: 0.9519
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 134ms/step - loss: 0.1322 - accuracy: 0.9518 - val_loss: 0.2627 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 269/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1334 - accuracy: 0.9474
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1335 - accuracy: 0.9474 - val_loss: 0.2630 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 270/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1395 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1395 - accuracy: 0.9483 - val_loss: 0.2621 - val_accuracy: 0.9039 - lr: 1.0000e-05
+Epoch 271/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1362 - accuracy: 0.9482
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1362 - accuracy: 0.9483 - val_loss: 0.2630 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 272/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1344 - accuracy: 0.9493
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1344 - accuracy: 0.9493 - val_loss: 0.2632 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 273/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1346 - accuracy: 0.9494
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1346 - accuracy: 0.9494 - val_loss: 0.2635 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 274/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1312 - accuracy: 0.9509
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 134ms/step - loss: 0.1313 - accuracy: 0.9507 - val_loss: 0.2625 - val_accuracy: 0.9071 - lr: 1.0000e-05
+Epoch 275/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1364 - accuracy: 0.9487
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1365 - accuracy: 0.9486 - val_loss: 0.2623 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 276/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1353 - accuracy: 0.9487
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1361 - accuracy: 0.9485 - val_loss: 0.2625 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 277/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1313 - accuracy: 0.9534
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1317 - accuracy: 0.9533 - val_loss: 0.2629 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 278/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1373 - accuracy: 0.9497
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 134ms/step - loss: 0.1373 - accuracy: 0.9497 - val_loss: 0.2630 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 279/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1359 - accuracy: 0.9483
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1360 - accuracy: 0.9483 - val_loss: 0.2628 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 280/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1359 - accuracy: 0.9500
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 134ms/step - loss: 0.1360 - accuracy: 0.9499 - val_loss: 0.2630 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 281/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1306 - accuracy: 0.9496
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1306 - accuracy: 0.9496 - val_loss: 0.2629 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 282/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1374 - accuracy: 0.9493
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1378 - accuracy: 0.9493 - val_loss: 0.2632 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 283/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1336 - accuracy: 0.9489
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1339 - accuracy: 0.9487 - val_loss: 0.2637 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 284/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1337 - accuracy: 0.9478
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1338 - accuracy: 0.9477 - val_loss: 0.2632 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 285/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1338 - accuracy: 0.9504
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 134ms/step - loss: 0.1338 - accuracy: 0.9504 - val_loss: 0.2630 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 286/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1303 - accuracy: 0.9521
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1311 - accuracy: 0.9520 - val_loss: 0.2630 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 287/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1306 - accuracy: 0.9510
+[Plateau Check] Variação últimas 50 épocas: 0.006773
+347/347 [==============================] - 47s 135ms/step - loss: 0.1306 - accuracy: 0.9511 - val_loss: 0.2624 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 288/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1280 - accuracy: 0.9538
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1286 - accuracy: 0.9537 - val_loss: 0.2632 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 289/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1340 - accuracy: 0.9483
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1343 - accuracy: 0.9482 - val_loss: 0.2630 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 290/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1400 - accuracy: 0.9468
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1403 - accuracy: 0.9467 - val_loss: 0.2637 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 291/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1331 - accuracy: 0.9489
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1331 - accuracy: 0.9489 - val_loss: 0.2633 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 292/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1323 - accuracy: 0.9510
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1323 - accuracy: 0.9510 - val_loss: 0.2629 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 293/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1259 - accuracy: 0.9527
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1259 - accuracy: 0.9527 - val_loss: 0.2633 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 294/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1347 - accuracy: 0.9500
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1346 - accuracy: 0.9500 - val_loss: 0.2633 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 295/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1353 - accuracy: 0.9495
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1352 - accuracy: 0.9495 - val_loss: 0.2634 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 296/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1349 - accuracy: 0.9491
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1349 - accuracy: 0.9490 - val_loss: 0.2633 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 297/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1292 - accuracy: 0.9502
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1294 - accuracy: 0.9502 - val_loss: 0.2627 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 298/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1335 - accuracy: 0.9498
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1340 - accuracy: 0.9496 - val_loss: 0.2623 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 299/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1344 - accuracy: 0.9509
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1347 - accuracy: 0.9507 - val_loss: 0.2635 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 300/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1299 - accuracy: 0.9495
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 134ms/step - loss: 0.1298 - accuracy: 0.9495 - val_loss: 0.2631 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 301/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1349 - accuracy: 0.9505
+[Plateau Check] Variação últimas 50 épocas: 0.007044
+347/347 [==============================] - 47s 135ms/step - loss: 0.1350 - accuracy: 0.9504 - val_loss: 0.2625 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 302/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1354 - accuracy: 0.9479
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1355 - accuracy: 0.9478 - val_loss: 0.2638 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 303/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1392 - accuracy: 0.9486
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1397 - accuracy: 0.9485 - val_loss: 0.2637 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 304/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1331 - accuracy: 0.9497
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1333 - accuracy: 0.9496 - val_loss: 0.2631 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 305/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1378 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1378 - accuracy: 0.9502 - val_loss: 0.2623 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 306/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1333 - accuracy: 0.9500
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1335 - accuracy: 0.9499 - val_loss: 0.2632 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 307/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1360 - accuracy: 0.9509
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1364 - accuracy: 0.9508 - val_loss: 0.2637 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 308/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1301 - accuracy: 0.9492
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1301 - accuracy: 0.9492 - val_loss: 0.2635 - val_accuracy: 0.9071 - lr: 1.0000e-05
+Epoch 309/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1334 - accuracy: 0.9506
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1338 - accuracy: 0.9505 - val_loss: 0.2642 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 310/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1342 - accuracy: 0.9487
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1344 - accuracy: 0.9486 - val_loss: 0.2633 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 311/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1325 - accuracy: 0.9514
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 134ms/step - loss: 0.1324 - accuracy: 0.9514 - val_loss: 0.2634 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 312/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1305 - accuracy: 0.9515
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1305 - accuracy: 0.9515 - val_loss: 0.2639 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 313/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1365 - accuracy: 0.9488
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1366 - accuracy: 0.9488 - val_loss: 0.2645 - val_accuracy: 0.9075 - lr: 1.0000e-05
+Epoch 314/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1344 - accuracy: 0.9490
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1345 - accuracy: 0.9490 - val_loss: 0.2630 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 315/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1313 - accuracy: 0.9525
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1314 - accuracy: 0.9524 - val_loss: 0.2636 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 316/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1336 - accuracy: 0.9503
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1340 - accuracy: 0.9502 - val_loss: 0.2633 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 317/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1323 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1327 - accuracy: 0.9500 - val_loss: 0.2627 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 318/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1359 - accuracy: 0.9492
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1359 - accuracy: 0.9492 - val_loss: 0.2632 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 319/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1294 - accuracy: 0.9490
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1294 - accuracy: 0.9490 - val_loss: 0.2635 - val_accuracy: 0.9064 - lr: 1.0000e-05
+Epoch 320/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1344 - accuracy: 0.9510
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1343 - accuracy: 0.9510 - val_loss: 0.2636 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 321/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1313 - accuracy: 0.9521
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1314 - accuracy: 0.9520 - val_loss: 0.2644 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 322/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1364 - accuracy: 0.9498
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1364 - accuracy: 0.9498 - val_loss: 0.2632 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 323/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1319 - accuracy: 0.9489
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1321 - accuracy: 0.9488 - val_loss: 0.2632 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 324/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1353 - accuracy: 0.9484
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1354 - accuracy: 0.9483 - val_loss: 0.2629 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 325/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1329 - accuracy: 0.9501
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1330 - accuracy: 0.9500 - val_loss: 0.2631 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 326/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1351 - accuracy: 0.9517
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1355 - accuracy: 0.9516 - val_loss: 0.2630 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 327/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1348 - accuracy: 0.9493
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1347 - accuracy: 0.9493 - val_loss: 0.2629 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 328/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1351 - accuracy: 0.9485
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1351 - accuracy: 0.9485 - val_loss: 0.2627 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 329/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1321 - accuracy: 0.9525
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1321 - accuracy: 0.9525 - val_loss: 0.2626 - val_accuracy: 0.9057 - lr: 1.0000e-05
+Epoch 330/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1298 - accuracy: 0.9505
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1298 - accuracy: 0.9505 - val_loss: 0.2629 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 331/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1316 - accuracy: 0.9503
+[Plateau Check] Variação últimas 50 épocas: 0.006953
+347/347 [==============================] - 47s 135ms/step - loss: 0.1316 - accuracy: 0.9503 - val_loss: 0.2632 - val_accuracy: 0.9068 - lr: 1.0000e-05
+Epoch 332/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1264 - accuracy: 0.9546
+[Plateau Check] Variação últimas 50 épocas: 0.007766
+347/347 [==============================] - 47s 135ms/step - loss: 0.1265 - accuracy: 0.9545 - val_loss: 0.2629 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 333/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1329 - accuracy: 0.9516
+[Plateau Check] Variação últimas 50 épocas: 0.007766
+347/347 [==============================] - 47s 135ms/step - loss: 0.1330 - accuracy: 0.9515 - val_loss: 0.2626 - val_accuracy: 0.9050 - lr: 1.0000e-05
+Epoch 334/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1319 - accuracy: 0.9489
+[Plateau Check] Variação últimas 50 épocas: 0.007766
+347/347 [==============================] - 47s 135ms/step - loss: 0.1322 - accuracy: 0.9488 - val_loss: 0.2630 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 335/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1328 - accuracy: 0.9479
+[Plateau Check] Variação últimas 50 épocas: 0.007766
+347/347 [==============================] - 47s 135ms/step - loss: 0.1328 - accuracy: 0.9479 - val_loss: 0.2625 - val_accuracy: 0.9053 - lr: 1.0000e-05
+Epoch 336/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1302 - accuracy: 0.9507
+[Plateau Check] Variação últimas 50 épocas: 0.007766
+347/347 [==============================] - 47s 135ms/step - loss: 0.1303 - accuracy: 0.9507 - val_loss: 0.2637 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 337/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1348 - accuracy: 0.9492
+[Plateau Check] Variação últimas 50 épocas: 0.007766
+347/347 [==============================] - 48s 137ms/step - loss: 0.1351 - accuracy: 0.9491 - val_loss: 0.2636 - val_accuracy: 0.9046 - lr: 1.0000e-05
+Epoch 338/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1345 - accuracy: 0.9490
+[Plateau Check] Variação últimas 50 épocas: 0.007766
+347/347 [==============================] - 47s 134ms/step - loss: 0.1349 - accuracy: 0.9489 - val_loss: 0.2634 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 339/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1268 - accuracy: 0.9538
+[Plateau Check] Variação últimas 50 épocas: 0.007766
+347/347 [==============================] - 47s 134ms/step - loss: 0.1268 - accuracy: 0.9538 - val_loss: 0.2642 - val_accuracy: 0.9060 - lr: 1.0000e-05
+Epoch 340/3000
+346/347 [============================>.] - ETA: 0s - loss: 0.1321 - accuracy: 0.9495
+[Plateau Check] Variação últimas 50 épocas: 0.006682
+347/347 [==============================] - 47s 135ms/step - loss: 0.1322 - accuracy: 0.9495 - val_loss: 0.2626 - val_accuracy: 0.9042 - lr: 1.0000e-05
+Epoch 341/3000
+ 20/347 [>.............................] - ETA: 41s - loss: 0.1160 - accuracy: 0.9578Traceback (most recent call last):
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\Project_CNN\DenseNet\DenseNet_Main.py", line 124, in <module>
+    main()
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\Project_CNN\DenseNet\DenseNet_Main.py", line 112, in main
+    train_model(model, train_ds, val_ds, epochs=EPOCHS)
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\Project_CNN\DenseNet\DenseNet_Trainer.py", line 89, in train_model
+    history = model.fit(
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.cnn_venv\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.cnn_venv\lib\site-packages\keras\engine\training.py", line 1564, in fit
+    tmp_logs = self.train_function(iterator)
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.cnn_venv\lib\site-packages\tensorflow\python\util\traceback_utils.py", line 150, in error_handler
+    return fn(*args, **kwargs)
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.cnn_venv\lib\site-packages\tensorflow\python\eager\def_function.py", line 915, in __call__
+    result = self._call(*args, **kwds)
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.cnn_venv\lib\site-packages\tensorflow\python\eager\def_function.py", line 947, in _call
+    return self._stateless_fn(*args, **kwds)  # pylint: disable=not-callable
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.cnn_venv\lib\site-packages\tensorflow\python\eager\function.py", line 2496, in __call__
+    return graph_function._call_flat(
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.cnn_venv\lib\site-packages\tensorflow\python\eager\function.py", line 1862, in _call_flat
+    return self._build_call_outputs(self._inference_function.call(
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.cnn_venv\lib\site-packages\tensorflow\python\eager\function.py", line 499, in call
+    outputs = execute.execute(
+  File "C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\.cnn_venv\lib\site-packages\tensorflow\python\eager\execute.py", line 54, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+KeyboardInterrupt
+
+Process finished with exit code -1

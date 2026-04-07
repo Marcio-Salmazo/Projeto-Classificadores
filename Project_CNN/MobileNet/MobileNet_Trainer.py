@@ -4,6 +4,35 @@ import os
 import datetime
 
 
+class PlateauStopping(tf.keras.callbacks.Callback):
+    def __init__(self, monitor='val_accuracy', window=50, threshold=0.005):
+        super().__init__()
+        self.monitor = monitor
+        self.window = window
+        self.threshold = threshold
+        self.history = []
+
+    def on_epoch_end(self, epoch, logs=None):
+        value = logs.get(self.monitor)
+
+        if value is None:
+            return
+
+        self.history.append(value)
+
+        # Só começa a checar depois da janela cheia
+        if len(self.history) >= self.window:
+            recent = self.history[-self.window:]
+
+            variation = max(recent) - min(recent)
+
+            print(f"\n[Plateau Check] Variação últimas {self.window} épocas: {variation:.6f}")
+
+            if variation < self.threshold:
+                print(f"\nTreinamento interrompido por plateau (variação < {self.threshold})")
+                self.model.stop_training = True
+
+
 def compile_model(model, LR=1e-4, MOMENTUM=0.9):
     optimizer = tf.keras.optimizers.RMSprop(
         learning_rate=LR,
@@ -19,9 +48,18 @@ def compile_model(model, LR=1e-4, MOMENTUM=0.9):
 
 
 def train_model(model, train_ds, val_ds, epochs=50):
+
     lr_scheduler = tf.keras.callbacks.ReduceLROnPlateau(
-        factor=0.98,
-        patience=1
+        monitor='val_loss',
+        factor=0.1,
+        patience=10,
+        min_lr=1e-5
+    )
+
+    plateau_callback = PlateauStopping(
+        monitor='accuracy',
+        window=50,
+        threshold=0.005
     )
 
     # CSV Logger
@@ -45,17 +83,14 @@ def train_model(model, train_ds, val_ds, epochs=50):
         write_images=False
     )
 
-    early_stopping = tf.keras.callbacks.EarlyStopping(
-        monitor='val_loss',
-        patience=20,
-        restore_best_weights=True
-    )
-
     history = model.fit(
         train_ds,
         validation_data=val_ds,
         epochs=epochs,
-        callbacks=[lr_scheduler, csv_logger, tensorboard_callback, early_stopping]
+        callbacks=[lr_scheduler,
+                   csv_logger,
+                   tensorboard_callback,
+                   plateau_callback]
     )
 
     return history

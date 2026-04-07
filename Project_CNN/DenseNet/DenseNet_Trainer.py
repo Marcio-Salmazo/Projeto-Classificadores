@@ -5,7 +5,7 @@ import datetime
 
 
 class PlateauStopping(tf.keras.callbacks.Callback):
-    def __init__(self, monitor='val_accuracy', window=50, threshold=0.005):
+    def __init__(self, monitor='val_accuracy', window=50, threshold=0.002):
         super().__init__()
         self.monitor = monitor
         self.window = window
