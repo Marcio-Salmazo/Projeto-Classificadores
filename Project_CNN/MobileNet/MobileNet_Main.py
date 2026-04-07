@@ -18,13 +18,13 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 
 RUN_NAME = "Experiment 2 Reduced"
 
-INPUT_SIZE = 160
+INPUT_SIZE = 128
 BATCH_SIZE = 32
 VAL_SPLIT = 0.2
 EPOCHS = 3000
-ALPHA = 0.5
+ALPHA = 0.75
 NUM_CLASSES = 3
-INITIAL_LR = 1e-4
+INITIAL_LR = 1e-3
 MOMENTUM = 0.9
 
 # ======================================================================================================================

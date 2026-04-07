@@ -9,27 +9,27 @@ from tensorflow.keras.models import Model
 def depthwise_separable_conv(x, filters, stride):
     # Depthwise
     x = DepthwiseConv2D(3, strides=stride, padding='same', use_bias=False,
-                        depthwise_regularizer=tf.keras.regularizers.l2(1e-4))(x)
+                        depthwise_regularizer=tf.keras.regularizers.l2(5e-5))(x)
 
     x = BatchNormalization()(x)
     x = ReLU()(x)
 
     # Pointwise
     x = Conv2D(filters, 1, padding='same', use_bias=False,
-               kernel_regularizer=tf.keras.regularizers.l2(1e-4))(x)
+               kernel_regularizer=tf.keras.regularizers.l2(5e-5))(x)
     x = BatchNormalization()(x)
     x = ReLU()(x)
     return x
 
 
-def MobileNetV1(input_shape=(224, 224, 3), num_classes=1000, alpha=1):
+def MobileNetV1(input_shape=(160, 160, 3), num_classes=1000, alpha=1):
 
     def f(filters):
         return int(filters * alpha)
 
     inputs = Input(shape=input_shape)
-    x = Conv2D(f(32), 3, strides=2, padding='same', use_bias=False,
-               kernel_regularizer=tf.keras.regularizers.l2(1e-4))(inputs)
+    x = Conv2D(f(32), 3, strides=2, padding='same', use_bias=True,
+               kernel_regularizer=tf.keras.regularizers.l2(5e-5))(inputs)
     x = BatchNormalization()(x)
     x = ReLU()(x)
 
@@ -52,7 +52,7 @@ def MobileNetV1(input_shape=(224, 224, 3), num_classes=1000, alpha=1):
     x = GlobalAveragePooling2D()(x)
     x = Dropout(0.3)(x)
     outputs = Dense(num_classes, activation='softmax',
-                    kernel_regularizer=tf.keras.regularizers.l2(1e-4))(x)
+                    kernel_regularizer=tf.keras.regularizers.l2(5e-5))(x)
 
     return Model(inputs, outputs)
 

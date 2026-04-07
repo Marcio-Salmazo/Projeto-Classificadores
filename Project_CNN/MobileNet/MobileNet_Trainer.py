@@ -5,7 +5,7 @@ import datetime
 
 
 class PlateauStopping(tf.keras.callbacks.Callback):
-    def __init__(self, monitor='val_accuracy', window=50, threshold=0.005):
+    def __init__(self, monitor='val_accuracy', window=50, threshold=0.003):
         super().__init__()
         self.monitor = monitor
         self.window = window
@@ -33,33 +33,36 @@ class PlateauStopping(tf.keras.callbacks.Callback):
                 self.model.stop_training = True
 
 
-def compile_model(model, LR=1e-4, MOMENTUM=0.9):
+def compile_model(model, LR=1e-3, MOMENTUM=0.9):
+
     optimizer = tf.keras.optimizers.RMSprop(
         learning_rate=LR,
         rho=0.9,
         momentum=MOMENTUM
     )
+
     model.compile(
         optimizer=optimizer,
         loss='sparse_categorical_crossentropy',
         metrics=['accuracy']
     )
+
     return model
 
 
-def train_model(model, train_ds, val_ds, epochs=50):
+def train_model(model, train_ds, val_ds, epochs=3000):
 
     lr_scheduler = tf.keras.callbacks.ReduceLROnPlateau(
         monitor='val_loss',
-        factor=0.1,
+        factor=0.5,
         patience=10,
         min_lr=1e-5
     )
 
     plateau_callback = PlateauStopping(
-        monitor='accuracy',
-        window=50,
-        threshold=0.005
+        monitor='val_accuracy',
+        window=30,
+        threshold=0.003
     )
 
     # CSV Logger
