@@ -16,15 +16,15 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # ======================================================================================================================
 # PARÂMETROS EXIGIDOS PELA MOBILENET
 
-RUN_NAME = "DENSENET BS32 3K"
+RUN_NAME = "DENSENET testte2 BS32 3K"
 
 # DenseNet se baseia na concatenação, fazendo com que a memória cresce expressivamente
 # dessa forma, é necessário que o INPUT SIZE seja reduzido
 INPUT_SIZE = 128
-BATCH_SIZE = 32
+BATCH_SIZE = 16
 VAL_SPLIT = 0.2
 EPOCHS = 3000
-GROWTH_RATE = 16
+GROWTH_RATE = 24
 NUM_CLASSES = 3
 INITIAL_LR = 0.01
 MOMENTUM = 0.9

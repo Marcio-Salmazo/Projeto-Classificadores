@@ -11,11 +11,13 @@ def preprocess_train(image, label):
 
     # Augmentation leve (SEM distorcer semântica)
     image = tf.image.random_flip_left_right(image)
-    image = tf.image.random_brightness(image, 0.1)
+    image = tf.image.random_brightness(image, 0.15)
     image = tf.image.random_contrast(image, 0.9, 1.1)
 
-    # Normalização ImageNet (mantém comparabilidade com ResNet)
-    image = tf.cast(image, tf.float32) / 255.0
+    image = tf.clip_by_value(image, 0.0, 255.0)
+
+    # Normalização
+    image = image / 255.0
     image = (image - IMAGENET_MEAN) / IMAGENET_STD
 
     return image, label
@@ -65,7 +67,6 @@ def load_data(train_dir, val_dir, batch_size, img_size=160):
     val_ds = (
         val_ds_raw
         .map(preprocess_val, num_parallel_calls=AUTOTUNE)
-        .shuffle(1000)
         .batch(batch_size)
         .prefetch(AUTOTUNE)
     )

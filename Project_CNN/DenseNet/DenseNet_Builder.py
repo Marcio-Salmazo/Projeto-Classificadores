@@ -3,8 +3,7 @@ from tensorflow.keras.layers import *
 from tensorflow.keras.models import Model
 
 
-def dense_layer(x, growth_rate, dropout_rate=0.2):
-
+def dense_layer(x, growth_rate, dropout_rate=None):
     # Bottleneck: 1x1 conv com 4k canais
     x1 = BatchNormalization()(x)
     x1 = Activation('relu')(x1)
@@ -40,7 +39,47 @@ def transition_layer(x, compression=0.5):
     return x
 
 
-# ARQUITETURA OTIMIZADA DA DENSENET-121 >> ALINHADA COM NOSSO ESCOPO
+def Shallow_densenet(input_shape=(128, 128, 3), num_classes=3, growth_rate=24):
+    inputs = Input(shape=input_shape)
+
+    # Entrada leve
+    x = Conv2D(48, 3, padding='same', use_bias=False)(inputs)
+    x = BatchNormalization()(x)
+    x = Activation('relu')(x)
+
+    # Configuração mais leve e Otimizada
+    growth_rate = growth_rate
+    block_layers = [6, 8, 12, 8]
+
+    # Dense Block 1
+    x = dense_block(x, block_layers[0], growth_rate)
+    x = transition_layer(x)
+
+    # Dense Block 2
+    x = dense_block(x, block_layers[1], growth_rate)
+    x = transition_layer(x)
+
+    # Dense Block 3
+    x = dense_block(x, block_layers[2], growth_rate)
+    x = transition_layer(x)
+
+    # Dense Block 4
+    x = dense_block(x, block_layers[3], growth_rate)
+
+    # Final
+    x = BatchNormalization()(x)
+    x = Activation('relu')(x)
+    x = GlobalAveragePooling2D()(x)
+
+    x = Dropout(0.3)(x)
+
+    outputs = Dense(num_classes, activation='softmax')(x)
+
+    return Model(inputs, outputs)
+
+
+'''
+# ARQUITETURA RASA COM BASE NA DENSENET-121 
 def Shallow_densenet(input_shape=(128,128,3), num_classes=3, growth_rate=16):
 
     inputs = Input(shape=input_shape)
@@ -80,7 +119,6 @@ def Shallow_densenet(input_shape=(128,128,3), num_classes=3, growth_rate=16):
 
 
 # ARQUITETURA ORIGINAL DN-121 >> FIEL À IMPLEMENTAÇÃO DO ARTIGO
-'''
 def DenseNet121(input_shape=(224, 224, 3), num_classes=1000):
 
     inputs = Input(shape=input_shape)
