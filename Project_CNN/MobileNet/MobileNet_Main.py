@@ -107,7 +107,7 @@ def main():
     model.summary()
 
     # TREINAMENTO DO MODELO COMPILADO
-    train_model(model, train_ds, val_ds, epochs=EPOCHS)
+    train_model(model, train_ds, val_ds, epochs=EPOCHS, log_dir=LOG_DIR, checkpoint_path=CHECKPOINT_PATH)
 
     print(">> PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO")
 

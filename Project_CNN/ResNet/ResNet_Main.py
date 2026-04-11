@@ -105,7 +105,7 @@ def main():
     print("Índices: ", class_names)
     print(f"Classes detectadas: {num_classes}\n")
 
-    '''
+    
     # ----------------------------------------------------------------
     #                   CONSTRUÇÃO DO MODELO RESNET-50
     # ----------------------------------------------------------------
@@ -119,7 +119,7 @@ def main():
         weight_decay=WEIGHT_DECAY
     )
     model.summary()
-    '''
+
 
     '''
     # ----------------------------------------------------------------
@@ -153,7 +153,7 @@ def main():
     )
     model.summary()
     '''
-
+    '''
     # ----------------------------------------------------------------
     #                   CONSTRUÇÃO DO MODELO RESNET-34
     # ----------------------------------------------------------------
@@ -167,6 +167,7 @@ def main():
         weight_decay=WEIGHT_DECAY
     )
     model.summary()
+    '''
 
     # OBSERVAÇÃO: AMBOS OS TRAINER OPERAM DO MESMO MODO
     # O MAIS NOVO (TRAINER2) APENAS TEM UM CÓDIGO MAIS LIMPO

@@ -50,7 +50,7 @@ def compile_model(model, LR=0.01, MOMENTUM=0.9):
     return model
 
 
-def train_model(model, train_ds, val_ds, epochs=50):
+def train_model(model, train_ds, val_ds, epochs=50, checkpoint_path=None, log_dir=None):
 
     lr_scheduler = tf.keras.callbacks.ReduceLROnPlateau(
         monitor='val_loss',
@@ -72,12 +72,23 @@ def train_model(model, train_ds, val_ds, epochs=50):
         append=False
     )
 
+    '''
     # TensorBoard Logger
     log_dir = os.path.join(
         "logs",
         "fit",
         datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     )
+    '''
+
+    tf.keras.callbacks.ModelCheckpoint(
+        filepath=checkpoint_path,
+        monitor="accuracy",
+        mode="max",
+        save_best_only=True,
+        save_weights_only=False,
+        verbose=1,
+    ),
 
     tensorboard_callback = TensorBoard(
         log_dir=log_dir,

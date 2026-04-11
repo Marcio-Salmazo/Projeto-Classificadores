@@ -117,10 +117,11 @@ def Shallow_densenet(input_shape=(128,128,3), num_classes=3, growth_rate=16):
 
     return Model(inputs, outputs)
 
+'''
+
 
 # ARQUITETURA ORIGINAL DN-121 >> FIEL À IMPLEMENTAÇÃO DO ARTIGO
-def DenseNet121(input_shape=(224, 224, 3), num_classes=1000):
-
+def DenseNet121(input_shape=(224, 224, 3), num_classes=1000, growth_rate=32):
     inputs = Input(shape=input_shape)
 
     # Initial Conv (ImageNet config)
@@ -131,7 +132,7 @@ def DenseNet121(input_shape=(224, 224, 3), num_classes=1000):
 
     # Dense Blocks (121)
     block_layers = [6, 12, 24, 16]
-    growth_rate = 32
+    growth_rate = growth_rate
 
     for i, num_layers in enumerate(block_layers):
         x = dense_block(x, num_layers, growth_rate)
@@ -147,4 +148,3 @@ def DenseNet121(input_shape=(224, 224, 3), num_classes=1000):
     outputs = Dense(num_classes, activation='softmax')(x)
 
     return Model(inputs, outputs)
-'''

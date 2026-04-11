@@ -12,3 +12,9 @@ EXPERIMENTO 2 - TREINO COM VARIANTE INTERMEDIÁRIA
 	   initial_filters = 48
 	   compression = 0.5
 	   batch_size = 32
+EXPERIMENTO 2 - TREINO COM VARIANTE 121
+	>> growth_rate = 32
+	   block_layers = [6, 12, 24, 16]
+	   initial_filters = 64
+	   compression = 0.5
+	   batch_size = 16

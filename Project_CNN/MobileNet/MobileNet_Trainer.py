@@ -5,7 +5,7 @@ import datetime
 
 
 class PlateauStopping(tf.keras.callbacks.Callback):
-    def __init__(self, monitor='val_accuracy', window=50, threshold=0.003):
+    def __init__(self, monitor='val_accuracy', window=50, threshold=0.005):
         super().__init__()
         self.monitor = monitor
         self.window = window
@@ -50,7 +50,7 @@ def compile_model(model, LR=1e-3, MOMENTUM=0.9):
     return model
 
 
-def train_model(model, train_ds, val_ds, epochs=3000):
+def train_model(model, train_ds, val_ds, epochs=3000, log_dir=None, checkpoint_path=None):
 
     lr_scheduler = tf.keras.callbacks.ReduceLROnPlateau(
         monitor='val_loss',
@@ -72,12 +72,23 @@ def train_model(model, train_ds, val_ds, epochs=3000):
         append=False
     )
 
+    '''
     # TensorBoard Logger
     log_dir = os.path.join(
         "logs",
         "fit",
         datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     )
+    '''
+
+    tf.keras.callbacks.ModelCheckpoint(
+        filepath=checkpoint_path,
+        monitor="accuracy",
+        mode="max",
+        save_best_only=True,
+        save_weights_only=False,
+        verbose=1,
+    ),
 
     tensorboard_callback = TensorBoard(
         log_dir=log_dir,

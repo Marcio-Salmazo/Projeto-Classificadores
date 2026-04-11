@@ -5,7 +5,7 @@ from tkinter import messagebox
 from pathlib import Path
 
 from DenseNet_Utils import open_directory, count_images, set_global_seed, split_dataset
-from DenseNet_Builder import Shallow_densenet
+from DenseNet_Builder import Shallow_densenet, DenseNet121
 from DenseNet_Dataloader import load_data
 from DenseNet_Trainer import compile_model, train_model
 from tensorflow.keras import mixed_precision
@@ -16,7 +16,7 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 # ======================================================================================================================
 # PARÂMETROS EXIGIDOS PELA MOBILENET
 
-RUN_NAME = "DENSENET testte2 BS32 3K"
+RUN_NAME = "DENSENET testte2 BS16 3K"
 
 # DenseNet se baseia na concatenação, fazendo com que a memória cresce expressivamente
 # dessa forma, é necessário que o INPUT SIZE seja reduzido
@@ -109,7 +109,7 @@ def main():
     model.summary()
 
     # TREINAMENTO DO MODELO COMPILADO
-    train_model(model, train_ds, val_ds, epochs=EPOCHS)
+    train_model(model, train_ds, val_ds, epochs=EPOCHS, checkpoint_path=CHECKPOINT_PATH, log_dir=LOG_DIR)
 
     print(">> PIPELINE DE TREINAMENTO FINALIZADO COM SUCESSO")
 
