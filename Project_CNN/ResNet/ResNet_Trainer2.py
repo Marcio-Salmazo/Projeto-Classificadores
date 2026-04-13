@@ -2,6 +2,35 @@ import tensorflow as tf
 import os
 
 
+class PlateauStopping(tf.keras.callbacks.Callback):
+    def __init__(self, monitor='val_accuracy', window=50, threshold=0.005):
+        super().__init__()
+        self.monitor = monitor
+        self.window = window
+        self.threshold = threshold
+        self.history = []
+
+    def on_epoch_end(self, epoch, logs=None):
+        value = logs.get(self.monitor)
+
+        if value is None:
+            return
+
+        self.history.append(value)
+
+        # Só começa a checar depois da janela cheia
+        if len(self.history) >= self.window:
+            recent = self.history[-self.window:]
+
+            variation = max(recent) - min(recent)
+
+            print(f"\n[Plateau Check] Variação últimas {self.window} épocas: {variation:.6f}")
+
+            if variation < self.threshold:
+                print(f"\nTreinamento interrompido por plateau (variação < {self.threshold})")
+                self.model.stop_training = True
+
+
 # ======================================================================================================================
 # Learning rate e step decay (≈ epochs 30 e 60)
 def _lr_schedule(epoch, initial_lr):
@@ -43,6 +72,12 @@ def _create_callbacks(log_dir, checkpoint_path):
         tf.keras.callbacks.LearningRateScheduler(
             _lr_schedule,
             verbose=1
+        ),
+
+        PlateauStopping(
+            monitor='val_accuracy',
+            window=30,
+            threshold=0.003
         ),
 
         tf.keras.callbacks.ModelCheckpoint(

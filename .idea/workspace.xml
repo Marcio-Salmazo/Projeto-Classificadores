@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="544fb9f4-5b69-4c91-b4ee-0c035b6679a2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Builder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Dataloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Dataloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documents and Backups/An Image is worth 16x16 words.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documents and Backups/Attention is all you Need.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documents and Backups/Deep Residual Learning for Image Recognition.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documents and Backups/Documentacao ResNet.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documents and Backups/Documentacao ResNet.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project_CNN/DenseNet/Resultados/Experiments Descriptions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Project_CNN/DenseNet/Resultados/Experiments Descriptions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_CNN/ResNet/ResNet_Trainer2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project_CNN/ResNet/ResNet_Trainer2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,18 +1,18 @@
 EXPERIMENTO 1 - TREINO INICIAL COM 3K EPOCAS (ENCERRADO COM 340EPS POR PLATÔ)
-	>> VARIANTE RASA DA REDE COM 444K PARÂMETROS
+	>> VARIANTE RASA DA REDE COM ~444K PARÂMETROS
 	>> input_shape = (128,128,3)
 	   batch_size = 32
 	   growth_rate = 12
 	   block_layers = [4,6,8,6]
 
 EXPERIMENTO 2 - TREINO COM VARIANTE INTERMEDIÁRIA
-	>> VARIANTE RASA DA REDE COM 3M PARÂMETROS
+	>> VARIANTE RASA DA REDE COM ~1.6M PARÂMETROS
 	>> growth_rate = 24
 	   block_layers = [6, 8, 12, 8]
 	   initial_filters = 48
 	   compression = 0.5
 	   batch_size = 32
-EXPERIMENTO 2 - TREINO COM VARIANTE 121
+EXPERIMENTO 3 - TREINO COM VARIANTE 121 COM ~1.6M PARÂMETROS
 	>> growth_rate = 32
 	   block_layers = [6, 12, 24, 16]
 	   initial_filters = 64
