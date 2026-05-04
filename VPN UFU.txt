@@ -3,8 +3,13 @@ FortiClient Pass: senha do email institucional
 
 =============================================================================
 
-Comando no CMD para conetar no cluster: ssh -p1032 ch4518@200.19.151.2
-Pass: IvONBLu2SH8
+Acesso liberado!!
+(Dentro da rede UFU ou por vpn quando estiver fora) 
+
+ssh ip: 10.144.53.67
+user: marcio
+input code: ssh marcio@10.144.53.67 
+senha: marcio@ufu.udi
 
 =============================================================================
 
