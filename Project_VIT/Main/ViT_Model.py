@@ -11,6 +11,7 @@ PRNGKey = Any
 Shape = Tuple[int]
 Dtype = Any
 
+
 # ======================================================================================================================
 #           1) UTILITÁRIOS / CAMADAS SIMPLES
 #              - IdentityLayer: mantém API consistente quando não existe a representação 'pre_logits'.
@@ -26,6 +27,7 @@ class IdentityLayer(nn.Module):
     def __call__(self, x):
         return x
 
+
 class AddPositionEmbs(nn.Module):
     """
         Adiciona embeddings posicionais aprendíveis.
@@ -33,7 +35,7 @@ class AddPositionEmbs(nn.Module):
             - nota: vem do repositório oficial (positional embeddings aprendíveis).
     """
     posemb_init: Callable[[PRNGKey, Shape, Dtype], Array]
-    dtype: Dtype = jnp.bfloat16
+    dtype: Dtype = jnp.float32
     param_dtype: Dtype = jnp.float32
 
     @nn.compact
@@ -166,7 +168,7 @@ class Encoder(nn.Module):
     num_layers: int
     mlp_dim: int
     num_heads: int
-    dropout_rate: float = 0.1
+    dropout_rate: float = 0.2
     attention_dropout_rate: float = 0.1
     add_position_embedding: bool = True
     dtype: Any = jnp.float32
@@ -231,7 +233,7 @@ class VisionTransformer(nn.Module):
     model_name: Optional[str] = None
 
     # Define o mixed precision
-    dtype: Any = jnp.bfloat16
+    dtype: Any = jnp.float32
     param_dtype: Any = jnp.float32
 
     @nn.compact
@@ -295,7 +297,6 @@ class VisionTransformer(nn.Module):
         # - Initialize kernel and bias to zero per the paper (helps fine-tuning).
         # ---------------------------------------------------------------------------
         if self.num_classes:
-
             x = nn.Dense(
                 features=self.num_classes,
                 name='head',

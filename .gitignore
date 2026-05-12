@@ -1,5 +1,7 @@
 *.h5
+*.npy
 .cnn_venv/
+.vit_tf_venv/
 Project_VIT/Dataset and Weights/
 Project_CNN/Processed Dataset/
 Datasets/ImageNet1K

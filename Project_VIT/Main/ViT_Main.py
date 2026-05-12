@@ -1,87 +1,82 @@
 # ======================================================================================================================
 #                                              PACOTES E BIBLIOTECAS
 # ======================================================================================================================
-import os
-import jax
-import Utils
-import numpy as np
-from ViT_Trainer import train_vit
-from tkinter import messagebox
-
-
-# Validar que a GPU está sendo utilizada
-print(jax.devices())
 
 # Definição da variável de ambiente XLA_PYTHON_CLIENT_ALLOCATOR com o valor "platform" durante a execução do programa.
 # Essa variável é usada por bibliotecas que usam XLA para controlar como a memória é alocada, especialmente em GPU.
 # Evita erros de OOM. A memória tende a ser alocada sob demanda.
+import os
+import sys
+
 os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
+
+import math
+import jax
+import numpy as np
+from ViT_Trainer import train_vit
+
+# Validar que a GPU está sendo utilizada
+print(jax.devices())
 
 # ======================================================================================================================
 #                             PARÂMETROS PARA A VIT E PARA O CARREGAMENTO DE DADOS
 # ======================================================================================================================
 
+# CAMINHOS
+BASE_PATH = os.path.dirname(getattr(sys, '_MEIPASS', os.path.abspath(".")))
+WEIGHTS_PATH = os.path.join(BASE_PATH, "Dataset and Weights", "imagenet21k_ViT-B_16.npz")
+OUTPUT_DIR = os.path.join(BASE_PATH, "Main", "RESULTS")
+
+print(">> CAMINHOS SELECIONADOS: ")
+print(">> CAMINHO DOS PESOS PRE-TREINADOS: ", WEIGHTS_PATH)
+print(">> CAMINHO DO DIRETORIO DE SAIDA: ", OUTPUT_DIR)
+print("-----------------------------------------------------------")
+
+# PARAMETROS CRÍTICOS PARA GARANTIR COMPATIBILIDADE COM OS PESOS
+PATCH_SIZE = 16
+HIDDEN_SIZE = 768
+TRANSFORMER_LAYERS = 12
+NUM_HEADS = 12
+MLP_UNITS = 3072
+
+# PARAMETROS CONFIGURÁVEIS
 IMAGE_INPUT_SIZE = 224
-BATCH_SIZE = 32
-DATASET_SPLIT = 0.2
+BATCH_SIZE = 16
 NUM_CLASSES = 3
-PATCH_SIZE = 16  # OBRIGATÓRIO para seguir fielmente a ViT-B/16
-HIDDEN_SIZE = 768  # ⚠️ crítico para a utilização dos pesos pré-treinados
-TRANSFORMER_LAYERS = 12  # ⚠️ crítico para a utilização dos pesos pré-treinados
-NUM_HEADS = 12  # ⚠️ crítico para a utilização dos pesos pré-treinados
-MLP_UNITS = 3072  # ⚠️ crítico para a utilização dos pesos pré-treinados
 EPOCHS = 100
-WARMUP_STEPS = 0
-BASE_LR = 1e-4
+WARMUP_STEPS = 1000
+BASE_LR = 3e-5
 MODE = "finetune"
-
-# Nome do diretório para armazenar o dataset organizado
-DATA_DIR_NAME = f"Dataset_VAL{int(DATASET_SPLIT * 100)}%"
-# Caminho onde os resultados devem ser armazenados
-OUTPUT_DIR = Utils.resource_path("Results")
-
 
 
 # ======================================================================================================================
 #                                       FUNÇÃO PRINCIPAL (ORQUESTRADOR)
 # ======================================================================================================================
 
+
 def main():
-
-    messagebox.showinfo("Info", "Escolha o arquivo de pesos pré-treinados para o Fine-Tuning")
-
-    while True:
-        WEIGHTS_PATH = Utils.open_file()
-        if not WEIGHTS_PATH:
-            print("Seleção do arquivo cancelado pelo usuário")
-            continue
-        break
-
-    print("\n---------------------------------------------------------------------------------------------------------")
-    print("                                  INICIANDO PIPELINE DE EXECUÇÃO                                           ")
-    print("\n---------------------------------------------------------------------------------------------------------")
+    print(">> INICIANDO PIPELINE DE EXECUCAO: ")
+    print("-----------------------------------------------------------")
 
     # Carregamento dos dados préviamente processados
-    XTRAIN = np.load("x_train.npy")
-    YTRAIN = np.load("y_train.npy")
-    XVAL = np.load("x_val.npy")
-    YVAL = np.load("y_val.npy")
+    XTRAIN = np.load("x_train.npy", mmap_mode="r")
+    YTRAIN = np.load("y_train.npy", mmap_mode="r")
+    XVAL = np.load("x_val.npy", mmap_mode="r")
+    YVAL = np.load("y_val.npy", mmap_mode="r")
 
     # Configuração automática de steps por época, com base nos valores obtidos pelo DataLoader
-    STEPS_PER_EPOCH = len(XTRAIN) // BATCH_SIZE
+    STEPS_PER_EPOCH = math.ceil(len(XTRAIN) / BATCH_SIZE)
     STEPS_VAL = len(XVAL) // BATCH_SIZE
-
-    # Configuração manual  de steps por época para a condução de testes com uma parcela da base (Sanity-Check)
-    # STEPS_PER_EPOCH = 100
-    # STEPS_VAL = 50
 
     # Cálculo do total de steps do treino
     TOTAL_STEPS = STEPS_PER_EPOCH * EPOCHS
 
     # Log para o terminal
-    print("Batch size :", BATCH_SIZE)
-    print("Steps per epoch:", STEPS_PER_EPOCH)
-    print("Total Steps:", TOTAL_STEPS)
+    print(">> PARAMETROS E CONFIGURACOES DA REDE: ")
+    print(">> Batch size :", BATCH_SIZE)
+    print(">> Steps per epoch:", STEPS_PER_EPOCH)
+    print(">> Total Steps:", TOTAL_STEPS)
+    print("-----------------------------------------------------------")
 
     train_vit(
         x_train=XTRAIN,
@@ -105,5 +100,12 @@ def main():
         epochs=EPOCHS
     )
 
+
 if __name__ == "__main__":
     main()
+
+# COISAS A EXPLICAR:
+# Para que serve o mmap_mode (load numpy)
+# O que é o Warmup_steps
+# Como aplicar seeds, sendo que não estou usando o tensorflow?
+# Como salvar checkpoints e logs de parâmetros e configurações?
