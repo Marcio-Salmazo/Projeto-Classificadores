@@ -12,8 +12,8 @@ import json
 import csv
 import numpy as np
 
-from datetime import datetime
 from flax.training import train_state, checkpoints
+from flax.traverse_util import flatten_dict, unflatten_dict
 from ViT_Model import VisionTransformer
 from ViT_Utils import load_vit_npz
 
@@ -118,7 +118,7 @@ def create_optimizer_pretrain(base_lr, warmup_steps, total_steps):
 #                                          CRIAÇÃO DO OTIMIZADOR DE FINE-TUNNING
 # ======================================================================================================================
 
-def create_optimizer_finetune(base_lr, total_steps, warmup_steps):
+def create_optimizer_finetune(base_lr, total_steps, warmup_steps, params):
     # O artigo original utiliza SGD, contudo, AdamW opera melhor dataset reduzido, além de
     # o otimizador mais utilizado em transformers modernos
     schedule = optax.warmup_cosine_decay_schedule(
@@ -129,11 +129,26 @@ def create_optimizer_finetune(base_lr, total_steps, warmup_steps):
         end_value=1e-6,
     )
 
-    optimizer = optax.adamw(
+    # Optimizer real
+    trainable_tx = optax.adamw(
         learning_rate=schedule,
         b1=0.9,
         b2=0.999,
+        eps=1e-8,
         weight_decay=0.01,
+    )
+
+    # Frozen = gradiente zero
+    frozen_tx = optax.set_to_zero()
+
+    mask = create_frozen_mask(params)
+
+    optimizer = optax.multi_transform(
+        {
+            "trainable": trainable_tx,
+            "frozen": frozen_tx,
+        },
+        mask
     )
 
     return optimizer
@@ -143,9 +158,19 @@ def create_optimizer_finetune(base_lr, total_steps, warmup_steps):
 #                                   DEFINIÇÃO DAS FUNÇÕES DE PERDA E DAS MÉTRICAS
 # ======================================================================================================================
 
-def cross_entropy_loss(logits, labels):
+'''def cross_entropy_loss(logits, labels):
     one_hot = jax.nn.one_hot(labels, logits.shape[-1])
     log_probs = jax.nn.log_softmax(logits)
+    return -jnp.mean(jnp.sum(one_hot * log_probs, axis=-1))'''
+
+
+def cross_entropy_loss(logits, labels, smoothing=0.1):
+    num_classes = logits.shape[-1]
+    one_hot = jax.nn.one_hot(labels, num_classes)
+
+    one_hot = (one_hot * (1.0 - smoothing) + smoothing / num_classes)
+    log_probs = jax.nn.log_softmax(logits)
+
     return -jnp.mean(jnp.sum(one_hot * log_probs, axis=-1))
 
 
@@ -315,6 +340,45 @@ def evaluate_epoch(
 
 
 # ======================================================================================================================
+#                                            MÁSCARA PARA CONGELAR CAMADAS
+# ======================================================================================================================
+
+def create_frozen_mask(params):
+    """
+    Define quais parâmetros serão treináveis
+    e quais serão congelados.
+    """
+
+    flat_params = flatten_dict(params)
+
+    mask = {}
+
+    for path, _ in flat_params.items():
+
+        path_str = "/".join(path)
+
+        # -----------------------------
+        # CAMADAS TREINÁVEIS
+        # -----------------------------
+        if (
+                "encoderblock_10" in path_str
+                or "encoderblock_11" in path_str
+                or "encoder_norm" in path_str
+                or "head" in path_str
+        ):
+
+            mask[path] = "trainable"
+
+        # -----------------------------
+        # RESTANTE CONGELADO
+        # -----------------------------
+        else:
+            mask[path] = "frozen"
+
+    return unflatten_dict(mask)
+
+
+# ======================================================================================================================
 #                                            LOOP PRINCIPAL DE TREINAMENTO
 # ======================================================================================================================
 
@@ -377,11 +441,29 @@ def train_vit(
         params = load_vit_npz(params, pretrained_path)
         print(">> PESOS PRE-TREINADOS CARREGADOS COM SUCESSO!")
 
+    flat_params = flatten_dict(params)
+    for path in flat_params.keys():
+        print("/".join(path))
+
     # Escolha do otimizador
     if mode == "pretrain":
         optimizer = create_optimizer_pretrain(base_lr, warmup_steps, total_steps)
     else:
-        optimizer = create_optimizer_finetune(base_lr, total_steps, warmup_steps)
+        optimizer = create_optimizer_finetune(
+            base_lr=base_lr,
+            total_steps=total_steps,
+            warmup_steps=warmup_steps,
+            params=params
+        )
+
+        print("\n==============================")
+        print("FINE-TUNING PARCIAL ATIVADO")
+        print("==============================")
+        print("Treinando:")
+        print("- encoderblock_8 → encoderblock_11")
+        print("- encoder_norm")
+        print("- head")
+        print("==============================\n")
 
     # Criação do TrainState: encapsula params, apply_fn e otimizador (tx)
     # num estado que facilita updates e checkpointing.
@@ -390,9 +472,6 @@ def train_vit(
         params=params,
         tx=optimizer
     )
-
-    # Inicialização do melhor valor de perda
-    best_val_loss = float("inf")
 
     print("=====================================================")
     print("           INICIANDO LOOP DE TREINAMENTO             ")
@@ -452,14 +531,15 @@ def train_vit(
             f"val_acc={val_metrics['accuracy']:.4f}"
         )
 
-        checkpoints.save_checkpoint(
-            ckpt_dir=os.path.join(output_dir, "checkpoints"),
-            target=state,
-            step=epoch,
-            prefix="epoch_",
-            overwrite=False,
-            keep=5
-        )
+        if epoch % 10 == 0:
+            checkpoints.save_checkpoint(
+                ckpt_dir=os.path.join(output_dir, "checkpoints"),
+                target=state,
+                step=epoch,
+                prefix="epoch_",
+                overwrite=False,
+                keep=5
+            )
 
         train_losses.clear()
         train_accs.clear()
@@ -479,3 +559,5 @@ def train_vit(
         "val_loss_final": float(final_results["loss"]),
         "val_accuracy_final": float(final_results["accuracy"]),
     }
+
+    print(final_log)
