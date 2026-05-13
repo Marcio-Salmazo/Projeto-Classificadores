@@ -1,0 +1,10 @@
+{
+    "epoch": 980,
+    "timestamp": "2026-05-09T09:52:07.426607",
+    "val_loss": 0.73583601241888,
+    "accuracy": 0.890625,
+    "val_balanced_acc": 0.8719631438815251,
+    "val_precision_macro": 0.8835018383086976,
+    "val_recall_macro": 0.8719631438815251,
+    "val_f1_macro": 0.8773897105479965
+}
