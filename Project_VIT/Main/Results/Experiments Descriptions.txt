@@ -14,4 +14,5 @@ EXPERIMENTO 7 - TREINAMENTO COM 500 ÉPOCAS VIA SERVIDOR E PARÂMETROS ADEQUADOS
 		* Correção do shuffle na criação de batches
 		* Otimizador AdamW ao invés do SGD (Melhor para o escopo menor do projeto)
 		* Congelamento de camadas (Apenas as 4 últimas treináveis)
+Sanity ViT - Teste de sanidade após as modificações com o experimento 7
  
