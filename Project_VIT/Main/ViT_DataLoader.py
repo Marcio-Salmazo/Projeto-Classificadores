@@ -239,7 +239,7 @@ def main():
     # ---------------------------------------------------------------------------
     DATASET_SPLIT = 0.2
     BASE_PATH = os.path.dirname(getattr(sys, '_MEIPASS', os.path.abspath(".")))
-    DATASET = r"C:\Users\marci_wawp\Desktop\Arquivos\Mestrado\Projeto-Classificadores\Project_VIT\Dataset and Weights\Processed Dataset"
+    DATASET = r"C:\Users\marci_wawp\Desktop\REDUCED_DATASET"
     # ---------------------------------------------------------------------------
 
     # Avalia se o diretório selecionado para o dataset não possui a divisão entre treino e validação

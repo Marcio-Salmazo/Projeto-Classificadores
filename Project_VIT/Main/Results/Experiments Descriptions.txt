@@ -5,6 +5,9 @@ EXPERIMENTO 4 (REV 1) - CORREÇÕES DO EXPERIMENTO 4
 	- Alteração da métrica top1 para 'accuracy'
 EXPERIMENTO 5 (GPU) - TREINAMENTO COM USO CORRETO DA GPU VIA WSL E JAX + CUDA 
 EXPERIMENTO 6 - TREINAMENTO EXTENSIVO NO SERVIDOR SSH
+
+Experimento 7 - Sanity Check
+	- Teste de sanidade após as modificações apresentadas no experimento 7
 EXPERIMENTO 7 - TREINAMENTO COM 500 ÉPOCAS VIA SERVIDOR E PARÂMETROS ADEQUADOS
 	- Implementada adequações ao escopo do projeto, dentre elas:
 		* Carregamento dinâmico dos arquivos Numpy (mmap_mode='r')
@@ -13,6 +16,7 @@ EXPERIMENTO 7 - TREINAMENTO COM 500 ÉPOCAS VIA SERVIDOR E PARÂMETROS ADEQUADOS
 		* Correções de augmentation e otimizações no modelo
 		* Correção do shuffle na criação de batches
 		* Otimizador AdamW ao invés do SGD (Melhor para o escopo menor do projeto)
-		* Congelamento de camadas (Apenas as 4 últimas treináveis)
-Sanity ViT - Teste de sanidade após as modificações com o experimento 7
+		* Congelamento de camadas (Apenas as 2 últimas treináveis)
+EXPERIMENTO 8 - TREINAMENTO COM 500 ÉPOCAS VIA SERVIDOR E SUBSET DE TREINO REDUZIDO PELA METADE
+		* Busca-se garantir que a quantidade de dados está influenciando os resultados
  
