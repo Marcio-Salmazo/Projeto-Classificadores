@@ -62,7 +62,7 @@ def train_model(model, train_ds, val_ds, epochs=50, checkpoint_path=None, log_di
     plateau_callback = PlateauStopping(
         monitor='val_accuracy',
         window=30,
-        threshold=0.003
+        threshold=0.0001
     )
 
     # CSV Logger

@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="544fb9f4-5b69-4c91-b4ee-0c035b6679a2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Projeto-Classificadores.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projeto-Classificadores.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_CNN/Comparativo dos modelos.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Project_CNN/Comparativo dos modelos.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project_CNN/DenseNet/DenseNet_Trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_VIT/Main/ViT_DataLoader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project_VIT/Main/ViT_DataLoader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +52,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/Project_CNN/MobileNet&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marci_wawp/Desktop/Arquivos/Mestrado/Projeto-Classificadores/.vit_tf_venv&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
