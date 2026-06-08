@@ -24,7 +24,7 @@ avaliação humana. A proposta utiliza duas abordagens principais:
   que permitem ao modelo aprender relações globais entre diferentes regiões da imagem desde as 
   primeiras etapas do processamento.
 
-## 📂 Estrutura de diretórios do projeto
+# 📂 Estrutura de diretórios do projeto
 
 O repositório está organizado de acordo com a seguinte estrutura:
 
@@ -75,7 +75,7 @@ o objetivo central do projeto.
 necessários para cada um dos ambientes virtuais que devem ser criados durante à execução 
 dos scripts.
 
-## 📂 Estrutura da base de dados para utilização do projeto principal
+# 📂 Estrutura da base de dados para utilização do projeto principal
 
 Para que o código referente ao projeto principal reconheça devidamente a base de dados, ]
 é necessário seguir a seguinte estrutura:
@@ -90,9 +90,7 @@ Para que o código referente ao projeto principal reconheça devidamente a base 
     │    ├── Classe N (Diretótio)/
     │    │   └── Conjunto de imagens (Arquivos .png)/
 
-Importante destacar que uma das etapas dos scripts principais é a re-organização desta estrutura, de modo que seja
-definida uma divisão da base em conjunto de treino e validaçã, de acordo com a porcentagem definida em 
-código pelo usuário. Após a execução do Script, o diretório utilizado para o treinamento terá a seguinte estrutura:
+Importante destacar que uma das etapas dos scripts principais é a re-organização desta estrutura, de modo que seja definida uma divisão da base em conjunto de treino e validaçã, de acordo com a porcentagem definida em código pelo usuário. Após a execução do Script, o diretório utilizado para o treinamento terá a seguinte estrutura:
 
     └──Diretório reorganizado (Arquivos .png)/
         │
@@ -117,215 +115,84 @@ código pelo usuário. Após a execução do Script, o diretório utilizado para
 * Observação: Caso a estrutura já esteja organizada com os devidos diretórios de treino
 e validação, o script de organização não é executado e o treino prossegue normalmente.
 
-## ✔️ Testes de confiabilidade
+# ✔️ Testes de confiabilidade
 
-Com o intuito de garantir que as implementações das arquiteturas ResNet e Vision Transformer 
-estejam corretas e produzam resultados condizentes com aqueles descritos na literatura científica, 
-foi feita a replicação de dois estudos  consolidados na área. A obtenção de resultados equivalentes 
-aos reportados nos trabalhos permite validar o comportamento das redes, garantindo que sua construção 
-esteja corretamente implementadas. A partir dessa base confiável, torna-se possível introduzir 
-modificações pontuais nas arquiteturas, para adaptá-las aos objetivos específicos deste projeto.
+Com o objetivo de assegurar a fidelidade das implementações e garantir que os resultados obtidos sejam consistentes com aqueles reportados na literatura científica, os modelos empregados neste projeto foram inicialmente desenvolvidos com base nas arquiteturas e procedimentos descritos em seus respectivos artigos originais. Essa abordagem permite utilizar implementações fundamentadas em referências consolidadas, reduzindo o risco de divergências decorrentes de interpretações equivocadas ou modificações prematuras na arquitetura dos modelos. 
 
+A partir deste baseline, torna-se possível introduzir adaptações e extensões de forma controlada, visando adequar os modelos às particularidades do problema investigado, às características do conjunto de dados utilizado e aos objetivos específicos da pesquisa. Dessa forma, as modificações propostas podem ser avaliadas de maneira sistemática, permitindo comparar seu impacto em relação à arquitetura original e garantindo maior rigor metodológico durante o processo de desenvolvimento e validação experimental.
 
-* **OBSERVAÇÃO:** Os arquivos *Create_TFRecords.py* e *Process_ImageNet.py* são scripts auxiliares 
-utilizados para tratar a base de dados da ImageNet no formato de TFRecords, o qual se caracteriza como
-um formato de arquivo binário simples e eficiente, projetado especificamente pela Google para armazenar 
-sequências de dados no TensorFlow, permitindo o pré-carregamento e o streaming eficiente de grandes 
-volumes de dados, o que acelera o treinamento de modelos de aprendizado de máquina.
+* **OBSERVAÇÃO:** Os arquivos *Create_TFRecords.py* e *Process_ImageNet.py* são scripts auxiliares utilizados para tratar a base de dados da ImageNet no formato de TFRecords, o qual se caracteriza como um formato de arquivo binário simples e eficiente, projetado especificamente pela Google para armazenar sequências de dados no TensorFlow, permitindo o pré-carregamento e o streaming eficiente de grandes volumes de dados, o que acelera o treinamento de modelos de aprendizado de máquina.
 
-### 1. Configurações para a validação da ViT:
+### 1. Referencia para a configuração inicial da ViT:
 
 * ***Artigo de referência utilizado:*** Dosovitskiy et al., 2021 – “An Image is Worth 16x16 words: 
 Transformers for Image Recognition at Scale”
 * ***Dataset utilizado:*** ImageNet (ILSVRC2012)
 * ***Acesso:*** https://arxiv.org/abs/2010.11929
 
-#### Definições exigidas em código:
 
-* **Flags de execução** - Definem o comportamento da execução e estão localizadas no arquivo ***ViT_MainTeste.py:***
-
-        RUN_PRETRAIN - Executa (ou não) um pre-treino da rede com a base de 
-                       dados selecionada (normalmente definda como FALSE caso 
-                       sejam carregados pesos externos)
-        RUN_FINETUNE - Executa (ou não) o treino de refinamento, com a 
-                       rede pré-treinada
-        RUN_EVALUATE - Aplica o script de validação da rede, retornando 
-                       as métricas de treinamento.
-
-* **Caminhos (paths) exigidos**:
-
-  * **Script Vit_MainTest.py:**
-            
-        TF_ENV_PYTHON = Caminho do executável python.exe
-                        referente ao ambiente virtual .tf_venv;
-        TFRECORD_SCRIPT = Caminho do script responsável por criar os
-                          TFRecords;
-        TFRECORD_DIR = Diretório onde serão criados: /train/*.tfrecord 
-                       e /validation/*.tfrecord
-        OUTPUT_DIR = Diretório de checkpoints do ViT
-  
-  * **Script VisionTransformer_trainer.py:**
-
-        pretrained_path = Define o arquivo de pesos pré-treinados que 
-                          devem ser carregados ao modelo criado
-
-  * **Script Create_TFRecords.py:**
-
-        TRAIN_TAR = Caminho do arquivo .tar para treino proveniente 
-                    da ImageNet
-        VAL_TAR = Caminho do arquivo .tar para validação proveniente 
-                  da ImageNet
-        TFRECORD_DIR = Diretório onde serão criados: /train/*.tfrecord 
-                       e /validation/*.tfrecord
-        OUTPUT_DIR = Diretório de checkpoints do ViT
-        VAL_ANNOTATIONS = Caminho do arquivo onde serão armazenados as notas 
-                          de validação
-        DELETE_TARS_AFTER_TFRECORDS = Define se os arquivos .tar originais 
-                                      da Imagenet devem ser excluídos após 
-                                      a criação dos TFRecords (Booleano)
-
-### 2. Configurações para a validação da ResNet:
+### 2. Referencia para a configuração inicial da ResNet:
 
 * ***Artigo de referência utilizado:*** He et al., 2015 – “Deep Residual Learning for Image Recognition” 
 * ***Dataset utilizado:*** ImageNet (ILSVRC2012)
 * ***Acesso:*** https://arxiv.org/abs/1512.03385
 
-#### Definições exigidas em código:
+### 3. Referencia para a configuração inicial da MobileNet:
 
-* **Parâmetros gerais** - Definem os parâmetros de carregamento de dados e de treinamento. 
-Estão localizadas no arquivo ***ResNet_Main.py:***
-
-        - IMAGE_SIZE = Define a dimensão da imagem.
-        - NUM_CLASSES = Definição da quantidade de classes para classificação.
-        - TRAIN_SIZE = Amostras para treinamento (O valor presente no código é padrão da Imagenet).
-        - VAL_SIZE = Amostras para treinamento (O valor presente no código é padrão da Imagenet).
-        - BATCH_SIZE = Tamanho dos batches de treinamento.
-        - EPOCHS = Quantidade de épocas de treinamento.
-        - INITIAL_LR = Learning rate inicial (Ajustado conforme as métricas retornadas).
-        - MOMENTUM = Momentum de treinamento.
-        - WEIGHT_DECAY = Decaimento dos pesos.
-        - LOG_DIR = Nome do diretório onde serão armazenados os arquivos de log.
-        - CHECKPOINT = Caminho do diretório onde serão armazenados os checkpoints.
-
-* **Caminhos (paths) exigidos**:
+* ***Artigo de referência utilizado:*** Howard et al., 2017 – “MobileNets: Efficient Convolutional Neural Networks for Mobile Vision
+Applications” 
+* ***Acesso:*** https://arxiv.org/abs/1704.04861
 
 
-    - TF_ENV_PYTHON = Caminho do ambiente virtual contendo o tensorflow para criação dos TFRecords 
-      (Sem entrar em conflitos com o Jax)
-    - TFRECORD_SCRIPT = Caminho do script responsável por gerenciar os TFRecords
-    - TFRECORD_DIR = Diretório onde serão criados: /train/*.tfrecord e /validation/*.tfrecord
-    - OUTPUT_DIR = Diretório de checkpoints do ViT
-    - CHECKPOINT_PATH = Caminhos para o checkpoint
+# 🛠️ Tutorial para configurar o uso da GPU para o TensorFlow:
 
-
-## ⚙️ Detalhamento dos parâmetros exigidos pelas redes
-
-### 1. ResNet
-
-- **Input size** - Tamanho que as imagens devem ser redimensionadas para servir como entrada da rede. O valor inserido 
-    definira a altura e largura da imagem;
-
-- **Batch size** - Refere-se ao número de amostras de dados que um modelo de aprendizado de máquina processa 
-    em uma única iteração;
-
-- **Split (treino/validação)** - Define a porcentagem de dados destinados para treino e validação. 
-    Exemplo: 0.2 -> 20% para validação e 80% para treino;
-
-- **Nome para logs** - Permite a definição do nome do arquivo de logs gerado após o treinamento;
-
-- **Épocas** - Permite definir a quantidade de épocas de treinamento.
-
-### 2. Vision Transformers
-
-- **Input size** - Análogo ao requisito exigido pela ResNet50;
-
-- **Batch size** - Análogo ao requisito exigido pela ResNet50;
-
-- **Split (treino/validação)** - Análogo ao requisito exigido pela ResNet50;
-
-- **Épocas** - Análogo ao requisito exigido pela ResNet50;
-
-- **Patch size** - O tamanho dos blocos (patches) em que a imagem será dividida. Quanto menor o patch, mais detalhes 
-o modelo enxerga desde o início, mas também aumenta a quantidade de patches a processar (mais custo computacional);
-
-- **Projection Dim** - A dimensão do vetor em que cada patch será representado após a projeção linear 
-(Dimensões maiores permitem mais capacidade de representação, mas também exigem mais memória e poder de processamento);
-
-- **Transform Layers** - Número de blocos de transformers (compostos por atenção + MLP) empilhados no modelo. 
-Quanto mais camadas, mais refinada e abstrata fica a representação;
-
-- **Attention Heads** - Cada camada de atenção pode ter várias "cabeças", que aprendem a focar em diferentes 
-aspectos da imagem ao mesmo tempo;
-
-- **MLP Units** - Número de neurônios nas camadas densas (feed-forward layers) que seguem a parte de atenção em 
-cada bloco do transformador. Normalmente é um valor maior que o 'projection dim'.
-
-- **Nome para logs** - Análogo ao requisito exigido pela ResNet50;
-
-> 🔎 **Observações Importantes**  
-> - O valor de 'Split' deve estar em notação de ponto flutuante, estritamente entre 0.0 e 1.0;
-> - O aplicativo indica valores 'padrões' caso o usuário não saiba ao certo o valor de alguns parâmetros;
-> - Seguir as versões dos pré-requisitos à risca, uma vez que versões mais novas podem gerar conflitos na IDE.
-
-
-## 🛠️ Tutorial para configurar o uso da GPU para o TensorFlow durante o treinamento com a ResNet:
-
-1. **Desinstalar pacotes conflitantes (opcional, mas recomendado):** utilizar o comando *pip uninstall tensorflow 
-tensorflow-gpu tensorflow-intel* ou desinstalar manualmente via explorador do windows;
-
+1. **Desinstalar pacotes conflitantes (opcional, mas recomendado):** utilizar o comando ``pip uninstall tensorflow tensorflow-gpu tensorflow-intel`` ou desinstalar manualmente via explorador do windows;
 
 2. **Instalar TensorFlow GPU 2.10:** versão da biblioteca específica para esta implementação;
-
 
 3. **Baixar & instalar CUDA 11.2:** Download oficial pelo site da NVIDIA 
 *https://developer.nvidia.com/cuda-11.2.0-download-archive*;
 
+4. **Baixar cuDNN 8.1 para CUDA 11.2:** Requer login NVIDIA Developer (gratuito) e pode ser acessado pelo link *https://developer.nvidia.com/rdp/cudnn-archive#a-collapse811-110*. O resultado do download será um arquivo .ZIP;
 
-4. **Baixar cuDNN 8.1 para CUDA 11.2:** Requer login NVIDIA Developer (gratuito) e pode ser acessado pelo link 
-*https://developer.nvidia.com/rdp/cudnn-archive#a-collapse811-110*. O resultado do download será um arquivo .ZIP;
+5. **Copiar conteúdo das pastas baixadas (cuDNN 8.1):** É necessário extrair o conteúdo compactado e mover o conteúdo das pastas, seguindo o seguinte esquema:
 
+      ``conteúdo da pasta **bin**  → C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\bin\``
 
-5. **Copiar conteúdo das pastas baixadas (cuDNN 8.1):** É necessário extrair o conteúdo compactado e mover o 
-conteúdo das pastas, seguindo o seguinte esquema:
+      ``conteúdo da pasta **lib**  → C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\lib\x64\``
 
-conteúdo da pasta **bin**  → C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\bin\
-
-conteúdo da pasta **lib**  → C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\lib\x64\
-
-conteúdo da pasta **include** → C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\include
+      ``conteúdo da pasta **include** → C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\include``
 
 6. **Adicionar ao PATH:** Adicionar as seguintes entradas ao PATH do Windows e reiniciar o computador:
 
-C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\bin\
+      ``C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\bin\``
 
-C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\libnvvp
+      ``C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\libnvvp``
 
 7. **Testar o download:** Abrir o console python e inserir os seguintes comandos:
 
-        >> import tensorflow as tf\
-        >> print(tf.config.list_physical_devices('GPU'))
+      ``import tensorflow as tf``
+
+      ``print(tf.config.list_physical_devices('GPU'))``
 
 Se o resultado for algo como *[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]*, indica que o 
 processo foi realizado com sucesso.
 
 
-## 🛠️ Tutorial para configurar o uso da GPU para o TensorFlow durante o treinamento com a ViT:
+# 🛠️ Tutorial para configurar o uso da GPU para os ambientes JAX/FLAX
 
-A partir das versões 0.4.x, o JAX não fornece mais wheels pré-compilados para CUDA 11.2.
-Os wheels atuais são distribuídos apenas para: CUDA 11.8 e CUDA 12.x. Por isso torna-se necessário
-fazer a instalação de uma versão mais recente (sem alterar o funcionamento do CUDA 11.2). 
-
-* Após seguir o tutorial anterior para instalar GPU para TensorFlow, é necessário seguir as seguintes etapas:
+A partir das versões 0.4.x, o JAX não fornece mais wheels pré-compilados para CUDA 11.2. Os wheels atuais são distribuídos apenas para: CUDA 11.8 e CUDA 12.x. Por isso torna-se necessário fazer a instalação de uma versão mais recente (sem necessariamente alterar o funcionamento do CUDA 11.2). **É necessário seguir o mesmo procedimento citado na seção anterior (Tutorial para configurar o uso da GPU para o TensorFlow) para a instalaçao do CUDA 11.8**
 
 1. **Confirmar A placa NVIDIA e drivers:**
 
    * Abra o terminal e digite:
 
-           nvidia-smi
+      ``nvidia-smi``
    * Se aparecer algo como:
 
-           Driver Version: 535.xx
-           CUDA Version: 12.2
+      `` Driver Version: 535.xx``
+
+      ``CUDA Version: 12.2``
 
     Está tudo perfeito (JAX usará o driver, não o toolkit).
 
@@ -343,121 +210,131 @@ https://developer.nvidia.com/cuda-11-8-0-download-archive
            - "Nsight" (não precisa)
            - "CUDA documentation" (opcional)  
     
-4. **Não modifique** os caminhos nas variáveis PATH do sistema, nem as instalações de CUDA anteriores
-OBS: O instalador colocará o CUDA 11.8 em C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\ 
+4. **Não modifique** os caminhos nas variáveis PATH do sistema, nem as instalações de CUDA anteriores. O JAX usa as DLLs diretamente da pasta do CUDA Toolkit, com isso Mantemos o ambiente do TensorFlow totalmente intacto.
+   
+5. **OBS:** O instalador colocará o CUDA 11.8 em C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\ 
 
+6. **Verificar se CUDA 11.8 foi instalado corretamente:** 
 
-5. **Verificar se CUDA 11.8 foi instalado corretamente:** 
+      Abra o terminal e digite o comando:
 
-       Abra o terminal e digite o comando:
-           dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin"
+      ``dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin"``
         
-    Se aparecer nvcc.exe → deu certo.
+    Se aparecer ``nvcc.exe`` → deu certo.
 
 
-6. **Não adicione o CUDA 11.8 ao PATH:** O JAX usa as DLLs diretamente da pasta do CUDA Toolkit, 
-com isso Mantemos o ambiente do TensorFlow totalmente intacto.
+# ▶️ Tutorial para a execução dos modelos convolucionais
 
-## ▶️ Tutorial para a Execução do projeto principal com a arquitetura ResNet
+1. Criar um ambiente virtual python (Especificamente na versão 3.9.13, a fim de garantir compatibilidade) e instalar dependências. 
+   
+   No diretório raíz do projeto ``\Projeto-Classificadores`` abrir o CMD e inserir os seguintes comandos:
 
-1. Criar um ambiente virtual python (Especificamente na versão 3.9.13) e instalar dependências. 
-No diretório raíz do projeto (*\Projeto-Classificadores*) abrir o CMD e inserir os seguintes comandos:
+      ``>> python -m venv .cnn_venv``
 
-        >> python -m venv .cnn_venv
-        >> .\.cnn_venv\Scripts\activate
-        >> pip install -r .\Requirements\CNN_Requirements.txt
+      ``>> .\.cnn_venv\Scripts\activate``
 
-2. Abrir o diretório *\Projeto-Classificadores\Project_CNN\Main* em alguma IDE python 
-de preferência do usuário (Recomendo o uso do PyCharm). No caso da IDE PyCharm, o usuário deve:
+      ``>> pip install -r .\Requirements\CNN_Requirements.txt``
 
-        >> Main Menu -> Settings -> Project -> Python Interpreter
-        >> Add Interpreter -> Add Local Interpreter
-        >> Select Existing -> Selecionar o ambiente virtual criado na primeira etapa 
+2. Abrir o projeto em alguma IDE python de preferência do usuário (Recomendo o uso do PyCharm). No caso da IDE PyCharm, o usuário deve:
 
-3. Configurar os parâmetros do arquivo ResNet_Main.py localizado em *Project_CNN/Main/ResNet_Main.py*. 
-O usuário pode escolher configurações mais adequadas ao teste a ser conduzido.
+      ``>> Main Menu -> Settings -> Project -> Python Interpreter``
+
+      ``>> Add Interpreter -> Add Local Interpreter``
+
+      ``>> Select Existing -> Selecionar o ambiente virtual criado na primeira etapa ``
 
 
-4. Executar o arquivo ResNet_Main.py diretamente da IDE. O script vai solicitar ao usuário para selecionar
-a base de dados que deve ser utilizada no treinamento, a qual deve estar organizada de acordo com o
-que foi descrito na terceira seção deste documento. 
+3. Abrir o script referente ao modelo convolucional desejado:
 
+      ``RESNET: \Projeto-Classificadores\Project_CNN\ResNet\ResNet_Main.py`` 
 
-5. Ao final do treinamento serão gerados arquivos de LOG e Checkpopints nos caminhos definidos
-pelo usuário no Script principal. Cabe ao usuário organizá-los da forma que julgar ser mais
-conveniente
+      ``MOBILENET: \Projeto-Classificadores\Project_CNN\MobileNet\MobileNet_Main.py`` 
 
-## ▶️ Tutorial para a Execução do projeto principal com a arquitetura Vision Transformer
+      ``DENSENET: \Projeto-Classificadores\Project_CNN\ResNet\DenseNet_Main.py`` 
 
-Durante o desenvolvimento, foi identificado um problema crítico, no qual o TensorFlow e JAX possuem dependências incompatíveis (numpy, ml-dtypes, CUDA).
-Por isso, a solução adotada foi a separação completa do pipeline de execução
-em dois ambientes virtuais distintos:
+4. Executar o script diretamente da IDE. Será solicitado ao usuário para selecionar
+a base de dados que deve ser utilizada no treinamento, a qual deve estar organizada de acordo com o que foi descrito na seção `"Estrutura da base de dados para utilização do projeto principal"` deste documento. 
 
-* Ambiente 1 (TensorFlow + Numpy) → Utilizado para o preprocessamento das imagens e carregamento dos dados de entrada.
-* Ambiente 2 (JAX) → Treinamento efeitivo do modelo, com utilização da GPU
+1. Ao final do treinamento serão gerados arquivos de LOG e Checkpopints nos caminhos definidos pelo usuário no Script principal. Cabe ao usuário organizá-los da forma que julgar ser mais conveniente.
 
-***Observação:*** Foi necessário o uso do WSL (Windows Subsystem for Linux) para garantir a compatibilidade do CUDA + JAX. Caso contrário, a utilização
-da GPU era prejudicada, impactando diretamente o treino 
+# ▶️ Tutorial para a Execução do projeto principal com a arquitetura Vision Transformer
+
+Durante o desenvolvimento, foi identificado um problema crítico, no qual o TensorFlow e JAX possuem dependências incompatíveis (numpy, ml-dtypes, CUDA). Por isso, a solução adotada foi a separação completa do pipeline de execução em dois ambientes virtuais distintos:
+
+* **Ambiente 1 (TensorFlow + Numpy)** → Utilizado para o preprocessamento das imagens e carregamento dos dados de entrada.
+* **Ambiente 2 (JAX)** → Treinamento efeitivo do modelo, com utilização da GPU.
+
+***Observação*** → Foi necessário o uso do WSL (Windows Subsystem for Linux) para garantir a compatibilidade do CUDA + JAX, caso contrário, a utilização da GPU era prejudicada, impactando diretamente o treino. Dessa forma, é necessário seguir: 
 
 1. **Instalação do WSL:**
    
     - Abrir o CMD no modo administrador e executar o comando:
       
-          >> wsl --install
+      ``>> wsl --install``
 
     - Verificar a instalação com o comando:
   
-          >> wsl
+      ``>> wsl``
 
     - Atualizar o sistema Linux:
           
-          >> sudo apt update && sudo apt upgrade -y
+      ``>> sudo apt update && sudo apt upgrade -y``
 
 2. **Configuração da GPU**
    
-      - Inserir o comando dentro do terminal WSL:
+   - Inserir o comando dentro do terminal WSL:
           
-            >> nvidia-smi 
+      ``>> nvidia-smi`` 
       
-      - Caso a GPU e o CUDA sejam exibidos, o processo deu certo. Vale ressaltar que é necessário a instalação dos Drivers NVIDIA e do CUDA compatível (conforme apresentado nas seções anteriores) no próprio Windows.
+   - Caso a GPU e o CUDA sejam exibidos, o processo deu certo. Vale ressaltar que é necessário a instalação dos Drivers NVIDIA e do CUDA compatível (conforme apresentado nas seções anteriores) no próprio Windows.
 
 3. **Instalação do Python - Versão 3.10**
 
-      - Dentro do terminal do WSL, executar os seguintes comandos em ordem:
+   - Dentro do terminal do WSL, executar os seguintes comandos em ordem:
 
-            >> sudo apt install software-properties-common -y
-            >> sudo add-apt-repository ppa:deadsnakes/ppa -y
-            >> sudo apt update
-            >> sudo apt install python3.10 python3.10-venv python3.10-dev -y
-            >> python3.10 --version
+      ``>> sudo apt install software-properties-common -y``
+
+      ``>> sudo add-apt-repository ppa:deadsnakes/ppa -y``
+
+      ``>> sudo apt update``
+
+      ``>> sudo apt install python3.10 python3.10-venv python3.10-dev -y``
+
+      ``>> python3.10 --version``
 
 4. **Copiar arquivos para o ambiente WSL**
    
-      - Os arquivos python para a execução da ViT, bem como o dataset precisam ser copiados para o ambiente linux do WSL, para isso, recomenda-se a cópia de todo o diretório 'Project_VIT'. Este processo pode ser feito por meio do comando:
+   - Os arquivos python para a execução da ViT, bem como o dataset precisam ser copiados para o ambiente linux do WSL, para isso, recomenda-se a cópia de todo o diretório 'Project_VIT'. Este processo pode ser feito por meio do comando:
 
-            >> mkdir vit_project
-            >> cp -r /mnt/c/Users/'SeuUsuario'/.../Projeto-Classificadores/Project_VIT/* .
+      ``>> mkdir vit_project``
+
+      ``>> cp -r /mnt/c/Users/'SeuUsuario'/.../Projeto-Classificadores/Project_VIT/* .``
 
 5. **Criação dos ambientes virtuais**
    
-      - Os ambientes virtuais devem ser criados na pasta raíz para onde foram extraídos os conteúdos de *Project_VIT*
-  
-      - Criação do ambiente com TensorFlow para a gestão do carregamento de dados, bem como o processamento das imagens de entrada:
-   
-            >> python3.10 -m venv vit_tf_env
-            >> source vit_tf_env/bin/activate
-            >> pip install --upgrade pip
-            >> pip install tensorflow==2.15.0 numpy==1.26.4 tensorflow-datasets
+   - Os ambientes virtuais devem ser criados na pasta raíz para onde foram extraídos os conteúdos de *Project_VIT*
 
-      - Criação do ambiente com JAX para a gestão do treinamento com a GPU:
-      - ***Observação:*** Alguns do pacotes exigidos nesta etapa podem gerar conflitos de dependências, por isso, foi adotado a utilização de um arquivo de Constraints, para forçar o versionamento correto de alguns pacotes. O arquivo de Constraints está localizado na raiz do diretório *Project_VIT*, denominado 'ViT_Constraints.txt'.
-   
-            >> pip install "jax[cuda12_pip]==0.4.28" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-            >> pip install flax==0.8.3 optax==0.2.2 chex==0.1.86 orbax-checkpoint -c constraints.txt
-            >> pip install numpy scipy einops absl-py ml-collections clu tqdm -c constraints.txt
-            
+   - Criação do ambiente com TensorFlow para a gestão do carregamento de dados, bem como o processamento das imagens de entrada:
 
-      - ***Observação 2:*** Para testar se a operação deu certo, verificar:
+      ``>> python3.10 -m venv vit_tf_env``
+
+      ``>> source vit_tf_env/bin/activate``
+
+      ``>> pip install --upgrade pip``
+
+      ``>> pip install tensorflow==2.15.0 numpy==1.26.4 tensorflow-datasets``
+
+   - Criação do ambiente com JAX para a gestão do treinamento com a GPU:
+   - ***Observação:*** Alguns do pacotes exigidos nesta etapa podem gerar conflitos de dependências, por isso, foi adotado a utilização de um arquivo de Constraints, para forçar o versionamento correto de alguns pacotes. O arquivo de Constraints está localizado na raiz do diretório *Project_VIT*, denominado 'ViT_Constraints.txt'.
+
+      ``>> pip install "jax[cuda12_pip]==0.4.28" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html``
+
+      ``>> pip install flax==0.8.3 optax==0.2.2 chex==0.1.86 orbax-checkpoint -c constraints.txt``
+
+      ``>> pip install numpy scipy einops absl-py ml-collections clu tqdm -c constraints.txt``
+         
+
+   - ***Observação 2:*** Para testar se a operação deu certo, verificar:
 
             -----------------------------------------------------
             >> pip list | grep jax
@@ -474,38 +351,41 @@ da GPU era prejudicada, impactando diretamente o treino
 
 6. **Configuração da IDE VsCode para a execução**
       
-      - É necessário ter o VsCode instalado no Windows
-      - É necessário fazer o download da extensão WSL (da própria Microsoft)
-      - Ainda no terminal do WSL, na pasta raiz do projeto (Project_VIT), inserir o seguinte comando:
+   - É necessário ter o VsCode instalado no Windows
+   - É necessário fazer o download da extensão WSL (da própria Microsoft)
+   - Ainda no terminal do WSL, na pasta raiz do projeto (Project_VIT), inserir o seguinte comando:
 
-            >> code .
+      ``>> code .``
+   
+   - O VsCode será aberto automaticamente no local do projeto. Para confirmar se ele está devidamente conectado ao WSL basta verificar no canto inferior esquerdo a presença de 'WSL: Ubuntu'
+   - Selecionar o Interpretador python, apontando para os ambientes virtuais criados. Para isso, basta executar:
+         
+      ``>> No proprio VsCode:``
+
+      ``>> Ctrl + Shift + P → Python: Select Interpreter``
+
+      ``>> Escolher o caminho: /home/'usuario'/'venv'/bin/python``
       
-      - O VsCode será aberto automaticamente no local do projeto. Para confirmar se ele está devidamente conectado ao WSL basta verificar no canto inferior esquerdo a presença de 'WSL: Ubuntu'
-      - Selecionar o Interpretador python, apontando para os ambientes virtuais criados. Para isso, basta executar:
-            
-            >> No proprio VsCode:
-            >> Ctrl + Shift + P → Python: Select Interpreter
-            >> Escolher o caminho: /home/'usuario'/'venv'/bin/python
-            
-      - ***Observação 2:*** Modificar 'usuario' e 'venv' de acordo com o que foi definido pelo usuário  
+   - ***Observação 2:*** Modificar 'usuario' e 'venv' de acordo com o que foi definido pelo usuário  
 
 7. **Execução do Script para o processamento dos dados**
    
-      - As imagens do dataset e as labels, são préviamente transformadas para o formato do Numpy, a fim de que a etapa de seu processamento seja totalmente separada da etapa de treinamento (Evitando conflito de bibliotecas), por isso, inicialmente o script *ViT_DataLoader.py* deve ser excutado.
-  
-        1. Selecionar no VsCode o ambiente virtual *'vit_tf_env'*, o qual contém o Tensorflow para o carregamento dos dados.
-        2. Executar separadamente o Script *ViT_DataLoader.py*
-   
-      - Serão criados arquivos .npy responsáveis por armazenar os dados das imagems (x_train, x_val) e suas respectivas labels (y_train, y_val), as quais serão carregadas automaticamente pelo Script de treinamento.
-      - ***Observação:*** Os arquivos gerados devem ficar alocados no mesmo diretório que o Script *ViT_Main.py*
+   - As imagens do dataset e as labels, são préviamente transformadas para o formato do Numpy, a fim de que a etapa de seu processamento seja totalmente separada da etapa de treinamento (Evitando conflito de bibliotecas), por isso, inicialmente o script *ViT_DataLoader.py* deve ser excutado.
+
+     1. Selecionar no VsCode o ambiente virtual *'vit_tf_env'*, o qual contém o Tensorflow para o carregamento dos dados.
+     
+     2. Executar separadamente o Script *ViT_DataLoader.py*
+
+   - Serão criados arquivos .npy responsáveis por armazenar os dados das imagems (x_train, x_val) e suas respectivas labels (y_train, y_val), as quais serão carregadas automaticamente pelo Script de treinamento.
+   - ***Observação:*** Os arquivos gerados devem ficar alocados no mesmo diretório que o Script *ViT_Main.py*
 
 8. **Execução do Script para o treinamento**
 
-     - Selecionar no VsCode o ambiente virtual *'vit_jax_env'*, o qual contém o pipeline com JAX + CUDA para o treinamento via GPU.
-     - Executar o Script *ViT_Main.py* diretamente do VsCode.
-  
-     - ***Observação:*** O usuário pode alterar algumas configurações referentes à hiperparâmetros no Script *ViT_Main.py* antes de sua execução, conforme julgar necessário
-  
+     - Selecionar no VsCode o ambiente virtual ``vit_jax_env``, o qual contém o pipeline com JAX + CUDA para o treinamento via GPU.
+     - Executar o Script ``ViT_Main.py`` diretamente do VsCode.
+
+     - ***Observação:*** O usuário pode alterar algumas configurações referentes à hiperparâmetros no Script ``ViT_Main.py`` antes de sua execução, conforme julgar necessário.
+
      - ***Observação 2:*** Após o término do treinamento, os logs e checkpoints serão armazenados no diretório 'Results'
 
 9. **Execução dos Scripts de processamento dos dados e treinamento da rede no próprio WSL**
@@ -514,26 +394,27 @@ da GPU era prejudicada, impactando diretamente o treino
                
       I. Entrar na pasta raiz do projeto:
       
-            >> cd 'diretório do projeto'
+      ``>> cd 'diretório do projeto'``
 
       II. Ativar o ambiente 'vit_tf_env' :
 
-            >> .\vit_tf_env\Scripts\activate
+      ``>> .\vit_tf_env\Scripts\activate``
       
       III. Executar o script 'ViT_DataLoader.py':
 
-            >> python ViT_DataLoader.py
+      ``>> python ViT_DataLoader.py``
       
-      IV. Aguardar a conclusão do Script e certificar que os aqruivos *x_train*, *y_train*, *x_val* e *y_val* foram criados no mesmo diretório que o arquivo *ViT_Main.py*
+      IV. Aguardar a conclusão do Script e certificar que os aqruivos *``x_train``*, *``y_train``*, *``x_val``* e *``y_val``* foram criados no mesmo diretório que o arquivo ``ViT_Main.py``.
 
       V. Desativar o ambiente atual e ativar o ambiente 'vit_tf_env': 
 
-            >> deactivate
-            >> .\vit_jax_env\Scripts\activate
+      ``>> deactivate``
+
+      ``>> .\vit_jax_env\Scripts\activate``
 
       VI. Executar o script 'ViT_Main.py':
 
-            >> python ViT_Main.py     
+     ``>> python ViT_Main.py ``    
 
 
 - **OBSERVAÇÃO 1:** Sempre lembrar de fechar o ambiente virtual, caso precise utilizar o outro, o que pode ser feito pelo comando 'deactivate' no terminal do WSL, ou pelo próprio VsCode.
@@ -593,9 +474,9 @@ Podendo ser diretamente acessado pelo link: https://console.cloud.google.com/sto
   - Reorganização completa dos diretórios do projeto, separando o conteúdo destinado à ViT e à ResNet;
   - Utilização de ambientes separados para a execução da ViT, visando evitar problemas de incompatibilidade de pacotes
   - Utilização do WSL para evitar incompatibilidade (ViT)
----
 
-## Dados pessoais
+
+# Dados pessoais
 **Nome:** Marcio Salmazo Ramos \
 **Redes sociais e contato:**
 
