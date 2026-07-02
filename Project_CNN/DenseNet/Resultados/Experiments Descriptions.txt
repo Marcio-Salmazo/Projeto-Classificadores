@@ -20,4 +20,9 @@ EXPERIMENTO 3 - TREINO COM VARIANTE 121 COM ~1.6M PARÂMETROS
 	   compression = 0.5
 	   batch_size = 16
 
-EXPERIMENTO 4 - TREINO COM VARIANTE VARIANTE INTERMEDIÁRIA E 500 ÉPOCAS (VERIFICAR VARIANTE)
+EXPERIMENTO 4 - TREINO COM VARIANTE VARIANTE INTERMEDIÁRIA E 500 ÉPOCAS
+	>> growth_rate = 24
+	   block_layers = [6, 8, 12, 8]
+	   initial_filters = 48
+	   compression = 0.5
+	   batch_size = 32

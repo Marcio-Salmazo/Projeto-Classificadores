@@ -1,0 +1,12 @@
+RESNET-10 / 500 ÉPOCAS / BS=32 --------------- APROX. 1h  : 23min
+RESNET-18 / 500 ÉPOCAS / BS=32 --------------- APROX. 2h  : 46min 
+RESNET-18 / 3000 ÉPOCAS / BS=32 -------------- APROX. 13h : 20min 
+RESNET-34 / 500 ÉPOCAS / BS=32 --------------- APROX. 3h  : 45min 
+RESNET-34 / 3000 ÉPOCAS / BS=32 -------------- APROX. 24h : 10min 
+RESNET-50 / 500 ÉPOCAS / BS=32 --------------- APROX. 4h  : 43min 
+
+DENSENET-121 / 500 ÉPOCAS / BS=16 ------------ APROX. h:min
+DENSENET-CUSTOM / 500 ÉPOCAS / BS=16 --------- APROX. 27h:47min
+
+MOBILENET-V1 / 500 ÉPOCAS / BS=32 ------------ APROX. h:min
+VISION TRANSFORMER / 500 ÉPOCAS / BS=16 ------ APROX. h:min
