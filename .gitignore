@@ -3,8 +3,6 @@
 .cnn_venv/
 .vit_tf_venv/
 Project_VIT/Dataset and Weights/
-Project_CNN/Processed Dataset/
-Datasets/ImageNet1K
 Project_VIT/Main/Results/Experimento 5 - ViT (GPU)/Checkpoints
 Project_CNN/ResNet/Results/Experimento 18 - ResNet/Experimento 18 - Pycharm LOG PRINT.pdf
 Project_CNN/MobileNet/Results/Experimento 1 - MobileNet/git heavy (ignore)
@@ -13,3 +11,4 @@ Project_VIT/Main/Results/Experimento 6 - ViT/best_80
 Project_VIT/Main/Results/Experimento 8 - ViT/checkpoints
 Project_VIT/Main/Results/Experimento 9 - ViT/checkpoints
 Project_CNN/DenseNet/Resultados/Experimento 4 - DenseNet/logs (git heavy)
+Datasets/
